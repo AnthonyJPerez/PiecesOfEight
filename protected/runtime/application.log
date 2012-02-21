@@ -27,3 +27,91 @@ REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/index
 in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/protected/views/layouts/main.php (18)
 in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/protected/views/layouts/column1.php (5)
 in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/protected/controllers/SiteController.php (32)
+2012/02/21 03:39:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "comment".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('comment')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('comment')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/comment')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/comment
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/index
+---
+2012/02/21 03:39:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('about')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('about')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/about')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/about
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/index
+---
+2012/02/21 03:39:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "comment".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('comment')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('comment')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/comment')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/comment
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/contact
+---
+2012/02/21 03:39:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "resources".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('resources')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('resources')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/resources')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/resources
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/contact
+---
+2012/02/21 03:39:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('about')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('about')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/about')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/about
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/resources
+---
+2012/02/21 03:39:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "comment".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('comment')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('comment')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/comment')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/comment
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/about
+---
+2012/02/21 03:40:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "comment".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('comment')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('comment')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/comment')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/comment
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/index
+---
+2012/02/21 03:40:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "comment".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('comment')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('comment')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('site/comment')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=site/comment
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/index.php?r=site/comment
+---

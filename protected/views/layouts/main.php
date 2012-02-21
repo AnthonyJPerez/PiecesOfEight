@@ -57,8 +57,8 @@
 							$this->endWidget();
 						*/?>
 						<form>
-							<input type="text" name="search_site" size=10 value="search products" />
-							<input type="submit" name="submit" value="go" />
+							<input class="input" type="text" id="search_site" size=14 value="search products" />
+							<input type="submit" id="search_submit" value="go" />
 						</form>
 					</div>
 					

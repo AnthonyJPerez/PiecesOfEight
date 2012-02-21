@@ -126,7 +126,7 @@ a:hover
 			padding-left: 1.25em;
 			padding-right: 1.25em;
 			display: table-cell;
-			border-left: 2px solid #444444;
+			border-left: 2px solid #555555;
 		}
 		
 		#top_nav > ul > li:first-child
@@ -168,9 +168,11 @@ a:hover
 	
 		#sidenav > ul
 		{
-			margin-top: 0.5em;
+			padding: 0;
+			margin: 0.5em auto;
 			display: table;
 			border-spacing: 0em 0.4em;
+			font-size: 1.15em;
 		}
 		
 		#sidenav > ul > li
@@ -180,9 +182,18 @@ a:hover
 		
 		.search_bar
 		{
-			display:block;
+			margin-left: auto;
 			text-align: center;
 		}
+		
+			.search_bar .input
+			{
+				font-style: italic;
+			}
+			
+			/*.search_bar .input:hover
+			{
+			}*/
 		
 	#content
 	{
