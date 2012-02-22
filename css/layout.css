@@ -219,11 +219,8 @@ a:hover
 		/* @test 
 		background: yellow;*/
 		
-		position: absolute;
-		margin-left: 20%;
+		float: right;
 		width: 80%;
-		top: 0;
-		bottom: 0;
 		padding: 1em;
 		
 		word-wrap: break-word;

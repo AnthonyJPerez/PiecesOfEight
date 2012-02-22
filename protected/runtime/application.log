@@ -663,3 +663,30 @@ REQUEST_URI=/yii/PeicesOfEight/
 in C:\xampp\htdocs\yii\PeicesOfEight\protected\views\layouts\main.php (60)
 in C:\xampp\htdocs\yii\PeicesOfEight\protected\views\layouts\column1.php (5)
 in C:\xampp\htdocs\yii\PeicesOfEight\protected\controllers\SiteController.php (32)
+2012/02/22 14:32:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/view".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/view')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/index.php?r=product/view&category=new
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/
+---
+2012/02/22 14:32:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/view".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/view')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/index.php?r=product/view&category=new
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/index.php?r=product/view&category=new
+---
+2012/02/22 14:32:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/view".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/view')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/index.php?r=product/view&category=new
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/index.php?r=site/index
+---
