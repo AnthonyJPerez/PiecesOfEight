@@ -1,3 +1,9 @@
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 html
 {
 	width: 100%;
@@ -11,14 +17,15 @@ body
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #000000;
-	background-image: url('../images/textures/vintage_2.jpg');
+	background-image: url('../images/bg2.jpg');
+	background-repeat: repeat-y;
+	background-position-x: 50%;
+	background-origin: initial;
+	background-clip: initial;
+	/*background-image: url('../images/textures/vintage_2.jpg');*/
 	
 	width: 100%;
 	height: 100%;
-	
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
 }
 
 a:link, a:visited
@@ -49,6 +56,7 @@ a:hover
 	background-color: black;
 	
 	position: relative;
+	height: 100%;
 }
 
 #header
@@ -80,7 +88,7 @@ a:hover
 			padding-right: 0.2em;
 		}
 		
-		#logo > img
+		#logo > a
 		{
 			padding-left: 0.3em;
 			padding-top: 0.3em;
@@ -144,7 +152,7 @@ a:hover
 	/* @test */
 	background-color: #ddccff;
 	
-	
+	min-height: 70%;
 	position: relative;
 	overflow: hidden;
 }
@@ -153,10 +161,6 @@ a:hover
 	{
 		/* @test */
 		background: #000033;
-		
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
 		
 		position:absolute;
 		width: 20%;
@@ -169,7 +173,7 @@ a:hover
 		#sidenav > ul
 		{
 			padding: 0;
-			margin: 0.5em auto;
+			margin: 1em 1em;
 			display: table;
 			border-spacing: 0em 0.4em;
 			font-size: 1.15em;
@@ -200,10 +204,6 @@ a:hover
 		/* @test 
 		background: yellow;*/
 		
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-		
 		float: right;
 		width: 80%;
 		padding: 1em;
@@ -214,11 +214,26 @@ a:hover
 	
 #footer
 {
-	/* @test 
-	background-color: blue;*/
+	/* @test */
+	background-color: black;
 	
+	padding: 1em;
 	text-align: center;
 	position: relative;
 	margin: 0 auto;
-	width: 50%;
+	width: 100%;	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
