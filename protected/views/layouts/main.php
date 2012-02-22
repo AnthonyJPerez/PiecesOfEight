@@ -52,12 +52,14 @@
 			<div id="content_container">
 				<div id="sidenav">
 					<div class="search_bar">
-						<?php/*
+						<?php
+						/*
 							$form = $this->beginWidget('CActiveForm', array('focus'=>'search_site'));
 							echo $form->textField(null, 'search_site', array('size'=>15));
 							echo CHtml::submitButton('go');
 							$this->endWidget();
-						*/?>
+						*/
+						?>
 						<form>
 							<input class="input" type="text" id="search_site" size=14 value="search products" />
 							<input type="submit" id="search_submit" value="go" />
