@@ -75,7 +75,7 @@
 					font-size: 18pt;
 					text-align: center;
 					color: #770000; 
-					text-shadow: 0px 2px 3px #670000;
+					text-shadow: 0px 1px 2px #670000;
 				}
 				
 				#col_3_menu .menu_item
