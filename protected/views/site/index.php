@@ -76,7 +76,7 @@
 					font-size: 18pt;
 					text-align: center;
 					color: #770000; 
-					text-shadow: 0px 1px 2px #670000;
+					text-shadow: 1px 2px 2px #fff;
 				}
 				
 				#col_3_menu .menu_item
@@ -86,10 +86,9 @@
 					border-spacing: 1em;
 					padding: 2em;
 					border-left: 4px solid darkred;
-					
 					font-size: 11pt;
 					color: #666;
-					text-shadow: 1px 2px 1px #fff;
+					text-shadow: 1px 2px 2px #fff;
 				}
 				
 					#col_3_menu .menu_item:first-child

@@ -204,10 +204,19 @@ a:hover
 		{
 			margin-left: auto;
 			text-align: center;
+			display: table;
+			border-collapse: collapse;
+			border-spacing: 1em;
 		}
+		
+			.search_bar > form
+			{
+				display: table-row;
+			}
 		
 			.search_bar .input
 			{
+				display: table-cell;
 				font-style: italic;
 				width: 70%;
 			}
