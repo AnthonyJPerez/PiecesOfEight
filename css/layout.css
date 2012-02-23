@@ -15,14 +15,14 @@ body
 	margin: 0;
 	padding: 0;
 	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
+	font: normal 10pt Tahoma, Helvetica, Arial, Sans-Serif;
 	background: #000000;
-	background-image: url('../images/bg2.jpg');
+	
+	background-image: url('../images/bg_wood.jpg');
 	background-repeat: repeat-y;
 	background-position-x: 50%;
 	background-origin: initial;
 	background-clip: initial;
-	/*background-image: url('../images/textures/vintage_2.jpg');*/
 	
 	width: 100%;
 	height: 100%;
@@ -46,21 +46,11 @@ a:hover
 	        box-shadow: inset 0px 0px 15px #000;
 }
 
-.shadow_right
-{
-	-moz-box-shadow: 0px 0px 40px 25px #000;
-	-webkit-box-shadow: 0px 0px 40px 25px #000;
-	box-shadow: 0px 0px 40px 25px #000;
-	/* For IE 8 
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	For IE 5.5 - 7 
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');*/
-}
 
 #page
 {
 	/* @test */
-	background-color: black;
+	background-color: #111;
 	
 	position: relative;
 	height: 100%;
@@ -69,10 +59,10 @@ a:hover
 #header
 {
 	/* @test */
-	background: #333333;
+	background: #111; /*#cdbf93;*/
 	
 	background-image: url('../images/header.png');
-	background-repeat: repeat-x;
+	background-repeat: no-repeat;
 	
 	height: 170px;
 	position: relative;
@@ -90,13 +80,14 @@ a:hover
 	
 		#logo > div  /* Logo's "Text" */
 		{
-			color: #dddddd;
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
 			font-size: 0.9em;
 			padding-left: 0.2em;
 			padding-right: 0.2em;
+			
+			color: #dddddd;
 		}
 		
 		#logo > a
@@ -161,26 +152,30 @@ a:hover
 #content_container
 {
 	/* @test */
-	background-color: #E6E6E6;
+	background: #E6E6E6 url('../images/bg_noise.png');
 	
 	min-height: 70%;
 	position: relative;
 	overflow: hidden;
 	
-	-webkit-box-shadow: inset 0px 2px 4px #000;
-	   -moz-box-shadow: inset 0px 2px 4px #000;
-	        box-shadow: inset 0px 2px 4px #000;
+	-webkit-box-shadow: inset 0px 3px 4px #000;
+	   -moz-box-shadow: inset 0px 3px 4px #000;
+	        box-shadow: inset 0px 3px 4px #000;
+	        
+	/*background-image: url('../images/sidenav.png');
+	background-repeat: repeat-y;*/
 }
 	
 	#sidenav
 	{
 		/* @test */
-		background: #000000;
-		opacity: 0.5;
+		/*background: #000000;*/
 		
 		position:absolute;
-		width: 15%;
+		width: 18%;
 		padding: 1em;
+		
+		border-right: 4px solid #ccc;
 		
 		top: 0;
 		bottom: 0;		
@@ -209,6 +204,7 @@ a:hover
 			.search_bar .input
 			{
 				font-style: italic;
+				width: 70%;
 			}
 			
 			/*.search_bar .input:hover
@@ -221,7 +217,7 @@ a:hover
 		background: yellow;*/
 		
 		float: right;
-		width: 85%;
+		width: 82%;
 		padding: 1em;
 		
 		word-wrap: break-word;
@@ -229,15 +225,15 @@ a:hover
 	
 #footer
 {
-	/* @test */
-	background-color: black;
+	background-image: url('../images/header.png');
+	background-repeat: no-repeat;
 	
 	padding: 1em;
 	text-align: center;
 	position: relative;
 	margin: 0 auto;
 	width: 100%;	
-	height: 100px;
+	height: 115px;
 }
 
 

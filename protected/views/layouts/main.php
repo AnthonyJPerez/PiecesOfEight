@@ -21,7 +21,7 @@
 			<div id="header">
 				<div id="logo">
 					<a href="<?php echo $this->createUrl('site/index'); ?>">
-						<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/logo.png', 'Pieces of Eight Costumes by Sue LLC logo', array('width' => '150px', 'height' => '150px')); ?>
+						<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/logo2.png', 'Pieces of Eight Costumes by Sue LLC logo', array('width' => '150px', 'height' => '150px')); ?>
 					</a>
 					<div><?php echo CHtml::encode(Yii::app()->name); ?></div>
 				</div>

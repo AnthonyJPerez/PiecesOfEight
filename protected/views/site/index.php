@@ -32,11 +32,6 @@
 	$this->pageTitle=Yii::app()->name;
 ?>
 
-
-
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
-
-
 <!-- Gallery -->
 <div id="container">
 	<div id="example">
@@ -57,19 +52,70 @@
 	</div>
 </div>
 
+<?php
+	Yii::app()->clientScript->registerCss(
+		'col_3_menu_style',
+		'
+			#col_3_menu
+			{
+				width: 90%; 
+				margin: 0 auto;
+				
+				display: table;
+			}
+			
+				#col_3_menu .row
+				{
+					display: table-row;
+				}
+			
+				#col_3_menu .title
+				{			
+					display: table-cell;
+					font-size: 18pt;
+					text-align: center;
+					color: #770000; 
+					text-shadow: 0px 2px 3px #670000;
+				}
+				
+				#col_3_menu .menu_item
+				{
+					display: table-cell;
+					border-spacing: 1em;
+					padding: 2em;
+					border-left: 4px solid darkred;
+				}
+				
+					#col_3_menu .menu_item:first-child
+					{
+						border-left: none;
+					}
+		',
+		'screen'
+	);
+?>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <tt><?php echo __FILE__; ?></tt></li>
-	<li>Layout file: <tt><?php echo $this->getLayoutFile('main'); ?></tt></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<div id="col_3_menu">
+	<div class="row">
+		<div class="title">Welcome</div>
+		<div class="title">About</div>
+		<div class="title">Questions?</div>
+	</div>
+	<div class="row">
+		<div class="menu_item">
+			Welcome to the website. Here is some placeholder text! What do you think?
+		</div>
+		
+		<div class="menu_item">
+			This is some descriptive text about our company. Right now, there's not much to say!
+		</div>
+		
+		<div class="menu_item">
+			If you have anything to ask, here will be some information that may help.
+		</div>
+	</div>
+</div>
 
 
 
