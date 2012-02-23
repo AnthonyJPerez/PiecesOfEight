@@ -173,9 +173,14 @@ a:hover
 		
 		position:absolute;
 		width: 18%;
+		margin-top: 0.5em;
 		padding: 1em;
 		
-		border-right: 4px solid #ccc;
+		border-right: 1px solid #ffffff;
+		
+		-webkit-box-shadow: inset -1px 0px 1px #ccc;
+		   -moz-box-shadow: inset -1px 0px 1px #ccc;
+		        box-shadow: inset -1px 0px 1px #ccc;
 		
 		top: 0;
 		bottom: 0;		

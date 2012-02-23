@@ -71,6 +71,7 @@
 			
 				#col_3_menu .title
 				{			
+					width: 33%;
 					display: table-cell;
 					font-size: 18pt;
 					text-align: center;
@@ -80,10 +81,15 @@
 				
 				#col_3_menu .menu_item
 				{
+					width: 33%;
 					display: table-cell;
 					border-spacing: 1em;
 					padding: 2em;
 					border-left: 4px solid darkred;
+					
+					font-size: 11pt;
+					color: #666;
+					text-shadow: 1px 2px 1px #fff;
 				}
 				
 					#col_3_menu .menu_item:first-child
@@ -98,19 +104,17 @@
 
 <div id="col_3_menu">
 	<div class="row">
-		<div class="title">Welcome</div>
+		<div class="title">Welcome!</div>
 		<div class="title">About</div>
 		<div class="title">Questions?</div>
 	</div>
 	<div class="row">
 		<div class="menu_item">
-			Welcome to the website. Here is some placeholder text! What do you think?
+			Feel free to browse our collection of beautiful, handmade costumes.
 		</div>
-		
 		<div class="menu_item">
-			This is some descriptive text about our company. Right now, there's not much to say!
+			Pieces of Eight Costumes works diligently to bring you quality, handmade, period-authentic costumes and garments. Our expertise is on Pirate and Renaisance-era clothing.
 		</div>
-		
 		<div class="menu_item">
 			If you have anything to ask, here will be some information that may help.
 		</div>
