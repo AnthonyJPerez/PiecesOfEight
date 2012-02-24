@@ -16,13 +16,7 @@ body
 	padding: 0;
 	color: #666;
 	font: normal 11pt Tahoma, Helvetica, Arial, Sans-Serif;
-	background: #e6e6e6;
-	
-	background-image: url('../images/bg_wood.jpg');
-	background-repeat: repeat-y;
-	background-position-x: 50%;
-	background-origin: initial;
-	background-clip: initial;
+	background: url('../images/bg_wood.jpg') repeat top center;
 	
 	width: 100%;
 	height: 100%;
