@@ -12,7 +12,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.css" media="screen" />
 		
 		<!--[if lt IE 8]>
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
@@ -27,29 +27,28 @@
 			<div id="header">
 				<div id="logo">
 					<a href="<?php echo $this->createUrl('site/index'); ?>">
-						<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/logo3.png', 'Pieces of Eight Costumes by Sue LLC logo', array('width' => '150px', 'height' => '150px')); ?>
+						<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/logo2.png', 'Pieces of Eight Costumes by Sue LLC logo', array('width' => '150px', 'height' => '150px')); ?>
 					</a>
-					<!--div><?php echo CHtml::encode(Yii::app()->name); ?></div-->
+					<div><?php echo CHtml::encode(Yii::app()->name); ?></div>
 				</div>
-				
-				
-				<div id="top_left_nav">
-					<?php $this->widget('zii.widgets.CMenu',array(
-						'items'=>array(
-							array('label'=>'Home', 		'url'=>array('/site/index')),
-							array('label'=>'Feedback', 	'url'=>array('/site/comments')),
-							array('label'=>'Resources',	'url'=>array('/site/resources')),
-							),
-					)); ?>
-				</div>
-				
 				
 				<div id="top_right_nav">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
+							array('label'=>'Shopping Bag (empty)', 	'url'=>array('/cart/index')),
+							array('label'=>'Checkout', 			'url'=>array('/cart/checkout')),
+							),
+					)); ?>
+				</div>
+				
+				<div id="top_nav">
+					<?php $this->widget('zii.widgets.CMenu',array(
+						'items'=>array(
+							array('label'=>'Home', 		'url'=>array('/site/index')),
+							array('label'=>'Feedback', 	'url'=>array('/site/comments')),
+							array('label'=>'About', 	'url'=>array('/site/about')),
+							array('label'=>'Resources',	'url'=>array('/site/resources')),
 							array('label'=>'Contact Us', 	'url'=>array('/site/contact')),
-							array('label'=>'Cart (0)', 'url'=>array('/cart/index')),
-							array('label'=>'Checkout', 		   'url'=>array('/cart/checkout')),
 							),
 					)); ?>
 				</div>

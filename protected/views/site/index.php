@@ -73,7 +73,7 @@
 				{			
 					width: 33%;
 					display: table-cell;
-					font-size: 18pt;
+					font-size: 22pt;
 					text-align: center;
 					color: #770000; 
 					text-shadow: 1px 2px 2px #fff;
@@ -85,7 +85,8 @@
 					display: table-cell;
 					border-spacing: 1em;
 					padding: 2em;
-					border-left: 4px solid darkred;
+					padding-top: 1em;
+					border-left: 4px solid #770000;
 					font-size: 11pt;
 					color: #666;
 					text-shadow: 1px 2px 2px #fff;
@@ -112,7 +113,7 @@
 			Feel free to browse our collection of beautiful, handmade costumes.
 		</div>
 		<div class="menu_item">
-			Pieces of Eight Costumes works diligently to bring you quality, handmade, period-authentic costumes and garments. Our expertise is on Pirate and Renaisance-era clothing.
+			Pieces of Eight Costumes works diligently to bring you quality, handmade, period-authentic clothing and garments. We specialize in Pirate and Renaisance-era costumes.
 		</div>
 		<div class="menu_item">
 			If you have anything to ask, here will be some information that may help.
