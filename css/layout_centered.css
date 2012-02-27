@@ -66,7 +66,7 @@ a:hover
 	{
 		position: absolute;
 		left: 50%;
-		bottom: 16px;
+		bottom: 14px;
 		margin-left: -75px;
 	}
 	
@@ -104,8 +104,8 @@ a:hover
 	#top_left_nav
 	{	
 		position: absolute;
-		left: 5%;
-		bottom: 3.5em;	
+		left: 6%;
+		bottom: 3.5em;
 	}
 	
 		#top_left_nav > ul
@@ -134,7 +134,7 @@ a:hover
 	
 #content_container
 {
-	margin-top: -3.5em;
+	margin-top: -4.5em;
 	position: relative;
 	overflow: hidden;
 	padding: 1em;
@@ -158,7 +158,7 @@ a:hover
 		padding-top: 2em;
 		position:absolute;
 		width: 18%;
-		margin-top: 0.5em;
+		margin-top: 1em;
 		
 		
 		border-right: 1px solid #ffffff;
@@ -220,6 +220,7 @@ a:hover
 		padding-top: 3em;
 		float: right;
 		width: 82%;
+		min-height: 500px;
 		position: relative;
 		word-wrap: break-word;
 	}
@@ -239,6 +240,43 @@ a:hover
 }
 
 
+#social_media_buttons
+{
+	/*width: 35%;*/
+	width: 80%;
+	height: 50px;
+	clear: both;
+	position: relative;
+	float: right;
+	font-size: 10pt;
+	margin-top: 2em;
+	padding-top: 0.5em;
+	
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	
+	-webkit-box-shadow: inset -1px -1px 1px #ccc;
+         -moz-box-shadow: inset -1px -1px 1px #ccc;
+              box-shadow: inset -1px -1px 1px #ccc;
+}
+
+	#social_media_buttons > div
+	{
+		position: absolute;
+		left: 0;
+		padding: .8em;
+		padding-left: 1em;
+	}
+
+	#social_media_buttons img
+	{
+		width: 40px;
+	}
+	
+	#social_media_buttons > ul
+	{
+		right: 0;
+	}
 
 
 
@@ -247,7 +285,30 @@ a:hover
 
 
 
+/* General, useful classes */
 
+#content
+{
+	margin-top: 3em;
+	padding: 0.5em 1em;
+}
 
+.horizontal_menu
+{
 
+}
 
+	.horizontal_menu > ul
+	{
+		position: absolute;
+		display: table;
+		border-collapse: collapse;
+		
+	}
+	
+	.horizontal_menu > ul > li
+	{
+		vertical-align: middle;
+		display: table-cell;
+		padding-left: 0.5em;
+	}

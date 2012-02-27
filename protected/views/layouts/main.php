@@ -38,7 +38,7 @@
 						'items'=>array(
 							array('label'=>'Home', 		'url'=>array('/site/index')),
 							array('label'=>'Feedback', 	'url'=>array('/site/comments')),
-							array('label'=>'Resources',	'url'=>array('/site/resources')),
+							array('label'=>'Events',	'url'=>array('/site/events')),
 							),
 					)); ?>
 				</div>
@@ -81,15 +81,43 @@
 							array('label'=>'Capes', 	'url'=>$this->createUrl('product/view', array('category'=>'capes'))),
 							array('label'=>'Coats', 	'url'=>$this->createUrl('product/view', array('category'=>'coats'))),
 							array('label'=>'Dresses',	'url'=>$this->createUrl('product/view', array('category'=>'dresses'))),
+							array('label'=>'Miscellaneous','url'=>$this->createUrl('product/view', array('category'=>'miscellaneous'))),
 							array('label'=>'Pants', 	'url'=>$this->createUrl('product/view', array('category'=>'pants'))),
 							array('label'=>'Skirts', 	'url'=>$this->createUrl('product/view', array('category'=>'skirts'))),
 							array('label'=>'Tabbards', 	'url'=>$this->createUrl('product/view', array('category'=>'tabbards'))),
 							array('label'=>'Vests', 	'url'=>$this->createUrl('product/view', array('category'=>'vests'))),
+							array('label'=>'View All',	'url'=>$this->createUrl('product/view')),
+							array('label'=>'LookBook', 	'url'=>$this->createUrl('product/lookbook')),
 							),
 					)); ?>
 				</div>
 			
 				<?php echo $content; ?>
+				
+				<div id="social_media_buttons" class="horizontal_menu">
+					<div>Visit us on Facebook and Twitter!</div>
+					<ul>
+						<li>
+						<?php
+							echo CHtml::link(
+								CHtml::image('images/facebook.png', 'Visit us on Facebook!', array('class'=>'social_media_buttons')),
+								"https://www.facebook.com/PiecesOf8Costumes",
+								array('target'=>'_blank')
+							);
+						?>
+						</li>
+						
+						<li>
+						<?php
+							echo CHtml::link(
+								CHtml::image('images/twitter.png', 'Visit us on Twitter!', array('class'=>'social_media_buttons')),
+								"https://www.facebook.com/PiecesOf8Costumes",
+								array('target'=>'_blank')
+							);
+						?>
+						</li>
+					</ul>
+				</div>
 			</div>
 		
 		

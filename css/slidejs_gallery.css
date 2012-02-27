@@ -1,6 +1,6 @@
 
 
-#container {
+#slidejs_container {
 	width:580px;
 	padding:10px;
 	margin:0 auto;
@@ -10,7 +10,7 @@
 
 #example {
 	width:600px;
-	height:350px;
+	height:330px;
 	position:relative;
 }
 
