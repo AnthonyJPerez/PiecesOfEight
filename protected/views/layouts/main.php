@@ -4,6 +4,7 @@
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="language" content="en" />
+		<meta name="description" content="Handmade Pirate and Renaissance Clothing and Costumes" />
 	
 		<!--[if lt IE 9]>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
