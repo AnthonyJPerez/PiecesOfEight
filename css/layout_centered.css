@@ -312,3 +312,25 @@ a:hover
 		display: table-cell;
 		padding-left: 0.5em;
 	}
+	
+.list-view
+{
+	width: 100%;
+}
+
+	.list-view > .items
+	{
+	}
+	
+	.list-view > .items > .view
+	{
+		display: inline-block;
+		margin: 0.75em;
+		padding: 0.25em;
+		width: 30%;
+	}
+	
+	
+	
+	
+	

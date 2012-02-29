@@ -24,7 +24,7 @@ CREATE TABLE p8_category
 	PRIMARY KEY (id),
 	UNIQUE KEY fk_category_name(name)
 	
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -42,9 +42,9 @@ CREATE TABLE p8_tag
 	
 	#-- Constraints
 	PRIMARY KEY (id),
-	UNIQUE KEY fk_tag_name(name)
+	UNIQUE KEY uk_tag_name(name)
 	
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -55,21 +55,21 @@ CREATE TABLE p8_tag
 CREATE TABLE p8_product
 (
 	#-- Key
-	id						INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	id					INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	
 	#-- Attributes
 	name					VARCHAR(255) NOT NULL,						#-- Product name
-	quantity				INTEGER UNSIGNED NOT NULL,					#-- Quantity in stock
+	quantity				INTEGER UNSIGNED NOT NULL DEFAULT 0,			#-- Quantity in stock
 	price					DECIMAL(6,2) NOT NULL,						#-- Price per item
-	date_inserted			DATETIME NOT NULL,							#-- Date product was listed
-	p8_category_id			INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
+	date_inserted			DATETIME,						#-- Date product was listed
+	category_id			INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
 	
 	#-- Constraints
 	PRIMARY KEY (id),
-	UNIQUE KEY fk_product_name (name),
-	FOREIGN KEY (p8_category_id) REFERENCES p8_category(id)
+	UNIQUE KEY uk_product_name (name),
+	FOREIGN KEY (category_id) REFERENCES p8_category(id)
 	
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -77,20 +77,20 @@ CREATE TABLE p8_product
 #--
 #-- Tags HABTM Products.  Products can have multiple tags (sale, etc..) and 
 #-- Tags can be applied to multiple products (multiple products on sale, etc..).
-CREATE TABLE p8_tags_products
+CREATE TABLE p8_tag_product
 (
 	#-- Key
-	p8_tag_id				INTEGER UNSIGNED NOT NULL,
-	p8_product_id			INTEGER UNSIGNED NOT NULL,
+	tag_id				INTEGER UNSIGNED NOT NULL,
+	product_id			INTEGER UNSIGNED NOT NULL,
 	
 	#-- Attributes
 	
 	#-- Constraints
-	PRIMARY KEY (p8_tag_id, p8_product_id),
-	FOREIGN KEY (p8_tag_id) REFERENCES p8_tag(id),
-	FOREIGN KEY (p8_product_id) REFERENCES p8_product(id)
+	PRIMARY KEY (tag_id, product_id),
+	FOREIGN KEY (tag_id) REFERENCES p8_tag(id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 	
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 #----------------------------------------------------------------------------------------------
@@ -103,11 +103,12 @@ VALUES
 	("accessories"),
 	("blouses"),
 	("capes"),
-	("doats"),
+	("coats"),
 	("dresses"),
 	("miscellaneous"),
 	("pants"),
 	("skirts"),
+	("shirts"),
 	("tabbards"),
 	("vests");
 	
@@ -115,6 +116,14 @@ VALUES
 INSERT INTO p8_tag (name)
 VALUES
 	("sale");
+	
+INSERT INTO p8_product(name, price, category_id, date_inserted)
+VALUES
+	("Old Shirt", 100.00, 9, NOW()),
+	("New Shirt", 100.00, 9, NOW()),
+	("Long Pants", 150.00, 7, NOW()),
+	("Short Pants", 150.00, 7, NOW()),
+	("Long Cape", 200.00, 3, NOW());
 
 
 	
