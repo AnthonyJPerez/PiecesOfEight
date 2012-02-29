@@ -262,6 +262,7 @@ a:hover
 
 	#social_media_buttons > div
 	{
+		font-weight: bold;
 		position: absolute;
 		left: 0;
 		padding: .8em;
