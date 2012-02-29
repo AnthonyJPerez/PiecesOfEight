@@ -48,6 +48,27 @@ CREATE TABLE p8_tag
 
 
 
+#-- Image
+#--
+#-- Represents an Image in the database
+CREATE TABLE p8_image
+(
+	#-- Key
+	id						INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	path					VARCHAR(255) NOT NULL,
+	product_id				INTEGER UNSIGNED NOT NULL, #-- Image belongs to Product
+	
+	#-- Constraints
+	PRIMARY KEY (id),
+	UNIQUE KEY uk_image_path(path),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
 
 #-- Product
 #--
@@ -73,7 +94,7 @@ CREATE TABLE p8_product
 
 
 
-#-- Tags_Products
+#-- Tag_Product
 #--
 #-- Tags HABTM Products.  Products can have multiple tags (sale, etc..) and 
 #-- Tags can be applied to multiple products (multiple products on sale, etc..).
@@ -91,6 +112,10 @@ CREATE TABLE p8_tag_product
 	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 	
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
 
 
 #----------------------------------------------------------------------------------------------
