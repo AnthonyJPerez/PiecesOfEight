@@ -48,27 +48,6 @@ CREATE TABLE p8_tag
 
 
 
-#-- Image
-#--
-#-- Represents an Image in the database
-CREATE TABLE p8_image
-(
-	#-- Key
-	id						INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-	
-	#-- Attributes
-	path					VARCHAR(255) NOT NULL,
-	product_id				INTEGER UNSIGNED NOT NULL, #-- Image belongs to Product
-	
-	#-- Constraints
-	PRIMARY KEY (id),
-	UNIQUE KEY uk_image_path(path),
-	FOREIGN KEY (product_id) REFERENCES p8_product(id)
-	
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-
 
 #-- Product
 #--
@@ -90,6 +69,27 @@ CREATE TABLE p8_product
 	UNIQUE KEY uk_product_name (name),
 	FOREIGN KEY (category_id) REFERENCES p8_category(id)
 	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+#-- Image
+#--
+#-- Represents an Image in the database
+CREATE TABLE p8_image
+(
+	#-- Key
+	id						INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	url						VARCHAR(255) NOT NULL,
+	product_id				INTEGER UNSIGNED NOT NULL, #-- Image belongs to Product
+	
+	#-- Constraints
+	PRIMARY KEY (id),
+	UNIQUE KEY uk_image_url(url),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 

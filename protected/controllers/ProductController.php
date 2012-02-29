@@ -15,24 +15,22 @@ class ProductController extends GxController
 	}
 	
 	
-	public function actionList()
-	{
-		$category_name = CHttpRequest::getParam('category');
-		
+	public function actionList($category)
+	{	
 		// @todo: clean this parameter!
 		// ...
 		
 		// Find the category id
-		$category = Category::model()->find(
+		$CategoryModel = Category::model()->find(
 			array(
 				'select' => 'id',
 				'condition' => 'name=:name',
-				'params' => array(':name' => $category_name)
+				'params' => array(':name' => $category)
 			)
 		);
 						
 		// If the data is not valid, default to showing all products
-		if ( !isset($category->id) )
+		if ( !isset($CategoryModel->id) )
 		{
 			$dataProvider = new CActiveDataProvider('Product');
 		}
@@ -42,7 +40,7 @@ class ProductController extends GxController
 				'Product',
 				array(
 					'criteria' => array(
-						'condition' => 'category_id='.$category->id
+						'condition' => 'category_id='.$CategoryModel->id
 					)
 				)
 			);
