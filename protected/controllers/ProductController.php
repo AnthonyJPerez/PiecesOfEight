@@ -28,26 +28,22 @@ class ProductController extends GxController
 				'params' => array(':name' => $category)
 			)
 		);
-						
+			
 		// If the data is not valid, default to showing all products
-		if ( !isset($CategoryModel->id) )
+		$options = array();
+		
+		// If the data is a valid category, then only show that category.
+		if ( !is_null($CategoryModel) )
 		{
-			$dataProvider = new CActiveDataProvider('Product');
-		}
-		else
-		{
-			$dataProvider = new CActiveDataProvider(
-				'Product',
-				array(
-					'criteria' => array(
-						'condition' => 'category_id='.$CategoryModel->id
-					)
+			$options = array(
+				'criteria' => array(
+					'condition' => 'category_id='.$CategoryModel->id
 				)
 			);
 		}
 		
 		$this->render('list', array(
-			'dataProvider' => $dataProvider,
+			'dataProvider' => new CActiveDataProvider('Product', $options),
 		));
 	}
 	
