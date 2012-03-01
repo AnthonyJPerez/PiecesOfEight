@@ -15,7 +15,7 @@ class ProductController extends GxController
 	}
 	
 	
-	public function actionList($category)
+	public function actionList($category=null)
 	{	
 		// @todo: clean this parameter!
 		// ...
@@ -29,21 +29,25 @@ class ProductController extends GxController
 			)
 		);
 			
-		// If the data is not valid, default to showing all products
-		$options = array();
+		// Select any images associated with this product as well.
+		$criteria = array(
+			'with' => array('images'),
+		);
 		
 		// If the data is a valid category, then only show that category.
+		// else default to showing all products
 		if ( !is_null($CategoryModel) )
-		{
-			$options = array(
-				'criteria' => array(
-					'condition' => 'category_id='.$CategoryModel->id
-				)
-			);
+		{	
+			$criteria['condition'] = 'category_id='.$CategoryModel->id;
 		}
 		
 		$this->render('list', array(
-			'dataProvider' => new CActiveDataProvider('Product', $options),
+			'dataProvider' => new CActiveDataProvider('Product', 
+				array(
+					'criteria' => $criteria
+				)
+			),
+			'category' => $category,
 		));
 	}
 	

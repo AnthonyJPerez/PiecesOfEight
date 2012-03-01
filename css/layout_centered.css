@@ -279,8 +279,36 @@ a:hover
 		right: 0;
 	}
 
+#breadcrumbs
+{
+	
+}
 
+	#breadcrumbs > ul 
+	{
+		display: table;
+	}
+	
+	#breadcrumbs > ul > li
+	{
+		padding: 0.35em;
+		display: table-cell;
+	}
+	
+	#breadcrumbs > ul > li:first-child
+	{
+		padding-left: 0;
+	}
 
+#product_listing
+{
+	padding: 1em;
+}
+
+	#product_listing > img
+	{
+		width: 50%;
+	}
 
 
 
@@ -318,9 +346,19 @@ a:hover
 {
 	width: 100%;
 }
-
-	.list-view > .items
+	.list-view img
 	{
+		width: 100%;
+	}
+
+	.list-view .product_name
+	{
+		text-align: left;
+	}
+	
+	.list-view .product_price
+	{
+		text-align: right;
 	}
 	
 	.list-view > .items > .view
@@ -328,9 +366,15 @@ a:hover
 		display: inline-block;
 		margin: 0.75em;
 		padding: 0.25em;
-		width: 30%;
+		width: 30%;		
 	}
 	
+	.list-view > .items > .view div
+	{
+		display: inline-block;
+		width: 48%;
+		padding: 0.25em;
+	}
 	
 	
 	

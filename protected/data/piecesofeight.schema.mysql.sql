@@ -88,9 +88,10 @@ CREATE TABLE p8_image
 	
 	#-- Constraints
 	PRIMARY KEY (id),
-	UNIQUE KEY uk_image_url(url),
+	#UNIQUE KEY uk_image_url(url),
 	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 
 
@@ -142,6 +143,7 @@ INSERT INTO p8_tag (name)
 VALUES
 	("sale");
 	
+	
 INSERT INTO p8_product(name, price, category_id, date_inserted)
 VALUES
 	("Old Shirt", 100.00, 9, NOW()),
@@ -149,7 +151,15 @@ VALUES
 	("Long Pants", 150.00, 7, NOW()),
 	("Short Pants", 150.00, 7, NOW()),
 	("Long Cape", 200.00, 3, NOW());
-
+	
+	
+INSERT INTO p8_image(url, product_id)
+VALUES
+	("test_uniform.jpg", 1),
+	("test_uniform.jpg", 2),
+	("test_uniform.jpg", 3),
+	("test_uniform.jpg", 4),
+	("test_uniform.jpg", 5);
 
 	
 COMMIT;

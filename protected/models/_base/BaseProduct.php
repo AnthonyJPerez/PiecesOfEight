@@ -16,6 +16,7 @@
  * @property string $date_inserted
  * @property string $category_id
  *
+ * @property Image[] $images
  * @property Category $category
  * @property Tag[] $p8Tags
  */
@@ -39,17 +40,19 @@ abstract class BaseProduct extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('name, price, date_inserted, category_id', 'required'),
+			array('name, price, category_id', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('quantity, category_id', 'length', 'max'=>10),
 			array('price', 'length', 'max'=>6),
-			array('quantity', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('date_inserted', 'safe'),
+			array('quantity, date_inserted', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, name, quantity, price, date_inserted, category_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
+			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
 			'p8Tags' => array(self::MANY_MANY, 'Tag', 'p8_tag_product(product_id, tag_id)'),
 		);
@@ -69,6 +72,7 @@ abstract class BaseProduct extends GxActiveRecord {
 			'price' => Yii::t('app', 'Price'),
 			'date_inserted' => Yii::t('app', 'Date Inserted'),
 			'category_id' => null,
+			'images' => null,
 			'category' => null,
 			'p8Tags' => null,
 		);

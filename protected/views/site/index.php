@@ -106,16 +106,16 @@
 		<div class="title">Questions?</div>
 	</div>
 	<div class="row">
-		<div class="menu_item">
-			Feel free to browse our collection of beautiful, handmade costumes.
+		<p class="menu_item">
+			Please feel free to browse our collection of beautiful, period-authentic costumes.
 			
-		</div>
-		<div class="menu_item">
-			Pieces of Eight Costumes works diligently to bring you quality, handmade, period-authentic clothing and costumes. We specialize in Pirate and Renaisance-era clothing.
-		</div>
-		<div class="menu_item">
-			If you have anything to ask, here will be some information that may help.
-		</div>
+		</p>
+		<p class="menu_item">
+			Pieces of Eight Costumes provides quality, handmade pirate / renaissance clothing and accessories that are washable or dry cleanable. For more information, visit our <a href="<?php echo $this->createUrl('site/about') ?>">About Us</a> page.
+		</p>
+		<p class="menu_item">
+			If you have any questions, or you would like to place a custom order, please feel free to <a href="<?php echo $this->createUrl('site/contact') ?>">Contact Us</a>.
+		</p>
 	</div>
 </div>
 
