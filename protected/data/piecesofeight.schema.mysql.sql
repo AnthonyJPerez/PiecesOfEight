@@ -68,7 +68,6 @@ CREATE TABLE p8_product
 	PRIMARY KEY (id),
 	UNIQUE KEY uk_product_name (name),
 	FOREIGN KEY (category_id) REFERENCES p8_category(id)
-	
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 

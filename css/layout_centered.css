@@ -303,11 +303,12 @@ a:hover
 #product_listing
 {
 	padding: 1em;
+	background-color: lightgrey;
 }
 
 	#product_listing > img
 	{
-		width: 50%;
+		width: 45%;
 	}
 
 
