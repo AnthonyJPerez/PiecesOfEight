@@ -34,6 +34,10 @@ return array(
 
 	// application components
 	'components'=>array(
+		'session' => array(
+			'sessionName' => 'PiecesOfEight_Session',
+			'cookieMode' => 'only',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			//'allowAutoLogin'=>true,

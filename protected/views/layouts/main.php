@@ -49,7 +49,7 @@
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
 							array('label'=>'Contact Us', 	'url'=>array('/site/contact')),
-							array('label'=>'Cart (0)', 'url'=>array('/cart/index')),
+							array('label'=>'Cart (0)', 'url'=>array('/cart')),
 							array('label'=>'Checkout', 		   'url'=>array('/cart/checkout')),
 							),
 					)); ?>

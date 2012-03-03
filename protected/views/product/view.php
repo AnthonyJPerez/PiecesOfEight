@@ -43,9 +43,11 @@
 	</div>
 	
 	<?php
+		// @todo: this is a link, but in the future it will be a submit button, that way the
+		// user can specify a quantity to add into the cart, instead of just one at a time.
 		echo CHtml::link(
 			'Add to Cart',
-			$this->createUrl('')
+			$this->createUrl('cart/add', array('product_id' => $model->id, 'quantity' => 1))
 		);
 	?>
 	
