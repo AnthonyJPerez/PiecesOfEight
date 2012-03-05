@@ -62,6 +62,7 @@ CREATE TABLE p8_product
 	quantity				INTEGER UNSIGNED NOT NULL DEFAULT 0,			#-- Quantity in stock
 	price					DECIMAL(6,2) NOT NULL,						#-- Price per item
 	date_inserted			DATETIME,						#-- Date product was listed
+	description				TEXT,								#-- Description of the product
 	category_id			INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
 	
 	#-- Constraints

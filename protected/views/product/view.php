@@ -51,6 +51,12 @@
 		);
 	?>
 	
+	<form action="<?php echo $this->createUrl('cart/add'); ?>" method="GET">
+		<input type="hidden" name="product_id" value="<?php echo $model->id; ?>" />
+		<input type="text" name="quantity" value="1" size="1" maxlength="1" />
+		<input type="submit" value="Add to Cart" />
+	</form>
+	
 	
 </div>
 

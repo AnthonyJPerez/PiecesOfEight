@@ -11,6 +11,8 @@
 			echo "<div class='name'>". $product->name . "</div>";
 			echo "<div class='price'>". $product->price . "</div>";
 			echo "<div class='quantity'>". $p['quantity'] . "</div>";
+			
+			echo "<a href='".$this->createUrl('cart/remove', array('product_id'=>$product->id))."'>Remove Item</a>";
 		echo "</div>";
 	}
 	
@@ -41,3 +43,6 @@
 	?>
 	<input type="submit" value="Checkout with PayPal" />
 <form>
+
+
+<a href="<?php echo $this->createUrl('cart/empty'); ?>">Empty Cart</a>
