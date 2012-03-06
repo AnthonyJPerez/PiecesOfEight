@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
 		<style type='text/css' media='all'>
 			* { margin, padding: 0; }
 			
@@ -11,16 +12,18 @@
 				font-family: Calibri, Helvetica, Arial, sans-serif;
 				font-size: 27pt;
 				font-weight: bold;
+				line-height: 115%;
 			}
 			
 			.h1 { 
 				font-size: 60pt; 
-				margin-top: .15em;
+				margin: .45em;
 			}
 			
 			.h2 { 
 				font-size: 30pt; 
-				margin: .3em;
+				margin-top: 0.1em;
+				margin-bottom: .4em;
 			}
 			
 			a
@@ -68,14 +71,6 @@
 				border-radius: 10px;
 			}
 			
-			p > span
-			{
-				position: absolute;
-				right: 12px;
-				bottom: 10px;
-				font-size: 16pt;
-			}
-			
 			#logo {
 				margin: 0;
 				padding: 0;
@@ -85,6 +80,10 @@
 			{
 				font-size: 14pt;
 				color: #bbb;
+				
+				position: absolute;
+				right: 12px;
+				bottom: 0px;				
 			}
 		</style>
 		
