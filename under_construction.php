@@ -7,14 +7,21 @@
 			{
 				background-image: url('images/bg_noise_grey.gif');
 				background-repeat:repeat;
-				margin: 1em;
+				margin: .25em;
 				font-family: Calibri, Helvetica, Arial, sans-serif;
 				font-size: 27pt;
 				font-weight: bold;
 			}
 			
-			h1 { font-size: 80pt;  }
-			h2 { font-size: 50pt; }
+			.h1 { 
+				font-size: 60pt; 
+				margin-top: .15em;
+			}
+			
+			.h2 { 
+				font-size: 30pt; 
+				margin: .3em;
+			}
 			
 			a
 			{
@@ -46,7 +53,7 @@
 				position: relative;
 				margin: 0 auto;
 				width: 80%;
-				height: 200px;
+				height: 230px;
 				background-color: #333;
 				color: #ccc;
 				padding: 20px;
@@ -68,6 +75,17 @@
 				bottom: 10px;
 				font-size: 16pt;
 			}
+			
+			#logo {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.email
+			{
+				font-size: 14pt;
+				color: #bbb;
+			}
 		</style>
 		
 		<title>Pieces of Eight Costumes by Sue LLC</title>
@@ -75,15 +93,15 @@
 	<body>
 	
 		<div id='content'>
-			<img src='images/logo3.png' alt='Pieces of Eight Costumes by Sue LLC logo' />
-			<h1 class='letterpress'>Avast Ye!</h1>
-			<h2 class='letterpress'>This page be Under Construction.</h2>
+			<img id='logo' src='images/logo3.png' alt='Pieces of Eight Costumes by Sue LLC logo' />
+			<div class='letterpress h1'>Avast Ye!</div>
+			<div class='letterpress h2'>This page be <span>Under Construction</span>.</div>
 			<p>
 				Aye, we be down for now, but if ye be
 				going on the account, ye'd do good to drop anchor in our 
 				<a href='http://www.etsy.com/shop/piecesof8costumes'>Etsy Shop</a> 
 				while we batten down the hatches and weigh anchor.
-				<span>PiecesOf8Costumes@comcast.net</span>
+				<span class='email'>PiecesOf8Costumes@comcast.net</span>
 			</p>
 		</div>
 	</body>
