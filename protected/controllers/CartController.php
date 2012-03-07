@@ -5,30 +5,23 @@ class CartController extends Controller
 	public $defaultAction = 'view';
 	
 	
-	
 
-	public function actionAdd($product_id=null, $quantity=1)
-	{		
-		if ( is_null($product_id) )
-		{
-			// @todo throw an error!
-		}
+	
+	public function actionAdd()
+	{
+		$model = new AddcartForm;
 		
-		$products = $this->_getSession();
-				
-		// Add a product to the cart. Create the product in the cart
-		// if it does not exist
-		if ( array_key_exists($product_id, $products) )
+		if (isset($_POST['AddcartForm']))
 		{
-			$products[$product_id] += $quantity;
+			$model->attributes = $_POST['AddcartForm'];
+			
+			if ($model->validate())
+			{
+				$products = $this->_getSession();
+				$products[$model->product_id] += $model->quantity;
+				$this->_setSession($products);
+			}
 		}
-		else
-		{
-			$products[$product_id] = $quantity;
-		}
-		
-		// Flush the data back into the session
-		$this->_setSession($products);
 		
 		$this->redirect(array('cart/view'));
 	}
@@ -49,20 +42,23 @@ class CartController extends Controller
 		$this->redirect(array('cart/view'));
 	}
 	
-
-	public function actionRemove($product_id)
+	
+	public function actionRemove()
 	{
-		if ( is_null($product_id) )
+		$model = new AddcartForm;
+		
+		if (isset($_POST['AddcartForm']))
 		{
-			// @todo throw an error!
+			$model->attributes = $_POST['AddcartForm'];
+			
+			if ($model->validate())
+			{
+				$products = $this->_getSession();
+				// Unset the product listing in the session
+				unset($products[$model->product_id]);
+				$this->_setSession($products);
+			}
 		}
-		
-		$products = $this->_getSession();
-		
-		// Unset the product listing in the session.
-		unset($products[$product_id]);
-		
-		$this->_setSession($products);
 		
 		$this->redirect(array('cart/view'));
 	}
@@ -107,7 +103,8 @@ class CartController extends Controller
 			'view',
 			array(
 				'products' => $products,
-				'subTotal' => $subTotal
+				'subTotal' => $subTotal,
+				'AddcartModel' => new AddcartForm,
 			)
 		);
 	}

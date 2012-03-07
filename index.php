@@ -1,7 +1,7 @@
 <?php
 
 // remove this when not under construction
-$PO8_UNDER_CONSTRUCTION = true;
+$PO8_UNDER_CONSTRUCTION = false;
 
 
 

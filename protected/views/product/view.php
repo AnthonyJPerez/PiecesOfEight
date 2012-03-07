@@ -42,22 +42,27 @@
 		<?php echo $model->price; ?>
 	</div>
 	
-	<?php
-		// @todo: this is a link, but in the future it will be a submit button, that way the
-		// user can specify a quantity to add into the cart, instead of just one at a time.
-		echo CHtml::link(
-			'Add to Cart',
-			$this->createUrl('cart/add', array('product_id' => $model->id, 'quantity' => 1))
-		);
+	<div class='form'>
+	<?php 
+	
+		$form = $this->beginWidget('CActiveForm', array(
+			'action' => $this->createUrl('cart/add'),
+		));
+		
+		echo $form->errorSummary($formModel);
+		echo "<div class='row'>";
+			echo $form->label($formModel, 'quantity');
+			echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
+			echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
+		echo "</div>";
+		
+		echo "<div class='row submit'>";
+			echo CHtml::submitButton('Add to Cart');
+		echo "</div>";
+		
+		$this->endWidget();
 	?>
-	
-	<form action="<?php echo $this->createUrl('cart/add'); ?>" method="GET">
-		<input type="hidden" name="product_id" value="<?php echo $model->id; ?>" />
-		<input type="text" name="quantity" value="1" size="1" maxlength="1" />
-		<input type="submit" value="Add to Cart" />
-	</form>
-	
-	
+	</div>
 </div>
 
 

@@ -11,6 +11,7 @@ class ProductController extends GxController
 	{
 		$this->render('view', array(
 			'model' => $this->loadModel($id, 'Product'),
+			'formModel' => new AddcartForm,
 		));
 	}
 	

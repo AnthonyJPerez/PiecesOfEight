@@ -6,13 +6,29 @@
 	foreach ($products as $p)
 	{	
 		$product = $p['product'];
-		echo "<div class='product'>";
+		echo "<div class='cart_product'>";
 			echo CHtml::image(Yii::app()->request->baseUrl . '/images/products/' . $product->images[0]->url, '', array('width' => 50));
 			echo "<div class='name'>". $product->name . "</div>";
 			echo "<div class='price'>". $product->price . "</div>";
 			echo "<div class='quantity'>". $p['quantity'] . "</div>";
 			
-			echo "<a href='".$this->createUrl('cart/remove', array('product_id'=>$product->id))."'>Remove Item</a>";
+			
+			// Remove item from cart button
+			$form = $this->beginWidget('CActiveForm', array(
+				'action' => $this->createUrl('cart/remove'),
+			));
+			
+				echo $form->errorSummary($AddcartModel);
+				echo "<div class='row'>";
+					echo $form->hiddenField($AddcartModel, 'product_id', array('value'=>$product->id));
+				echo "</div>";
+				
+				echo "<div class='row submit'>";
+					echo CHtml::submitButton('Remove Item');
+				echo "</div>";
+			
+			$this->endWidget();
+			
 		echo "</div>";
 	}
 	
