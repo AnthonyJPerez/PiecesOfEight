@@ -15,7 +15,7 @@ body
 	margin: 0;
 	padding: 0;
 	color: #666;
-	font: normal 11pt Tahoma, Helvetica, Arial, Sans-Serif;
+	font: normal 11pt Calibri, Tahoma, Helvetica, Arial, Sans-Serif;
 	background: url('../images/bg_wood.jpg') repeat top center;
 	
 	width: 100%;
@@ -343,39 +343,7 @@ a:hover
 		padding-left: 0.5em;
 	}
 	
-.list-view
-{
-	width: 100%;
-}
-	.list-view img
-	{
-		width: 100%;
-	}
 
-	.list-view .product_name
-	{
-		text-align: left;
-	}
-	
-	.list-view .product_price
-	{
-		text-align: right;
-	}
-	
-	.list-view > .items > .view
-	{
-		display: inline-block;
-		margin: 0.75em;
-		padding: 0.25em;
-		width: 30%;		
-	}
-	
-	.list-view > .items > .view div
-	{
-		display: inline-block;
-		width: 48%;
-		padding: 0.25em;
-	}
 	
 	
 	
