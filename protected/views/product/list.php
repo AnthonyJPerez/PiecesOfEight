@@ -6,9 +6,9 @@
 			{
 				background-color: #f7f7f7;
 				
-				-webkit-box-shadow: 2px 2px 6px 1px #888;
-				-moz-box-shadow: 2px 2px 6px 1px #888;
-				box-shadow: 2px 2px 6px 1px #888;
+				/*-webkit-box-shadow: 4px 4px 12px 3px #999;
+				-moz-box-shadow: 4px 4px 12px 3px #999;*/
+				box-shadow:  3px 3px 8px -1px #666;
 			}
 			
 			.list-view
