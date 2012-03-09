@@ -83,7 +83,7 @@ CREATE TABLE p8_image
 	id						INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	
 	#-- Attributes
-	url						VARCHAR(255) NOT NULL,
+	url						VARCHAR(255) NOT NULL default "product-null_1.jpg",
 	product_id				INTEGER UNSIGNED NOT NULL, #-- Image belongs to Product
 	
 	#-- Constraints
@@ -155,11 +155,29 @@ VALUES
 	
 INSERT INTO p8_image(url, product_id)
 VALUES
-	("test_uniform.jpg", 1),
-	("test_uniform.jpg", 2),
-	("test_uniform.jpg", 3),
-	("test_uniform.jpg", 4),
-	("test_uniform.jpg", 5);
+	("product-1_1.jpg", 1),
+	("product-1_2.jpg", 1),
+	("product-1_3.jpg", 1),
+	("product-1_4.jpg", 1),
+	("product-1_5.jpg", 1),
+	("product-1_6.jpg", 1),
+	("product-1_7.jpg", 1),
+	("product-1_8.jpg", 1),
+	("product-1_9.jpg", 1),
+	("product-1_10.jpg", 1),
+	("product-2_1.jpg", 2),
+	("product-2_2.jpg", 2),
+	("product-2_3.jpg", 2),
+	("product-2_4.jpg", 2),
+	("product-2_5.jpg", 2),
+	("product-2_6.jpg", 2),
+	("product-2_7.jpg", 2),
+	("product-2_8.jpg", 2),
+	("product-2_9.jpg", 2),
+	("product-null_1.jpg", 3),
+	("product-null_1.jpg", 4),
+	("product-null_1.jpg", 5);
+	
 
 	
 COMMIT;
