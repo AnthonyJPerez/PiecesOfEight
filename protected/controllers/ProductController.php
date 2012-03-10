@@ -45,7 +45,10 @@ class ProductController extends GxController
 		$this->render('list', array(
 			'dataProvider' => new CActiveDataProvider('Product', 
 				array(
-					'criteria' => $criteria
+					'criteria' => $criteria,
+					'pagination' => array(
+						'pageSize' => 12
+					),
 				)
 			),
 			'category' => $category,

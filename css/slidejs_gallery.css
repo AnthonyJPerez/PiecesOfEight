@@ -45,6 +45,7 @@
 		position: absolute;
 		left: -39px;
 		top: 113px;
+		display: none;
 	}
 	
 	#slidejs_container .next
@@ -52,16 +53,18 @@
 		position: absolute;
 		right: -39px;
 		top: 113px;
+		display: none;
 	}
 
 
 .pagination
 {
-	position: relative;
-	width: 100px;
+	position: absolute;
 	height: 30px;
-	top: 26px;
-	left: 230px;
+	bottom: -80px;
+	z-index: 101;
+	width: 150px;
+	left: 220px;
 }
 	
 	.pagination li

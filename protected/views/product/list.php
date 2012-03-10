@@ -6,8 +6,8 @@
 			{
 				background-color: #f7f7f7;
 				
-				/*-webkit-box-shadow: 4px 4px 12px 3px #999;
-				-moz-box-shadow: 4px 4px 12px 3px #999;*/
+				-webkit-box-shadow: 3px 3px 8px -1px #666;
+				-moz-box-shadow: 3px 3px 8px -1px #666;
 				box-shadow:  3px 3px 8px -1px #666;
 			}
 			
@@ -107,6 +107,7 @@
 $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+	'enablePagination' => true,
 	'sortableAttributes' => array(
 		'price'
 	),
