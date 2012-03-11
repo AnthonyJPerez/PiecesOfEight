@@ -31,6 +31,54 @@
 		',
 		CClientScript::POS_READY
 	);
+	
+	
+	Yii::app()->clientScript->registerCss(
+		'product_view_rounded',
+		'
+		#product_container
+		{
+			display: table;
+		}
+		
+			#product_image_container
+			{
+				display: table-cell;
+			}
+		
+			#product_details_container
+			{	
+				vertical-align: top;
+				display: table-cell;
+				width: 400px;
+				padding: 0.5em;
+			}
+			
+			#product_details
+			{
+				margin-top: 15px;
+			}
+			
+				.product_name
+				{
+					font-size: 16pt;
+					margin-bottom: 10px;
+					text-align: center;
+				}
+	
+				.product_price
+				{
+					font-size: 10pt;
+					margin-bottom: 10px;
+				}
+	
+				.product_description
+				{
+				
+				}
+		',
+		'screen'
+	);
 ?>
 
 <div id="breadcrumbs">
@@ -53,18 +101,19 @@
 			);
 		?>
 		</li>
-		<li>
+		<!--li>
 			>
 		</li>
 		<?php
 			echo "<li>".$model->name."</li>";
 		?>
+		-->
 	</ul>
 </div>
 
 
-
-	<div id="cont">
+<div id="product_container">
+	<div id="product_image_container">
 		<div id="products">
 			<div class="slides_container">
 			<?php
@@ -100,54 +149,55 @@
 			</ul>
 		</div>
 	</div>
+	
+	
+	<div id="product_details_container">
+		<div id="product_details">
+			<div class="product_name red_title">
+				<?php echo $model->name; ?>
+			</div>
+			
+			<div class="product_price">
+				<?php echo '$' . $model->price; ?>
+			</div>
+			
+			<p class="product_description">
+				<?php echo $model->description; ?>
+			</p>
+			
+			<!-- Add to cart form -->
+			<div class='form'>
+			<?php 
+			
+				$form = $this->beginWidget('CActiveForm', array(
+					'action' => $this->createUrl('cart/add'),
+				));
+				
+				echo $form->errorSummary($formModel);
+				echo "<div class='row'>";
+					echo $form->label($formModel, 'quantity');
+					echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
+					echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
+				echo "</div>";
+				
+				echo "<div class='row submit'>";
+					echo CHtml::submitButton('Add to Cart');
+				echo "</div>";
+				
+				$this->endWidget();
+			?>
+			</div>
+		</div>
+	</div>
+</div>
 
-<!--
-	<?php
-		echo CHtml::image(Yii::app()->request->baseUrl . '/images/products/' . $model->images[0]->url);
-	?>
-	
-	<div>
-		<?php echo $model->name; ?>
-	</div>
-	
-	<div>
-		<?php echo $model->price; ?>
-	</div>
-	
-	<div class='form'>
-	<?php 
-	
-		$form = $this->beginWidget('CActiveForm', array(
-			'action' => $this->createUrl('cart/add'),
-		));
-		
-		echo $form->errorSummary($formModel);
-		echo "<div class='row'>";
-			echo $form->label($formModel, 'quantity');
-			echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
-			echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
-		echo "</div>";
-		
-		echo "<div class='row submit'>";
-			echo CHtml::submitButton('Add to Cart');
-		echo "</div>";
-		
-		$this->endWidget();
-	?>
-	</div>
--->
+
+
 
 
 <?php
 /*
-	echo GxHtml::openTag('ul');
-	foreach($model->images as $relatedModel) {
-		echo GxHtml::openTag('li');
-		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('image/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
-		echo GxHtml::closeTag('li');
-	}
-	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('p8Tags')); ?></h2>
+
 <?php
 	echo GxHtml::openTag('ul');
 	foreach($model->p8Tags as $relatedModel) {

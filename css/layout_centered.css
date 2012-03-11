@@ -285,7 +285,7 @@ a:hover
 #breadcrumbs
 {
 	margin-left: 2em;
-	width: 50%;
+	width: 60%;
 }
 
 	#breadcrumbs > ul 
@@ -306,22 +306,19 @@ a:hover
 		padding-left: 0;
 	}
 
-#product_listing
-{
-	padding: 1em;
-	background-color: lightgrey;
-}
 
-	#product_listing > img
-	{
-		width: 45%;
-	}
 
 
 
 
 
 /* General, useful classes */
+
+.red_title
+{			
+	color: #770000; 
+	text-shadow: 2px 2px 3px #7f7f7f;
+}
 
 #content
 {

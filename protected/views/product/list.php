@@ -11,6 +11,17 @@
 				box-shadow:  3px 3px 8px -1px #666;
 			}
 			
+			#product_listing
+			{
+				padding: 1em;
+				background-color: lightgrey;
+			}
+			
+				#product_listing > img
+				{
+					width: 45%;
+				}
+			
 			.list-view
 			{
 				width: 100%;
