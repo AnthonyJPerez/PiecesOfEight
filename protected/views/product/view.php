@@ -52,6 +52,7 @@
 				display: table-cell;
 				width: 400px;
 				padding: 0.5em;
+				padding-left: 0.75em;
 			}
 			
 			#product_details

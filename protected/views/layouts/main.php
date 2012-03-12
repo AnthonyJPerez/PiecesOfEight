@@ -11,9 +11,11 @@
 		<![endif]-->
 
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css" media="screen" />
+		
+		<!--link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css" media="screen" /-->
+		<!--link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" /-->
+		<!--link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" /-->
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css" media="screen, projection" />
 		
 		<!--[if lt IE 8]>
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
@@ -102,7 +104,7 @@
 						<li>
 						<?php
 							echo CHtml::link(
-								CHtml::image('images/facebook.png', 'Visit us on Facebook!', array('class'=>'social_media_buttons')),
+								CHtml::image('images/facebook.png', 'Visit us on Facebook!', array('class'=>'')),
 								"https://www.facebook.com/PiecesOf8Costumes",
 								array('target'=>'_blank')
 							);
@@ -112,7 +114,7 @@
 						<li>
 						<?php
 							echo CHtml::link(
-								CHtml::image('images/twitter.png', 'Visit us on Twitter!', array('class'=>'social_media_buttons')),
+								CHtml::image('images/twitter.png', 'Visit us on Twitter!', array('class'=>'')),
 								"https://www.facebook.com/PiecesOf8Costumes",
 								array('target'=>'_blank')
 							);
