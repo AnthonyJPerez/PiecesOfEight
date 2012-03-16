@@ -4,7 +4,10 @@
 class AddcartForm extends CFormModel
 {
 	public $product_id;
-	public $quantity;
+	public $quantity=1;
+	public $size;
+	
+	
 	
 	
 	public function rules()
@@ -21,7 +24,8 @@ class AddcartForm extends CFormModel
 	{
 		return array(
 			'product_id' => 'Prouct ID',
-			'quantity'=>'Quantity',
+			'quantity' => 'Quantity',
+			'size' => 'Size',
 		);
 	}
 }
