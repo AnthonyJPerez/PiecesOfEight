@@ -46,13 +46,25 @@
 					)); ?>
 				</div>
 				
-				
+				<?php
+					if ( !isset(Yii::app()->session['products']) )
+					{
+						Yii::app()->session['products'] = array();			
+					}					
+					
+					// count the number of products in the cart
+					$product_cart_count = 0;
+					foreach (Yii::app()->session['products'] as $pid=>$quantity)
+					{
+						$product_cart_count += $quantity;
+					}
+				?>
 				<div id="top_right_nav">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
+							array('label'=>'LookBook', 	'url'=>$this->createUrl('product/lookbook')),
 							array('label'=>'Contact Us', 	'url'=>array('/site/contact')),
-							array('label'=>'Cart (0)', 'url'=>array('/cart')),
-							array('label'=>'Checkout', 		   'url'=>array('/cart/checkout')),
+							array('label'=> ($product_cart_count>0) ? 'Cart ('.$product_cart_count.')' : 'Cart', 'url'=>array('/cart')),
 							),
 					)); ?>
 				</div>
@@ -91,7 +103,6 @@
 							array('label'=>'Tabbards', 	'url'=>$this->createUrl('product/list', array('category'=>'tabbards'))),
 							array('label'=>'Vests', 	'url'=>$this->createUrl('product/list', array('category'=>'vests'))),
 							array('label'=>'View All',	'url'=>$this->createUrl('product/list')),
-							array('label'=>'LookBook', 	'url'=>$this->createUrl('product/lookbook')),
 							),
 					)); ?>
 				</div>

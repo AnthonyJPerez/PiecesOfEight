@@ -27,13 +27,6 @@ class CartController extends Controller
 	}
 	
 
-	public function actionCheckout()
-	{
-		// Upload the cart to paypal, then redirect to paypal.
-		// ...
-	}
-	
-
 	public function actionEmpty()
 	{
 		Yii::app()->session->clear();
@@ -82,13 +75,13 @@ class CartController extends Controller
 		$this->redirect(array('cart/view'));
 	}
 	
-
+	
 	public function actionView()
 	{
 		$products_session = $this->_getSession();
 		
 		$products = array();
-		$subTotal = 0;
+		$subTotal = 0.00;
 		foreach ($products_session as $pid=>$quantity)
 		{
 			$products[$pid] = array();
@@ -103,7 +96,7 @@ class CartController extends Controller
 			'view',
 			array(
 				'products' => $products,
-				'subTotal' => $subTotal,
+				'subTotal' => number_format($subTotal,2), // converts $x to $x.00
 				'AddcartModel' => new AddcartForm,
 			)
 		);

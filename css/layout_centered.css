@@ -77,15 +77,16 @@ a:hover
 	{
 		position: absolute;
 		left: 50%;
-		bottom: 14px;
+		top: 27%;
+		/*bottom: 14px;*/
 		margin-left: -75px;
 	}
 	
 	#top_right_nav
 	{	
 		position: absolute;
-		right: 7%;
-		bottom: 4em;	
+		left: 63%;
+		top: 6.75em;	
 	}
 	
 		#top_right_nav > ul
@@ -116,7 +117,7 @@ a:hover
 	{	
 		position: absolute;
 		left: 7%;
-		bottom: 4em;
+		top: 6.75em;
 	}
 	
 		#top_left_nav > ul
