@@ -57,8 +57,9 @@ if (!empty($products))
 		
 			.checkout_buttons li
 			{
-				padding-left: 1em;
+				padding-left: 2em;
 				display: table-cell;
+				vertical-align: middle;
 			}
 		',
 		'screen'
@@ -68,6 +69,7 @@ if (!empty($products))
 	<table border="0">
 		<tr class="heading">
 			<th>Product Description</th>
+			<th width="10%">Size</th>
 			<th width='10%'>Price</th>
 			<th width='10%'>Quantity</th>
 		</tr>
@@ -90,6 +92,7 @@ if (!empty($products))
 						echo $form->errorSummary($AddcartModel);
 						echo "<div class='row'>";
 							echo $form->hiddenField($AddcartModel, 'product_id', array('value'=>$product->id));
+							echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
 						echo "</div>";
 						
 						echo "<div class='row submit'>";
@@ -98,6 +101,8 @@ if (!empty($products))
 					
 					$this->endWidget();
 				echo "</td>";
+				
+				echo "<td class='size'>". $p['size'] ."</td>";
 				
 				echo "<td class='price'>$". $product->price . "</td>";
 				
@@ -114,13 +119,12 @@ if (!empty($products))
 	<ul class='checkout_buttons'>
 		<li><a class='empty_cart' href="<?php echo $this->createUrl('cart/empty'); ?>">Empty Cart</a></li>
 
-		
 		<li><form class='checkout' action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
 			<input type="hidden" name="cmd" value="_cart" />
 			<input type="hidden" name="upload" value="1" />
 			<input type="hidden" name="business" value="po8_1330738240_biz@gmail.com" />
-			<input type="hidden" name="return" value="http://localhost/yii_1.1.10/PeicesOfEight" />
-			<input type="hidden" name="image_url" value="http://localhost/yii_1.1.10/PeicesOfEight/images/logo3.png" />
+			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>" />
+			<input type="hidden" name="image_url" value="<?php echo Yii::app()->request->hostInfo . Yii::app()->baseUrl . '/images/logo3.png'; ?>" />
 			<input type="hidden" name="rm" value="1" />
 			
 			<?php
@@ -134,9 +138,11 @@ if (!empty($products))
 					
 					$count++;
 				}
+				
+				echo CHtml::imageButton(Yii::app()->baseUrl . '/images/paypal_button.gif', array('alt'=>'Checkout with Paypal'));
 			?>
-			<input type="submit" value="Checkout with PayPal" />
-		<form></li>
+			
+		</form></li>
 	</ul>		
 </div>
 	
@@ -148,7 +154,7 @@ else
 { // Cart is empty! Don't bother rendering the above!
 ?>
 	<p>
-		Cart is empty!
+		Your shopping cart is empty! Check out our <?php echo CHtml::link('Products', $this->createUrl('product/list')); ?> page to add some items into your cart.
 	</p>
 <?php
 }

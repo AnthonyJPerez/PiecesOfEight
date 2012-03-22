@@ -1,11 +1,8 @@
 <?php
-$this->breadcrumbs=array(
-	'Product'=>array('/product'),
-	'Lookbook',
-);?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
+?>
+
+<h1>Lookbook</h1>
 
 <p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
+	There are currently no looks available, check back soon!
 </p>

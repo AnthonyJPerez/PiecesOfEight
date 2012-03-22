@@ -59,7 +59,7 @@ CREATE TABLE p8_product
 	
 	#-- Attributes
 	name					VARCHAR(255) NOT NULL,						#-- Product name
-	quantity				INTEGER UNSIGNED NOT NULL DEFAULT 0,			#-- Quantity in stock
+	#-- quantity				INTEGER UNSIGNED NOT NULL DEFAULT 0,			#-- Quantity in stock -- Removed for now, not really needed!
 	price					DECIMAL(6,2) NOT NULL,						#-- Price per item
 	date_inserted			DATETIME,						#-- Date product was listed
 	description				TEXT,								#-- Description of the product
@@ -116,6 +116,50 @@ CREATE TABLE p8_tag_product
 
 
 
+#-- Size
+#--
+#-- Represents a size of a Product. Can range from extra small to extra large.
+#-- Each size has a 
+CREATE TABLE p8_size
+(
+	#-- Key
+	id				INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	size				VARCHAR (255),
+	
+	#-- Constraints
+	PRIMARY KEY (id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+#-- Product_Size
+#--
+#-- Products HABTM Sizes.  Products can support multiple sizes, such as
+#-- Large, X-Large, Small, etc..  Each relationship is on a per-product basis,
+#-- and thus each relationship describes how that size fits that particular product.
+#-- For example, a Vest-Small may have different size chart than a Coat-Small.
+CREATE TABLE p8_size_product
+(
+	#-- Key
+	size_id			INTEGER UNSIGNED NOT NULL,
+	product_id			INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	size_chart			TEXT,
+	
+	#-- Constraints
+	PRIMARY KEY (size_id, product_id),
+	FOREIGN KEY (size_id) REFERENCES p8_size(id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
 
 
 
@@ -126,23 +170,39 @@ CREATE TABLE p8_tag_product
 
 INSERT INTO p8_category (name)
 VALUES
-	("accessories"),
-	("blouses"),
-	("capes"),
-	("coats"),
-	("dresses"),
-	("miscellaneous"),
-	("pants"),
-	("skirts"),
-	("shirts"),
-	("tabbards"),
-	("vests");
+	("Accessories"),
+	("Blouses"),
+	("Capes"),
+	("Coats"),
+	("Dresses"),
+	("Miscellaneous"),
+	("Pants"),
+	("Skirts"),
+	("Shirts"),
+	("Tabbards"),
+	("Vests");
 	
 	
 INSERT INTO p8_tag (name)
 VALUES
 	("sale");
 	
+	
+INSERT INTO p8_size (size)
+VALUES
+	("XS"),
+	("S"),
+	("M"),
+	("L"),
+	("XL");
+	
+	
+	
+	
+	
+	
+	
+#-- test data:
 	
 INSERT INTO p8_product(name, price, category_id, date_inserted)
 VALUES
@@ -152,7 +212,7 @@ VALUES
 	("Short Pants", 150.00, 7, NOW()),
 	("Long Cape", 200.00, 3, NOW());
 	
-	
+
 INSERT INTO p8_image(url, product_id)
 VALUES
 	("product-1_1.jpg", 1),

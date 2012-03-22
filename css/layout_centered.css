@@ -35,6 +35,7 @@ body
 a:link, a:visited
 {
 	text-decoration: none;
+	/*text-shadow: 1px 2px 2px #fff;*/
 	color: #555;
 }
 
@@ -66,6 +67,7 @@ a:hover
 	#header a:link, #header a:visited
 	{
 		color: #cdbd7b;
+		text-shadow: none;
 	}
 	
 	#header a:hover
@@ -150,7 +152,6 @@ a:hover
 	position: relative;
 	overflow: hidden;
 	padding: 1em;
-	/*text-shadow: 1px 2px 2px #fff;*/
 }
 	#content a:link, #content a:visited
 	{
@@ -206,6 +207,8 @@ a:hover
 			display: table;
 			border-collapse: collapse;
 			border-spacing: 1em;
+			
+			visibility: hidden;
 		}
 		
 			.search_bar > form
@@ -239,6 +242,7 @@ a:hover
 	
 #footer
 {
+	text-shadow: none;
 	background-image: url('../images/header.png');
 	background-repeat: no-repeat;
 	
@@ -286,6 +290,13 @@ a:hover
 		width: 40px;
 	}
 	
+	#social_media_buttons .etsy
+	{
+		width: 42px;
+		margin-top: -2px;
+		margin-left: -5px;
+	}
+	
 	#social_media_buttons > ul
 	{
 		margin: 0px;
@@ -326,6 +337,28 @@ a:hover
 
 
 /* General, useful classes */
+
+.note
+{
+	font-size: 10pt;
+}
+
+.required
+{
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.errorSummary
+{
+	color: #bb0000;
+	visibility: none;
+}
+
+.errorMessage
+{
+	color: #bb0000;
+}
 
 .red_title
 {			

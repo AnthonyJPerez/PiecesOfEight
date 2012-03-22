@@ -13,8 +13,9 @@ class AddcartForm extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('product_id', 'required'),
+			array('product_id, quantity, size', 'required'),
 			array('product_id', 'exist', 'attributeName'=>'id', 'className'=> 'Product'),
+			array('size', 'exist', 'attributeName'=>'size', 'className'=>'Size'),
 			array('quantity', 'numerical', 'integerOnly'=>true, 'max'=>10, 'min'=>1),
 		);
 	}

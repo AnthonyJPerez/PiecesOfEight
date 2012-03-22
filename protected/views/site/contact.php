@@ -1,6 +1,82 @@
 <?php
 $this->pageTitle = "Contact Us - " . Yii::app()->name;
 
+
+	Yii::app()->clientScript->registerCss(
+		'contact-form-style',
+		'
+		#contact-form
+		{
+
+		}
+		
+		#contact-form .row
+		{
+			position: relative;
+			clear: both;
+			margin: .75em;
+			min-height:2em;
+		}
+		
+			#contact-form .row label
+			{
+				display: inline-block;
+				width: 140px;
+				text-align: right;
+				margin-right: 0.5em;
+				vertical-align: top;
+			}
+			
+			#contact-form .row input, #contact-form .row textarea
+			{
+				display: inline-block;
+				padding: 4px 2px;
+				width: 200px;
+			}
+			
+			#contact-form .row > div
+			{
+				display: inline-block;
+			}
+			
+			#contact-form .row > div > a
+			{
+				display: block;
+			}
+			
+			#contact-form .errorMessage
+			{
+				vertical-align: top;
+				display: block;
+				width: 250px;
+				margin-left: 0.5em;
+			}
+			
+			#contact-form .hint
+			{
+				font-size: 10pt;
+				width: 200px;
+				display: inline-block;
+				margin-left: 1em;
+			}
+			
+			#contact-form .buttons
+			{
+				width: 50%;
+				margin: 0 auto;
+			}
+			
+			#contact-form .buttons > input
+			{
+				width: 100px;
+				
+			}
+			
+		',
+		'screen'
+	);
+
+
 ?>
 
 <h1>Contact Us</h1>
@@ -29,8 +105,6 @@ If you have business inquiries or other questions, please fill out the following
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name'); ?>
@@ -57,7 +131,7 @@ If you have business inquiries or other questions, please fill out the following
 
 	<?php if(CCaptcha::checkRequirements()): ?>
 	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
+		<?php echo $form->labelEx($model,'verifyCode', array('class'=>'required')); ?>
 		<div>
 		<?php $this->widget('CCaptcha'); ?>
 		<?php echo $form->textField($model,'verifyCode'); ?>

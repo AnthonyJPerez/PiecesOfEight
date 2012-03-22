@@ -44,9 +44,9 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 	'columns' => array(
 		'id',
 		'name',
-		'quantity',
 		'price',
 		'date_inserted',
+		'description',
 		array(
 				'name'=>'category_id',
 				'value'=>'GxHtml::valueEx($data->category)',

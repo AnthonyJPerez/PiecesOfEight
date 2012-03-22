@@ -9,18 +9,41 @@ class ProductController extends GxController
 
 	public function actionView($id) 
 	{
+		$model = new AddcartForm;
+		
+		/*if(isset($_POST['ajax']) && $_POST['ajax']==='add-cart-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}*/
+		
+		if (isset($_POST['AddcartForm']))
+		{
+			$model->attributes = $_POST['AddcartForm'];
+			
+			if ($model->validate())
+			{
+				$this->redirect(
+					$this->createUrl('cart/add', 
+						array(
+							'product_id'=>$model->product_id,
+							'size' => $model->size,
+							'quantity' => $model->quantity
+						)
+					)
+				);
+			}
+		}
+		
 		$this->render('view', array(
 			'model' => $this->loadModel($id, 'Product'),
-			'formModel' => new AddcartForm,
+			'formModel' => $model,
 		));
 	}
 	
 	
 	public function actionList($category=null)
 	{	
-		// @todo: clean this parameter!
-		// ...
-		
 		// Find the category id
 		$CategoryModel = Category::model()->find(
 			array(
@@ -41,6 +64,13 @@ class ProductController extends GxController
 		{	
 			$criteria['condition'] = 'category_id='.$CategoryModel->id;
 		}
+		/*// If the category is 'new', then only show products posted within the last 6 months.
+		else if ($category === 'new')
+		{
+			// @todo THIS DOES NOT WORK, FIX IT!!!!
+			$date_SixMonthsOld = mktime(0, 0, 0, date("m")-6, date("d"),   date("Y"));
+			$criteria['condition'] = 'date_inserted > ' . $date_SixMonthsOld;
+		}*/
 		
 		$this->render('list', array(
 			'dataProvider' => new CActiveDataProvider('Product', 
@@ -56,78 +86,75 @@ class ProductController extends GxController
 	}
 	
 	
-	public function actionIndex() 
+	public function actionLookbook() 
 	{
-		$dataProvider = new CActiveDataProvider('Product');
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));
+		$this->render('lookbook');
 	}
 	
 
-	/*public function actionCreate() {
-		$model = new Product;
+	public function actionCreate() 
+	{
+      	$model = new Product;
 
 
-		if (isset($_POST['Product'])) {
+		if (isset($_POST['Product'])) 
+		{
 			$model->setAttributes($_POST['Product']);
+			$model->date_inserted = new CDbExpression('now()');
+			
 			$relatedData = array(
-				'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
-				);
-
-			if ($model->saveWithRelated($relatedData)) {
+		    		'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
+		    	);
+		
+			if ($model->saveWithRelated($relatedData)) 
+			{
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
 					$this->redirect(array('view', 'id' => $model->id));
 			}
 		}
-
+		
 		$this->render('create', array( 'model' => $model));
 	}
-
-	public function actionUpdate($id) {
-		$model = $this->loadModel($id, 'Product');
-
-
-		if (isset($_POST['Product'])) {
-			$model->setAttributes($_POST['Product']);
-			$relatedData = array(
-				'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
-				);
-
-			if ($model->saveWithRelated($relatedData)) {
-				$this->redirect(array('view', 'id' => $model->id));
-			}
-		}
-
-		$this->render('update', array(
-				'model' => $model,
-				));
-	}
-
-	public function actionDelete($id) {
-		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, 'Product')->delete();
-
-			if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('admin'));
-		} else
-			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
-	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
-	public function actionAdmin() {
-		$model = new Product('search');
-		$model->unsetAttributes();
+    public function actionUpdate($id) {
+        $model = $this->loadModel($id, 'Product');
 
-		if (isset($_GET['Product']))
-			$model->setAttributes($_GET['Product']);
 
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}*/
+        if (isset($_POST['Product'])) {
+            $model->setAttributes($_POST['Product']);
+            $relatedData = array(
+                'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
+                );
 
+            if ($model->saveWithRelated($relatedData)) {
+                $this->redirect(array('view', 'id' => $model->id));
+            }
+        }
+
+        $this->render('update', array(
+                'model' => $model,
+                ));
+    }
+
+    public function actionDelete($id) {
+        if (Yii::app()->getRequest()->getIsPostRequest()) {
+            $this->loadModel($id, 'Product')->delete();
+
+            if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('admin'));
+        } else
+            throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
+    }
 }

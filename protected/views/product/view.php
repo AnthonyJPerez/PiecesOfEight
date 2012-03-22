@@ -90,6 +90,64 @@
 				{
 				
 				}
+				
+		.tabs_container
+		{
+		
+		}
+		
+			#tabs 
+			{ 
+				text-align: left; 			/* set to left, right or center */
+				margin: 1em 0 0 0; 			/* set margins as desired */
+				border-bottom: 1px solid #999; 	/* set border COLOR as desired */
+				list-style-type: none;
+				padding: 3px 10px 3px 10px; 		/* THIRD number must change with respect to padding-top (X) below */
+			}
+			
+			#tabs li
+			{
+				display: inline;
+			}
+			
+			#tabs li.tab
+			{
+				border-bottom: 1px solid #fff;
+				background-color: #fff;
+			}
+			
+			#tabs li a
+			{
+				padding: 3px 4px;
+				border: 1px solid #999;
+				background-color: #cfcfcf;
+				margin-right: 0px;
+				text-decoration: none;
+				border-bottom: none;
+			}
+			
+			#tabs li a:hover
+			{
+				background: #fff;
+			}
+			
+			#tabs li.active a
+			{
+				background-image: url("'.Yii::app()->request->baseUrl.'/images/bg_noise_2.png");
+				position: relative;
+				top: 1px;
+				padding-top: 4px;
+			}
+			
+			#tabs_container .tab
+			{
+				min-height: 200px;
+				padding: 0.75em;
+				border-left: 1px solid #999;
+				border-right: 1px solid #999;
+				border-bottom: 1px solid #999;
+			}
+			
 		',
 		'screen'
 	);
@@ -184,13 +242,15 @@
 			<?php 
 			
 				$form = $this->beginWidget('CActiveForm', array(
-					'action' => $this->createUrl('cart/add'),
+					'id' => 'add-cart-form',
+					//'action' => $this->createUrl('cart/add'),
+					'enableAjaxValidation'=>true,
+					'focus'=>array($formModel,'size')
 				));
-				
-				echo $form->errorSummary($formModel);
-				
+								
 				echo "<div class='size'>";
-					echo $form->dropDownList($formModel, 'size', array('Size', 'Small', 'Medium', 'Large'), array());
+					echo $form->error($formModel,'size');
+					echo $form->dropDownList($formModel, 'size', CHtml::listData(Size::model()->findAll(), 'size', 'size'), array('empty'=>'Select Size'));
 					echo CHtml::link('Size Chart', $this->createUrl('/'), array());
 				echo "</div>";
 				
@@ -209,14 +269,6 @@
 			</div>
 			
 			
-			
-			 <!--[if IE]>
-			<style type="text/css">
-				.box { display: block; }
-				#box { overflow: hidden;position: relative; }
-				b { position: absolute; top: 0px; right: 0px; width:1px; height: 251px; overflow: hidden; text-indent: -9999px; }
-			</style>
-		 	<![endif]-->
 			<div id="tabs_container">
 				<ul id="tabs">
 					<li class="active"><a href="#nav_care">Care</a></li>
@@ -225,18 +277,28 @@
 				</ul>  
 				
 				<div id="nav_care" class="tab">
-					<p>
-						This information talks about how to care for your item.
-					</p>
+					This information talks about how to care for your item.
 				</div>
 				<div id="nav_returns" class="tab">
 					<p>
-						This is the return policy.
+					As with many small costuming businesses all sales are final. Size 
+					adjustments can be made to custom orders, item will need to be mailed 
+					back to me with clear indications of the adjustments needed and will 
+					be shipped back out within 3-5 business days.
 					</p>
 				</div>
 				<div id="nav_shipping" class="tab">
 					<p>
-						This is the shipping information.
+					Shipping and handling fees $8.95 per item within the US. $12.95 for 
+					2 or more items shipped together with the US. Items will be shipped 
+					UPS or USPS standard ground with tracking. 3-10 days from date shipped. 
+					Rush delivery available for an additional fee depending on the destination.
+					</p>
+					<p>
+					In stock items will be shipped out within 1-5 days of order.
+					Custom orders will take 3-6 weeks to ship. Oversees orders subject 
+					to additional shipping fees, all customs and taxes will be the 
+					responsibility of the purchaser.
 					</p>
 				</div>
 			</div>			

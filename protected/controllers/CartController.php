@@ -7,21 +7,14 @@ class CartController extends Controller
 	
 
 	
-	public function actionAdd()
+	public function actionAdd($product_id, $size, $quantity)
 	{
-		$model = new AddcartForm;
-		
-		if (isset($_POST['AddcartForm']))
-		{
-			$model->attributes = $_POST['AddcartForm'];
-			
-			if ($model->validate())
-			{
-				$products = $this->_getSession();
-				$products[$model->product_id] += $model->quantity;
-				$this->_setSession($products);
-			}
-		}
+		$products = $this->_getSession();
+		$pid = $product_id.'-'.$size;
+		$products[$pid] = array();
+		$products[$pid]['quantity'] += $quantity;
+		$products[$pid]['size'] = $size;
+		$this->_setSession($products);
 		
 		$this->redirect(array('cart/view'));
 	}
@@ -48,7 +41,7 @@ class CartController extends Controller
 			{
 				$products = $this->_getSession();
 				// Unset the product listing in the session
-				unset($products[$model->product_id]);
+				unset($products[$model->product_id.'-'.$model->size]);
 				$this->_setSession($products);
 			}
 		}
@@ -57,7 +50,7 @@ class CartController extends Controller
 	}
 
 
-	public function actionUpdate($product_id, $quantity)
+	public function actionUpdate($product_id, $size, $quantity)
 	{
 		if ( is_null($product_id) )
 		{
@@ -67,11 +60,13 @@ class CartController extends Controller
 		$products = $this->_getSession();
 		
 		// Set the quantity to whatever the user specified
-		$products[$product_id] = $quantity;
+		$products[$product_id.'-'.$size]['quantity'] = $quantity;
 		
 		// Flush the data back into the session
 		$this->_setSession($products);
 		
+		
+		// @todo: if the quantity is zero, just redirect to the actionRemove
 		$this->redirect(array('cart/view'));
 	}
 	
@@ -82,14 +77,15 @@ class CartController extends Controller
 		
 		$products = array();
 		$subTotal = 0.00;
-		foreach ($products_session as $pid=>$quantity)
+		foreach ($products_session as $pid=>$data)
 		{
 			$products[$pid] = array();
-			$products[$pid]['quantity'] = $quantity;
+			$products[$pid]['quantity'] = $data['quantity'];
 			$products[$pid]['product'] = Product::model()->with('images')->findByPk($pid);
+			$products[$pid]['size'] = $data['size'];
 			
 			// Calculate the running subtotal
-			$subTotal += $products[$pid]['product']->price * $quantity;
+			$subTotal += $products[$pid]['product']->price * $data['quantity'];
 		}
 		
 		$this->render(
@@ -99,6 +95,15 @@ class CartController extends Controller
 				'subTotal' => number_format($subTotal,2), // converts $x to $x.00
 				'AddcartModel' => new AddcartForm,
 			)
+		);
+	}
+	
+	
+	
+	public function actionCheckout()
+	{
+		$this->render(
+			'checkout'
 		);
 	}
 	
@@ -114,6 +119,7 @@ class CartController extends Controller
 		
 		return Yii::app()->session['products'];
 	}
+	
 	
 	private function _setSession($data)
 	{
