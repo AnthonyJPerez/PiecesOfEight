@@ -185,7 +185,8 @@ VALUES
 	
 INSERT INTO p8_tag (name)
 VALUES
-	("sale");
+	("Sale"),
+	("Out of Stock");
 	
 	
 INSERT INTO p8_size (size)

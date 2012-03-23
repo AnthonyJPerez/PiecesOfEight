@@ -18,6 +18,7 @@
  *
  * @property Image[] $images
  * @property Category $category
+ * @property Size[] $p8Sizes
  * @property Tag[] $p8Tags
  */
 abstract class BaseProduct extends GxActiveRecord {
@@ -54,12 +55,14 @@ abstract class BaseProduct extends GxActiveRecord {
 		return array(
 			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+			'p8Sizes' => array(self::MANY_MANY, 'Size', 'p8_size_product(product_id, size_id)'),
 			'p8Tags' => array(self::MANY_MANY, 'Tag', 'p8_tag_product(product_id, tag_id)'),
 		);
 	}
 
 	public function pivotModels() {
 		return array(
+			'p8Sizes' => 'SizeProduct',
 			'p8Tags' => 'TagProduct',
 		);
 	}
@@ -74,6 +77,7 @@ abstract class BaseProduct extends GxActiveRecord {
 			'category_id' => null,
 			'images' => null,
 			'category' => null,
+			'p8Sizes' => Yii::t('app', 'Product Sizes'),
 			'p8Tags' => null,
 		);
 	}

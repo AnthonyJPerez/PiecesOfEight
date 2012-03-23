@@ -92,30 +92,103 @@ class ProductController extends GxController
 	}
 	
 
+
+
+
+	/*
+Array
+(
+    [Product] => Array
+        (
+            [name] => Product Name
+            [price] => 100
+            [description] => Description
+            [category_id] => 1
+        )
+
+    [duplicate_image] => Array
+        (
+            [duplicate_image] => Array
+                (
+                    [0] => Array
+                        (
+                            [Product[image] => 
+                        )
+
+                )
+
+        )
+
+    [Size] => Array
+        (
+            [size] => Array
+                (
+                    [0] => 1
+                    [1] => 5
+                )
+
+        )
+
+    [SizeProduct] => Array
+        (
+            [size_chart] => Array
+                (
+                    [0] => size_chart_XS
+                    [1] => 
+                    [2] => 
+                    [3] => 
+                    [4] => size_chart_XL
+                )
+
+        )
+
+    [Tag] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 2
+                )
+
+        )
+
+    [yt0] => Save
+	*/
 	public function actionCreate() 
 	{
-      	$model = new Product;
+      	$product = new Product;
 
 
 		if (isset($_POST['Product'])) 
 		{
-			$model->setAttributes($_POST['Product']);
-			$model->date_inserted = new CDbExpression('now()');
+			$product->setAttributes($_POST['Product']);
+			$product->date_inserted = new CDbExpression('now()');
 			
 			$relatedData = array(
 		    		'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
 		    	);
 		
-			if ($model->saveWithRelated($relatedData)) 
+			/*if ($product->saveWithRelated($relatedData)) 
 			{
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->id));
-			}
+					$this->redirect(array('view', 'id' => $product->id));
+			}*/
+			
+			echo "<pre>".print_r($_POST, true)."</pre>";
 		}
 		
-		$this->render('create', array( 'model' => $model));
+		$this->render(
+			'create', 
+			array( 
+				'_Product' => $product,
+				'_Image' => new Image,
+				'_Size' => new Size,
+				'_SizeProduct' => new SizeProduct,
+				'_Tag' => new Tag,
+				//'_TagProduct' => new TagProduct
+			)
+		);
 	}
 	
 	
