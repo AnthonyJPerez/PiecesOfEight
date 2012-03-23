@@ -243,8 +243,6 @@
 			
 				$form = $this->beginWidget('CActiveForm', array(
 					'id' => 'add-cart-form',
-					//'action' => $this->createUrl('cart/add'),
-					'enableAjaxValidation'=>true,
 					'focus'=>array($formModel,'size')
 				));
 								
@@ -257,8 +255,9 @@
 				echo "<div class='quantity'>";
 					echo $form->label($formModel, 'quantity');
 					echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
-					echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				echo "</div>";
+				
+				echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				
 				echo "<div class='submit'>";
 					echo CHtml::submitButton('Add to Cart');

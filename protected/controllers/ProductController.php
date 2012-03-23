@@ -24,7 +24,8 @@ class ProductController extends GxController
 			if ($model->validate())
 			{
 				$this->redirect(
-					$this->createUrl('cart/add', 
+					$this->createUrl(
+						'cart/add', 
 						array(
 							'product_id'=>$model->product_id,
 							'size' => $model->size,

@@ -8,12 +8,14 @@ class CartController extends Controller
 
 	
 	public function actionAdd($product_id, $size, $quantity)
-	{
+	{		
 		$products = $this->_getSession();
+		
 		$pid = $product_id.'-'.$size;
-		$products[$pid] = array();
+		$products[$pid] = $this->_getProduct($pid);
 		$products[$pid]['quantity'] += $quantity;
 		$products[$pid]['size'] = $size;
+		
 		$this->_setSession($products);
 		
 		$this->redirect(array('cart/view'));
@@ -22,6 +24,7 @@ class CartController extends Controller
 
 	public function actionEmpty()
 	{
+		unset(Yii::app()->session['products']);
 		Yii::app()->session->clear();
 		Yii::app()->session->destroy();
 		
@@ -50,7 +53,7 @@ class CartController extends Controller
 	}
 
 
-	public function actionUpdate($product_id, $size, $quantity)
+	/*public function actionUpdate($product_id, $size, $quantity)
 	{
 		if ( is_null($product_id) )
 		{
@@ -68,7 +71,7 @@ class CartController extends Controller
 		
 		// @todo: if the quantity is zero, just redirect to the actionRemove
 		$this->redirect(array('cart/view'));
-	}
+	}*/
 	
 	
 	public function actionView()
@@ -79,7 +82,6 @@ class CartController extends Controller
 		$subTotal = 0.00;
 		foreach ($products_session as $pid=>$data)
 		{
-			$products[$pid] = array();
 			$products[$pid]['quantity'] = $data['quantity'];
 			$products[$pid]['product'] = Product::model()->with('images')->findByPk($pid);
 			$products[$pid]['size'] = $data['size'];
@@ -112,9 +114,10 @@ class CartController extends Controller
 	private function _getSession()
 	{
 		// Initialize the products map, if it does not exist.
+		print_r(Yii::app()->session['products']);
 		if ( !isset(Yii::app()->session['products']) )
 		{
-			Yii::app()->session['products'] = array();			
+			Yii::app()->session['products'] = array();	
 		}
 		
 		return Yii::app()->session['products'];
@@ -124,6 +127,20 @@ class CartController extends Controller
 	private function _setSession($data)
 	{
 		Yii::app()->session['products'] = $data;
+	}
+	
+	
+	private function _getProduct($pid)
+	{
+		if ( isset(Yii::app()->session['products'][$pid]) )
+		{
+			return Yii::app()->session['products'][$pid];
+		}
+
+		return array (
+			'quantity' => 0,
+			'size' => 'M'
+		);
 	}
 
 	// Uncomment the following methods and override them if needed
