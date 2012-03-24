@@ -16,4 +16,19 @@ class Product extends BaseProduct
 			)
 		);
 	}
+	
+	
+	public function rules()
+	{
+		return array(
+			array('name, price, category_id, description, size_chart, care_information', 'required'),
+			array('name', 'length', 'max'=>75),
+			array('name,description,size_chart,care_information', 'type', 'type'=>'string'),
+			array('price', 'length', 'max'=>7),
+			array('price', 'type', 'type'=>'float'),
+			array('category_id', 'exist', 'attributeName'=>'id', 'className'=>'Category'),
+			array('date_inserted, description, size_chart, care_information', 'safe'),
+			array('date_inserted, description, size_chart, care_information', 'default', 'setOnEmpty' => true, 'value' => null),
+		);
+	}
 }

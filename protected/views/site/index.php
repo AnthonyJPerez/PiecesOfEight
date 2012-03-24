@@ -53,7 +53,7 @@
 					font-size: 22pt;
 					text-align: center;
 					color: #770000; 
-					/*text-shadow: 1px 2px 2px #fff;*/
+					text-shadow: 3px 3px 2px #bbb;
 				}
 				
 				#col_3_menu .menu_item

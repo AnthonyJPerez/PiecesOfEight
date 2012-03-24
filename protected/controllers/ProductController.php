@@ -11,12 +11,6 @@ class ProductController extends GxController
 	{
 		$model = new AddcartForm;
 		
-		/*if(isset($_POST['ajax']) && $_POST['ajax']==='add-cart-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}*/
-		
 		if (isset($_POST['AddcartForm']))
 		{
 			$model->attributes = $_POST['AddcartForm'];
@@ -93,67 +87,6 @@ class ProductController extends GxController
 	}
 	
 
-
-
-
-	/*
-Array
-(
-    [Product] => Array
-        (
-            [name] => Product Name
-            [price] => 100
-            [description] => Description
-            [category_id] => 1
-        )
-
-    [duplicate_image] => Array
-        (
-            [duplicate_image] => Array
-                (
-                    [0] => Array
-                        (
-                            [Product[image] => 
-                        )
-
-                )
-
-        )
-
-    [Size] => Array
-        (
-            [size] => Array
-                (
-                    [0] => 1
-                    [1] => 5
-                )
-
-        )
-
-    [SizeProduct] => Array
-        (
-            [size_chart] => Array
-                (
-                    [0] => size_chart_XS
-                    [1] => 
-                    [2] => 
-                    [3] => 
-                    [4] => size_chart_XL
-                )
-
-        )
-
-    [Tag] => Array
-        (
-            [name] => Array
-                (
-                    [0] => 2
-                )
-
-        )
-
-    [yt0] => Save
-	*/
 	public function actionCreate() 
 	{
       	$product = new Product();

@@ -90,7 +90,7 @@ $this->pageTitle = "Contact Us - " . Yii::app()->name;
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+If you have business inquiries or other questions, please fill out the following form to contact us. Thanks!
 </p>
 
 <div class="form">
@@ -136,14 +136,14 @@ If you have business inquiries or other questions, please fill out the following
 		<?php $this->widget('CCaptcha'); ?>
 		<?php echo $form->textField($model,'verifyCode'); ?>
 		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
+		<div class="hint">Please enter the letters as they are shown in the image.
 		<br/>Letters are not case-sensitive.</div>
 		<?php echo $form->error($model,'verifyCode'); ?>
 	</div>
 	<?php endif; ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('Send Email'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -14,6 +14,12 @@
 		CClientScript::POS_HEAD
 	);
 	
+	// Include the clearbox script
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/clearbox.js', 
+		CClientScript::POS_HEAD
+	);
+	
 	// Include the slidejs product css file
 	Yii::app()->clientScript->registerCssFile(
 		Yii::app()->request->baseUrl . '/css/slidejs_product.css',
@@ -249,7 +255,12 @@
 				echo "<div class='size'>";
 					echo $form->error($formModel,'size');
 					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
-					echo CHtml::link('Size Chart', $this->createUrl('/'), array());
+					//echo CHtml::link('Size Chart', $this->createUrl('/'), array());
+				
+					echo "<a href='htmlcontent' rel='clearbox[html=".
+						CHtml::encode("<p>".$model->size_chart."</p>")
+						."]'>Size Chart</a>";
+				
 				echo "</div>";
 				
 				echo "<div class='quantity'>";
@@ -282,7 +293,7 @@
 				</div>
 				<div id="nav_returns" class="tab">
 					<p>
-					As with many small costuming businesses all sales are final. Size 
+					As with many small costuming businesses, all sales are final. Size 
 					adjustments can be made to custom orders, item will need to be mailed 
 					back to me with clear indications of the adjustments needed and will 
 					be shipped back out within 3-5 business days.

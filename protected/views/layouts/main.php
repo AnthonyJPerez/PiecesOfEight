@@ -110,7 +110,7 @@
 				<?php echo $content; ?>
 				
 				<div id="social_media_buttons" class="horizontal_menu">
-					<div>Visit us on Facebook and Etsy!</div>
+					<div>Visit us on <a href="https://www.facebook.com/PiecesOf8Costumes" target="_blank">Facebook</a> and <a href="https://www.etsy.com/shop/PiecesOf8Costumes" target="_blank">Etsy</a>!</div>
 					<ul>
 						<li>
 						<?php

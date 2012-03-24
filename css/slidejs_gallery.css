@@ -63,8 +63,9 @@
 	height: 30px;
 	bottom: -25%;
 	z-index: 101;
-	width: 150px;
-	left: 220px;
+	width: 160px;
+	left: 200px;
+	padding-top: .25em;
 }
 	
 	.pagination li
