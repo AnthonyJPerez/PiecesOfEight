@@ -239,13 +239,13 @@ $.fn.dynamicForm = function (plusSelector, minusSelector, options){
 	 */
 	function normalizeSource(elmnt, prefix, index){
 		elmnt.find(formFields).each(function(){
-			var that = $(this), 
+			/*var that = $(this), 
 			nameAttr = that.attr("name"), 
 			origNameAttr = that.attr("origname"),
 			idAttr = that.attr("id"),
 			origId = that.attr("origid");
 
-			/* Normalize field name attributes */
+			// Normalize field name attributes
 			if (!nameAttr) {
 				//TODO: that.attr("name", formPrefix+"form"+index + "["+index+"]");
 			}
@@ -261,16 +261,16 @@ $.fn.dynamicForm = function (plusSelector, minusSelector, options){
 				that.attr("name", prefix+"["+index+"]"+"["+nameAttr+"]");
 			}
 			
-			/* Normalize field id attributes */
+			// Normalize field id attributes 
 			if (idAttr) {
-				/* Normalize attached label */
+				// Normalize attached label 
 				that.attr("origid", idAttr);
 				$("label[for='"+idAttr+"']").each(function(){
 					$(this).attr("origfor", idAttr);
 					$(this).attr("for", idAttr + index);
 				});
 				that.attr("id", idAttr + index);
-			}
+			}*/
 		});
 	}
 	

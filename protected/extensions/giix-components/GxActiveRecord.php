@@ -337,7 +337,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 	 * @return boolean Whether the saving succeeds.
 	 * @see pivotModels
 	 */
-	public function saveWithRelated($relatedData, $runValidation = true, $attributes = null, $options = array()) {
+	/*public function saveWithRelated($relatedData, $runValidation = true, $attributes = null, $options = array()) {
 		// Merge the specified options with the default options.
 		$options = array_merge(
 						// The default options.
@@ -385,7 +385,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 			throw $ex;
 		}
 		return true;
-	}
+	}*/
 
 	/**
 	 * Saves the MANY_MANY relations of this record.
@@ -402,7 +402,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 	 * @throws CDbException If this record is new.
 	 * @throws Exception If this active record has composite PK.
 	 */
-	protected function saveRelated($relatedData, $runValidation = true, $batch = true) {
+	/*protected function saveRelated($relatedData, $runValidation = true, $batch = true) {
 		if (empty($relatedData))
 			return true;
 
@@ -495,7 +495,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 		} // This is the end of the loop "save each related data".
 
 		return true;
-	}
+	}*/
 
 	/**
 	 * Saves multiple active records.

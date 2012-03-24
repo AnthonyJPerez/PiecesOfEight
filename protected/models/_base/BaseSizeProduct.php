@@ -11,7 +11,6 @@
  *
  * @property string $size_id
  * @property string $product_id
- * @property string $size_chart
  *
  */
 abstract class BaseSizeProduct extends GxActiveRecord {
@@ -39,9 +38,7 @@ abstract class BaseSizeProduct extends GxActiveRecord {
 		return array(
 			array('size_id, product_id', 'required'),
 			array('size_id, product_id', 'length', 'max'=>10),
-			array('size_chart', 'safe'),
-			array('size_chart', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('size_id, product_id, size_chart', 'safe', 'on'=>'search'),
+			array('size_id, product_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +56,6 @@ abstract class BaseSizeProduct extends GxActiveRecord {
 		return array(
 			'size_id' => null,
 			'product_id' => null,
-			'size_chart' => Yii::t('app', 'Size Chart'),
 		);
 	}
 
@@ -68,7 +64,6 @@ abstract class BaseSizeProduct extends GxActiveRecord {
 
 		$criteria->compare('size_id', $this->size_id);
 		$criteria->compare('product_id', $this->product_id);
-		$criteria->compare('size_chart', $this->size_chart, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

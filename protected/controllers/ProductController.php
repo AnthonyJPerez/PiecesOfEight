@@ -37,7 +37,7 @@ class ProductController extends GxController
 		}
 		
 		$this->render('view', array(
-			'model' => $this->loadModel($id, 'Product'),
+			'model' => Product::model()->with('p8Sizes')->findByPk($id),
 			'formModel' => $model,
 		));
 	}
@@ -156,28 +156,56 @@ Array
 	*/
 	public function actionCreate() 
 	{
-      	$product = new Product;
-
+      	$product = new Product();
 
 		if (isset($_POST['Product'])) 
 		{
 			$product->setAttributes($_POST['Product']);
 			$product->date_inserted = new CDbExpression('now()');
 			
-			$relatedData = array(
-		    		'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
-		    	);
-		
-			/*if ($product->saveWithRelated($relatedData)) 
+			if ($product->save())
 			{
-				if (Yii::app()->getRequest()->getIsAjaxRequest())
-					Yii::app()->end();
-				else
-					$this->redirect(array('view', 'id' => $product->id));
-			}*/
-			
-			echo "<pre>".print_r($_POST, true)."</pre>";
+				// Upload the images
+				$images_to_upload = array();
+				$images = CUploadedFile::getInstancesByName('images');
+				if ( isset($images) && count($images) > 0 )
+				{
+					$counter = 0;
+					foreach ($images as $i=>$data)
+					{
+						$filename = 'product-'.$product->id .'_'.$counter.'.'.$data->getExtensionName();
+						$counter++;
+						if ($data->saveAs(Yii::getPathOfAlias('webroot').'/images/products/'.$filename))
+						{
+							// Successfully saved to the folder, now add it to be saved in the database
+							$img = new Image();
+							$img->url = $filename;
+							$img->product_id = $product->id;
+							array_push($images_to_upload, $img);
+						}
+					}
+				}
+				
+				
+				$product->p8Tags = $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'];
+				$product->p8Sizes = $_POST['Product']['p8Sizes'] === '' ? null : $_POST['Product']['p8Sizes'];
+				$product->images = $images_to_upload;
+				if ( $product->saveWithRelated(array('images','p8Tags','p8Sizes')) )
+				{					
+					if (Yii::app()->getRequest()->getIsAjaxRequest())
+						Yii::app()->end();
+					else
+						$this->redirect(array('view', 'id' => $product->id));
+				}	
+			}
 		}
+		
+		// TEST
+		//echo "<pre>";
+		//echo print_r($images, true);
+		//echo print_r($relatedData, true);
+		//echo print_r($_POST, true);
+		//echo "</pre>";
 		
 		$this->render(
 			'create', 

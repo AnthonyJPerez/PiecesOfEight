@@ -13,7 +13,7 @@ class ContactForm extends CFormModel
 	public $body;
 	public $verifyCode;
 
-	/**
+	/*
 	 * Declares the validation rules.
 	 */
 	public function rules()

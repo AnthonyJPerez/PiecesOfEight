@@ -114,7 +114,6 @@ class CartController extends Controller
 	private function _getSession()
 	{
 		// Initialize the products map, if it does not exist.
-		print_r(Yii::app()->session['products']);
 		if ( !isset(Yii::app()->session['products']) )
 		{
 			Yii::app()->session['products'] = array();	

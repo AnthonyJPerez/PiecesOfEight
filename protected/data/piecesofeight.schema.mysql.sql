@@ -63,7 +63,9 @@ CREATE TABLE p8_product
 	price					DECIMAL(6,2) NOT NULL,						#-- Price per item
 	date_inserted			DATETIME,						#-- Date product was listed
 	description				TEXT,								#-- Description of the product
-	category_id			INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
+	category_id				INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
+	size_chart				TEXT,						#-- Every product has exactly one size_chart associated with it.
+	care_information			TEXT,						#-- Every product has care information
 	
 	#-- Constraints
 	PRIMARY KEY (id),
@@ -149,7 +151,6 @@ CREATE TABLE p8_size_product
 	product_id			INTEGER UNSIGNED NOT NULL,
 	
 	#-- Attributes
-	size_chart			TEXT,
 	
 	#-- Constraints
 	PRIMARY KEY (size_id, product_id),
@@ -205,13 +206,13 @@ VALUES
 	
 #-- test data:
 	
-INSERT INTO p8_product(name, price, category_id, date_inserted)
+INSERT INTO p8_product(name, price, category_id, date_inserted, description)
 VALUES
-	("Old Shirt", 100.00, 9, NOW()),
-	("New Shirt", 100.00, 9, NOW()),
-	("Long Pants", 150.00, 7, NOW()),
-	("Short Pants", 150.00, 7, NOW()),
-	("Long Cape", 200.00, 3, NOW());
+	("Men's Pirate / Renaissance Coat", 100.00, 9, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
+	("New Shirt", 100.00, 9, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
+	("Long Pants", 150.00, 7, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
+	("Short Pants", 150.00, 7, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
+	("Long Cape", 200.00, 3, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.");
 	
 
 INSERT INTO p8_image(url, product_id)

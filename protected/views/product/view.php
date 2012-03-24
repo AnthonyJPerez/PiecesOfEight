@@ -248,7 +248,7 @@
 								
 				echo "<div class='size'>";
 					echo $form->error($formModel,'size');
-					echo $form->dropDownList($formModel, 'size', CHtml::listData(Size::model()->findAll(), 'size', 'size'), array('empty'=>'Select Size'));
+					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
 					echo CHtml::link('Size Chart', $this->createUrl('/'), array());
 				echo "</div>";
 				
@@ -276,7 +276,9 @@
 				</ul>  
 				
 				<div id="nav_care" class="tab">
-					This information talks about how to care for your item.
+					<?php
+						echo $model->care_information;
+					?>
 				</div>
 				<div id="nav_returns" class="tab">
 					<p>
