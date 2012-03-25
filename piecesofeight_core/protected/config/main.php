@@ -15,7 +15,6 @@ $protectedPath = _joinpath($homePath, 'protected');
 $runtimePath   = _joinpath($homePath, 'runtime');
 
 return array(
-	//'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'basePath' => $protectedPath,
 	'runtimePath' => $runtimePath,
 	
@@ -33,7 +32,7 @@ return array(
 	),
 
 	'modules'=>array(		
-		/*'gii'=>array(
+		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths' => array(
 				'ext.giix-core', // giix generators
@@ -41,7 +40,7 @@ return array(
 			'password'=>'294992',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-		),*/
+		),
 	),
 
 	// application components
@@ -89,15 +88,7 @@ return array(
 			'enableParamLogging' => true,
 			'username' => 'brixican',
 			'password' => 'brixican',
-			'charset' => 'utf8',/*
-			
-			'connectionString' => 'mysql:host=localhost;dbname=sperez8_piecesofeight',
-			'emulatePrepare' => true,
-			'enableProfiling' => true,
-			'enableParamLogging' => true,
-			'username' => 'sperez8_admin',
-			'password' => 'a:JPz042488',
-			'charset' => 'utf8',*/
+			'charset' => 'utf8',
 		),
 		
 		'errorHandler'=>array(
@@ -113,9 +104,9 @@ return array(
 				),
 				// uncomment the following to show log messages on web pages
 				
-				/*array(
+				array(
 					'class'=>'CWebLogRoute',
-				),*/
+				),
 				
 			),
 		),
@@ -125,7 +116,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		//'adminEmail'=>'holy.crap.its.aj@gmail.com',
-		'adminEmail'=>'piecesof8costumes@comcast.net',
+		'adminEmail'=>'holy.crap.its.aj@gmail.com',
+		//'adminEmail'=>'piecesof8costumes@comcast.net',
 	),
 );
