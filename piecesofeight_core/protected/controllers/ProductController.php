@@ -97,7 +97,8 @@ class ProductController extends GxController
       	{
       		$product = Product::model()->with('p8Sizes', 'images', 'p8Tags')->findByPk($id);
       	}
-
+      	
+      	
 		if (isset($_POST['Product'])) 
 		{
 			$product->setAttributes($_POST['Product']);
@@ -115,12 +116,13 @@ class ProductController extends GxController
 						// Create image record in database
 						$img = new Image();
 						$img->product_id = $product->id; 	// Add a reference to this image for this product.
+						$img->url = "empty_filename";
 						$img->save();
 						
 						// Save file to the disk
 						$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
 						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
-						if ($data->saveAs($filepath))
+						if ($img->id != null && $data->saveAs($filepath))
 						{
 							// Image successfully uploaded and saved in the /images/product-images/ directory
 							
@@ -136,7 +138,7 @@ class ProductController extends GxController
 							// Add this img to a list of images to be added to the product
 							// This list will auto-save any changes, or create any new, Image records in the database:
 							$img->url = $filename;
-							array_push($images_to_upload, $img);
+							$img->save();
 						}
 					}
 				}
@@ -145,13 +147,7 @@ class ProductController extends GxController
 				$product->p8Tags = $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'];
 				$product->p8Sizes = $_POST['Product']['p8Sizes'] === '' ? null : $_POST['Product']['p8Sizes'];
 				
-				
-				$old_images = (isset($product->images) && count($product->images) > 0) ? $product->images : array();
-				$product->images = array_merge($old_images, $images_to_upload);
-				
-				//$product->images = $images_to_upload;
-				
-				if ( $product->saveWithRelated(array('images','p8Tags','p8Sizes')) )
+				if ( $product->saveWithRelated(array('p8Tags','p8Sizes')) )
 				{					
 					if (Yii::app()->getRequest()->getIsAjaxRequest())
 						Yii::app()->end();

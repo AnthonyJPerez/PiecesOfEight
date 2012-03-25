@@ -314,8 +314,8 @@
 				</div>
 				<div id="nav_shipping" class="tab">
 					<p>
-					Shipping and handling fees $8.95 per item within the US. $12.95 for 
-					2 or more items shipped together with the US. Items will be shipped 
+					Shipping and handling fees are $8.95 within the US or $12.95 for 
+					2 or more items shipped together. Items will be shipped 
 					UPS or USPS standard ground with tracking. 3-10 days from date shipped. 
 					Rush delivery available for an additional fee depending on the destination.
 					</p>

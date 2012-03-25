@@ -2,7 +2,7 @@
 
 // remove this when not under construction
 $PO8_UNDER_CONSTRUCTION = false;
-$P08_LIVE = true;
+$P08_LIVE = false;
 
 
 

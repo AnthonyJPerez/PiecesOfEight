@@ -3,6 +3,14 @@
 
 
 <?php
+
+// Include the clearbox script
+Yii::app()->clientScript->registerScriptFile( 
+	Yii::app()->request->baseUrl . '/js/clearbox.js', 
+	CClientScript::POS_HEAD
+);
+	
+	
 if (!empty($products))
 {
 
@@ -49,17 +57,42 @@ if (!empty($products))
 			font-weight: bold;
 		}
 		
+		.shipping
+		{
+		
+		}
+		
+		.additional_buttons
+		{
+			float: left;
+			display: table;
+			padding: 0;
+			padding-top: 1em;
+			margin: 0;
+			margin-left: 1em;
+		}
+		
+			.additional_buttons li
+			{
+				padding-right: 2em;
+				display: table-cell;
+				vertical-align: top;
+			}
+			
 		.checkout_buttons
 		{
 			float: right;
 			display: table;
+			padding: 0;
+			padding-top: 1em;
+			margin: 0;
 		}
 		
 			.checkout_buttons li
 			{
 				padding-left: 2em;
 				display: table-cell;
-				vertical-align: middle;
+				vertical-align: top;
 			}
 		',
 		'screen'
@@ -70,8 +103,8 @@ if (!empty($products))
 		<tr class="heading">
 			<th>Product Description</th>
 			<th width="10%">Size</th>
-			<th width='10%'>Price</th>
 			<th width='10%'>Quantity</th>
+			<th width='10%'>Price</th>
 		</tr>
 		
 		<?php
@@ -81,7 +114,12 @@ if (!empty($products))
 			echo "<tr align='center' valign='top'>";
 				
 				echo "<td class='cart_product' align='left'>";
-					echo CHtml::image(Yii::app()->request->baseUrl . '/images/product-images/' . $product->images[0]->url, '', array('width' => 75, 'align'=>'left'));
+					
+					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $product->images[0]->url;
+					echo "<a href='".$imgUrl."' rel='clearbox'>";
+					echo CHtml::image($imgUrl, '', array('width' => 75, 'align'=>'left'));
+					echo "</a>";
+					
 					echo "<div class='name'>".CHtml::link($product->name, $this->createUrl('product/view', array('id'=>$product->id)))."</div>";
 				
 					// Remove item from cart button
@@ -104,16 +142,22 @@ if (!empty($products))
 				
 				echo "<td class='size'>". $p['size'] ."</td>";
 				
-				echo "<td class='price'>$". $product->price . "</td>";
-				
 				echo "<td class='quantity'>". $p['quantity'] . "</td>";
+				
+				echo "<td class='price'>$". $product->price . "</td>";
 			echo "</tr>";
 		}
 		
-		echo "<tr><td class='subtotal' colspan='3' align='right'><span>Subtotal:</span> $". $subTotal ."</td></tr>";
+		echo "<tr><td class='shipping' colspan='4' align='right'><span>Shipping & Handling:</span> $". $shipping ."</td></tr>";
+		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal:</span> $". ($subTotal + $shipping) ."</td></tr>";
 		?>
 	
 	</table>
+	
+	
+	<ul class='additional_buttons'>
+		<li><?php echo CHtml::link('Continue Shopping', $this->createUrl('product/list')); ?></li>
+	</ul>
 	
 	
 	<ul class='checkout_buttons'>
@@ -127,6 +171,7 @@ if (!empty($products))
 			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>" />
 			<input type="hidden" name="image_url" value="<?php echo Yii::app()->request->hostInfo . Yii::app()->baseUrl . '/images/logo3.png'; ?>" />
 			<input type="hidden" name="rm" value="1" />
+			<input type="hidden" name="handling_cart" value="<?php echo $shipping; ?>" />
 			
 			<?php
 				$count = 1;

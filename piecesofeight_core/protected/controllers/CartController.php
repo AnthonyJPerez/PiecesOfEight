@@ -78,6 +78,7 @@ class CartController extends Controller
 		
 		$products = array();
 		$subTotal = 0.00;
+		$totalQuantity = 0;
 		foreach ($products_session as $pid=>$data)
 		{
 			$products[$pid]['quantity'] = $data['quantity'];
@@ -86,12 +87,16 @@ class CartController extends Controller
 			
 			// Calculate the running subtotal
 			$subTotal += $products[$pid]['product']->price * $data['quantity'];
+			$totalQuantity += $data['quantity'];
 		}
+		
+		$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
 		
 		$this->render(
 			'view',
 			array(
 				'products' => $products,
+				'shipping' => number_format($shipping, 2),
 				'subTotal' => number_format($subTotal,2), // converts $x to $x.00
 				'AddcartModel' => new AddcartForm,
 			)
