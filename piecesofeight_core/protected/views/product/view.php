@@ -209,14 +209,16 @@
 			<?php
 				foreach ($model->images as $img)
 				{
+					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $img->url;
 					$imgTag = CHtml::image(
-						Yii::app()->request->baseUrl . '/images/product-images/' . $img->url,
+						$imgUrl,
 						$model->name,
 						array(
 							'width' => 300
 						)
 					);
-					echo CHtml::link($imgTag, '#', array());
+					//echo CHtml::link($imgTag, '#', array());
+					echo "<a href='".$imgUrl."' rel='clearbox[gallery=product_view]'>".$imgTag."</a>";
 				}
 			?>
 			</div>

@@ -104,8 +104,21 @@
 					text-align: left;
 					width: 150px;
 				}
+				
+			#create-form .previously_uploaded img
+			{
+				width: 75px;
+				padding-left: 1em;
+			}
 		',
 		'screen'
+	);
+	
+	
+	// Include the clearbox script
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/clearbox.js', 
+		CClientScript::POS_HEAD
 	);
 ?>
 
@@ -156,17 +169,32 @@
 		</div><!-- row -->
 
 
+		<!-- Images -->
 		<div class="row images_row">
 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('images')); ?></label>
 			<?php
-			// Images
-			$this->widget('CMultiFileUpload', array(
-			    'name' => 'images',
-			    'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
-			    'duplicate' => 'Duplicate file!', // useful, i think
-			    'denied' => 'Invalid file type', // useful, i think
-			));
+				// Image Uploader
+				$this->widget('CMultiFileUpload', array(
+				    'name' => 'images',
+				    'accept' => 'jpeg|jpg|gif|png', // useful for verifying files
+				    'duplicate' => 'Duplicate file!', // useful, i think
+				    'denied' => 'Invalid file type', // useful, i think
+				));
 			?>
+		</div>
+		
+		<div class="row previously_uploaded">
+			<label>Previously Uploaded Images:</label>
+		<?php
+			// Show previously uploaded images
+			foreach ($_Product->images as $image)
+			{
+				$imgName = Yii::app()->baseUrl.'/images/product-images/'.$image->url;
+				echo "<a href='".$imgName."' rel='clearbox[gallery=uploaded_gallery]'>";
+				echo "<img src='".$imgName."' />";
+				echo "</a>";
+			}
+		?>
 		</div>
 		
 		
@@ -186,6 +214,7 @@
 		</div>
 		
 		
+		<!-- Size Chart -->
 		<div class="row">
 			<?php echo $form->labelEx($_Product,'size_chart'); ?>
 			<div>
