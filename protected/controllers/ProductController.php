@@ -87,9 +87,16 @@ class ProductController extends GxController
 	}
 	
 
-	public function actionCreate() 
+	public function actionCreate($id=null) 
 	{
-      	$product = new Product();
+		if ($id == null)
+		{
+      		$product = new Product();
+      	} 
+      	else
+      	{
+      		$product = Product::model()->with('p8Sizes', 'images', 'p8Tags')->findByPk($id);
+      	}
 
 		if (isset($_POST['Product'])) 
 		{
@@ -122,7 +129,13 @@ class ProductController extends GxController
 				
 				$product->p8Tags = $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'];
 				$product->p8Sizes = $_POST['Product']['p8Sizes'] === '' ? null : $_POST['Product']['p8Sizes'];
-				$product->images = $images_to_upload;
+				
+				
+				$old_images = (isset($product->images) && count($product->images) > 0) ? $product->images : array();
+				$product->images = array_merge($old_images, $images_to_upload);
+				
+				//$product->images = $images_to_upload;
+				
 				if ( $product->saveWithRelated(array('images','p8Tags','p8Sizes')) )
 				{					
 					if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -132,13 +145,6 @@ class ProductController extends GxController
 				}	
 			}
 		}
-		
-		// TEST
-		//echo "<pre>";
-		//echo print_r($images, true);
-		//echo print_r($relatedData, true);
-		//echo print_r($_POST, true);
-		//echo "</pre>";
 		
 		$this->render(
 			'create', 
@@ -163,26 +169,11 @@ class ProductController extends GxController
 	
 	
 
-    public function actionUpdate($id) {
-        $model = $this->loadModel($id, 'Product');
-
-
-        if (isset($_POST['Product'])) {
-            $model->setAttributes($_POST['Product']);
-            $relatedData = array(
-                'p8Tags' => $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'],
-                );
-
-            if ($model->saveWithRelated($relatedData)) {
-                $this->redirect(array('view', 'id' => $model->id));
-            }
-        }
-
-        $this->render('update', array(
-                'model' => $model,
-                ));
-    }
-
+    	public function actionUpdate($id) 
+	{
+      	$this->actionCreate($id);
+	}
+/*
     public function actionDelete($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
             $this->loadModel($id, 'Product')->delete();
@@ -191,5 +182,5 @@ class ProductController extends GxController
                 $this->redirect(array('admin'));
         } else
             throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
-    }
+    }*/
 }

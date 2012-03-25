@@ -12,6 +12,7 @@ html
 	width: 100%;
 	height: 100%;
 	background-color: #000;
+	background: url('../images/bg_wood.jpg') fixed top center;
 }
 
 body
@@ -19,8 +20,7 @@ body
 	margin: 0 auto;
 	padding: 0;
 	color: #555;
-	font: normal 11pt Calibri, Tahoma, Helvetica, Arial, Sans-Serif;
-	background: url('../images/bg_wood.jpg') repeat top center;
+	font: normal 11pt Tahoma, Helvetica, Arial, Sans-Serif;
 	
 	width: 100%;
 	height: 100%;
@@ -68,13 +68,13 @@ a:hover
 	#header a:link, #header a:visited
 	{
 		color: #cdbd7b;
-		font-weight: bold;
+		//font-weight: bold;
 		text-shadow: 3px 3px 3px #111;
 	}
 	
 	#header a:hover
 	{
-		color: #f0e4b1;
+		color: #f0e4b1;;
 	}
 
 	#logo
@@ -89,7 +89,7 @@ a:hover
 	#top_right_nav
 	{	
 		position: absolute;
-		left: 61.5%;
+		left: 63%;
 		top: 6.75em;	
 	}
 	
@@ -120,7 +120,7 @@ a:hover
 	#top_left_nav
 	{	
 		position: absolute;
-		left: 6%;
+		left: 7%;
 		top: 6.75em;
 	}
 	
@@ -254,15 +254,34 @@ a:hover
 	padding: 1em;
 	text-align: center;
 	position: relative;
-	margin: auto auto;
+	margin: 0 auto;
 	width: 100%;	
 	height: 100px;
+	
+	color: #888;
+	
+	font-size: 10.5pt;
 }
 
 	#footer a:link, #footer a:visited
 	{
+		color: #555;
 		text-shadow: 2px 2px 2px #000;
 	}
+	
+	#footer a:hover
+	{
+		color: #ddd;
+	}
+	
+	#footer .copyright
+	{
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+		padding: 1.5em;
+	}
+	
 
 
 #social_media_buttons
@@ -287,8 +306,8 @@ a:hover
 
 	#social_media_buttons a:link, #social_media_buttons a:hover
 	{
-		font-weight: bold;
-		color: #222;
+		//font-weight: bold;
+		color: #111;
 	}
 	
 	#social_media_buttons a:hover

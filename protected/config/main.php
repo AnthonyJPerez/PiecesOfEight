@@ -44,7 +44,7 @@ return array(
 		),
 		// uncomment the following to enable URLs in path-format
 		
-		'urlManager'=>array(
+		/*'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName' => false,
 			'rules'=>array(
@@ -62,16 +62,24 @@ return array(
 				
 				
 			),
-		),
+		),*/
 		
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',
+			/*'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',
 			'emulatePrepare' => true,
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
 			'username' => 'brixican',
 			'password' => 'brixican',
+			'charset' => 'utf8',*/
+			
+			'connectionString' => 'mysql:host=localhost;dbname=sperez8_piecesofeight',
+			'emulatePrepare' => true,
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'username' => 'sperez8_admin',
+			'password' => 'a:JPz042488',
 			'charset' => 'utf8',
 		),
 		
@@ -100,7 +108,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'holy.crap.its.aj@gmail.com',
-		//'adminEmail'=>'piecesof8costumes@comcast.net',
+		//'adminEmail'=>'holy.crap.its.aj@gmail.com',
+		'adminEmail'=>'piecesof8costumes@comcast.net',
 	),
 );

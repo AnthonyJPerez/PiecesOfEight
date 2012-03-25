@@ -24,9 +24,7 @@ class CartController extends Controller
 
 	public function actionEmpty()
 	{
-		unset(Yii::app()->session['products']);
-		Yii::app()->session->clear();
-		Yii::app()->session->destroy();
+		$this->_emptyCart();
 		
 		$this->redirect(array('cart/view'));
 	}
@@ -104,6 +102,8 @@ class CartController extends Controller
 	
 	public function actionCheckout()
 	{
+		$this->_emptyCart();
+	
 		$this->render(
 			'checkout'
 		);
@@ -140,6 +140,14 @@ class CartController extends Controller
 			'quantity' => 0,
 			'size' => 'M'
 		);
+	}
+	
+	
+	private function _emptyCart()
+	{
+		unset(Yii::app()->session['products']);
+		Yii::app()->session->clear();
+		Yii::app()->session->destroy();
 	}
 
 	// Uncomment the following methods and override them if needed

@@ -83,7 +83,7 @@
 				{
 					font-size: 16pt;
 					margin-bottom: 10px;
-					text-align: center;
+					text-align: left;
 				}
 	
 				.product_price
@@ -96,6 +96,11 @@
 				{
 				
 				}
+				
+			#product_container input
+			{
+				margin-top: 1em;
+			}
 				
 		.tabs_container
 		{
@@ -153,6 +158,13 @@
 				border-right: 1px solid #999;
 				border-bottom: 1px solid #999;
 			}
+			
+			.size_chart
+			{
+				margin-left: 1em;
+			}
+			
+			
 			
 		',
 		'screen'
@@ -255,9 +267,8 @@
 				echo "<div class='size'>";
 					echo $form->error($formModel,'size');
 					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
-					//echo CHtml::link('Size Chart', $this->createUrl('/'), array());
 				
-					echo "<a href='htmlcontent' rel='clearbox[html=".
+					echo "<a class='size_chart' href='htmlcontent' rel='clearbox[html=".
 						CHtml::encode("<p>".$model->size_chart."</p>")
 						."]'>Size Chart</a>";
 				

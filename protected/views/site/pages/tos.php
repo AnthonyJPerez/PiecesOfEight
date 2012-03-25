@@ -101,7 +101,7 @@
 
 
 
-<h2>
+<h2 id="Privacy" name="Privacy">
 	Privacy Policy
 </h2>
 

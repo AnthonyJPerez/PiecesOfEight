@@ -119,10 +119,11 @@ if (!empty($products))
 	<ul class='checkout_buttons'>
 		<li><a class='empty_cart' href="<?php echo $this->createUrl('cart/empty'); ?>">Empty Cart</a></li>
 
-		<li><form class='checkout' action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
+		<li><form class='checkout' action="https://www.paypal.com/cgi-bin/webscr" method="POST">
 			<input type="hidden" name="cmd" value="_cart" />
 			<input type="hidden" name="upload" value="1" />
-			<input type="hidden" name="business" value="po8_1330738240_biz@gmail.com" />
+			<!--input type="hidden" name="business" value="po8_1330738240_biz@gmail.com" /-->
+			<input type="hidden" name="business" value="<?php echo Yii::app()->params['adminEmail']; ?>" />
 			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>" />
 			<input type="hidden" name="image_url" value="<?php echo Yii::app()->request->hostInfo . Yii::app()->baseUrl . '/images/logo3.png'; ?>" />
 			<input type="hidden" name="rm" value="1" />

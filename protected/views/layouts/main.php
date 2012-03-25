@@ -136,11 +136,17 @@
 			</div>
 		
 		
+		
+		
 			<div id="footer">
-				Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.<br/>
-				All Rights Reserved.<br/>
-				<?php echo Yii::powered(); ?>
-			</div>
+					<div>
+						<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
+						<br />
+						<span>All Rights Reserved.</span>
+					</div>
+					<div><?php echo Yii::powered(); ?></div>
+					<div>	<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> </div>
+				</div>
 		</div>
 	</body>
 </html>
