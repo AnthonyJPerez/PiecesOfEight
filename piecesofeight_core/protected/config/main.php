@@ -76,6 +76,11 @@ return array(
 			),
 		),*/
 		
+		'YImage' => array(
+			'class' => 'application.extensions.YImage.CImageComponent',
+			'driver' => 'GD',
+		),
+		
 		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',

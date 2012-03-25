@@ -110,17 +110,32 @@ class ProductController extends GxController
 				$images = CUploadedFile::getInstancesByName('images');
 				if ( isset($images) && count($images) > 0 )
 				{
-					$counter = 0;
 					foreach ($images as $i=>$data)
 					{
-						$filename = 'product-'.$product->id .'_'.$counter.'.'.$data->getExtensionName();
-						$counter++;
-						if ($data->saveAs(realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename))
+						// Create image record in database
+						$img = new Image();
+						$img->product_id = $product->id; 	// Add a reference to this image for this product.
+						$img->save();
+						
+						// Save file to the disk
+						$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
+						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
+						if ($data->saveAs($filepath))
 						{
-							// Successfully saved to the folder, now add it to be saved in the database
-							$img = new Image();
+							// Image successfully uploaded and saved in the /images/product-images/ directory
+							
+							// Resize the image
+							$img_edit = Yii::app()->YImage->load($filepath);
+							$img_edit->resize(600, 800);
+							$img_edit->save();
+							
+							// Make a thumbnail version as well
+							//$img_edit->resize(.., ..);
+							//$img_edit->save();
+							
+							// Add this img to a list of images to be added to the product
+							// This list will auto-save any changes, or create any new, Image records in the database:
 							$img->url = $filename;
-							$img->product_id = $product->id;
 							array_push($images_to_upload, $img);
 						}
 					}
