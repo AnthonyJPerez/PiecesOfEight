@@ -32,7 +32,7 @@ return array(
 	),
 
 	'modules'=>array(		
-		'gii'=>array(
+		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths' => array(
 				'ext.giix-core', // giix generators
@@ -40,7 +40,7 @@ return array(
 			'password'=>'294992',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-		),
+		),*/
 	),
 
 	// application components
@@ -82,12 +82,13 @@ return array(
 		
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',
+			
+			'connectionString' => 'mysql:host=localhost;dbname=sperez8_piecesofeight',
 			'emulatePrepare' => true,
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
-			'username' => 'brixican',
-			'password' => 'brixican',
+			'username' => 'sperez8_admin',
+			'password' => 'a:JPz042488',
 			'charset' => 'utf8',
 		),
 		
@@ -104,9 +105,9 @@ return array(
 				),
 				// uncomment the following to show log messages on web pages
 				
-				array(
+				/*array(
 					'class'=>'CWebLogRoute',
-				),
+				),*/
 				
 			),
 		),
@@ -116,7 +117,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'holy.crap.its.aj@gmail.com',
-		//'adminEmail'=>'piecesof8costumes@comcast.net',
+		//'adminEmail'=>'holy.crap.its.aj@gmail.com',
+		'adminEmail'=>'piecesof8costumes@comcast.net',
 	),
 );
