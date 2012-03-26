@@ -144,6 +144,37 @@ class ProductController extends GxController
 				}
 				
 				
+				//
+				// Delete any unchecked images:
+				//
+				
+				// grab list of current images IDs
+				$old_images = array();
+				foreach ($product->images as $old_img)
+				{
+					$old_images[$old_img->id] = $old_img;
+				}
+				
+				// grab list of images left checked
+				$new_images = array();
+				if (isset($_POST['Product']['images']))
+				{
+					foreach ($_POST['Product']['images'] as $new_img_id)
+					{
+						$new_images[$new_img_id] = true;
+					}
+				}
+				
+				// Delete images that are unchecked
+				foreach ($old_images as $old_img_id=>$old_image)
+				{
+					if (!array_key_exists($old_img_id, $new_images))
+					{
+						Image::model()->deleteByPk($old_img_id);
+					}
+				}
+								
+				
 				$product->p8Tags = $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'];
 				$product->p8Sizes = $_POST['Product']['p8Sizes'] === '' ? null : $_POST['Product']['p8Sizes'];
 				

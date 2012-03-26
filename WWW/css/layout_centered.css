@@ -26,6 +26,10 @@ body
 	height: 100%;
 }
 
+img a {
+	border: none;
+}
+
 .container {
 	width:960px;
 	margin:0 auto;
@@ -79,6 +83,10 @@ a:hover
 
 	#logo
 	{
+	-webkit-box-sizing: none;
+	   -moz-box-sizing: none;
+	        box-sizing: none;
+	        
 		position: absolute;
 		left: 50%;
 		top: 27%;
@@ -156,6 +164,8 @@ a:hover
 	position: relative;
 	overflow: hidden;
 	padding: 1em;
+	
+	
 }
 	#content a:link, #content a:visited
 	{

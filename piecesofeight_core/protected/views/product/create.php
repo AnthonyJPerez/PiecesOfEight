@@ -104,14 +104,71 @@
 					text-align: left;
 					width: 150px;
 				}
-				
-			#create-form .previously_uploaded img
+		
+			
+			.previously_uploaded div
 			{
-				width: 75px;
-				padding-left: 1em;
+				margin: 0 auto;
+				padding: 1em;
+				text-align: right;
 			}
+			
+			
+			#create-form .uploaded_item
+			{
+				position: relative;
+				margin-right: 10px;
+				padding: 0;
+				
+			}
+			
+				#create-form .uploaded_item img
+				{
+					width: 75px;
+					padding-left: 1em;
+					
+					border: 5px solid green;
+					border-radius: 4px;
+				}
+				
+				#create-form .uploaded_item a, #create-form .uploaded_item a img
+				{
+					margin: 0;
+					padding: 0;
+				}
+			
+				#create-form .uploaded_item input
+				{
+					position: absolute;
+					left: -3px;
+				}
+			
+			
 		',
 		'screen'
+	);
+	
+	
+	// Include the jquery library
+	Yii::app()->clientScript->registerCoreScript('jquery');
+	
+	
+	Yii::app()->clientScript->registerScript(
+		'uploaded-item-event',
+		'
+			$(".uploaded_item_input").change(function() 
+			{
+				if (this.checked)
+				{
+					$(this).parent().find("img").css("border-color", "green");
+				}
+				else
+				{
+					$(this).parent().find("img").css("border-color", "red");
+				}
+			});
+		',
+		CClientScript::POS_READY
 	);
 	
 	
@@ -172,6 +229,8 @@
 		<!-- Images -->
 		<div class="row images_row">
 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('images')); ?></label>
+			<div>
+				
 			<?php
 				// Image Uploader
 				$this->widget('CMultiFileUpload', array(
@@ -181,20 +240,37 @@
 				    'denied' => 'Invalid file type', // useful, i think
 				));
 			?>
+			</div>
 		</div>
 		
 		<div class="row previously_uploaded">
-			<label>Previously Uploaded Images:</label>
-		<?php
-			// Show previously uploaded images
-			foreach ($_Product->images as $image)
-			{
-				$imgName = Yii::app()->baseUrl.'/images/product-images/'.$image->url;
-				echo "<a href='".$imgName."' rel='clearbox[gallery=uploaded_gallery]'>";
-				echo "<img src='".$imgName."' />";
-				echo "</a>";
-			}
-		?>
+			<label>Previously Uploaded</label>
+			
+				<span class="note">
+					Uncheck an image to delete it:
+				</span>
+				<div style='width: 100%;'>
+				<?php
+					// Show previously uploaded images
+					echo "<input id='ytProduct_images' type='hidden' value name='Product[images]'>";
+					$count = 0;
+					foreach ($_Product->images as $image)
+					{
+						$imgName = Yii::app()->baseUrl.'/images/product-images/'.$image->url;
+						echo "<span class='uploaded_item'>";
+							echo "<a href='".$imgName."' rel='clearbox[gallery=uploaded_gallery]'>";
+							echo "<img src='".$imgName."' />";
+							echo "</a>";
+							
+							// Insert a checkbox!
+							echo "<input class='uploaded_item_input' id='Product_images_".$count."' value='".$image->id."' checked='checked' type='checkbox' name='Product[images][]'>";
+							$count++;
+						echo "</span>";
+					}
+					
+					//echo $form->checkBoxList($_Product, 'images', GxHtml::encodeEx(GxHtml::listDataEx($_Product->images), false, true)); 
+				?>
+				</div>
 		</div>
 		
 		
