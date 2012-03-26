@@ -98,7 +98,6 @@ class ProductController extends GxController
       		$product = Product::model()->with('p8Sizes', 'images', 'p8Tags')->findByPk($id);
       	}
       	
-      	
 		if (isset($_POST['Product'])) 
 		{
 			$product->setAttributes($_POST['Product']);
@@ -157,19 +156,20 @@ class ProductController extends GxController
 				
 				// grab list of images left checked
 				$new_images = array();
-				if (isset($_POST['Product']['images']))
+				if (isset($_POST['Product']['images']) && is_array($_POST['Product']['images']))
 				{
 					foreach ($_POST['Product']['images'] as $new_img_id)
 					{
 						$new_images[$new_img_id] = true;
 					}
 				}
-				
+
 				// Delete images that are unchecked
 				foreach ($old_images as $old_img_id=>$old_image)
 				{
 					if (!array_key_exists($old_img_id, $new_images))
 					{
+						echo "deleting: " . $old_img_id;
 						Image::model()->deleteByPk($old_img_id);
 					}
 				}
