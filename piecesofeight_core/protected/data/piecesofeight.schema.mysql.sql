@@ -59,6 +59,7 @@ CREATE TABLE p8_product
 	
 	#-- Attributes
 	name					VARCHAR(255) NOT NULL,						#-- Product name
+	
 	#-- quantity				INTEGER UNSIGNED NOT NULL DEFAULT 0,			#-- Quantity in stock -- Removed for now, not really needed!
 	price					DECIMAL(6,2) NOT NULL,						#-- Price per item
 	date_inserted			DATETIME,						#-- Date product was listed
@@ -83,13 +84,14 @@ CREATE TABLE p8_image
 (
 	#-- Key
 	id						INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	product_id				INTEGER UNSIGNED NOT NULL, 		#-- Image belongs to Product
+
 	
 	#-- Attributes
 	url						VARCHAR(255) NOT NULL default "product-null_1.jpg",
-	product_id				INTEGER UNSIGNED NOT NULL, #-- Image belongs to Product
 	
 	#-- Constraints
-	PRIMARY KEY (id),
+	PRIMARY KEY (id, product_id),
 	#UNIQUE KEY uk_image_url(url),
 	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
