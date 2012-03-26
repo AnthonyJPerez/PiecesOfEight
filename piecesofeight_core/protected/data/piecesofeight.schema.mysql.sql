@@ -91,7 +91,7 @@ CREATE TABLE p8_image
 	url						VARCHAR(255) NOT NULL default "product-null_1.jpg",
 	
 	#-- Constraints
-	PRIMARY KEY (id, product_id),
+	PRIMARY KEY (id),
 	#UNIQUE KEY uk_image_url(url),
 	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

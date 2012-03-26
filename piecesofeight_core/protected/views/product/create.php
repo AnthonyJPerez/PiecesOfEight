@@ -18,7 +18,7 @@
 			margin: .75em;
 			min-height:2em;
 		}
-			#create-form .row div
+			#create-form .row .main_container
 			{
 				width: 70%;
 				display: inline-block;
@@ -104,44 +104,50 @@
 					text-align: left;
 					width: 150px;
 				}
-		
 			
-			.previously_uploaded div
+			.previously_uploaded
 			{
-				margin: 0 auto;
-				padding: 1em;
-				text-align: right;
+				position: relative;
 			}
 			
-			
+			.previously_uploaded_container
+			{
+				width: 75%;
+				float: right;
+				padding: 1em;
+			}
+				
 			#create-form .uploaded_item
 			{
 				position: relative;
 				margin-right: 10px;
+				margin-bottom: 10px;
 				padding: 0;
-				
+				display: inline-block;
 			}
 			
-				#create-form .uploaded_item img
-				{
-					width: 75px;
-					padding-left: 1em;
-					
-					border: 5px solid green;
-					border-radius: 4px;
-				}
-				
 				#create-form .uploaded_item a, #create-form .uploaded_item a img
 				{
 					margin: 0;
 					padding: 0;
 				}
 			
-				#create-form .uploaded_item input
+				#create-form .uploaded_item a img
 				{
-					position: absolute;
-					left: -3px;
+					width: 75px;
+					border: 5px solid green;
+					border-radius: 4px;
 				}
+			
+				#create-form .uploaded_item_input
+				{
+					width: 20px !important;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+				
+				
 			
 			
 		',
@@ -229,7 +235,7 @@
 		<!-- Images -->
 		<div class="row images_row">
 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('images')); ?></label>
-			<div>
+			<div class="main_container">
 				
 			<?php
 				// Image Uploader
@@ -245,11 +251,10 @@
 		
 		<div class="row previously_uploaded">
 			<label>Previously Uploaded</label>
-			
 				<span class="note">
 					Uncheck an image to delete it:
 				</span>
-				<div style='width: 100%;'>
+				<div class="previously_uploaded_container">
 				<?php
 					// Show previously uploaded images
 					echo "<input id='ytProduct_images' type='hidden' value name='Product[images]'>";
@@ -257,15 +262,15 @@
 					foreach ($_Product->images as $image)
 					{
 						$imgName = Yii::app()->baseUrl.'/images/product-images/'.$image->url;
-						echo "<span class='uploaded_item'>";
+						echo "<div class='uploaded_item'>";
 							echo "<a href='".$imgName."' rel='clearbox[gallery=uploaded_gallery]'>";
-							echo "<img src='".$imgName."' />";
+								echo "<img src='".$imgName."' />";
 							echo "</a>";
 							
 							// Insert a checkbox!
 							echo "<input class='uploaded_item_input' id='Product_images_".$count."' value='".$image->id."' checked='checked' type='checkbox' name='Product[images][]'>";
 							$count++;
-						echo "</span>";
+						echo "</div>";
 					}
 					
 					//echo $form->checkBoxList($_Product, 'images', GxHtml::encodeEx(GxHtml::listDataEx($_Product->images), false, true)); 
@@ -277,7 +282,7 @@
 		<!-- Sizes -->
  		<div class="row">
  			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Sizes')); ?></label>
- 			<div>
+ 			<div class="main_container">
 				<span class="note">
 					Check the sizes supported by this product:
 				</span>
@@ -293,7 +298,7 @@
 		<!-- Size Chart -->
 		<div class="row">
 			<?php echo $form->labelEx($_Product,'size_chart'); ?>
-			<div>
+			<div class="main_container">
 				<span class="note">
  					Enter the size chart specific to this product:
  				</span>
@@ -307,7 +312,7 @@
 		<!-- Tags -->
 		<div class="row">
 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Tags')); ?></label>
-			<div>
+			<div class="main_container">
 				<span class="note">
 					Check any appropriate tags:
 				</span>

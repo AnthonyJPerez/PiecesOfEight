@@ -7507,3 +7507,502 @@ Stack trace:
 #19 {main}
 REQUEST_URI=/yii_1.1.10/PeicesOfEight/index.php?r=cart/view
 ---
+2012/03/26 13:25:25 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "C:\xampp\htdocs\yii\PeicesOfEight\WWW\assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in C:\xampp\htdocs\yii\framework\web\CAssetManager.php:116
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CAssetManager.php(101): CAssetManager->setBasePath('C:\xampp\htdocs...')
+#1 C:\xampp\htdocs\yii\framework\web\CAssetManager.php(219): CAssetManager->getBasePath()
+#2 C:\xampp\htdocs\yii\framework\web\CClientScript.php(449): CAssetManager->publish('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CClientScript.php(486): CClientScript->getCoreScriptUrl()
+#4 C:\xampp\htdocs\yii\framework\web\CClientScript.php(302): CClientScript->getPackageBaseUrl('jquery')
+#5 C:\xampp\htdocs\yii\framework\web\CClientScript.php(195): CClientScript->renderCoreScripts()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(352): CClientScript->render('<!DOCTYPE html ...')
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(789): CController->processOutput('<!DOCTYPE html ...')
+#8 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\SiteController.php(32): CController->render('index')
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#17 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php
+---
+2012/03/26 13:29:38 [error] [exception.CException] exception 'CException' with message 'Property "Product.size_chart" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('size_chart')
+#1 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\views\product\view.php(274): CActiveRecord->__get('size_chart')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#6 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php(36): CController->render('view', Array)
+#7 [internal function]: ProductController->actionView('5')
+#8 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/view')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#17 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/view&id=5
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/index.php?r=product/list&category=new
+---
+2012/03/26 13:32:16 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:16 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:16 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:21 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:21 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:21 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:32 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:32 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:32 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:32:32 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php:162)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(287): ProductController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(266): ProductController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): ProductController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CWebApplication->run()
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (162)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:15 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:15 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:15 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:15 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php:162)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(287): ProductController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(266): ProductController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): ProductController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CWebApplication->run()
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (162)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:42 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:42 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:35:42 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:36:33 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:36:33 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:36:33 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (104)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:37:00 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (105)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:37:00 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (105)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:37:00 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (105)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:37:32 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:37:32 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:37:32 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:10 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:10 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:10 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:34 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:34 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:34 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:42 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:42 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:42 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:47 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:47 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:38:47 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:39:53 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:39:53 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:39:53 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:39:53 [error] [exception.CDbException] exception 'CDbException' with message 'The value for the column "id" is not supplied when querying the table "p8_image".' in C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php:686
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), Array, Array, NULL)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1733): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), 22, '', Array)
+#2 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php(175): CActiveRecord->deleteByPk(22)
+#3 [internal function]: ProductController->actionCreate('5')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/create')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#13 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+---
+2012/03/26 13:44:56 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:44:56 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:44:56 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:44:56 [error] [exception.CDbException] exception 'CDbException' with message 'The value for the column "id" is not supplied when querying the table "p8_image".' in C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php:686
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), Array, Array, NULL)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1733): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), 22, '', Array)
+#2 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php(176): CActiveRecord->deleteByPk(22)
+#3 [internal function]: ProductController->actionCreate('5')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/create')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#13 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+---
+2012/03/26 13:45:07 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:45:07 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:45:07 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:00 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:00 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:00 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:42 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:42 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:42 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:47:42 [error] [exception.CDbException] exception 'CDbException' with message 'The value for the column "id" is not supplied when querying the table "p8_image".' in C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php:686
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), Array, Array, NULL)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1733): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), Array, '', Array)
+#2 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php(176): CActiveRecord->deleteByPk(Array)
+#3 [internal function]: ProductController->actionCreate('5')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/create')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#13 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+---
+2012/03/26 13:48:48 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:48:48 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:48:48 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:48:48 [error] [exception.CDbException] exception 'CDbException' with message 'The value for the column "id" is not supplied when querying the table "p8_image".' in C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php:686
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), Array, Array, NULL)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1733): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), Array, '', Array)
+#2 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php(176): CActiveRecord->deleteByPk(Array)
+#3 [internal function]: ProductController->actionCreate('5')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/create')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#13 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+---
+2012/03/26 13:50:08 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:50:08 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:50:08 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:50:08 [error] [exception.CDbException] exception 'CDbException' with message 'The value for the column "id" is not supplied when querying the table "p8_image".' in C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php:686
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), Array, Array, NULL)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1733): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), 22, '', Array)
+#2 C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php(178): CActiveRecord->deleteByPk(22)
+#3 [internal function]: ProductController->actionCreate('5')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/create')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#13 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/index.php?r=product/create&id=5
+---
+2012/03/26 13:55:09 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:55:09 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:55:09 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:38 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:38 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:38 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:44 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:44 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:44 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:51 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:51 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:51 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:55 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:55 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:56:55 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:06 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:06 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:06 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:11 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:11 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:11 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (106)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:57 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:57 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:57:57 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:58:07 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:58:07 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:58:07 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:58:19 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:58:19 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 13:58:19 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:18:30 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:18:30 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:18:30 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:18:50 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:18:50 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:18:50 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:19:41 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:19:41 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:19:41 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:08 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:08 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:08 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:19 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:19 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:19 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:29 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:29 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:24:29 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:25:24 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:25:24 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:25:24 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:25:42 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:25:42 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/03/26 14:25:42 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
+in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
