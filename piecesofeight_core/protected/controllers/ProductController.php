@@ -169,7 +169,6 @@ class ProductController extends GxController
 				{
 					if (!array_key_exists($old_img_id, $new_images))
 					{
-						echo "deleting: " . $old_img_id;
 						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$old_image->url;
 						if ( unlink($filepath) )
 						{
