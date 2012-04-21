@@ -4,7 +4,12 @@
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="language" content="en" />
-		<meta name="description" content="Handmade Pirate and Renaissance Clothing and Costumes" />
+		<meta name="description" content="Handmade Pirate Costumes and Renaissance Clothing. We specialize in creating the highest quality, 
+			period-authentic clothes that are made to last. Custom orders are available on all of our products!" />
+		
+		<meta name="keywords" content="pirate costume, pirate clothes, child pirate costume, adult pirate costume, couples pirate costume, pirate costumes,
+			halloween, party, caribbean pirate, pirate wench, pirate captain, pirate shirt, renaissance clothing, renaissance outfits, handmade clothes,
+			halloween costumes, renaissance costumes, medieval clothing, medieval costumes, renaissance faire clothing, wench costumes, wench clothing" />
 	
 		<!--[if lt IE 9]>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
