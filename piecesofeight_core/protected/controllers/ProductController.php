@@ -58,6 +58,7 @@ class ProductController extends GxController
 				echo '<title>'.$product->name.'</title>';
 				echo '<description>'.$product->description.'</description>';
 				echo '<g:google_product_category>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:google_product_category>';
+				echo '<g:product_type>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:product_type>';
 				echo '<link>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id='.$product->id.'</link>';
 				
 				// Update later with default picture
@@ -97,6 +98,14 @@ class ProductController extends GxController
 				{
 					echo '<g:size>'.$size->size.'</g:size>';
 				}
+				
+				// Update if taxes change
+				echo '<g:tax>';
+					echo '<g:country>US</g:country>';
+					echo '<g:region>OR</g:region>';
+					echo '<g:rate>0</g:rate>';
+					echo '<g:tax_ship>n</g:tax_ship>';
+				echo '</g:tax>';
 				
 				// Update if shipping info changes:
 				echo '<g:shipping>';

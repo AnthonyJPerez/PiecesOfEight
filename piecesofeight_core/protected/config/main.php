@@ -53,8 +53,14 @@ return array(
 			// enable cookie-based authentication
 			//'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
 		
+		// uncomment the following to enable URLs in path-format
+		/*'urlManager'=>array(
+			'urlFormat'=>'path',
+			'rules'=>array(
+				'sitemap.xml' => 'site/sitemap', // turns site/:action into /:action
+			),
+		),*/
 		/*'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName' => false,

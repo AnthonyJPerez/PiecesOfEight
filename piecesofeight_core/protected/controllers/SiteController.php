@@ -31,6 +31,12 @@ class SiteController extends GxController
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
+	
+	public function actionSitemap()
+	{
+		header('Content-Type: text/xml');
+		exit();
+	}
 
 	/**
 	 * This is the action to handle external exceptions.
