@@ -1,9 +1,9 @@
 <?php 
 	
-	$this->pageTitle = "Feedback - " . Yii::app()->name;
+	$this->pageTitle = "Feedback | " . $this->pageTitle;
 ?>
 
-<h2>Feedback</h2>
+<h1>Leave us some Feedback</h1>
 
 <p>
 	We love to hear from our customers! If you would like to leave us a comment, 

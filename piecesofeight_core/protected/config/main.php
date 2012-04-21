@@ -19,7 +19,7 @@ return array(
 	'runtimePath' => $runtimePath,
 	
 	'defaultController' => 'site',
-	'name'=>'Pieces of Eight Costumes by Sue LLC',
+	'name'=>'DEBUG Mode | Handmade Pirate Costumes and Renaissance Clothing | Pieces of Eight Costumes',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

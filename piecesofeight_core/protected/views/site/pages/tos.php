@@ -1,5 +1,5 @@
 <?php
-
+	$this->pageTitle = "Terms of Service | " . $this->pageTitle;
 ?>
 <h1>Terms of Service</h1>
 

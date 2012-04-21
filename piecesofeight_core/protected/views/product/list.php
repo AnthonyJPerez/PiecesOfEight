@@ -1,4 +1,23 @@
 <?php
+	if (isset($category))
+	{
+		switch ($category)
+		{
+			case 'new': 
+				$this->pageTitle = 'New Products | ' . $this->pageTitle;
+				break;
+				
+			default:
+				$this->pageTitle = ucfirst($category) . ' | ' . $this->pageTitle;
+				break;
+		}
+		
+	}
+	else
+	{
+		$this->pageTitle = 'Products | ' . $this->pageTitle;
+	}
+
 	Yii::app()->clientScript->registerCss(
 		'product_view_rounded',
 		'
@@ -101,7 +120,7 @@
 
 			if (isset($category))
 			{
-				echo "<li>".ucfirst($category)."</li>";
+				echo "<li><h1>".ucfirst($category)."</h1></li>";
 			}
 		}
 		else

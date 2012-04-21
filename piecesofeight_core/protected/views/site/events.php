@@ -1,6 +1,6 @@
 <?php 
 
-	$this->pageTitle = "Events - " . Yii::app()->name;
+	$this->pageTitle = "Event Schedule | " . $this->pageTitle;
 	
 	Yii::app()->clientScript->registerCssFile(
 		Yii::app()->request->baseUrl . '/css/fullcalendar.css', 
@@ -99,7 +99,7 @@
 	
 ?>
 
-<h2>Events</h2>
+<h1>Our Schedule of Events</h1>
 <div id="calendar"></div>
 
 

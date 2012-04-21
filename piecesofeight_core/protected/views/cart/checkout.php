@@ -1,4 +1,6 @@
-
+<?php
+	$this->pageTitle = "Purchase Complete | " . $this->pageTitle;
+?>
 <h1>Thanks for Purchasing</h1>
 
 <p>

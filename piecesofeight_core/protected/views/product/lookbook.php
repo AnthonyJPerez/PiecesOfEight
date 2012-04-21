@@ -1,4 +1,5 @@
 <?php
+	$this->pageTitle = "Lookbook | " . $this->pageTitle;
 ?>
 
 <h1>Lookbook</h1>
