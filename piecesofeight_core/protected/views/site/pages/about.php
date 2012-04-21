@@ -1,5 +1,5 @@
 <?php
-
+	$this->pageTitle = "About Us | " . $this->pageTitle;
 ?>
 <h1>About Us</h1>
 

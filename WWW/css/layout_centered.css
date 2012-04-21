@@ -379,6 +379,12 @@ a:hover
 	{
 		padding-left: 0;
 	}
+	
+	#breadcrumbs h1
+	{
+		font-size: 11pt;
+		font-weight: normal;
+	}
 
 
 

@@ -160,14 +160,16 @@
 		
 		
 			<div id="footer">
-					<div>
-						<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
-						<br />
-						<span>All Rights Reserved.</span>
-					</div>
-					<div><?php echo Yii::powered(); ?></div>
-					<div>	<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> </div>
+				<div>	<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> </div>
+				<div>
+					<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
+					<br />
+					<span>All Rights Reserved.</span>
 				</div>
+				<div>
+					Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

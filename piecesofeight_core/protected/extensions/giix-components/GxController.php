@@ -19,7 +19,7 @@ abstract class GxController extends Controller {
 	/**
 	 * @var string The layout for the controller view.
 	 */
-	public $layout = '//layouts/column2';
+	public $layout = '//layouts/column1';
 	/**
 	 * @var array Context menu items. This property will be assigned to {@link CMenu::items}.
 	 */
@@ -30,6 +30,16 @@ abstract class GxController extends Controller {
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs = array();
+	
+	
+	
+	public function beforeAction($action)
+	{
+		$this->pageTitle = Yii::app()->name;
+		
+		return true;
+	}
+	
 
 	/**
 	 * Returns the data model based on the primary key or another attribute.

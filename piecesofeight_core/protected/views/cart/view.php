@@ -1,4 +1,6 @@
-
+<?php
+	$this->pageTitle = "Shopping Cart | " . $this->pageTitle;
+?>
 <h1>Shopping Cart</h1>
 
 

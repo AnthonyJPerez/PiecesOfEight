@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle = "Contact Us - " . Yii::app()->name;
+	$this->pageTitle = "Contact Us | " . $this->pageTitle;
 
 
 	Yii::app()->clientScript->registerCss(

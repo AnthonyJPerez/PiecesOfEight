@@ -1,4 +1,7 @@
 <?php
+	$this->pageTitle = ucwords($model->name) . " | " . $this->pageTitle;
+
+
 	// Include the jquery library
 	Yii::app()->clientScript->registerCoreScript('jquery');
 
@@ -81,10 +84,15 @@
 			
 				.product_name
 				{
-					font-size: 16pt;
 					margin-bottom: 10px;
 					text-align: left;
 				}
+				
+					.product_name h1
+					{
+						font-size: 18pt;
+						font-weight: normal;
+					}
 	
 				.product_price
 				{
@@ -246,7 +254,7 @@
 	<div id="product_details_container">
 		<div id="product_details">
 			<div class="product_name red_title">
-				<?php echo $model->name; ?>
+				<h1><?php echo $model->name; ?></h1>
 			</div>
 			
 			<div class="product_price">

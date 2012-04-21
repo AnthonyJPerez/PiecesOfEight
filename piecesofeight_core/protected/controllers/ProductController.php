@@ -2,7 +2,6 @@
 
 class ProductController extends GxController 
 {
-	public $layout = '//layouts/column1';
 
 
 

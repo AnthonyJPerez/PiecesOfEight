@@ -72,12 +72,25 @@
 					{
 						border-left: none;
 					}
+				
+				.replace_text
+				{
+					text-indent: 100%;
+					white-space: nowrap;
+					overflow: hidden;
+					padding: 0;
+					margin: 0;
+					font-size: 10pt;
+					height: 10px;
+				}
 		',
 		'screen'
-	);
-	
-	$this->pageTitle = "Home - " . Yii::app()->name;
+	);	
 ?>
+
+<h1 class='replace_text'>
+	Handmade Pirate Costumes and Renaissance Clothing
+</h1>
 
 <!-- Gallery -->
 <div id="slidejs_container">
@@ -96,6 +109,7 @@
 		<a href="#" class="next"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/test/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
 	</div>
 </div>
+
 
 <div id="col_3_menu">
 	<div class="row">

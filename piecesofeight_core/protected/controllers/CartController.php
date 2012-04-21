@@ -1,6 +1,6 @@
 <?php
 
-class CartController extends Controller
+class CartController extends GxController
 {
 	public $defaultAction = 'view';
 	
