@@ -210,7 +210,7 @@
 </div>
 
 
-<div id="product_container">
+<div id="product_container" itemscope itemtype="http://schema.org/Product">
 	<div id="product_image_container">
 		<div id="products">
 			<div class="slides_container">
@@ -222,7 +222,8 @@
 						$imgUrl,
 						$model->name,
 						array(
-							'width' => 300
+							'width' => 300,
+							'itemprop'=>'image'
 						)
 					);
 					//echo CHtml::link($imgTag, '#', array());
@@ -254,14 +255,16 @@
 	<div id="product_details_container">
 		<div id="product_details">
 			<div class="product_name red_title">
-				<h1><?php echo $model->name; ?></h1>
+				<h1 itemprop="name"><?php echo $model->name; ?></h1>
 			</div>
 			
-			<div class="product_price">
-				<?php echo '$' . $model->price; ?>
+			<div class="product_price" itemscope itemtype="http://schema.org/Offer">
+				<span itemprop="price">
+					<?php echo '$' . $model->price; ?>
+				</span>
 			</div>
 			
-			<p class="product_description">
+			<p class="product_description" itemprop="description">
 				<?php echo $model->description; ?>
 			</p>
 			
