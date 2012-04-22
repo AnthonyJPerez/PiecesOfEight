@@ -1,0 +1,13 @@
+
+default picture
+custom order button
+Fix product listings being displayed weird
+gallery uploader
+product deletion
+SEO
+	create 'alt' text for links
+	pretty urls
+lookbook
+bug with 'go back button'
+image cropper
+link to each etsy product?
