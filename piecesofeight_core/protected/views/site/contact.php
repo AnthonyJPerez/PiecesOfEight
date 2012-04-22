@@ -89,8 +89,8 @@
 
 <?php else: ?>
 
-<p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thanks!
+<p itemscope itemtype="http://schema.org/Organization">
+If you have business inquiries or other questions for <span itemprop="name">Pieces of Eight Costumes</span>, email us at <span itemprop="email">piecesof8costumes@comcast.net</span> by filling out the form below. Thanks!
 </p>
 
 <div class="form">
