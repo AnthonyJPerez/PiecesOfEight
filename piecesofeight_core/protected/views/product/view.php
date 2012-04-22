@@ -173,6 +173,16 @@
 			}
 			
 			
+			.AddcartForm .submit_button
+			{
+				margin-right: 0.5em;
+			}
+			
+			.etsy_link
+			{
+				font-size: 10pt;
+			}
+			
 			
 		',
 		'screen'
@@ -295,7 +305,13 @@
 				echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				
 				echo "<div class='submit'>";
-					echo CHtml::submitButton('Add to Cart');
+					echo "<span class='submit_button'>".CHtml::submitButton('Add to Cart')."</span>";
+					echo "<span class='etsy_link'>or ". 
+						CHtml::link(
+							"View on Etsy",
+							"https://www.etsy.com/shop/PiecesOf8Costumes",
+							array('target'=>'_blank')
+						)."</span>";
 				echo "</div>";
 				
 				$this->endWidget();
