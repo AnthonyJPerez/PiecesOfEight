@@ -139,15 +139,21 @@
 					border-radius: 4px;
 				}
 			
-				#create-form .uploaded_item_input
+				#create-form .uploaded_item_checkbox
 				{
 					width: 20px !important;
 					position: absolute;
-					left: 0;
-					top: 0;
+					left: -4px;
+					top: -3px;
 				}
 				
-				
+				#create-form .uploaded_item_radio
+				{
+					width: 20px !important;
+					position: absolute;
+					left: -4px;
+					bottom: -4px;
+				}
 			
 			
 		',
@@ -162,7 +168,7 @@
 	Yii::app()->clientScript->registerScript(
 		'uploaded-item-event',
 		'
-			$(".uploaded_item_input").change(function() 
+			$(".uploaded_item_checkbox").change(function() 
 			{
 				if (this.checked)
 				{
@@ -249,15 +255,21 @@
 			</div>
 		</div>
 		
+		<!-- Previously Uploaded Images -->
 		<div class="row previously_uploaded">
 			<label>Previously Uploaded</label>
-				<span class="note">
-					Uncheck an image to delete it:
-				</span>
+				<ul>
+					<li><span class="note">Click the bottom-left circle to select image as the default for this product. </span></li>
+					<li><span class="note">Uncheck an image to delete it.</span></li>
+				</ul>
 				<div class="previously_uploaded_container">
 				<?php
+					// test
+					//$form->radioButtonList($_Product->defaultImage, 'default_image', array('1'=>'a', '2'=>'b'), array('uncheckValue'=>'') );
+				
 					// Show previously uploaded images
 					echo "<input id='ytProduct_images' type='hidden' value name='Product[images]'>";
+					echo "<input id='ytProduct_defaultImage' type='hidden' value name='Product[defaultImage]'>";
 					$count = 0;
 					foreach ($_Product->images as $image)
 					{
@@ -268,7 +280,16 @@
 							echo "</a>";
 							
 							// Insert a checkbox!
-							echo "<input class='uploaded_item_input' id='Product_images_".$count."' value='".$image->id."' checked='checked' type='checkbox' name='Product[images][]'>";
+							echo "<input class='uploaded_item_checkbox' id='Product_images_".$count."' value='".$image->id."' checked type='checkbox' name='Product[images][]'>";
+							
+							// Insert a radio button
+							$selected = '';
+							if ( 0 == strcmp($_Product->defaultImage->url, $image->url) )
+							{
+								// This image is the default image, so make it 'selected'
+								$selected = 'checked';
+							}
+							echo "<input class='uploaded_item_radio' ".$selected." id='Product_defaultImage_".$count."' value='".$image->id."' type='radio' name='Product[defaultImage]'>";
 							$count++;
 						echo "</div>";
 					}
@@ -319,7 +340,7 @@
 				<div class="tags">
 					<?php 
 						echo $form->checkBoxList($_Product, 'p8Tags', GxHtml::encodeEx(GxHtml::listDataEx(Tag::model()->findAllAttributes(null, true)), false, true),
-							array('labelOptions'=>array('checked'))); 
+							array('labelOptions'=>array('checked'))); 						
 					?>
 				</div>
 			</div>

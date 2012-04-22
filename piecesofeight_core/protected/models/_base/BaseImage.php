@@ -10,10 +10,11 @@
  * followed by relations of table "p8_image" available as properties of the model.
  *
  * @property string $id
- * @property string $url
  * @property string $product_id
+ * @property string $url
  *
  * @property Product $product
+ * @property Product[] $products
  */
 abstract class BaseImage extends GxActiveRecord {
 
@@ -36,16 +37,17 @@ abstract class BaseImage extends GxActiveRecord {
 	public function rules() {
 		return array(
 			array('product_id', 'required'),
-			array('url', 'length', 'max'=>255),
 			array('product_id', 'length', 'max'=>10),
+			array('url', 'length', 'max'=>255),
 			array('url', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, url, product_id', 'safe', 'on'=>'search'),
+			array('id, product_id, url', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'product' => array(self::BELONGS_TO, 'Product', 'product_id'),
+			'products' => array(self::HAS_MANY, 'Product', 'default_image_id'),
 		);
 	}
 
@@ -57,9 +59,10 @@ abstract class BaseImage extends GxActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => Yii::t('app', 'ID'),
-			'url' => Yii::t('app', 'Url'),
 			'product_id' => null,
+			'url' => Yii::t('app', 'Url'),
 			'product' => null,
+			'products' => null,
 		);
 	}
 
@@ -67,8 +70,8 @@ abstract class BaseImage extends GxActiveRecord {
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('url', $this->url, true);
 		$criteria->compare('product_id', $this->product_id);
+		$criteria->compare('url', $this->url, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

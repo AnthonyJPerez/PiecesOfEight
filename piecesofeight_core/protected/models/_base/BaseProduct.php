@@ -17,8 +17,10 @@
  * @property string $category_id
  * @property string $size_chart
  * @property string $care_information
+ * @property string $default_image_id
  *
  * @property Image[] $images
+ * @property Image $defaultImage
  * @property Category $category
  * @property Size[] $p8Sizes
  * @property Tag[] $p8Tags
@@ -46,16 +48,17 @@ abstract class BaseProduct extends GxActiveRecord {
 			array('name, price, category_id', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>6),
-			array('category_id', 'length', 'max'=>10),
+			array('category_id, default_image_id', 'length', 'max'=>10),
 			array('date_inserted, description, size_chart, care_information', 'safe'),
-			array('date_inserted, description, size_chart, care_information', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, name, price, date_inserted, description, category_id, size_chart, care_information', 'safe', 'on'=>'search'),
+			array('date_inserted, description, size_chart, care_information, default_image_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
+			'defaultImage' => array(self::BELONGS_TO, 'Image', 'default_image_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
 			'p8Sizes' => array(self::MANY_MANY, 'Size', 'p8_size_product(product_id, size_id)'),
 			'p8Tags' => array(self::MANY_MANY, 'Tag', 'p8_tag_product(product_id, tag_id)'),
@@ -79,7 +82,9 @@ abstract class BaseProduct extends GxActiveRecord {
 			'category_id' => null,
 			'size_chart' => Yii::t('app', 'Size Chart'),
 			'care_information' => Yii::t('app', 'Care Information'),
+			'default_image_id' => null,
 			'images' => null,
+			'defaultImage' => null,
 			'category' => null,
 			'p8Sizes' => null,
 			'p8Tags' => null,
@@ -97,6 +102,7 @@ abstract class BaseProduct extends GxActiveRecord {
 		$criteria->compare('category_id', $this->category_id);
 		$criteria->compare('size_chart', $this->size_chart, true);
 		$criteria->compare('care_information', $this->care_information, true);
+		$criteria->compare('default_image_id', $this->default_image_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

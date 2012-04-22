@@ -67,6 +67,7 @@ CREATE TABLE p8_product
 	category_id				INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
 	size_chart				TEXT,						#-- Every product has exactly one size_chart associated with it.
 	care_information			TEXT,						#-- Every product has care information
+	default_image_id			INTEGER UNSIGNED DEFAULT NULL,		#-- Every product has a default image
 	
 	#-- Constraints
 	PRIMARY KEY (id),
@@ -92,11 +93,12 @@ CREATE TABLE p8_image
 	
 	#-- Constraints
 	PRIMARY KEY (id),
-	#UNIQUE KEY uk_image_url(url),
+	#-- UNIQUE KEY uk_image_url(url), -- don't use this, for now. Not sure if it is necessary.
 	FOREIGN KEY (product_id) REFERENCES p8_product(id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+ALTER TABLE p8_product ADD FOREIGN KEY (default_image_id) REFERENCES p8_image(id) ON DELETE SET NULL;
 
 
 #-- Tag_Product
@@ -215,32 +217,7 @@ VALUES
 	("Long Pants", 150.00, 7, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
 	("Short Pants", 150.00, 7, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
 	("Long Cape", 200.00, 3, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.");
-	
 
-INSERT INTO p8_image(url, product_id)
-VALUES
-	("product-1_1.jpg", 1),
-	("product-1_2.jpg", 1),
-	("product-1_3.jpg", 1),
-	("product-1_4.jpg", 1),
-	("product-1_5.jpg", 1),
-	("product-1_6.jpg", 1),
-	("product-1_7.jpg", 1),
-	("product-1_8.jpg", 1),
-	("product-1_9.jpg", 1),
-	("product-1_10.jpg", 1),
-	("product-2_1.jpg", 2),
-	("product-2_2.jpg", 2),
-	("product-2_3.jpg", 2),
-	("product-2_4.jpg", 2),
-	("product-2_5.jpg", 2),
-	("product-2_6.jpg", 2),
-	("product-2_7.jpg", 2),
-	("product-2_8.jpg", 2),
-	("product-2_9.jpg", 2),
-	("product-null_1.jpg", 3),
-	("product-null_1.jpg", 4),
-	("product-null_1.jpg", 5);
 	
 
 	

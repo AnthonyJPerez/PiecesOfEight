@@ -61,20 +61,14 @@ class ProductController extends GxController
 				echo '<g:product_type>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:product_type>';
 				echo '<link>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id='.$product->id.'</link>';
 				
-				// Update later with default picture
-				$count = 0;
+				// List the pictures
+				echo '<g:image_link>'.Yii::app()->request->baseUrl . '/images/product-images/' . $product->defaultImage->url.'</g:image_link>';
 				foreach ($product->images as $img)
 				{
-					if ($count < 1)
+					if ($img->id != $product->defaultImage->id)
 					{
-						$tag = 'g:image_link';
+						echo '<g:additional_image_link>http://piecesofeightcostumes.com/images/product-images/'.$img->url.'</g:additional_image_link>';
 					}
-					else
-					{
-						$tag = 'g:additional_image_link';
-					}
-					echo '<'.$tag.'>http://piecesofeightcostumes.com/images/product-images/'.$img->url.'</'.$tag.'>';
-					$count++;
 				}
 				echo '<g:condition>new</g:condition>';
 				echo '<g:availability>in stock</g:availability>';
@@ -181,18 +175,21 @@ class ProductController extends GxController
       	} 
       	else
       	{
-      		$product = Product::model()->with('p8Sizes', 'images', 'p8Tags')->findByPk($id);
+      		$product = Product::model()->with('p8Sizes', 'images', 'p8Tags', 'defaultImage')->findByPk($id);
       	}
       	
 		if (isset($_POST['Product'])) 
 		{
+			// Debug output, remove for production.
+			//print_r($_POST);
+		
 			$product->setAttributes($_POST['Product']);
 			$product->date_inserted = new CDbExpression('now()');
 			
 			if ($product->save())
 			{
 				// Upload the images
-				$images_to_upload = array();
+				$uploaded_images = array();
 				$images = CUploadedFile::getInstancesByName('images');
 				if ( isset($images) && count($images) > 0 )
 				{
@@ -203,6 +200,7 @@ class ProductController extends GxController
 						$img->product_id = $product->id; 	// Add a reference to this image for this product.
 						$img->url = "empty_filename";
 						$img->save();
+						array_push($uploaded_images, $img);
 						
 						// Save file to the disk
 						$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
@@ -259,6 +257,12 @@ class ProductController extends GxController
 						if ( unlink($filepath) )
 						{
 							Image::model()->deleteByPk($old_img_id);
+							
+							// If the deleted image was the default image, delete the default image selection from the form:
+							if ($_POST['Product']['defaultImage'] == $old_img_id)
+							{
+								$_POST['Product']['defaultImage'] = '';
+							}
 						}
 					}
 				}
@@ -267,6 +271,35 @@ class ProductController extends GxController
 				$product->p8Tags = $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'];
 				$product->p8Sizes = $_POST['Product']['p8Sizes'] === '' ? null : $_POST['Product']['p8Sizes'];
 				
+				if ($_POST['Product']['defaultImage'] === '')
+				{
+					// No default image selected, perhaps there were none to choose from.
+					// If any images were uploaded, make the first one the default image:
+					if (!empty($product->images))
+					{
+						$conditions = new CDbCriteria(array(
+							'condition' => 'product_id=:productId',
+							'params' => array(':productId'=>$product->id)
+						));
+						$current_images = Image::model()->findAll($conditions);
+						$product->default_image_id = $current_images[0]->id;
+					}
+					else if (!empty($uploaded_images))
+					{
+						$product->default_image_id = $uploaded_images[0]->id;
+					}
+					else
+					{
+						$product->default_image_id = null;
+					}
+				}
+				else
+				{
+					// Default image was selected
+					$product->default_image_id = $_POST['Product']['defaultImage'];
+				}
+				
+				// Save the image, and its related data.
 				if ( $product->saveWithRelated(array('p8Tags','p8Sizes')) )
 				{					
 					if (Yii::app()->getRequest()->getIsAjaxRequest())
