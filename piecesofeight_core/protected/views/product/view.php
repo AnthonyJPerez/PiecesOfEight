@@ -225,8 +225,29 @@
 		<div id="products">
 			<div class="slides_container">
 			<?php
+				// Make the default image the first image:
+				$img = $model->defaultImage;
+				$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $img->url;
+				$imgTag = CHtml::image(
+					$imgUrl,
+					$model->name,
+					array(
+						'width' => 300,
+						'itemprop'=>'image'
+					)
+				);
+				echo "<a href='".$imgUrl."' rel='clearbox[gallery=product_view]'>".$imgTag."</a>";
+			
+				
+				// Now display the rest of the images:
 				foreach ($model->images as $img)
 				{
+					// Ignore the default image, it has already been placed in here:
+					if ($img->id == $model->defaultImage->id)
+					{
+						continue;
+					}
+					
 					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $img->url;
 					$imgTag = CHtml::image(
 						$imgUrl,
@@ -243,8 +264,28 @@
 			</div>
 			<ul class="pagination">
 			<?php
+				// Display the default image
+				$img = $model->defaultImage;
+				$imgTag = CHtml::image(
+					Yii::app()->request->baseUrl . '/images/product-images/' . $img->url,
+					$model->name . ' (small)',
+					array(
+						'width' => 55
+					)
+				);
+				echo "<li>";
+				echo CHtml::link($imgTag, '#', array());
+				echo "</li>";
+					
+				// Now display the rest of the images
 				foreach ($model->images as $img)
 				{
+					// Ignore the default image, it has already been placed in here:
+					if ($img->id == $model->defaultImage->id)
+					{
+						continue;
+					}
+					
 					$imgTag = CHtml::image(
 						Yii::app()->request->baseUrl . '/images/product-images/' . $img->url,
 						$model->name . ' (small)',

@@ -8051,3 +8051,1103 @@ in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
 2012/03/26 14:32:05 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
 in C:\xampp\htdocs\yii\PeicesOfEight\piecesofeight_core\protected\controllers\ProductController.php (103)
 in C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php (31)
+2012/04/22 20:30:02 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (305)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:30:02 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (305)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:30:02 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (305)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:30:28 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (305)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:30:28 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (305)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:30:28 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (305)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:31:32 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:31:32 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:31:32 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (189)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:48:56 [error] [php] strcmp() expects parameter 2 to be string, array given (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/helpers/CHtml.php:948)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/widgets/CActiveForm.php(729): activeRadioButtonList()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php(337): GxActiveForm->radioButtonList()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(127): require()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(96): ProductController->renderInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(870): ProductController->renderFile()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(783): ProductController->renderPartial()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(292): ProductController->render()
+#7 unknown(0): ProductController->actionCreate()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php (337)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (292)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:48:58 [error] [php] strcmp() expects parameter 2 to be string, array given (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/helpers/CHtml.php:948)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/widgets/CActiveForm.php(729): activeRadioButtonList()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php(337): GxActiveForm->radioButtonList()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(127): require()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(96): ProductController->renderInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(870): ProductController->renderFile()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(783): ProductController->renderPartial()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(292): ProductController->render()
+#7 unknown(0): ProductController->actionCreate()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php (337)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (292)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:50:00 [error] [exception.CException] exception 'CException' with message 'GxActiveForm and its behaviors do not have a method or closure named "activeRadioButtonList".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('activeRadioButt...', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php(337): GxActiveForm->activeRadioButtonList(Object(Product), 'p8Tags', Array, Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(127): require('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/X...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(870): CBaseController->renderFile('/Applications/X...', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(292): CController->render('create', Array)
+#7 [internal function]: ProductController->actionCreate('1')
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('create')
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('product/create')
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CApplication->run()
+#17 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+---
+2012/04/22 20:50:50 [error] [php] strcmp() expects parameter 2 to be string, array given (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/helpers/CHtml.php:948)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php(337): activeRadioButtonList()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(127): require()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(96): ProductController->renderInternal()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(870): ProductController->renderFile()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(783): ProductController->renderPartial()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(292): ProductController->render()
+#6 unknown(0): ProductController->actionCreate()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php (337)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (292)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:52:02 [error] [php] strcmp() expects parameter 2 to be string, array given (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/helpers/CHtml.php:948)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php(336): activeRadioButtonList()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(127): require()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CBaseController.php(96): ProductController->renderInternal()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(870): ProductController->renderFile()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(783): ProductController->renderPartial()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(292): ProductController->render()
+#6 unknown(0): ProductController->actionCreate()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/views/product/create.php (336)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (292)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:55:39 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:55:39 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:55:39 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:55:39 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 20:55:39 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:01:38 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:01:38 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:01:38 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:01:38 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:01:38 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:02:01 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:02:01 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:02:01 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:02:01 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:02:01 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:03:16 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:03:16 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:03:16 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:03:16 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:05:29 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:05:29 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:05:29 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:05:29 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:05:29 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:07:22 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:07:22 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:07:22 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:07:22 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:07:22 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:30:39 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:30:39 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:30:39 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:30:39 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:32:29 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:32:29 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:32:29 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:32:29 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:33:40 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:33:40 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:33:40 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:33:40 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:34:40 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:34:40 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:34:40 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:34:40 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:12 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:12 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:12 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:12 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:12 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:24 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:24 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:24 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:24 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:35:24 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:36:20 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:36:20 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:36:20 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:36:20 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:36:20 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:40:04 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:40:04 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:40:04 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:40:04 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:40:04 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(277): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (277)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:44:12 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:44:12 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:44:12 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:44:12 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:44:12 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:29 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:29 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:29 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:29 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:29 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:58 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:58 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:58 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:58 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:45:58 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(279): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (279)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:46:46 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:46:46 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:46:46 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:46:46 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:46:46 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(279): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (279)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:47:40 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:47:40 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:47:40 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:47:40 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:47:40 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:48:10 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:48:10 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:48:10 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:48:10 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:48:10 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(278): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (278)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:57:44 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:57:44 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:57:44 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:57:44 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:57:44 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(297): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (297)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:17 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:17 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:17 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:17 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:18 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(297): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (297)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:37 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:37 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:37 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:37 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`piecesofeight`.`p8_product`, CONSTRAINT `p8_product_ibfk_2` FOREIGN KEY (`default_image_id`) REFERENCES `p8_image` (`id`) ON DELETE SET NULL). The SQL statement executed was: UPDATE `p8_product` SET `id`=:yp0, `name`=:yp1, `price`=:yp2, `date_inserted`=now(), `description`=:yp3, `category_id`=:yp4, `size_chart`=:yp5, `care_information`=:yp6, `default_image_id`=:yp7 WHERE `p8_product`.`id`='1'. Bound with :yp0='1', :yp1='Men\'s Pirate / Renaissance Coat', :yp2='100.00', :yp3='This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.', :yp4='8', :yp5='test', :yp6='test', :yp7='10'.
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php (193)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php (162)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (292)
+2012/04/22 21:58:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`piecesofeight`.`p8_product`, CONSTRAINT `p8_product_ibfk_2` FOREIGN KEY (`default_image_id`) REFERENCES `p8_image` (`id`) ON DELETE SET NULL). The SQL statement executed was: UPDATE `p8_product` SET `id`=:yp0, `name`=:yp1, `price`=:yp2, `date_inserted`=now(), `description`=:yp3, `category_id`=:yp4, `size_chart`=:yp5, `care_information`=:yp6, `default_image_id`=:yp7 WHERE `p8_product`.`id`='1'. Bound with :yp0='1', :yp1='Men\'s Pirate / Renaissance Coat', :yp2='100.00', :yp3='This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.', :yp4='8', :yp5='test', :yp6='test', :yp7='10'' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(1681): CDbCommand->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(1061): CActiveRecord->updateByPk('1', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php(193): CActiveRecord->save()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php(162): ESaveRelatedBehavior->saveR(Array, true)
+#5 [internal function]: ESaveRelatedBehavior->saveWithRelated(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CComponent.php(261): call_user_func_array(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(226): CComponent->__call('saveWithRelated', Array)
+#8 [internal function]: CActiveRecord->__call('saveWithRelated', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(292): Product->saveWithRelated(Array)
+#10 [internal function]: ProductController->actionCreate('1')
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('create')
+#17 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('product/create')
+#18 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CApplication->run()
+#20 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+---
+2012/04/22 21:58:48 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:48 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:48 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:48 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:58:48 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(297): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (297)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:07 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:07 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:07 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:07 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (191)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:07 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php:189) (/Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CHttpRequest.php:716)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(297): ProductController->redirect()
+#1 unknown(0): ProductController->actionCreate()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): ProductController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): ProductController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): ProductController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CWebApplication->run()
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (297)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:45 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:45 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:45 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 21:59:45 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:01:08 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:01:08 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:01:08 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:01:08 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:17 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:17 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:17 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:17 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:31 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:31 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:31 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:31 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:54 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:54 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:54 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:05:54 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:07:11 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:07:11 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:07:11 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:07:11 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:09:09 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:09:09 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:09:09 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:09:09 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:09:09 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`piecesofeight`.`p8_product`, CONSTRAINT `p8_product_ibfk_2` FOREIGN KEY (`default_image_id`) REFERENCES `p8_image` (`id`) ON DELETE SET NULL). The SQL statement executed was: UPDATE `p8_product` SET `id`=:yp0, `name`=:yp1, `price`=:yp2, `date_inserted`=now(), `description`=:yp3, `category_id`=:yp4, `size_chart`=:yp5, `care_information`=:yp6, `default_image_id`=:yp7 WHERE `p8_product`.`id`='1'. Bound with :yp0='1', :yp1='Men\'s Pirate / Renaissance Coat', :yp2='100.00', :yp3='This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.', :yp4='8', :yp5='test', :yp6='test', :yp7='14'.
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php (193)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php (162)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (304)
+2012/04/22 22:09:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`piecesofeight`.`p8_product`, CONSTRAINT `p8_product_ibfk_2` FOREIGN KEY (`default_image_id`) REFERENCES `p8_image` (`id`) ON DELETE SET NULL). The SQL statement executed was: UPDATE `p8_product` SET `id`=:yp0, `name`=:yp1, `price`=:yp2, `date_inserted`=now(), `description`=:yp3, `category_id`=:yp4, `size_chart`=:yp5, `care_information`=:yp6, `default_image_id`=:yp7 WHERE `p8_product`.`id`='1'. Bound with :yp0='1', :yp1='Men\'s Pirate / Renaissance Coat', :yp2='100.00', :yp3='This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.', :yp4='8', :yp5='test', :yp6='test', :yp7='14'' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(1681): CDbCommand->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(1061): CActiveRecord->updateByPk('1', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php(193): CActiveRecord->save()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/components/ESaveRelatedBehavior.php(162): ESaveRelatedBehavior->saveR(Array, true)
+#5 [internal function]: ESaveRelatedBehavior->saveWithRelated(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CComponent.php(261): call_user_func_array(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/db/ar/CActiveRecord.php(226): CComponent->__call('saveWithRelated', Array)
+#8 [internal function]: CActiveRecord->__call('saveWithRelated', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php(304): Product->saveWithRelated(Array)
+#10 [internal function]: ProductController->actionCreate('1')
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(ProductController), Array)
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProductController), Object(ReflectionMethod), Array)
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('create')
+#17 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('product/create')
+#18 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CApplication->run()
+#20 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+HTTP_REFERER=http://localhost/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/create&id=1
+---
+2012/04/22 22:10:43 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:10:43 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:10:43 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:10:43 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:28 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:28 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:28 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:28 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:44 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:44 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:44 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:44 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:54 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:54 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:54 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:20:54 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:05 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:05 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:05 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:05 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:19 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:19 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:19 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:21:19 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:30:50 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:30:50 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:30:50 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:30:50 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:31:02 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:31:02 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:31:02 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:31:02 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:29 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:29 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:29 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:29 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:57 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:57 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:57 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:32:57 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (192)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:37:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CController.php(271): CController->missingAction('')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(276): CController->run('')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/web/CWebApplication.php(135): CWebApplication->runController('product/')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_1.1.10/PeicesOfEight/WWW/index.php?r=product/
+---
+2012/04/22 22:38:05 [warning] [application] Failed to set unsafe attribute "images" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (186)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:38:05 [warning] [application] Failed to set unsafe attribute "defaultImage" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (186)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:38:05 [warning] [application] Failed to set unsafe attribute "p8Sizes" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (186)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
+2012/04/22 22:38:05 [warning] [application] Failed to set unsafe attribute "p8Tags" of "Product".
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/piecesofeight_core/protected/controllers/ProductController.php (186)
+in /Applications/XAMPP/xamppfiles/htdocs/yii_1.1.10/PeicesOfEight/WWW/index.php (31)
