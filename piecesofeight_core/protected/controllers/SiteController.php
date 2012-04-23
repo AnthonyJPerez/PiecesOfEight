@@ -69,7 +69,7 @@ class SiteController extends GxController
 	/**
 	 * Displays the contact page
 	 */
-	public function actionContact()
+	public function actionContact($pid=null)
 	{
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
@@ -83,7 +83,13 @@ class SiteController extends GxController
 				$this->refresh();
 			}
 		}
-		$this->render('contact',array('model'=>$model));
+		$this->render(
+			'contact',
+			array(
+				'model'=>$model,
+				'product'=> ($pid) ? Product::model()->findByPk($pid) : null
+			)
+		);
 	}
 	
 }
