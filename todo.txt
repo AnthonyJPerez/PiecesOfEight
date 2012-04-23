@@ -1,7 +1,4 @@
 
-default picture
-password-protect admin pages!
-custom order button
 Fix product listings being displayed weird
 Out of stock -tagged items won't display in main product listings? or at least say out of stock.
 gallery uploader
