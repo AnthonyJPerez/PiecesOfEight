@@ -4,7 +4,27 @@ class ProductController extends GxController
 {
 
 
-
+	public function filters()
+	{
+		return array(
+			'accessControl',
+		);
+	}
+	
+	public function accessRules()
+	{
+		return array(
+			// Only accessable if not a guest
+			array(
+				'deny', 
+				'actions' => array('create'),
+				'users' => array('?')
+				),
+			
+			array('allow', 'users' => array('*')),
+		);
+	}
+	
 
 	public function actionView($id) 
 	{
