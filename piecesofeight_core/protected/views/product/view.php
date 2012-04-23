@@ -355,6 +355,16 @@
 						)."</span>";
 				echo "</div>";
 				
+				echo "<div class='custom_order'>";
+					echo "<span>";
+					echo CHtml::link(
+							"Ask about Custom Orders",
+							$this->createUrl('site/contact', array('pid'=>$model->id)),
+							array('target'=>'_blank')
+						);
+					echo "</span>";
+				echo "</div>";
+				
 				$this->endWidget();
 			?>
 			</div>

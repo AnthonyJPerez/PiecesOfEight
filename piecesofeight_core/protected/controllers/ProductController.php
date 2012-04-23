@@ -51,64 +51,66 @@ class ProductController extends GxController
 		echo '<author><name>Pieces of Eight Costumes</name></author>';
 	
 		// Generate each product:
+		$group_id = 0;
 		foreach ($products as $product)
 		{
-			echo '<entry>';
-				echo '<g:id>po8_'.$product->id.'</g:id>';
-				echo '<title>'.$product->name.'</title>';
-				echo '<description>'.$product->description.'</description>';
-				echo '<g:google_product_category>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:google_product_category>';
-				echo '<g:product_type>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:product_type>';
-				echo '<link>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id='.$product->id.'</link>';
-				
-				// List the pictures
-				echo '<g:image_link>'.Yii::app()->request->baseUrl . '/images/product-images/' . $product->defaultImage->url.'</g:image_link>';
-				foreach ($product->images as $img)
-				{
-					if ($img->id != $product->defaultImage->id)
+			$group_id++;
+			$variant_id = 0;
+			// Size Variants
+			foreach ($product->p8Sizes as $size)
+			{
+				$variant_id++;
+				echo '<entry>';
+					echo '<g:id>po8_'.$product->id.'_'.$variant_id.'</g:id>';
+					echo '<g:item_group_id>'.$group_id.'</g:item_group_id>';
+					echo '<title>'.$product->name.'</title>';
+					echo '<description>[Custom Made to Order] '.$product->description.'</description>';
+					echo '<g:google_product_category>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:google_product_category>';
+					echo '<g:product_type>'.ucfirst($product->category).'</g:product_type>';
+					echo '<link>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id='.$product->id.'</link>';
+					
+					// List the pictures
+					echo '<g:image_link>http://piecesofeightcostumes.com/images/product-images/'.$product->defaultImage->url.'</g:image_link>';
+					foreach ($product->images as $img)
 					{
-						echo '<g:additional_image_link>http://piecesofeightcostumes.com/images/product-images/'.$img->url.'</g:additional_image_link>';
+						if ($img->id != $product->defaultImage->id)
+						{
+							echo '<g:additional_image_link>http://piecesofeightcostumes.com/images/product-images/'.$img->url.'</g:additional_image_link>';
+						}
 					}
-				}
-				echo '<g:condition>new</g:condition>';
-				echo '<g:availability>in stock</g:availability>';
-				echo '<g:price>'.$product->price.' USD</g:price>';
-				// echo '<g:sale_price></g:sale_price>';
-				echo '<g:brand>Pieces of Eight Costumes</g:brand>';
-				
-				// Update when products specify their gender
-				echo '<g:gender>unisex</g:gender>';
-				echo '<g:age_group>Adult</g:age_group>';
-				
-				// Update when products specify their colors
-				echo '<g:color>Black</g:color>';
-				echo '<g:color>White</g:color>';
-				echo '<g:color>Grey</g:color>';
-				echo '<g:color>Burgandy</g:color>';
-				echo '<g:color>Purple</g:color>';
-				echo '<g:color>Brown</g:color>';
-				
-				foreach ($product->p8Sizes as $size)
-				{
-					echo '<g:size>'.$size->size.'</g:size>';
-				}
-				
-				// Update if taxes change
-				echo '<g:tax>';
-					echo '<g:country>US</g:country>';
-					echo '<g:region>OR</g:region>';
-					echo '<g:rate>0</g:rate>';
-					echo '<g:tax_ship>n</g:tax_ship>';
-				echo '</g:tax>';
-				
-				// Update if shipping info changes:
-				echo '<g:shipping>';
-					echo '<g:country>US</g:country>';
-					echo '<g:service>Ground</g:service>';
-					echo '<g:price>8.95 USD</g:price>';
-				echo '</g:shipping>';
-				
-			echo '</entry>';
+					echo '<g:condition>new</g:condition>';
+					echo '<g:availability>available for order</g:availability>';
+					echo '<g:price>'.$product->price.' USD</g:price>';
+					// echo '<g:sale_price></g:sale_price>';
+					echo '<g:brand></g:brand>';
+					
+					// Update when products specify their gender
+					echo '<g:gender>unisex</g:gender>';
+					echo '<g:age_group>Adult</g:age_group>';
+					
+					// Update when products specify their colors
+					echo '<g:color>Custom</g:color>';
+					
+					echo '<g:size>'.$size.'</g:size>';
+					
+					
+					// Update if taxes change
+					echo '<g:tax>';
+						echo '<g:country>US</g:country>';
+						echo '<g:region>OR</g:region>';
+						echo '<g:rate>0</g:rate>';
+						echo '<g:tax_ship>n</g:tax_ship>';
+					echo '</g:tax>';
+					
+					// Update if shipping info changes:
+					echo '<g:shipping>';
+						echo '<g:country>US</g:country>';
+						echo '<g:service>Ground</g:service>';
+						echo '<g:price>8.95 USD</g:price>';
+					echo '</g:shipping>';
+					
+				echo '</entry>';
+			}
 		}
 		
 		echo '</feed>';

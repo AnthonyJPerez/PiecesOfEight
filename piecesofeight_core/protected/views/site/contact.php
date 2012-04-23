@@ -31,7 +31,12 @@
 			{
 				display: inline-block;
 				padding: 4px 2px;
-				width: 200px;
+				width: 300px;
+			}
+			
+			#contact-form .row textarea
+			{
+				width: 450px;
 			}
 			
 			#contact-form .row > div
@@ -103,6 +108,15 @@ If you have business inquiries or other questions for <span itemprop="name">Piec
 	),
 )); ?>
 
+	<?php
+		$subject = "";
+		$body = "";
+		if ($product)
+		{
+			$model->subject = "Custom Order Inquiry";
+			$model->body = "Product: ".$product->name."\n\nI am interested in custom ordering this product. [Replace me with details of your custom order!]";
+		}
+	?>
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<div class="row">
@@ -125,7 +139,7 @@ If you have business inquiries or other questions for <span itemprop="name">Piec
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textArea($model,'body',array('rows'=>12, 'cols'=>70)); ?>
 		<?php echo $form->error($model,'body'); ?>
 	</div>
 
