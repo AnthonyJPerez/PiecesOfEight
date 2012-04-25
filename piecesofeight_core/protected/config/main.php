@@ -55,12 +55,11 @@ return array(
 		),
 		
 		// uncomment the following to enable URLs in path-format
-		/*'urlManager'=>array(
+		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
-				'sitemap.xml' => 'site/sitemap', // turns site/:action into /:action
 			),
-		),*/
+		),
 		/*'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName' => false,
