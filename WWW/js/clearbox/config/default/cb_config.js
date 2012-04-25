@@ -7,8 +7,8 @@ var
 // CB layout:
 
 	CB_WindowColor='#fff',				// color of the CB window (note: you have to change the rounded-corner PNGs too!), transparent is also working
-	CB_MinWidth=400,				// minimum (only at images) or initial width of CB window
-	CB_MinHeight=250,				// initial heigth of CB window
+	CB_MinWidth=200,				// minimum (only at images) or initial width of CB window
+	CB_MinHeight=200,				// initial heigth of CB window
 	CB_WinPadd=15,					// padding of the CB window from sides of the browser 
 	CB_RoundPix=12,					// change this setting only if you are generating new PNGs for rounded corners
 	CB_ImgBorder=0,					// border size around the picture in CB window
@@ -37,8 +37,8 @@ var
 	CB_CloseBtn2Top=-20,				// vertical position of the close button in content mode
 	CB_CloseBtn2Right=-30,				// horizontal position of the close button in content mode
 
-	CB_OSD='off',					// turns on OSD
-	CB_OSDShowReady='off',				// when clearbox is loaded and ready, it shows an OSD message
+	CB_OSD='on',					// turns on OSD
+	CB_OSDShowReady='on',				// when clearbox is loaded and ready, it shows an OSD message
 
 // CB font, text and navigation (at the bottom of CB window) settings:
 

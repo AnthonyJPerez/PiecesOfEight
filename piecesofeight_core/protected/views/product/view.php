@@ -334,8 +334,8 @@
 				
 					echo "<a class='size_chart' href='htmlcontent' rel='clearbox[html=".
 						CHtml::encode("<p>".$model->size_chart."</p>")
-						."]'>Size Chart</a>";
-				
+						."]'>Size Chart</a>";						
+			
 				echo "</div>";
 				
 				echo "<div class='quantity'>";

@@ -23,7 +23,7 @@
 
 
 
-var	CB_ScriptDir='js/clearbox'; // RELATIVE to your html file!
+var	CB_ScriptDir='clearbox'; // RELATIVE to your html file!
 var	CB_Language='en';
 
 
