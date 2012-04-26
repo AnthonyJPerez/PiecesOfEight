@@ -52,6 +52,7 @@ class Product extends BaseProduct
 				//trim whitespaces
 				
 			$slug = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);
+			$slug = preg_replace("/[\s]+/", '-', $slug);
 				
 			$params['name'] = $slug;
 		}

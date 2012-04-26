@@ -1813,3 +1813,225 @@ Stack trace:
 REQUEST_URI=/yii/PeicesOfEight/WWW/images/test/loading.gif
 HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
 ---
+2012/04/26 17:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_style.css
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_config.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/language/en/cb_language.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/core/cb_core.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/test/loading.gif".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/test/loa...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/images/test/loading.gif
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_style.css
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/core/cb_core.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/language/en/cb_language.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_config.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/test/loading.gif".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/test/loa...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/images/test/loading.gif
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens+Pirate++Renaissance+Coat
+---
+2012/04/26 17:31:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_config.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_style.css
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/language/en/cb_language.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/core/cb_core.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/test/loading.gif".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/test/loa...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/images/test/loading.gif
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_style.css
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/language/en/cb_language.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/config/default/cb_config.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('1')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('1')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/1/clear...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/1/clearbox/core/cb_core.js
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/test/loading.gif".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/test/loa...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/images/test/loading.gif
+HTTP_REFERER=http://localhost/yii/PeicesOfEight/WWW/product/1/Mens-Pirate-Renaissance-Coat
+---
+2012/04/26 17:31:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "genGoogleFeed".' in C:\xampp\htdocs\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(271): CController->missingAction('genGoogleFeed')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('genGoogleFeed')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('product/genGoog...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii\PeicesOfEight\WWW\index.php(31): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/PeicesOfEight/WWW/product/genGoogleFeed
+---

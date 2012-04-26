@@ -1,12 +1,12 @@
-
+SEO
+	create 'alt' text for links
+	pretty urls
+		Make sure product feed still works!
 Fix product listings being displayed weird
 Out of stock -tagged items won't display in main product listings? or at least say out of stock.
 gallery uploader
 support male/female/unisex
 product deletion
-SEO
-	create 'alt' text for links
-	pretty urls
 lookbook
 bug with 'go back button'
 image cropper
