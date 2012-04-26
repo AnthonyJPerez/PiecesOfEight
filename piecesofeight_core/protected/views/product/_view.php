@@ -2,7 +2,7 @@
 	/* This view gets applied for each product in the list */
 ?>
 <div class="view background_shadow">
-	<a href="<?php echo $this->createUrl('product/view', array('id'=>$data->id)); ?>">
+	<a href="<?php echo /*$this->createUrl('product/view', array('id'=>$data->id));*/ $data->getUrl(); ?>">
 		<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/product-images/' . $data->defaultImage->url); ?>
 	</a>
 	

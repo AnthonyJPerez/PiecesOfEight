@@ -33,4 +33,29 @@ class Product extends BaseProduct
 			array('date_inserted, description, size_chart, care_information', 'default', 'setOnEmpty' => true, 'value' => null),
 		);
 	}
+	
+	
+	// Creates a url with the product name in the url:
+	// /product/[id]/[name-of-product]
+	public function getUrl()
+	{
+		$params = array('id' => $this->id);
+		
+		// add the name parameter to the URL
+		if ($this->hasAttribute('name'))
+		{
+			//$slug = preg_replace('@[\s!:;_\?=\\\+\*/%&#]+@', '-', $this->name);
+				//this will replace all non alphanumeric char with '-'
+			//$slug = mb_strtolower($slug);
+				//convert string to lowercase
+			//$slug = trim($slug, '-');
+				//trim whitespaces
+				
+			$slug = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);	
+				
+			$params['name'] = $slug;
+		}
+		
+		return Yii::app()->urlManager->createUrl('product/view', $params);
+	}
 }
