@@ -141,7 +141,7 @@
 						<li>
 						<?php
 							echo CHtml::link(
-								CHtml::image('images/facebook.png', 'Visit us on Facebook!', array('class'=>'')),
+								CHtml::image(Yii::app()->request->baseUrl.'/images/facebook.png', 'Visit us on Facebook!', array('class'=>'')),
 								"https://www.facebook.com/PiecesOf8Costumes",
 								array('target'=>'_blank')
 							);
@@ -151,7 +151,7 @@
 						<li>
 						<?php
 							echo CHtml::link(
-								CHtml::image('images/etsy.png', 'Visit our Etsy Shop!', array('class'=>'etsy')),
+								CHtml::image(Yii::app()->request->baseUrl.'/images/etsy.png', 'Visit our Etsy Shop!', array('class'=>'etsy')),
 								"https://www.etsy.com/shop/PiecesOf8Costumes",
 								array('target'=>'_blank')
 							);

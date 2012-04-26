@@ -59,11 +59,11 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName' => false,
 			'rules'=>array(
+				// Custom rules go first
 				'' => 'site/index',
+				'<action:(comments|events|contact|login|logout)>/<pid>' => 'site/<action>',
 				'<action:(comments|events|contact|login|logout)>' => 'site/<action>',
 				'<action:(lookbook)>' => 'product/<action>',
-				
-				
 				
 				'admin/create/<id>' => 'product/create',
 				'admin/create' => 'product/create',
@@ -71,24 +71,16 @@ return array(
 				'product/<id:\d+>/<name>' => 'product/view',
 				'product/<id:\d+>' => 'product/view',
 				'products/<category>' => 'product/list',
-				
 				'products' => 'product/list',
 				'cart' => 'cart/view',
-				'<view>' => 'site/page',
 				
 				
-				/*'<action:\w+>' => 'cart/view',
-				
-				'<action:(comments|events|contact)>' => 'site/<action>', // turns site/:action into /:action
-				
-				'<view:\w+>' => 'site/page', // turns site/page?view=whatever to /whatever
-				'<controller:\w+>/<action:\w+>/<category:\w+>'=>'<controller>/<action>', // turns product/list?category=??? to product/list/???
-				
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',*/
-				
-				
+				// Default controller url setup
+				'<controller:\w+>/<id:\d+>' => '<controller>/view',
+				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+					// Defaults to a site page if not above
+				'<view:[a-zA-Z0-9-]+>/' => 'site/page',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 			),
 		),
 		
