@@ -57,16 +57,28 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-			'rules'=>array(
-			),
-		),
-		/*'urlManager'=>array(
-			'urlFormat'=>'path',
 			'showScriptName' => false,
 			'rules'=>array(
 				'' => 'site/index',
+				'<action:(comments|events|contact|login|logout)>' => 'site/<action>',
+				'<action:(lookbook)>' => 'product/<action>',
 				
-				'<action:\w+>' => 'cart/view',
+				
+				
+				'admin/create/<id>' => 'product/create',
+				'admin/create' => 'product/create',
+				'admin/gallery' => 'product/gallery',
+				'product/<id:\d+>/<name>' => 'product/view',
+				'product/<id:\d+>' => 'product/view',
+				'products/<category>' => 'product/list',
+				
+				'products' => 'product/list',
+				'cart' => 'cart/view',
+				'<view>' => 'site/page',
+				
+				
+				/*'<action:\w+>' => 'cart/view',
+				
 				'<action:(comments|events|contact)>' => 'site/<action>', // turns site/:action into /:action
 				
 				'<view:\w+>' => 'site/page', // turns site/page?view=whatever to /whatever
@@ -74,11 +86,11 @@ return array(
 				
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',*/
 				
 				
 			),
-		),*/
+		),
 		
 		'YImage' => array(
 			'class' => 'application.extensions.YImage.CImageComponent',
