@@ -56,15 +56,15 @@
 						},
 						{
 							title: 'Faire In The Grove',
-							start: new Date(2012, 5, 5),
-							end: new Date(2012, 5, 6),
+							start: new Date(2012, 4, 5),
+							end: new Date(2012, 4, 6),
 							allDay: true,
 							url: 'http://www.faireinthegrove.com/'
 						},
 						{
 							title: 'Greenwood at Glastonbury Renaissance Faire',
-							start: new Date(2012, 5, 12),
-							end: new Date(2012, 5, 12),
+							start: new Date(2012, 4, 12),
+							end: new Date(2012, 4, 12),
 							allDay: true,
 							url: 'http://www.yemerriegreenwoodfaire.org/'
 						},

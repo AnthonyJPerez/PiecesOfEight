@@ -2,6 +2,9 @@ SEO
 	create 'alt' text for links
 	pretty urls
 		Make sure product feed still works!
+	blog about the site
+	submit to more search engines
+	update sitemap from urls going pretty
 Fix product listings being displayed weird
 Out of stock -tagged items won't display in main product listings? or at least say out of stock.
 gallery uploader
