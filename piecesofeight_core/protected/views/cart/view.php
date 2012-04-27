@@ -122,7 +122,7 @@ if (!empty($products))
 					echo CHtml::image($imgUrl, '', array('width' => 75, 'align'=>'left'));
 					echo "</a>";
 					
-					echo "<div class='name'>".CHtml::link($product->name, $this->createUrl('product/view', array('id'=>$product->id)))."</div>";
+					echo "<div class='name'>".CHtml::link($product->name, $product->getUrl())."</div>";
 				
 					// Remove item from cart button
 					$form = $this->beginWidget('CActiveForm', array(
