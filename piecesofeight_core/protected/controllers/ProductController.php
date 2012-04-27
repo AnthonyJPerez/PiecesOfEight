@@ -64,7 +64,7 @@ class ProductController extends GxController
 		echo '<?xml version="1.0"?>';
 		echo '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">';
 	
-		echo '<id>tag:piecesofeightcostumes.com,2012-04-21:/index.php?r=product/googleProductFeed</id>';
+		echo '<id>tag:piecesofeightcostumes.com,2012-04-21:/product/googleProductFeed</id>';
 		echo '<title>Pieces of Eight Product Listings</title>';
 		echo '<link href="http://piecesofeightcostumes.com" rel="alternate" type="text/html" />';
 		echo '<updated>2012-04-21T02:46:00Z</updated>';
@@ -87,7 +87,7 @@ class ProductController extends GxController
 					echo '<description>[Custom Made to Order] '.$product->description.'</description>';
 					echo '<g:google_product_category>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:google_product_category>';
 					echo '<g:product_type>'.ucfirst($product->category).'</g:product_type>';
-					echo '<link>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id='.$product->id.'</link>';
+					echo '<link>'. $product->getUrl(true).'</link>';
 					
 					// List the pictures
 					echo '<g:image_link>http://piecesofeightcostumes.com/images/product-images/'.$product->defaultImage->url.'</g:image_link>';

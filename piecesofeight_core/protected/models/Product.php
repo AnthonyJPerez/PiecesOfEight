@@ -37,7 +37,7 @@ class Product extends BaseProduct
 	
 	// Creates a url with the product name in the url:
 	// /product/[id]/[name-of-product]
-	public function getUrl()
+	public function getUrl($absolute=false)
 	{
 		$params = array('id' => $this->id);
 		
@@ -54,9 +54,16 @@ class Product extends BaseProduct
 			$slug = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);
 			$slug = preg_replace("/[\s]+/", '-', $slug);
 				
-			$params['name'] = $slug;
+			$params['name'] = strtolower($slug);
 		}
 		
-		return Yii::app()->urlManager->createUrl('product/view', $params);
+		if ($absolute === true)
+		{
+			return Yii::app()->createAbsoluteUrl('product/view', $params);
+		}
+		else
+		{
+			return Yii::app()->urlManager->createUrl('product/view', $params);
+		}
 	}
 }
