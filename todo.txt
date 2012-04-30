@@ -13,8 +13,7 @@ SEO
 		update sitemap from urls going pretty
 		update attracta/seo tools
 Non-debug mode should rely on CDNs for libraries.
-enable APC on server.
-	switch to yii-lite database
+switch to yii-lite database
 combine & minimize javascript code: (http://www.yiiframework.com/doc/guide/1.1/en/topics.performance)
 Fix product listings being displayed weird
 gallery uploader
