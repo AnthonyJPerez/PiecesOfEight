@@ -61,13 +61,15 @@ return array(
 			'rules'=>array(
 				// Custom rules go first
 				'' => 'site/index',
-				'<action:(comments|events|contact|login|logout)>/<pid>' => 'site/<action>',
-				'<action:(comments|events|contact|login|logout)>' => 'site/<action>',
-				'<action:(lookbook)>' => 'product/<action>',
+				'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
+				'<action:(comments|events|contact)>' => 'site/<action>',
 				
-				'admin/create/<id>' => 'product/create',
-				'admin/create' => 'product/create',
+				'admin/<action:(login|logout)>' => 'site/<action>',
 				'admin/gallery' => 'product/gallery',
+				'admin/product/<id:\d+>' => 'product/create',
+				'admin/product' => 'product/create',
+				
+				'<action:(lookbook)>' => 'product/<action>',
 				'product/<id:\d+>/<name>' => 'product/view',
 				'product/<id:\d+>' => 'product/view',
 				'products/<category>' => 'product/list',
