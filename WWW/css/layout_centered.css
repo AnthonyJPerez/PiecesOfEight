@@ -83,14 +83,11 @@ a:hover
 
 	#logo
 	{
-	-webkit-box-sizing: none;
-	   -moz-box-sizing: none;
-	        box-sizing: none;
+
 	        
 		position: absolute;
 		left: 50%;
 		top: 27%;
-		/*bottom: 14px;*/
 		margin-left: -75px;
 	}
 	
@@ -99,12 +96,14 @@ a:hover
 		position: absolute;
 		left: 63%;
 		top: 6.75em;	
+		
 	}
 	
 		#top_right_nav > ul
 		{
 			display: table;
 			border-collapse: collapse;
+			
 		}
 		
 		#top_right_nav > ul > li

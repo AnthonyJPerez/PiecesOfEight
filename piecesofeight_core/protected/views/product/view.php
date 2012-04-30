@@ -17,10 +17,26 @@
 		CClientScript::POS_HEAD
 	);
 	
-	// Include the clearbox script
+	// Include the fancybox script
 	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/clearbox.js', 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.fancybox-1.3.4.pack.js', 
 		CClientScript::POS_HEAD
+	);
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.easing-1.4.pack.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.mousewheel-3.0.4.pack.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Include the fancybox css file
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.fancybox-1.3.4.css',
+		'screen'
 	);
 	
 	// Include the slidejs product css file
@@ -30,12 +46,32 @@
 	);
 	
 	Yii::app()->clientScript->registerScript(
+		'Fancybox_Product',
+		"
+		
+			$('a[rel=product_gallery]').fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				/*'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
+		    			return '<span id='fancybox-title-over'>Image ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
+				}*/
+			});
+			
+			$('.size_chart').fancybox({
+				'hideOnContentClick': true
+			});
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	Yii::app()->clientScript->registerScript(
 		'SlideJS_Product',
 		'
 			$("#products").slides(
 			{
 				preload: true,
-				preloadImage: "' . Yii::app()->request->baseUrl . '/images/test/loading.gif",
 				effect: "slide, fade",
 				crossfade: true,
 				slideSpeed: 350,
@@ -46,6 +82,7 @@
 		',
 		CClientScript::POS_READY
 	);
+	
 	
 	Yii::app()->clientScript->registerScript(
 		'tabify',
@@ -183,6 +220,20 @@
 				font-size: 10pt;
 			}
 			
+			.admin_link a:link, .admin_link a:visited
+			{
+				color: #118800 !important;
+			}
+			
+			.admin_link a:hover
+			{
+				color: #00cc00 !important;
+			}
+			
+			.hidden_data
+			{
+				display: none;
+			}
 			
 		',
 		'screen'
@@ -236,7 +287,9 @@
 						'itemprop'=>'image'
 					)
 				);
-				echo "<a href='".$imgUrl."' rel='clearbox[gallery=product_view]'>".$imgTag."</a>";
+				
+				//echo "<a href='".$imgUrl."' rel='clearbox[gallery=product_view]'>".$imgTag."</a>";
+				echo "<a class='fancybox_product_gallery' href='".$imgUrl."' rel='product_gallery'>".$imgTag."</a>";
 			
 				
 				// Now display the rest of the images:
@@ -258,7 +311,7 @@
 						)
 					);
 					//echo CHtml::link($imgTag, '#', array());
-					echo "<a href='".$imgUrl."' rel='clearbox[gallery=product_view]'>".$imgTag."</a>";
+					echo "<a class='fancybox_product_gallery' href='".$imgUrl."' rel='product_gallery'>".$imgTag."</a>";
 				}
 			?>
 			</div>
@@ -309,6 +362,23 @@
 				<h1 itemprop="name"><?php echo $model->name; ?></h1>
 			</div>
 			
+			<?php
+			if ($isAdmin)
+			{
+			?>
+				<div class="admin_link">
+					<?php 
+					echo CHtml::link(
+						'Edit this Product', 
+						$this->createUrl('product/create', array('id'=>$model->id)), 
+						array()
+					); 
+					?>
+				</div>
+			<?php
+			}
+			?>
+			
 			<div class="product_price" itemscope itemtype="http://schema.org/Offer">
 				<span itemprop="price">
 					<?php echo '$' . $model->price; ?>
@@ -331,10 +401,9 @@
 				echo "<div class='size'>";
 					echo $form->error($formModel,'size');
 					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
-				
-					echo "<a class='size_chart' href='htmlcontent' rel='clearbox[html=".
-						CHtml::encode("<p>".$model->size_chart."</p>")
-						."]'>Size Chart</a>";						
+						
+					echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
+					echo "<div class='hidden_data'><div id='size_chart_data'>".CHtml::encode($model->size_chart)."</div></div>";
 			
 				echo "</div>";
 				

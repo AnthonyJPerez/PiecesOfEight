@@ -184,10 +184,42 @@
 	);
 	
 	
-	// Include the clearbox script
+	// Include the fancybox script
 	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/clearbox.js', 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.fancybox-1.3.4.pack.js', 
 		CClientScript::POS_HEAD
+	);
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.easing-1.4.pack.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.mousewheel-3.0.4.pack.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Include the fancybox css file
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.fancybox-1.3.4.css',
+		'screen'
+	);
+	
+	Yii::app()->clientScript->registerScript(
+		'Fancybox_Product',
+		"
+		
+			$('a[rel=img_gallery]').fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				/*'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
+		    			return '<span id='fancybox-title-over'>Image ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
+				}*/
+			});
+		",
+		CClientScript::POS_READY
 	);
 ?>
 
@@ -275,7 +307,7 @@
 					{
 						$imgName = Yii::app()->baseUrl.'/images/product-images/'.$image->url;
 						echo "<div class='uploaded_item'>";
-							echo "<a href='".$imgName."' rel='clearbox[gallery=uploaded_gallery]'>";
+							echo "<a href='".$imgName."' rel='img_gallery'>";
 								echo "<img src='".$imgName."' />";
 							echo "</a>";
 							

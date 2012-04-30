@@ -52,6 +52,7 @@ class ProductController extends GxController
 		$this->render('view', array(
 			'model' => Product::model()->with('p8Sizes')->findByPk($id),
 			'formModel' => $model,
+			'isAdmin' => !Yii::app()->user->isGuest
 		));
 	}
 	
