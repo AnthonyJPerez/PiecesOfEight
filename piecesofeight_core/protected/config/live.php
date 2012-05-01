@@ -128,5 +128,6 @@ return array(
 		// this is used in contact page
 		//'adminEmail'=>'holy.crap.its.aj@gmail.com',
 		'adminEmail'=>'piecesof8costumes@comcast.net',
+		'webmasterEmail'=>'piecesof8costumes@gmail.com',
 	),
 );

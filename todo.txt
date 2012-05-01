@@ -27,3 +27,5 @@ Caching -- sitewide
 lookbook
 bug with 'go back button'
 image cropper
+products can contain their own shipping values? (small items may ship cheaper)
+enable product search
