@@ -7,7 +7,7 @@
 	</a>
 	
 	<div class='product_name'>
-		<a href="<?php echo $this->createUrl('product/view', array('id'=>$data->id)); ?>">
+		<a href="<?php echo $data->getUrl(); ?>">
 			<?php echo $data->name; ?>
 		</a>
 	</div>
