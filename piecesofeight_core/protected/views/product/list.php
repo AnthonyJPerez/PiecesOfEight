@@ -48,6 +48,7 @@
 			}
 				.view {
 					position: relative;
+					
 				}
 				
 				.view img
@@ -73,6 +74,7 @@
 				.list-view > .items > .view
 				{
 					display: inline-block;
+					vertical-align: top;
 					margin: .8em;
 					padding: 0.5em;
 					width: 30%;		

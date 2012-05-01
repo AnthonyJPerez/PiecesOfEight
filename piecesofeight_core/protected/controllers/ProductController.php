@@ -17,7 +17,7 @@ class ProductController extends GxController
 			// Only accessable if not a guest
 			array(
 				'deny', 
-				'actions' => array('create'),
+				'actions' => array('create','gallery'),
 				'users' => array('?')
 				),
 			
@@ -184,12 +184,122 @@ class ProductController extends GxController
 	}
 	
 	
+	
+	
 	public function actionLookbook() 
 	{
 		$this->render('lookbook');
 	}
 	
 
+
+
+
+
+
+	// 
+	//
+	// Admin Section
+	//
+	//
+	
+	
+	public function actionGallery()
+	{
+		if (isset($_POST['Gallery'])) 
+		{
+			// Debug output, remove for production.
+			//print_r($_POST);
+					
+			
+			// Upload the images
+			$uploaded_images = array();
+			$images = CUploadedFile::getInstancesByName('images');
+			if ( isset($images) && count($images) > 0 )
+			{
+				foreach ($images as $i=>$data)
+				{
+					// Create image record in database
+					$img = new Image();
+					$img->product_id = $product->id; 	// Add a reference to this image for this product.
+					$img->url = "empty_filename";
+					$img->save();
+					array_push($uploaded_images, $img);
+					
+					// Save file to the disk
+					$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
+					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
+					if ($img->id != null && $data->saveAs($filepath))
+					{
+						// Image successfully uploaded and saved in the /images/product-images/ directory
+						
+						// Resize the image
+						$img_edit = Yii::app()->YImage->load($filepath);
+						$img_edit->resize(600, 800);
+						$img_edit->save();
+						
+						// Make a thumbnail version as well
+						//$img_edit->resize(.., ..);
+						//$img_edit->save();
+						
+						// Add this img to a list of images to be added to the product
+						// This list will auto-save any changes, or create any new, Image records in the database:
+						$img->url = $filename;
+						$img->save();
+					}
+				}
+			}
+			
+			
+			//
+			// Delete any unchecked images:
+			//
+			
+			// grab list of current images IDs
+			$old_images = array();
+			foreach ($product->images as $old_img)
+			{
+				$old_images[$old_img->id] = $old_img;
+			}
+			
+			// grab list of images left checked
+			$new_images = array();
+			if (isset($_POST['Product']['images']) && is_array($_POST['Product']['images']))
+			{
+				foreach ($_POST['Product']['images'] as $new_img_id)
+				{
+					$new_images[$new_img_id] = true;
+				}
+			}
+
+			// Delete images that are unchecked
+			foreach ($old_images as $old_img_id=>$old_image)
+			{
+				if (!array_key_exists($old_img_id, $new_images))
+				{
+					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$old_image->url;
+					if ( unlink($filepath) )
+					{
+						Image::model()->deleteByPk($old_img_id);
+						
+						// If the deleted image was the default image, delete the default image selection from the form:
+						if ($_POST['Product']['defaultImage'] == $old_img_id)
+						{
+							$_POST['Product']['defaultImage'] = '';
+						}
+					}
+				}
+			}
+		}
+		
+		$this->render(
+			'gallery'
+		);
+	}
+	
+	
+	
+	
 	public function actionCreate($id=null) 
 	{
 		if ($id == null)
@@ -348,18 +458,6 @@ class ProductController extends GxController
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-
-    	public function actionUpdate($id) 
-	{
-      	$this->actionCreate($id);
-	}
 /*
     public function actionDelete($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {

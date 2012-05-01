@@ -101,6 +101,30 @@ CREATE TABLE p8_image
 ALTER TABLE p8_product ADD FOREIGN KEY (default_image_id) REFERENCES p8_image(id) ON DELETE SET NULL;
 
 
+
+
+#-- Gallery
+#--
+#-- Gallery Has Many Image. Gallery is a table that tracks images in the gallery/ folder.
+#-- The purpose of the gallery table is to make it easier to upload and delete images inside
+#-- the gallery. This table also lets us track the product an image belongs to.
+CREATE TABLE p8_gallery
+(
+	#-- Key
+	id				INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	url				VARCHAR(255) NOT NULL default "product-null_1.jpg",
+	product_id			INTEGER UNSIGNED NOT NULL,
+	
+	#-- Constraints
+	PRIMARY KEY (id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id)	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
 #-- Tag_Product
 #--
 #-- Tags HABTM Products.  Products can have multiple tags (sale, etc..) and 
