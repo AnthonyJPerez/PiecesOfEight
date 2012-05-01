@@ -53,27 +53,36 @@ return array(
 			// enable cookie-based authentication
 			//'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
-		
-		/*'urlManager'=>array(
+		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName' => false,
 			'rules'=>array(
+				// Custom rules go first
 				'' => 'site/index',
+				'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
+				'<action:(comments|events|contact)>' => 'site/<action>',
 				
-				'<action:\w+>' => 'cart/view',
-				'<action:(comments|events|contact)>' => 'site/<action>', // turns site/:action into /:action
+				'admin/<action:(login|logout)>' => 'site/<action>',
+				'admin/gallery' => 'product/gallery',
+				'admin/product/<id:\d+>' => 'product/create',
+				'admin/product' => 'product/create',
 				
-				'<view:\w+>' => 'site/page', // turns site/page?view=whatever to /whatever
-				'<controller:\w+>/<action:\w+>/<category:\w+>'=>'<controller>/<action>', // turns product/list?category=??? to product/list/???
+				'<action:(lookbook)>' => 'product/<action>',
+				'product/<id:\d+>/<name>' => 'product/view',
+				'product/<id:\d+>' => 'product/view',
+				'products/<category>' => 'product/list',
+				'products' => 'product/list',
+				'cart' => 'cart/view',
 				
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 				
-				
+				// Default controller url setup
+				'<controller:\w+>/<id:\d+>' => '<controller>/view',
+				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+					// Defaults to a site page if not above
+				'<view:[a-zA-Z0-9-]+>/' => 'site/page',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 			),
-		),*/
+		),
 		
 		'YImage' => array(
 			'class' => 'application.extensions.YImage.CImageComponent',
