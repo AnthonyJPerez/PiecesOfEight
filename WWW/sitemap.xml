@@ -8,202 +8,342 @@
 
 <url>
   <loc>http://piecesofeightcostumes.com/</loc>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=site/index</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/comments</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=site/comments</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/events</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=site/events</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/lookbook</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/lookbook</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/contact</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=site/contact</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/cart</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=cart</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/new</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=new</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/accessories</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=accessories</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/blouses</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=blouses</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/capes</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=capes</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/coats</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=coats</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/dresses</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=dresses</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/miscellaneous</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=miscellaneous</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/pants</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=pants</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/skirts</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=skirts</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/shirts</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=shirts</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/tabbards</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=tabbards</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/vests</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list&amp;category=vests</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/list</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/about</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=site/page&amp;view=about</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/tos</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=site/page&amp;view=tos</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=3</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/3/lilac-brocade-vest</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=19</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/19/basic-full-length-cape</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=20</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/20/red-riding-hood-cape</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=21</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/21/captain-hook-pirate-coat</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=22</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/22/pirate-coat-captains-coat-in-brown-flannel</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=23</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/23/ladies-pirate-vest-black-velveteen</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=24</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/24/under-dress-or-shift-half-sleeve-cotton-</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=25</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/25/renaissance-pants-mens-or-unisex-black-med</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=26</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/26/pirate-pants-mens-flap-front-knee-length-xl-</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=27</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/27/pirate-or-renaissance-over-skirt-tie-waist</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=28</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/28/pirate-shirt-plain-open-neck-ruffled-cuff-white</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=29</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/29/musketeer-style-tabard-</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=32</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/new?products%2Fnew=</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=33</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/products/new?products%2Fnew=&amp;Product_page=2</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=34</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/32/ladies-pirate-hat-lace-trimmed-double-sided</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=35</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/33/renaissance-hat-mens</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=36</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/34/renaissance-hat-beret-style-unisex</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://piecesofeightcostumes.com/index.php?r=product/view&amp;id=30</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://piecesofeightcostumes.com/product/35/pirate-or-musketeer-hat-blueblack-brocade</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/product/36/snow-white-style-fairytale-dress</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/product/30/pirate-vest-short-length-mens-silver-brocade-l</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Vests</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/3</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Capes</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/19</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/20</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Coats</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/21</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/22</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/23</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Dresses</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/24</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Pants</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/25</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/26</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Skirts</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/27</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Shirts</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/28</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Tabbards</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/29</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/products/Accessories</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/32</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/33</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/34</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/35</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/36</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://piecesofeightcostumes.com/contact/30</loc>
+  <lastmod>2012-05-01T11:10:03+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 </urlset>
