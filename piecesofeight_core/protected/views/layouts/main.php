@@ -124,7 +124,7 @@
 							array('label'=>'Pants', 	'url'=>$this->createUrl('product/list', array('category'=>'pants'))),
 							array('label'=>'Skirts', 	'url'=>$this->createUrl('product/list', array('category'=>'skirts'))),
 							array('label'=>'Shirts', 	'url'=>$this->createUrl('product/list', array('category'=>'shirts'))),
-							array('label'=>'Tabbards', 	'url'=>$this->createUrl('product/list', array('category'=>'tabbards'))),
+							array('label'=>'Tabards', 	'url'=>$this->createUrl('product/list', array('category'=>'tabards'))),
 							array('label'=>'Vests', 	'url'=>$this->createUrl('product/list', array('category'=>'vests'))),
 							array('label'=>'View All',	'url'=>$this->createUrl('product/list')),
 							),
