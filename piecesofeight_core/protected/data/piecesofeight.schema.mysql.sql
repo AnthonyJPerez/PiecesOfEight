@@ -208,7 +208,7 @@ VALUES
 	("Pants"),
 	("Skirts"),
 	("Shirts"),
-	("Tabbards"),
+	("Tabards"),
 	("Vests");
 	
 	

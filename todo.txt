@@ -1,31 +1,41 @@
-currently: finish gallery uploader.
+TODO:
 
+gallery uploader
+Custom order page: see paper!
 SEO
+	create adwords campaign
 	seo-friendly image filenames
 	make each meta description individual/unique
 	create 'alt' text for links
 	blog about the site
+	optimize product titles / descriptions / uploaded images
 	submit to more search engines
 		alta-vista
 		ask
 		fast
 		??
-	after deployment
-		update sitemap from urls going pretty
-		update attracta/seo tools
-		link twitter to hostgator's seo tools
-gallery uploader
 Fix product listings being displayed weird
-integrate with better paypal
+integrate with better paypal api
 Out of stock -tagged items won't display in main product listings? or at least say out of stock.
-support male/female/unisex
-product deletion
+support male/female/unisex (add as hasOne relation)
 Non-debug mode should rely on CDNs for libraries.
 switch to yii-lite database
 combine & minimize javascript code: (http://www.yiiframework.com/doc/guide/1.1/en/topics.performance)
 Caching -- sitewide
 lookbook
+add 'complete the look' items related to a product
+feedback
 bug with 'go back button'
 image cropper
 products can contain their own shipping values? (small items may ship cheaper)
 enable product search
+create etsy-style custom ordering (password-protected private product listings)
+
+
+
+--
+Things I need from Mom:
+
+* List of all possible measurements
+	- I'm going to make a measurements table, with each individual measurement listed inside.
+	Each product will specify which measurements they require.
