@@ -459,6 +459,29 @@ class ProductController extends GxController
 	
 	
 	
+	
+	public function actionCustom($id=NULL)
+	{
+		if ($id == null)
+		{
+      		$product = new Product();
+      	} 
+      	else
+      	{
+      		$product = Product::model()->with('images', 'p8Tags', 'defaultImage')->findByPk($id);
+      	}
+      	
+		$this->render(
+			'custom',
+			array(
+				'_AllProducts' => Product::model()->with('images','p8Tags','defaultImage')->findAll(),
+				'_Product' => $product
+			)
+		);
+	}
+	
+	
+	
 /*
     public function actionDelete($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
