@@ -61,6 +61,7 @@ return array(
 			'rules'=>array(
 				// Custom rules go first
 				'' => 'site/index',
+				'custom-order' => 'product/custom',
 				'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
 				'<action:(comments|events|contact)>' => 'site/<action>',
 				

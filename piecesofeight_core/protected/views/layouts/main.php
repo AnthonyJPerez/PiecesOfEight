@@ -87,7 +87,7 @@
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
 							array('label'=>'LookBook', 	'url'=>$this->createUrl('product/lookbook')),
-							array('label'=>'Contact Us', 	'url'=>array('/site/contact')),
+							array('label'=>'Custom Orders', 'url'=>$this->createUrl('product/custom')),
 							array('label'=> ($product_cart_count>0) ? 'Cart ('.$product_cart_count.')' : 'Cart', 'url'=>array('/cart')),
 							),
 					)); ?>
@@ -163,6 +163,7 @@
 		
 		
 			<div id="footer">
+				<div> <?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?> </div>
 				<div>	<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> </div>
 				<div>
 					<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
