@@ -24,7 +24,7 @@
 	);
 	
 	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/fancybox/jquery.easing-1.4.pack.js', 
+		Yii::app()->request->baseUrl . '/js/fancybox/jquery.easing-1.3.pack.js', 
 		CClientScript::POS_HEAD
 	);
 	
