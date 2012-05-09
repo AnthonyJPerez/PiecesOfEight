@@ -1,3 +1,9 @@
+Currently working on:
+	discount codes
+	custom-order pages
+	gallery uploader
+
+
 TODO:
 
 gallery uploader
