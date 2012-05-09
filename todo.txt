@@ -1,3 +1,9 @@
+Currently working on:
+	discount codes
+	custom-order pages
+	gallery uploader
+
+
 TODO:
 
 gallery uploader
@@ -16,6 +22,13 @@ SEO
 		??
 Fix product listings being displayed weird
 integrate with better paypal api
+Discount codes:
+	Allow admin to create custom discount codes. Codes are applied on checkout, can do many
+	things:
+		* free shipping
+		* discounted prices (on individual item or in combo with items)
+		* etc..
+	Also parents can tag code with special events, so they can use it to track where people came to website from.
 Out of stock -tagged items won't display in main product listings? or at least say out of stock.
 support male/female/unisex (add as hasOne relation)
 Non-debug mode should rely on CDNs for libraries.

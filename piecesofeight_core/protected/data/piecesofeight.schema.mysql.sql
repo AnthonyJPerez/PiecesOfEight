@@ -190,6 +190,52 @@ CREATE TABLE p8_size_product
 
 
 
+#-- Promocode
+#-- 
+#-- Promotion codes 
+CREATE TABLE p8_promocode
+(
+	#-- Key
+	id			INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	name			VARCHAR (255),  #-- Names will be like: REN12-FREESHIP or MAY12-10%OFF or DX712-82
+	location		VARCHAR (255),  #-- Metadata. You can tag this code with a location to track who used it. 
+							#-- Some codes may only be given out at certain events, etc..
+	type			INTEGER UNSIGNED NOT NULL, #-- type of discount (freeshipping, % discount, $ discount, combo_order, etc..
+	dollar_discount	DECIMAL (6, 2) DEFAULT NULL,
+	percent_discount	DECIMAL (6, 2) DEFAULT NULL,
+	
+	
+	#-- generic_data_a	INTEGER UNSIGNED DEFAULT NULL, #-- Can be used for anything, such as: ID of product or category, amount of dollars saved, % of discount, etc..
+	
+	#-- Constraints
+	PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+#-- Product_Promocode
+#--
+#-- Products HABTM Promocodes. Products can be assigned multiple promocodes, and promocodes
+#-- can be assigned to multiple products
+CREATE TABLE p8_product_promocode
+(
+	#-- KEY
+	product_id		INTEGER UNSIGNED NOT NULL,
+	promocode_id	INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	
+	#-- Constraints
+	PRIMARY KEY (product_id, promocode_id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id),
+	FOREIGN KEY (promocode_id) REFERENCES p8_promocode(id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
 
 
 #----------------------------------------------------------------------------------------------
