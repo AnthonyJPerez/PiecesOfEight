@@ -140,16 +140,15 @@
 					t += "<a>" + i + "</a> ";
 				}
 				$(".dlinks").find("span").html(t);
-			},
-			panel = "<li></li>";
+			},		
+			panel = "<li class=\"product_listing\"><img href=\"*1\" /><p><span class=\"product_name\">*2</span></p></li>";
 			slider = $("selected_products");
 			
 			$("button.add").click(function()
 			{
-				//slider.append( panel.replace(/\*2/g, ++imageNumber).replace(/\*1/g, (imageNumber%7+1)) )
-				imageNumber++;
-				slider.append(panel)
-					.movingBoxes(); // Update movingboxes.
+				//slider.append( panel.replace(/\*2/g, ++imageNumber).replace(/\*1/g, "Product") )
+				slider.append("<li><img href=test.jpg></img><p>HELLO</p></li>");
+				slider.movingBoxes(); // Update movingboxes.
 				navLinks();
 			});
 			
