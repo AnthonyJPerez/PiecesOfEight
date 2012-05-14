@@ -185,6 +185,12 @@
 	
 ?>
 
+<h1>Custom Order Page</h1>
+<p>
+	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
+</p>
+
+<!--
 <div id='custom_product_container'>
 	<br />
 	<ul id='product_list'>
@@ -214,3 +220,4 @@
 	
 	</ul>
 </div>
+-->

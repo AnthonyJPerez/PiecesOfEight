@@ -192,6 +192,28 @@ class ProductController extends GxController
 		$this->render('lookbook');
 	}
 	
+	
+	
+	public function actionCustom($id=NULL)
+	{
+		if ($id == null)
+		{
+      		$product = new Product();
+      	} 
+      	else
+      	{
+      		$product = Product::model()->with('images', 'p8Tags', 'defaultImage')->findByPk($id);
+      	}
+      	
+		$this->render(
+			'custom',
+			array(
+				'_AllProducts' => Product::model()->with('images','p8Tags','defaultImage')->findAll(),
+				'_Product' => $product
+			)
+		);
+	}
+	
 
 
 
@@ -207,11 +229,12 @@ class ProductController extends GxController
 	
 	public function actionGallery()
 	{
+		$_Gallery = Gallery::model()->findAll();
+		
 		if (isset($_POST['Gallery'])) 
 		{
 			// Debug output, remove for production.
-			//print_r($_POST);
-					
+			//print_r($_POST);					
 			
 			// Upload the images
 			$uploaded_images = array();
@@ -221,23 +244,23 @@ class ProductController extends GxController
 				foreach ($images as $i=>$data)
 				{
 					// Create image record in database
-					$img = new Image();
-					$img->product_id = $product->id; 	// Add a reference to this image for this product.
+					$img = new Gallery();
+					//$img->product_id = $product->id; 	// Add a reference to this image for this product.
 					$img->url = "empty_filename";
 					$img->save();
 					array_push($uploaded_images, $img);
 					
 					// Save file to the disk
-					$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
-					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
+					$filename = 'gallery_'.$img->id.'.'.$data->getExtensionName();
+					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'.$filename;
 					if ($img->id != null && $data->saveAs($filepath))
 					{
 						// Image successfully uploaded and saved in the /images/product-images/ directory
 						
 						// Resize the image
-						$img_edit = Yii::app()->YImage->load($filepath);
-						$img_edit->resize(600, 800);
-						$img_edit->save();
+						//$img_edit = Yii::app()->YImage->load($filepath);
+						//$img_edit->resize(600, 270);
+						//$img_edit->save();
 						
 						// Make a thumbnail version as well
 						//$img_edit->resize(.., ..);
@@ -258,16 +281,16 @@ class ProductController extends GxController
 			
 			// grab list of current images IDs
 			$old_images = array();
-			foreach ($product->images as $old_img)
+			foreach ($_Gallery as $old_img)
 			{
 				$old_images[$old_img->id] = $old_img;
 			}
 			
 			// grab list of images left checked
 			$new_images = array();
-			if (isset($_POST['Product']['images']) && is_array($_POST['Product']['images']))
+			if (isset($_POST['Gallery']['images']) && is_array($_POST['Gallery']['images']))
 			{
-				foreach ($_POST['Product']['images'] as $new_img_id)
+				foreach ($_POST['Gallery']['images'] as $new_img_id)
 				{
 					$new_images[$new_img_id] = true;
 				}
@@ -278,23 +301,22 @@ class ProductController extends GxController
 			{
 				if (!array_key_exists($old_img_id, $new_images))
 				{
-					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$old_image->url;
+					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'.$old_image->url;
 					if ( unlink($filepath) )
 					{
-						Image::model()->deleteByPk($old_img_id);
-						
-						// If the deleted image was the default image, delete the default image selection from the form:
-						if ($_POST['Product']['defaultImage'] == $old_img_id)
-						{
-							$_POST['Product']['defaultImage'] = '';
-						}
+						Gallery::model()->deleteByPk($old_img_id);
 					}
 				}
 			}
+			
+			$this->redirect(array('product/gallery'));
 		}
 		
 		$this->render(
-			'gallery'
+			'gallery',
+			array(
+				'_Gallery' => $_Gallery
+			)
 		);
 	}
 	
@@ -459,26 +481,6 @@ class ProductController extends GxController
 	
 	
 	
-	
-	public function actionCustom($id=NULL)
-	{
-		if ($id == null)
-		{
-      		$product = new Product();
-      	} 
-      	else
-      	{
-      		$product = Product::model()->with('images', 'p8Tags', 'defaultImage')->findByPk($id);
-      	}
-      	
-		$this->render(
-			'custom',
-			array(
-				'_AllProducts' => Product::model()->with('images','p8Tags','defaultImage')->findAll(),
-				'_Product' => $product
-			)
-		);
-	}
 	
 	
 	

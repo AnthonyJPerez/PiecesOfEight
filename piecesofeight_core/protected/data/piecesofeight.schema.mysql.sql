@@ -114,8 +114,8 @@ CREATE TABLE p8_gallery
 	id				INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	
 	#-- Attributes
-	url				VARCHAR(255) NOT NULL default "product-null_1.jpg",
-	product_id			INTEGER UNSIGNED NOT NULL,
+	url				VARCHAR(255) NOT NULL default "gallery_null.jpg",
+	product_id			INTEGER UNSIGNED DEFAULT NULL,
 	
 	#-- Constraints
 	PRIMARY KEY (id),

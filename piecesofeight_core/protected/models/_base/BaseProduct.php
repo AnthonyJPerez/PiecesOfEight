@@ -19,9 +19,10 @@
  * @property string $care_information
  * @property string $default_image_id
  *
+ * @property Gallery[] $galleries
  * @property Image[] $images
- * @property Image $defaultImage
  * @property Category $category
+ * @property Image $defaultImage
  * @property Size[] $p8Sizes
  * @property Tag[] $p8Tags
  */
@@ -57,9 +58,10 @@ abstract class BaseProduct extends GxActiveRecord {
 
 	public function relations() {
 		return array(
+			'galleries' => array(self::HAS_MANY, 'Gallery', 'product_id'),
 			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
-			'defaultImage' => array(self::BELONGS_TO, 'Image', 'default_image_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+			'defaultImage' => array(self::BELONGS_TO, 'Image', 'default_image_id'),
 			'p8Sizes' => array(self::MANY_MANY, 'Size', 'p8_size_product(product_id, size_id)'),
 			'p8Tags' => array(self::MANY_MANY, 'Tag', 'p8_tag_product(product_id, tag_id)'),
 		);
@@ -83,9 +85,10 @@ abstract class BaseProduct extends GxActiveRecord {
 			'size_chart' => Yii::t('app', 'Size Chart'),
 			'care_information' => Yii::t('app', 'Care Information'),
 			'default_image_id' => null,
+			'galleries' => null,
 			'images' => null,
-			'defaultImage' => null,
 			'category' => null,
+			'defaultImage' => null,
 			'p8Sizes' => null,
 			'p8Tags' => null,
 		);
