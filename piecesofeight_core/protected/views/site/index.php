@@ -92,10 +92,51 @@
 	Handmade Pirate Costumes and Renaissance Clothing
 </h1>
 
+<?php
+if ($isAdmin)
+{
+?>
+	<div class="admin_link">
+		<?php 
+		echo CHtml::link(
+			'Edit the Gallery', 
+			$this->createUrl('product/gallery'), 
+			array()
+		); 
+		?>
+	</div>
+<?php
+}
+?>
+
 <!-- Gallery -->
 <div id="slidejs_container">
 	<div id="slides">
 		<div class="slides_container">
+			<?php
+				$images = Gallery::model()->findAll();
+				foreach ($images as $image)
+				{
+					$imgTag = CHtml::image(
+						Yii::app()->request->baseUrl . '/images/gallery/' . $image->url,
+						"",
+						array(
+							'width' => 600,
+							'height' => 270
+						)
+					);
+					
+					echo CHtml::link(
+						$imgTag,
+						'#',
+						array(
+							'title' => ''
+						)
+					);
+				}
+			?>
+			
+			<!--
 			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_1.jpg" width="600" height="270"  /></a>
 			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_2.jpg" width="600" height="270"  /></a>
 			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_3.jpg" width="600" height="270"  /></a>
@@ -104,6 +145,7 @@
 			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_6.jpg" width="600" height="270"  /></a>
 			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_7.jpg" width="600" height="270"  /></a>
 			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_8.jpg" width="600" height="270"  /></a>			
+			-->
 		</div>
 		<a href="#" class="prev"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/test/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
 		<a href="#" class="next"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/test/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
