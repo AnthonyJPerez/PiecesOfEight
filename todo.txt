@@ -1,12 +1,10 @@
 Currently working on:
 	discount codes
 	custom-order pages
-	gallery uploader
 
 
 TODO:
 
-gallery uploader
 Custom order page: see paper!
 SEO
 	create adwords campaign

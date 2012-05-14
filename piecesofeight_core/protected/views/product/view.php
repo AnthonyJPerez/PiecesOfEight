@@ -220,16 +220,6 @@
 				font-size: 10pt;
 			}
 			
-			.admin_link a:link, .admin_link a:visited
-			{
-				color: #118800 !important;
-			}
-			
-			.admin_link a:hover
-			{
-				color: #00cc00 !important;
-			}
-			
 			.hidden_data
 			{
 				display: none;
