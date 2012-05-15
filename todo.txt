@@ -39,8 +39,9 @@ feedback
 bug with 'go back button'
 image cropper
 products can contain their own shipping values? (small items may ship cheaper)
-enable product search
+enable product search box on site
 create etsy-style custom ordering (password-protected private product listings)
+money / check orders page?
 
 
 
