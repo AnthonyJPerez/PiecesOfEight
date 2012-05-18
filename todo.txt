@@ -1,11 +1,12 @@
 Currently working on:
+	paypal api
 	discount codes
 	custom-order pages
 
 
 TODO:
-Make 'costumes' category
 Custom order page: see paper!
+admin home page
 SEO
 	create adwords campaign
 	seo-friendly image filenames

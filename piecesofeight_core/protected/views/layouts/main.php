@@ -112,7 +112,42 @@
 						</form>
 					</div>
 					
-					<?php $this->widget('zii.widgets.CMenu',array(
+					<?php 
+						$menu_items = array();
+						array_push(
+							$menu_items,
+							array('label'=>'New Arrivals','url'=>$this->createUrl('product/list', array('category'=>'new')))
+						);
+						
+						$_ProductCategories = Category::model()->findAll(
+							array('order'=>'name ASC')
+						);
+						foreach ($_ProductCategories as $product_category)
+						{
+							array_push(
+								$menu_items,
+								array(
+									'label' => $product_category->name,
+									'url' => $this->createUrl(
+										'product/list',
+										array('category' => strtolower($product_category->name))
+									)
+								)
+							);
+						}
+						
+						array_push(
+							$menu_items,
+							array('label'=>'View All', 'url'=>$this->createUrl('product/list'))
+						);
+							
+							
+						$this->widget('zii.widgets.CMenu',array(
+							'items'=>$menu_items
+						)); 
+					
+					/*
+					$this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
 							array('label'=>'New Arrivals','url'=>$this->createUrl('product/list', array('category'=>'new'))),
 							array('label'=>'Accessories', 'url'=>$this->createUrl('product/list', array('category'=>'accessories'))),
@@ -128,7 +163,9 @@
 							array('label'=>'Vests', 	'url'=>$this->createUrl('product/list', array('category'=>'vests'))),
 							array('label'=>'View All',	'url'=>$this->createUrl('product/list')),
 							),
-					)); ?>
+					)); 
+					*/
+					?>
 				</div>
 			
 				<?php echo $content; ?>

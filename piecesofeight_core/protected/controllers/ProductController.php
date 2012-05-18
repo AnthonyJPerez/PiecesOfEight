@@ -155,6 +155,7 @@ class ProductController extends GxController
 		// Select any images associated with this product as well.
 		$criteria = array(
 			'with' => array('images'),
+			'order' => 'date_inserted DESC'
 		);
 		
 		// If the data is a valid category, then only show that category.
