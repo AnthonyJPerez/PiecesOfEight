@@ -267,8 +267,8 @@
 			<div class="slides_container">
 			<?php
 				// Make the default image the first image:
-				$img = $model->defaultImage;
-				$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $img->url;
+				$defaultImg = $model->getDefaultImage();
+				$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
 				$imgTag = CHtml::image(
 					$imgUrl,
 					$model->name,
@@ -283,10 +283,11 @@
 			
 				
 				// Now display the rest of the images:
-				foreach ($model->images as $img)
-				{
+				$imgs = $model->getImages();
+				foreach ($imgs as $img)
+				{					
 					// Ignore the default image, it has already been placed in here:
-					if ($img->id == $model->defaultImage->id)
+					if ($img->id == $defaultImg->id)
 					{
 						continue;
 					}
@@ -308,9 +309,8 @@
 			<ul class="pagination">
 			<?php
 				// Display the default image
-				$img = $model->defaultImage;
 				$imgTag = CHtml::image(
-					Yii::app()->request->baseUrl . '/images/product-images/' . $img->url,
+					Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url,
 					$model->name . ' (small)',
 					array(
 						'width' => 55
@@ -321,10 +321,11 @@
 				echo "</li>";
 					
 				// Now display the rest of the images
-				foreach ($model->images as $img)
+				$imgs = $model->getImages();
+				foreach ($imgs as $img)
 				{
 					// Ignore the default image, it has already been placed in here:
-					if ($img->id == $model->defaultImage->id)
+					if ($img->id == $defaultImg->id)
 					{
 						continue;
 					}

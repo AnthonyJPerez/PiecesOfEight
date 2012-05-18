@@ -92,10 +92,12 @@ class ProductController extends GxController
 					
 					// List the pictures
 					$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl.'/images/product-images/';
-					echo '<g:image_link>'.$baseImgUrl.$product->defaultImage->url.'</g:image_link>';
-					foreach ($product->images as $img)
+					$defaultImage = $product->getDefaultImage();
+					echo '<g:image_link>'.$baseImgUrl.$defaultImage->url.'</g:image_link>';
+					$imgs = $product->getImages();
+					foreach ($imgs as $img)
 					{
-						if ($img->id != $product->defaultImage->id)
+						if ($img->id != $defaultImage->id)
 						{
 							echo '<g:additional_image_link>'.$baseImgUrl.$img->url.'</g:additional_image_link>';
 						}
