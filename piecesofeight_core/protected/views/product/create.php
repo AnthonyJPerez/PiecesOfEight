@@ -349,6 +349,7 @@
 		
 		
 		<!-- Size Chart -->
+		<!--
 		<div class="row">
 			<?php echo $form->labelEx($_Product,'size_chart'); ?>
 			<div class="main_container">
@@ -358,7 +359,8 @@
 				<?php echo $form->textArea($_Product, 'size_chart'); ?>
 				<?php echo $form->error($_Product,'size_chart'); ?>
 			</div>
-		</div><!-- row -->
+		</div>
+		-->
 		
 		
 		

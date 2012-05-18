@@ -3,7 +3,10 @@
 ?>
 <div class="view background_shadow">
 	<a href="<?php echo $data->getUrl(); ?>">
-		<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/product-images/' . $data->defaultImage->url); ?>
+		<?php 
+			$defaultImage = $data->getDefaultImage();
+			echo CHtml::image(Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImage->url);
+		?>
 	</a>
 	
 	<div class='product_name'>

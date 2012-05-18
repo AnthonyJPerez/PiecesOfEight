@@ -209,6 +209,18 @@
 				margin-left: 1em;
 			}
 			
+			#size_chart_data
+			{
+				padding: 0.5em;
+				padding-bottom: 0;
+				width: 325px;
+			}
+			
+			#size_chart_data > table
+			{
+				margin-bottom: 1.25em;
+			}
+			
 			
 			.AddcartForm .submit_button
 			{
@@ -267,8 +279,8 @@
 			<div class="slides_container">
 			<?php
 				// Make the default image the first image:
-				$img = $model->defaultImage;
-				$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $img->url;
+				$defaultImg = $model->getDefaultImage();
+				$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
 				$imgTag = CHtml::image(
 					$imgUrl,
 					$model->name,
@@ -283,10 +295,11 @@
 			
 				
 				// Now display the rest of the images:
-				foreach ($model->images as $img)
-				{
+				$imgs = $model->getImages();
+				foreach ($imgs as $img)
+				{					
 					// Ignore the default image, it has already been placed in here:
-					if ($img->id == $model->defaultImage->id)
+					if ($img->id == $defaultImg->id)
 					{
 						continue;
 					}
@@ -308,9 +321,8 @@
 			<ul class="pagination">
 			<?php
 				// Display the default image
-				$img = $model->defaultImage;
 				$imgTag = CHtml::image(
-					Yii::app()->request->baseUrl . '/images/product-images/' . $img->url,
+					Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url,
 					$model->name . ' (small)',
 					array(
 						'width' => 55
@@ -321,10 +333,11 @@
 				echo "</li>";
 					
 				// Now display the rest of the images
-				foreach ($model->images as $img)
+				$imgs = $model->getImages();
+				foreach ($imgs as $img)
 				{
 					// Ignore the default image, it has already been placed in here:
-					if ($img->id == $model->defaultImage->id)
+					if ($img->id == $defaultImg->id)
 					{
 						continue;
 					}
@@ -393,7 +406,85 @@
 					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
 						
 					echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
-					echo "<div class='hidden_data'><div id='size_chart_data'>".CHtml::encode($model->size_chart)."</div></div>";
+					//CHtml::encode($model->size_chart)
+					?>
+					<div class='hidden_data'>
+						<div id='size_chart_data'>
+							<span>Women's Size Chart:</span>
+							<table border="1" align="center" cellpadding="4">
+								<tr>
+									<th />
+									<th>XS</th>
+									<th>S</th>
+									<th>M</th>
+									<th>L</th>
+									<th>XL</th>
+								</tr>
+								<tr>
+									<td>Bust</td>
+									<td>32</td>
+									<td>34</td>
+									<td>36</td>
+									<td>38</td>
+									<td>42</td>
+								</tr>
+								<tr>
+									<td>Waist</td>
+									<td>24</td>
+									<td>26</td>
+									<td>28</td>
+									<td>30</td>
+									<td>34</td>
+								</tr>
+								<tr>
+									<td>Hips</td>
+									<td>34</td>
+									<td>36</td>
+									<td>38</td>
+									<td>40</td>
+									<td>44</td>
+								</tr>
+							</table>
+							
+							
+							<span>Men's Size Chart:</span>
+							<table border="1" align="center" cellpadding="4">
+								<tr>
+									<th />
+									<th>XS</th>
+									<th>S</th>
+									<th>M</th>
+									<th>L</th>
+									<th>XL</th>
+								</tr>
+								<tr>
+									<td>Chest</td>
+									<td>30-32</td>
+									<td>34-36</td>
+									<td>38-40</td>
+									<td>42-44</td>
+									<td>46-48</td>
+								</tr>
+								<tr>
+									<td>Waist</td>
+									<td>26-27</td>
+									<td>28-30</td>
+									<td>32-34</td>
+									<td>36-38</td>
+									<td>40-42</td>
+								</tr>
+								<tr>
+									<td>Hips</td>
+									<td>31-33</td>
+									<td>35-37</td>
+									<td>39-41</td>
+									<td>43-45</td>
+									<td>47-49</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<?php
 			
 				echo "</div>";
 				
@@ -437,9 +528,11 @@
 				</ul>  
 				
 				<div id="nav_care" class="tab">
+					<p>
 					<?php
 						echo $model->care_information;
 					?>
+					</p>
 				</div>
 				<div id="nav_returns" class="tab">
 					<p>
