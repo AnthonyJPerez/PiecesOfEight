@@ -202,7 +202,7 @@ CREATE TABLE p8_promocode
 	name			VARCHAR (255),  #-- Names will be like: REN12-FREESHIP or MAY12-10%OFF or DX712-82
 	location		VARCHAR (255),  #-- Metadata. You can tag this code with a location to track who used it. 
 							#-- Some codes may only be given out at certain events, etc..
-	type			INTEGER UNSIGNED NOT NULL, #-- type of discount (freeshipping, % discount, $ discount, combo_order, etc..
+	type			INTEGER UNSIGNED NOT NULL, #-- type of discount (freeshipping, % discount, $ discount, combo order, free with purchase, etc..)
 	dollar_discount	DECIMAL (6, 2) DEFAULT NULL,
 	percent_discount	DECIMAL (6, 2) DEFAULT NULL,
 	
