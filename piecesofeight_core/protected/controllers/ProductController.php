@@ -345,6 +345,12 @@ class ProductController extends GxController
 			$product->setAttributes($_POST['Product']);
 			$product->date_inserted = new CDbExpression('now()');
 			
+			// Make sure the 'images' array is an empty array if there are no images
+			if (empty($_POST['Product']['images']))
+			{
+				$_POST['Product']['images'] = array();
+			}
+			
 			if ($product->save())
 			{
 				// Upload the images
@@ -353,18 +359,23 @@ class ProductController extends GxController
 				if ( isset($images) && count($images) > 0 )
 				{
 					foreach ($images as $i=>$data)
-					{
+					{								
 						// Create image record in database
 						$img = new Image();
 						$img->product_id = $product->id; 	// Add a reference to this image for this product.
-						$img->url = "empty_filename";
+						$img->url = "image-not-available.png";
 						$img->save();
+						
+						// Add as a 'checked' image, so that we do not delete it
+						array_push($_POST['Product']['images'], $img->id);
 						array_push($uploaded_images, $img);
 						
 						// Save file to the disk
 						$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
 						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
-						if ($img->id != null && $data->saveAs($filepath))
+						
+						$saved = $data->saveAs($filepath);
+						if ($img->id != null && $saved)
 						{
 							// Image successfully uploaded and saved in the /images/product-images/ directory
 							
@@ -406,7 +417,8 @@ class ProductController extends GxController
 						$new_images[$new_img_id] = true;
 					}
 				}
-
+				
+				
 				// Delete images that are unchecked
 				foreach ($old_images as $old_img_id=>$old_image)
 				{
