@@ -63,7 +63,7 @@ return array(
 				'' => 'site/index',
 				'custom-order' => 'product/custom',
 				'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
-				'<action:(comments|events|contact)>' => 'site/<action>',
+				'<action:(comments|events|contact|newsletter)>' => 'site/<action>',
 				
 				'admin/<action:(login|logout)>' => 'site/<action>',
 				'admin/gallery' => 'product/gallery',
