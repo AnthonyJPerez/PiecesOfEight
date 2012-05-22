@@ -97,6 +97,30 @@ class SiteController extends GxController
 		);
 	}
 	
+	
+	//
+	// Adds a user to the newsletter list and displays the 
+	// confirmation page.
+	public function actionNewsletter()
+	{
+		$model=new Newsletter;
+		$success = false;
+		if(isset($_POST['NewsletterForm']))
+		{
+			$model->attributes=$_POST['NewsletterForm'];
+			
+			if($model->save())
+			{
+				$success = true;
+			}
+		}
+		
+		$this->render(
+			'newsletter',
+			array ('success' => $success)
+		);
+	}
+	
 	public function actionLogin()
 	{
 		$model=new LoginForm;

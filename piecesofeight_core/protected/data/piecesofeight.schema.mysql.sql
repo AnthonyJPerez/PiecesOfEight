@@ -237,6 +237,24 @@ CREATE TABLE p8_product_promocode
 
 
 
+#-- Newsletter
+#--
+#-- Collects emails of individuals who signed up for the newsletter
+CREATE TABLE p8_newsletter
+(
+	#-- KEY
+	id			INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	email			VARCHAR (255),
+	date_enrolled	DATETIME,
+	
+	#-- Constraints
+	PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
 
 #----------------------------------------------------------------------------------------------
 #-- INSERT DATA
