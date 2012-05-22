@@ -200,6 +200,28 @@
 		
 		
 			<div id="footer">
+				<div class='newsletter'>
+					<span>Sign up for our Newsletter and get product updates and discounts:</span>
+					<?php
+						$newsletterModel = new Newsletter();
+						$form = $this->beginWidget('GxActiveForm', array(
+							'id' => 'newsletter-form',
+							'enableClientValidation'=>true,
+							'action' => array('site/newsletter')
+						));
+						
+						echo '<span>'.$form->errorSummary($newsletterModel).'</span>';
+						
+						echo '<div class="row">';
+							echo $form->textField($newsletterModel,'email');
+							echo $form->error($newsletterModel,'email');
+						echo '</div>';
+						
+						echo GxHtml::submitButton(Yii::t('app', 'Sign Up'));
+						
+						$this->endWidget();
+					?>
+				</div>
 				<div> <?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?> </div>
 				<div>	<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> </div>
 				<div>
