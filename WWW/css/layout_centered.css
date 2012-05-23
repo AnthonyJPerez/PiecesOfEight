@@ -259,13 +259,13 @@ a:hover
 	background-image: url('../images/header.png');
 	background-repeat: no-repeat;
 	
-	vertical-align: center;
+	vertical-align: middle;
 	padding: 1em;
 	text-align: center;
 	position: relative;
 	margin: 0 auto;
 	width: 100%;	
-	height: 100px;
+	height: 105px;
 	
 	color: #888;
 	
@@ -274,7 +274,7 @@ a:hover
 
 	#footer a:link, #footer a:visited
 	{
-		color: #555;
+		color: #444;
 		text-shadow: 2px 2px 2px #000;
 	}
 	
@@ -291,6 +291,12 @@ a:hover
 		padding: 1.5em;
 	}
 	
+	#footer .newsletter
+	{
+		width: 250px;
+		float: right;
+	}
+
 
 
 #social_media_buttons
@@ -313,15 +319,14 @@ a:hover
               box-shadow: inset -2px -2px 2px #ccc;
 }
 
-	#social_media_buttons a:link, #social_media_buttons a:hover
+	#social_media_buttons a:link, #social_media_buttons a:visited
 	{
-		//font-weight: bold;
-		color: #111;
+		color: #222 !important;
 	}
 	
 	#social_media_buttons a:hover
 	{
-		color: #777;
+		color: #888 !important;
 	}
 
 	#social_media_buttons > div

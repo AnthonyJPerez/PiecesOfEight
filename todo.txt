@@ -5,7 +5,6 @@ Currently working on:
 
 
 TODO:
-newsletter
 Custom order page: see paper!
 admin home page
 SEO

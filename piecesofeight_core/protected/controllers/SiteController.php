@@ -105,9 +105,17 @@ class SiteController extends GxController
 	{
 		$model=new Newsletter;
 		$success = false;
-		if(isset($_POST['NewsletterForm']))
+		
+		if(isset($_POST['ajax']) && $_POST['ajax']==='newsletter')
 		{
-			$model->attributes=$_POST['NewsletterForm'];
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		else if (isset($_POST['Newsletter']))
+		{
+			$model->attributes=$_POST['Newsletter'];
+			$model->date_enrolled = new CDbExpression('now()');
 			
 			if($model->save())
 			{

@@ -1,7 +1,7 @@
 <?php
 	$this->pageTitle = "About Us | " . $this->pageTitle;
 ?>
-<h1>About Us</h1>
+<h1>Pieces of Eight Costumes</h1>
 
 <p>
 	Hello, my name is Sue Perez and I have been creating costumes and other clothes my 
