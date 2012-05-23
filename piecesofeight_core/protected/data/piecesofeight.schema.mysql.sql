@@ -196,7 +196,7 @@ CREATE TABLE p8_size_product
 CREATE TABLE p8_promocode
 (
 	#-- Key
-	id			INTEGER UNSIGNED NOT NULL,
+	id			INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	
 	#-- Attributes
 	name			VARCHAR (255),  #-- Names will be like: REN12-FREESHIP or MAY12-10%OFF or DX712-82
@@ -243,7 +243,7 @@ CREATE TABLE p8_product_promocode
 CREATE TABLE p8_newsletter
 (
 	#-- KEY
-	id			INTEGER UNSIGNED NOT NULL,
+	id			INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	
 	#-- Attributes
 	email			VARCHAR (255),
