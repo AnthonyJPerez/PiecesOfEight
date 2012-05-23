@@ -34,8 +34,6 @@ abstract class BaseNewsletter extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('id', 'required'),
-			array('id', 'length', 'max'=>10),
 			array('email', 'length', 'max'=>255),
 			array('date_enrolled', 'safe'),
 			array('email, date_enrolled', 'default', 'setOnEmpty' => true, 'value' => null),

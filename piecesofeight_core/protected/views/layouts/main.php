@@ -201,16 +201,17 @@
 		
 			<div id="footer">
 				<div class='newsletter'>
-					<span>Sign up for our Newsletter and get product updates and discounts:</span>
+					<span>Sign up for our Newsletter to get product updates and discount:</span>
 					<?php
 						$newsletterModel = new Newsletter();
-						$form = $this->beginWidget('GxActiveForm', array(
-							'id' => 'newsletter-form',
-							'enableClientValidation'=>true,
-							'action' => array('site/newsletter')
+						$form = $this->beginWidget('CActiveForm', array(
+							'id' => 'newsletter',
+							'enableAjaxValidation'=>true,
+							'action' => array('site/newsletter'),
+							'clientOptions' => array(
+								'validateOnSubmit' => true
+							)
 						));
-						
-						echo '<span>'.$form->errorSummary($newsletterModel).'</span>';
 						
 						echo '<div class="row">';
 							echo $form->textField($newsletterModel,'email');
@@ -222,15 +223,21 @@
 						$this->endWidget();
 					?>
 				</div>
-				<div> <?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?> </div>
-				<div>	<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> </div>
+				
+				<div> 
+					<?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about'))); ?>
+					|
+					<?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?>
+					|
+					<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> 
+				</div>
+				<div>
+					Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
+				</div>
 				<div>
 					<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
 					<br />
 					<span>All Rights Reserved.</span>
-				</div>
-				<div>
-					Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
 				</div>
 			</div>
 		</div>
