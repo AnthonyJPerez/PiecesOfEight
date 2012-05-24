@@ -261,9 +261,9 @@ class ProductController extends GxController
 						// Image successfully uploaded and saved in the /images/product-images/ directory
 						
 						// Resize the image
-						//$img_edit = Yii::app()->YImage->load($filepath);
-						//$img_edit->resize(600, 270);
-						//$img_edit->save();
+						$img_edit = Yii::app()->YImage->load($filepath);
+						$img_edit->resize(700, 525);
+						$img_edit->save();
 						
 						// Make a thumbnail version as well
 						//$img_edit->resize(.., ..);
