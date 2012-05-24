@@ -4,28 +4,28 @@
 
 	// Include the slidejs gallery
 	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/orbit/jquery.orbit-1.2.3.min.js', 
+		Yii::app()->request->baseUrl . '/js/slides.jquery.js', 
 		CClientScript::POS_HEAD
 	);
 	
 	// Include the slidejs gallery css file
 	Yii::app()->clientScript->registerCssFile(
-		Yii::app()->request->baseUrl . '/js/orbit/orbit-1.2.3.css',
+		Yii::app()->request->baseUrl . '/css/slidejs_gallery.css',
 		'screen'
 	);
 	
 	Yii::app()->clientScript->registerScript(
-		'Orbit_Gallery',
+		'SlideJS_Gallery',
 		'
-			$("#orbit_gallery").orbit({
-				animation: "fade",
-				advanceSpeed: 5000,
-				pauseOnHover: false,
-				startClockOnMouseOut: true,
-				directionalNav: false,
-				bullets: true
-				
-			});
+		$("#slides").slides(
+		{
+			preload: true,
+			preloadImage: "' . Yii::app()->request->baseUrl . '/images/test/loading.gif",
+			play: 3000,
+			pause: 1000,
+			hoverPause: true,
+			randomize: true
+		});
 		',
 		CClientScript::POS_READY
 	);
@@ -33,30 +33,10 @@
 	Yii::app()->clientScript->registerCss(
 		'col_3_menu_style',
 		'
-			#orbit_gallery_container
-			{
-				left: 1.6em;
-				margin: 0 auto;
-				width: 100%;
-				text-align: center;
-			}
-			
-			
-			.orbit-wrapper
-			{
-				margin: 0 auto;
-			}
-			
-			#content
-			{
-				padding-right: 0;
-			}
-			
 			#col_3_menu
 			{
 				width: 100%; 
 				margin: 0.5em auto;
-				margin-top: 3em;
 				
 				display: table;
 			}
@@ -130,34 +110,47 @@ if ($isAdmin)
 ?>
 
 <!-- Gallery -->
-<div id="orbit_gallery_container">
-	<div id="orbit_gallery">
-		<?php
-			$images = Gallery::model()->findAll();
-			foreach ($images as $image)
-			{
-				$imgTag = CHtml::image(
-					Yii::app()->request->baseUrl . '/images/gallery/' . $image->url,
-					"",
-					array(
-						'alt' => '',
-						'width' => 700,
-						'height' => 525
-					)
-				);
-				
-				echo CHtml::link(
-					$imgTag,
-					$this->createUrl('product/list'),
-					array(
-						'title' => ''
-					)
-				);
-			}
-		?>
+<div id="slidejs_container">
+	<div id="slides">
+		<div class="slides_container">
+			<?php
+				$images = Gallery::model()->findAll();
+				foreach ($images as $image)
+				{
+					$imgTag = CHtml::image(
+						Yii::app()->request->baseUrl . '/images/gallery/' . $image->url,
+						"",
+						array(
+							'width' => 600,
+							'height' => 270
+						)
+					);
+					
+					echo CHtml::link(
+						$imgTag,
+						'#',
+						array(
+							'title' => ''
+						)
+					);
+				}
+			?>
+			
+			<!--
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_1.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_2.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_3.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_4.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_5.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_6.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_7.jpg" width="600" height="270"  /></a>
+			<a href="#" title="" target=""><img src="<?php echo Yii::app()->request->baseUrl;?>/images/gallery/product_8.jpg" width="600" height="270"  /></a>			
+			-->
+		</div>
+		<a href="#" class="prev"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/test/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+		<a href="#" class="next"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/test/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
 	</div>
 </div>
-
 
 
 <div id="col_3_menu">
