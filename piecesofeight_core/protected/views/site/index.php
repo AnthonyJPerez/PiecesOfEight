@@ -41,6 +41,7 @@
 				text-align: center;
 			}
 			
+			
 			.orbit-wrapper
 			{
 				margin: 0 auto;
