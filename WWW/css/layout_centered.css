@@ -83,8 +83,6 @@ a:hover
 
 	#logo
 	{
-
-	        
 		position: absolute;
 		left: 50%;
 		top: 27%;
@@ -244,7 +242,7 @@ a:hover
 	{
 		/* @test 
 		background: yellow;*/
-		
+		padding: 0px;
 		padding-top: 3em;
 		float: right;
 		width: 82%;
