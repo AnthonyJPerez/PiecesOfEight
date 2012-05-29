@@ -18,10 +18,10 @@
 		<![endif]-->
 
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css?v=05292012" media="screen, projection" />
 		
 		<!--[if lt IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
+			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css?v=05292012-2" media="screen, projection" />
 		<![endif]-->
 	
 	
@@ -50,7 +50,7 @@
 	</head>
 	<?php
 		// Site speed optimization:
-		//flush();
+		flush();
 	?>
 	<body>
 		<div class="container" id="page">
