@@ -5,14 +5,14 @@ Currently working on:
 
 
 TODO:
-add 'nofollow' to links, such as custom-order links.
 Custom order page: see paper!
 admin home page
 SEO
 	create adwords campaign
 	seo-friendly image filenames
 	make each meta description individual/unique
-	create 'alt' text for links
+	create 'alt' text for images
+	create 'title' text for links
 	blog about the site
 	optimize product titles / descriptions / uploaded images
 	submit to more search engines
@@ -40,7 +40,6 @@ add 'complete the look' items related to a product
 feedback
 bug with 'go back button'
 image cropper
-products can contain their own shipping values? (small items may ship cheaper)
 enable product search box on site
 create etsy-style custom ordering (password-protected private product listings)
 money / check orders page?
