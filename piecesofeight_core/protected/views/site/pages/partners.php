@@ -44,6 +44,10 @@
 	</div>
 	
 	<div>
+		<a href="http://www.hrwebdir.org/" title="HrWebDir.org - Evaluating quality sites on the Web" target="_blank">HRWebDir.org</a> - Evaluating Quality Sites on the Web
+	</div>
+	
+	<div>
 		<a href="http://www.umoz.org/Lawyers/" target="_blank">Lawyers Reviews</a>
 	</div>
 	
@@ -116,7 +120,111 @@
 	</div>
 	
 	<div>
+		<a href="http://www.rdirectory.net/">Ranking Website Directory</a>
+	</div>
+	
+	<div>
+		<a href="http://www.directoryworld.net/" target="_blank">Directory World</a>
+	</div>
+	
+	<div>
+		<a href="http://directory.seo-supreme.com" title="Add url to free web directory" target="_blank"><img src="http://directory.seo-supreme.com/img/logo_80x15.gif" alt="Add url to free web directory" /></a>
+	</div>
+	
+	<div>
+		<a href="http://www.allthewebsites.org/magazines/" target="_blank">Magazine Subscriptions</a> - Subscribe or Renew more than 1000 magazines at very low price. Huge discounts on popular magazines from USA and Canada.
+	</div>
+	
+	<div>
+		<a href="http://www.free-games.eu.com" target="_blank">Free Games</a>
+	</div>
+	
+	<div>
+		<a href="http://www.traffictools.org" target="_blank">build a website</a>
+	</div>
+	
+	<div>
+		<a href="http://www.addsite-submitfree.com" id="R23D388" target="_blank">Add Your Site for Free</a>
+	</div>
+	
+	<div>
+		<a href="http://www.blueurl.com/Shopping/" target="_blank">Add Shopping Site Link</a>
+	</div>
+	
+	<div>
+		<a href="http://www.abizdirectory.com/" target="_blank">Abiz Web Directory</a>
+	</div>
+	
+	<div>
+		<a href="http://www.itzalist.com/shopping.html" target="_blank">!tzalist Shopping Directory</a>
+	</div>
+	
+	<div>
+		<a href="http://www.resources.eu.com/shopping" target="_blank" title="Your Online shopping resource center">Shopping :: Resources Online</a> - Your online shopping resource centre.
+	</div>
+	
+	<div>
+		<a href="http://www.dir-submission.com" id="R6D5DC7" target="_blank">Seo friendly directory</a>
+	</div>
+	
+	<div>
+		<a href="http://www.cluboo.com/" target="_blank">Cluboo Web Directory</a>
+	</div>
+	
+	<div>
+		<a href="http://www.directory-link.info" id="RE6E3E4" target="_blank">Directory Link</a> - Quality Directory Submission Services.
+	</div>
+	
+	<div>
+		<a href="http://www.reviewedweb.com" taget="_blank">Reviewed Web Directory</a> - Online Web Directory. ReviewedWeb is one of the large-scale & editorial based online business directories. Reviewed web directory provides free web site submission for your business.
+	</div>
+	
+	<div>
+		<a href="http://www.bingorama.se" target="_blank">Bingo</a>
+	</div>
+	
+	<div>
+		<a href="http://www.linkd.info" target="_blank">Linkd.info</a>
+	</div>
+	
+	<div>
+		<a href="http://www.onionhunt.com" target="_blank">OnionHunt.com</a> - a link directory and is SEO friendly.
+	</div>
+	
+	<div>
+		<a href="http://www.wwwi.co.uk/" target="_blank">WWWi Directory</a>
+	</div>
+	
+	<div>
+		<a href="http://www.bizseo.com/" title="Add Your Site to Our Directory for FREE" target="_blank">Free Web Directory</a> - Including <a href="http://www.bizseo.com/Directory/Shopping/Clothing/Costumes/" target="_blank">Costumes</a> Resources, Offer automatic, instant and free directory submissions.
+	</div>
+	
+	<div>
+		<a href="http://www.businessseek.biz/" target="_blank">BusinessSeek.biz Business Web Directory</a> - International business directory offering express directory inclusion services, sponsored listings, article submission, and extensive business information on all entries.
+	</div>
+	
+	<div>
+		<a href="http://www.crazyleafdesign.com/webdirectory" target="_blank">CrazyLeaf FREE Web Directory</a>
+	</div>
+	
+	
+	
+	
+	
+	<div>
+		<a href="http://www.tsection.com" target="_blank" title="Tsection - Great places to visit on the net!"><img src="http://www.tsection.com/graphics/tsection_button_micro.gif" alt="Tsection - Great places to visit on the net!" width="88" height="31" border="0"></a>
+	</div>
+	
+	<div>
+		<a href='http://www.apexoo.com/directory/Shopping/Clothing/Costumes/' target='_blank'><img src='http://www.apexoo.com/apexoo_directory.jpg' border='0' alt="Listed in Costumes Directory from Apexoo" /></a>
+	</div>
+	
+	<div>
 		<a href="http://www.puppyurl.com/" target="_blank"><img src="http://www.puppyurl.com/images/puppy_button.gif" border="0" alt="PuppyURL - Free Directory"  " title="PuppyURL -  Web Directory" ></a>
+	</div>
+	
+	<div>
+		Investigate <a href="http://www.college-scholarships.com" target="_blank">colleges</a>, <a href="http://www.college-scholarships.com/ssac.htm" target="_blank">online school</a> programs, and <a href="http://www.get-recruited.com" target="_blank">career college</a> education.
 	</div>
 </div>
 
