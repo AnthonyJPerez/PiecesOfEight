@@ -174,14 +174,17 @@
 				<?php echo $content; ?>
 				
 				<div id="social_media_buttons" class="horizontal_menu">
-					<div>Visit us on <a href="https://www.facebook.com/PiecesOf8Costumes" target="_blank">Facebook</a> and <a href="https://www.etsy.com/shop/PiecesOf8Costumes" target="_blank">Etsy</a>!</div>
+					<div>Visit us on <a href="https://www.facebook.com/PiecesOf8Costumes" rel="nofollow" target="_blank">Facebook</a> and <a href="https://www.etsy.com/shop/PiecesOf8Costumes" target="_blank" rel="nofollow">Etsy</a>!</div>
 					<ul>
 						<li>
 						<?php
 							echo CHtml::link(
 								CHtml::image(Yii::app()->request->baseUrl.'/images/facebook.png', 'Visit us on Facebook!', array('class'=>'')),
 								"https://www.facebook.com/PiecesOf8Costumes",
-								array('target'=>'_blank')
+								array(
+									'target'=>'_blank',
+									'rel' => "nofollow"
+								)
 							);
 						?>
 						</li>
@@ -191,7 +194,10 @@
 							echo CHtml::link(
 								CHtml::image(Yii::app()->request->baseUrl.'/images/etsy.png', 'Visit our Etsy Shop!', array('class'=>'etsy')),
 								"https://www.etsy.com/shop/PiecesOf8Costumes",
-								array('target'=>'_blank')
+								array(
+									'target'=>'_blank',
+									'rel' => "nofollow"
+								)
 							);
 						?>
 						</li>
@@ -227,7 +233,7 @@
 					?>
 				</div>
 				
-				<div> 
+				<div class="footer_menu"> 
 					<?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about'))); ?>
 					|
 					<?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?>
@@ -237,13 +243,13 @@
 					<?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners'))); ?> 
 
 				</div>
-				<div>
-					Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
-				</div>
-				<div>
-					<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
-					<br />
-					<span>All Rights Reserved.</span>
+				<div class="footer_details">
+					<div>
+						Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
+					</div>
+					<div>
+						<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
+					</div>
 				</div>
 			</div>
 		</div>

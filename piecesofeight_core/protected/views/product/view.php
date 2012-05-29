@@ -501,7 +501,10 @@
 						CHtml::link(
 							"View on Etsy",
 							"https://www.etsy.com/shop/PiecesOf8Costumes",
-							array('target'=>'_blank')
+							array(
+								'target'=>'_blank',
+								'rel' => 'nofollow'
+							)
 						)."</span>";
 				echo "</div>";
 				
@@ -510,7 +513,10 @@
 					echo CHtml::link(
 							"Ask about Custom Orders",
 							$this->createUrl('site/contact', array('pid'=>$model->id)),
-							array('target'=>'_blank')
+							array(
+								'target'=>'_blank',
+								'rel' => 'nofollow'
+							)
 						);
 					echo "</span>";
 				echo "</div>";
