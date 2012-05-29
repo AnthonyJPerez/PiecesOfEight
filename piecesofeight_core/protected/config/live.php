@@ -9,89 +9,123 @@ function _joinpath($dir1, $dir2) {
 
 // Define a path alias
 //Yii::setPathOfAlias('product-images','/images/product-images/');
- 
+
+$debug = true;
+if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
+{
+	$debug = false;
+}
+
 $homePath      = dirname(__FILE__) . '/../..';
 $protectedPath = _joinpath($homePath, 'protected');
 $runtimePath   = _joinpath($homePath, 'runtime');
 
-return array(
-	'basePath' => $protectedPath,
-	'runtimePath' => $runtimePath,
+
+$config = array();
+$config['basePath'] = $protectedPath;
+$config['runtimePath'] = $runtimePath;
+$config['defaultController'] = 'site';
+
+$config['name'] = 'Handmade Pirate Costumes and Renaissance Clothing | Pieces of Eight Costumes';
+if ($debug) 
+{
+	$config['name'] = 'DEBUG Mode | ' . $config['name'];
+}
+
+// preloading 'log' component
+$config['preload'] = array('log');
+
+// autoloading model and component classes
+$config['import'] = array(
+	'application.models.*',
+	'application.components.*',
+	'ext.giix-components.*', 	// giix components
+);
+
+// Load modules
+$config['modules'] = array();
+if ($debug)
+{
+	$config['modules']['gii'] = array(
+		'class'=>'system.gii.GiiModule',
+		'generatorPaths' => array(
+			'ext.giix-core', // giix generators
+		),
+		'password'=>'294992',
+		// If removed, Gii defaults to localhost only. Edit carefully to taste.
+		'ipFilters'=>array('127.0.0.1','::1'),
+	);
+}
+
+
+//
+// Components
+//
+$config['components'] = array();
+
+$config['components']['session'] = array(
+	'sessionName' => 'PiecesOfEight_Session',
+	'cookieMode' => 'only',
+);
+
+$config['components']['user'] = array(
 	
-	'defaultController' => 'site',
-	'name'=>'Handmade Pirate Costumes and Renaissance Clothing | Pieces of Eight Costumes',
+);
 
-	// preloading 'log' component
-	'preload'=>array('log'),
-
-	// autoloading model and component classes
-	'import'=>array(
-		'application.models.*',
-		'application.components.*',
-		'ext.giix-components.*', // giix components
+$config['components']['urlManager'] = array(
+	'urlFormat'=>'path',
+	'showScriptName' => false,
+	'rules'=>array(
+		// Custom rules go first
+		'' => 'site/index',
+		'custom-order' => 'product/custom',
+		'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
+		'<action:(comments|events|contact|newsletter)>' => 'site/<action>',
+				
+		'admin/<action:(login|logout)>' => 'site/<action>',
+		'admin/gallery' => 'product/gallery',
+		'admin/product/<id:\d+>' => 'product/create',
+		'admin/product' => 'product/create',
+				
+		'<action:(lookbook)>' => 'product/<action>',
+		'product/<id:\d+>/<name>' => 'product/view',
+		'product/<id:\d+>' => 'product/view',
+		'products/<category>' => 'product/list',
+		'products' => 'product/list',
+		'cart' => 'cart/view',			
+				
+		// Default controller url setup
+		'<controller:\w+>/<id:\d+>' => '<controller>/view',
+		'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+		// Defaults to a site page if not above
+		'<view:[a-zA-Z0-9-]+>/' => 'site/page',
+		'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 	),
+);
 
-	'modules'=>array(		
-		/*'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'generatorPaths' => array(
-				'ext.giix-core', // giix generators
-			),
-			'password'=>'294992',
-		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-		),*/
-	),
+$config['components']['YImage'] = array(
+	'YImage' => array(
+		'class' => 'application.extensions.YImage.CImageComponent',
+		'driver' => 'GD',
+	)
+);
 
-	// application components
-	'components'=>array(
-		'session' => array(
-			'sessionName' => 'PiecesOfEight_Session',
-			'cookieMode' => 'only',
-		),
-		'user'=>array(
-			// enable cookie-based authentication
-			//'allowAutoLogin'=>true,
-		),
-		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'showScriptName' => false,
-			'rules'=>array(
-				// Custom rules go first
-				'' => 'site/index',
-				'custom-order' => 'product/custom',
-				'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
-				'<action:(comments|events|contact|newsletter)>' => 'site/<action>',
-				
-				'admin/<action:(login|logout)>' => 'site/<action>',
-				'admin/gallery' => 'product/gallery',
-				'admin/product/<id:\d+>' => 'product/create',
-				'admin/product' => 'product/create',
-				
-				'<action:(lookbook)>' => 'product/<action>',
-				'product/<id:\d+>/<name>' => 'product/view',
-				'product/<id:\d+>' => 'product/view',
-				'products/<category>' => 'product/list',
-				'products' => 'product/list',
-				'cart' => 'cart/view',
-				
-				
-				// Default controller url setup
-				'<controller:\w+>/<id:\d+>' => '<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-					// Defaults to a site page if not above
-				'<view:[a-zA-Z0-9-]+>/' => 'site/page',
-				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-			),
-		),
-		
-		'YImage' => array(
-			'class' => 'application.extensions.YImage.CImageComponent',
-			'driver' => 'GD',
-		),
-		
-		
-		'db'=>array(
+$config['components']['db'] = 
+	($debug) 
+	?
+		// Debug mode
+		array(
+			'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',
+			'emulatePrepare' => true,
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'username' => 'brixican',
+			'password' => 'brixican',
+			'charset' => 'utf8',
+		)
+	:
+		// Production mode
+		array(
 			'connectionString' => 'mysql:host=localhost;dbname=sperez8_piecesofeight',
 			'emulatePrepare' => true,
 			'enableProfiling' => true,
@@ -99,35 +133,34 @@ return array(
 			'username' => 'sperez8_admin',
 			'password' => 'a:JPz042488',
 			'charset' => 'utf8',
-		),
+		);
 		
-		'errorHandler'=>array(
-			// use 'site/error' action to display errors
-            'errorAction'=>'site/error',
-        ),
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-				// uncomment the following to show log messages on web pages
-				
-				/*array(
-					'class'=>'CWebLogRoute',
-				),*/
-				
-			),
-		),
-	),
 
-	// application-level parameters that can be accessed
-	// using Yii::app()->params['paramName']
-	'params'=>array(
-		// this is used in contact page
-		//'adminEmail'=>'holy.crap.its.aj@gmail.com',
-		'adminEmail'=>'piecesof8costumes@comcast.net',
-		'webmasterEmail'=>'piecesof8costumes@gmail.com',
-	),
+$config['components']['errorHandler'] = array(
+	// use 'site/error' action to display errors
+	'errorAction' => 'site/error'
 );
+
+// log component
+
+$config['components']['log'] = array(
+	'class' => 'CLogRouter',
+	'routes' => array(
+		array(
+			'class' => 'CFileLogRoute',
+			'levels'=>'error, warning',
+		),
+	)
+);
+if ($debug)
+{
+	array_push($config['components']['log']['routes'], array('class'=>'CWebLogRoute'));
+}
+
+$config['params'] = array(
+	// this is used in contact page
+	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@comcast.net',
+	'webmasterEmail'=>'piecesof8costumes@gmail.com',
+);
+
+return $config;
