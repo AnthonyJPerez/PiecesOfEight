@@ -28,6 +28,19 @@ class ProductController extends GxController
 
 	public function actionView($id) 
 	{
+		$productModel = Product::model()->findByPk($id);
+	
+		if ( !$productModel->id)
+		{
+			$this->redirect(
+				$this->createUrl(
+					'product/list'
+				),
+				false, // don't terminate
+				301 // status code to return: http Gone
+			);
+		}
+		
 		$model = new AddcartForm;
 		
 		if (isset($_POST['AddcartForm']))
