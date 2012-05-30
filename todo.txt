@@ -9,6 +9,7 @@ Custom order page: see paper!
 admin home page
 SEO
 	create adwords campaign
+	gallery maintins alt description
 	seo-friendly image filenames
 	make each meta description individual/unique
 	create 'alt' text for images
