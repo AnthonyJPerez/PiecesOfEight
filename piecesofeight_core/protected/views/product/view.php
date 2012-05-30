@@ -283,14 +283,13 @@
 				$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
 				$imgTag = CHtml::image(
 					$imgUrl,
-					$model->name,
+					$model->getProductImgAltDescription(),
 					array(
 						'width' => 300,
 						'itemprop'=>'image'
 					)
 				);
 				
-				//echo "<a href='".$imgUrl."' rel='clearbox[gallery=product_view]'>".$imgTag."</a>";
 				echo "<a class='fancybox_product_gallery' href='".$imgUrl."' rel='product_gallery'>".$imgTag."</a>";
 			
 				
@@ -307,7 +306,7 @@
 					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $img->url;
 					$imgTag = CHtml::image(
 						$imgUrl,
-						$model->name,
+						$model->getProductImgAltDescription(),
 						array(
 							'width' => 300,
 							'itemprop'=>'image'
@@ -323,7 +322,7 @@
 				// Display the default image
 				$imgTag = CHtml::image(
 					Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url,
-					$model->name . ' (small)',
+					$model->getProductImgAltDescription(),
 					array(
 						'width' => 55
 					)
@@ -344,7 +343,7 @@
 					
 					$imgTag = CHtml::image(
 						Yii::app()->request->baseUrl . '/images/product-images/' . $img->url,
-						$model->name . ' (small)',
+						$model->getProductImgAltDescription(),
 						array(
 							'width' => 55
 						)

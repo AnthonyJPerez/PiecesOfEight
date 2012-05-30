@@ -267,8 +267,8 @@ class ProductController extends GxController
 					array_push($uploaded_images, $img);
 					
 					// Save file to the disk
-					$filename = 'gallery_'.$img->id.'.'.$data->getExtensionName();
-					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'.$filename;
+					$filename = 'gallery-' . $img->id . '_' . $data->getName();
+					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'. $filename;
 					if ($img->id != null && $data->saveAs($filepath))
 					{
 						// Image successfully uploaded and saved in the /images/product-images/ directory
@@ -384,7 +384,7 @@ class ProductController extends GxController
 						array_push($uploaded_images, $img);
 						
 						// Save file to the disk
-						$filename = 'product-'.$product->id .'_'.$img->id.'.'.$data->getExtensionName();
+						$filename = '['.$product->category .']_'. $product->getSlug() . '_(p'.$product->id .'-i'.$img->id .').' . $data->getExtensionName();
 						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
 						
 						$saved = $data->saveAs($filepath);

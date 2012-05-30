@@ -104,11 +104,10 @@ $config['components']['urlManager'] = array(
 );
 
 $config['components']['YImage'] = array(
-	'YImage' => array(
-		'class' => 'application.extensions.YImage.CImageComponent',
-		'driver' => 'GD',
-	)
+	'class' => 'application.extensions.YImage.CImageComponent',
+	'driver' => 'GD',
 );
+
 
 $config['components']['db'] = 
 	($debug) 
