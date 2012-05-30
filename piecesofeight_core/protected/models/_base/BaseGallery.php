@@ -11,6 +11,7 @@
  *
  * @property string $id
  * @property string $url
+ * @property string $alt_description
  * @property string $product_id
  *
  * @property Product $product
@@ -35,10 +36,11 @@ abstract class BaseGallery extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('url', 'length', 'max'=>255),
+			array('alt_description', 'required'),
+			array('url, alt_description', 'length', 'max'=>255),
 			array('product_id', 'length', 'max'=>10),
 			array('url, product_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, url, product_id', 'safe', 'on'=>'search'),
+			array('id, url, alt_description, product_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +59,7 @@ abstract class BaseGallery extends GxActiveRecord {
 		return array(
 			'id' => Yii::t('app', 'ID'),
 			'url' => Yii::t('app', 'Url'),
+			'alt_description' => Yii::t('app', 'Alt Description'),
 			'product_id' => null,
 			'product' => null,
 		);
@@ -67,6 +70,7 @@ abstract class BaseGallery extends GxActiveRecord {
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('url', $this->url, true);
+		$criteria->compare('alt_description', $this->alt_description, true);
 		$criteria->compare('product_id', $this->product_id);
 
 		return new CActiveDataProvider($this, array(

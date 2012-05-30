@@ -19,7 +19,7 @@
 		'
 			$("#orbit_gallery").orbit({
 				animation: "fade",
-				advanceSpeed: 5000,
+				advanceSpeed: 6000,
 				pauseOnHover: false,
 				startClockOnMouseOut: true,
 				directionalNav: false,
@@ -138,9 +138,8 @@ if ($isAdmin)
 			{
 				$imgTag = CHtml::image(
 					Yii::app()->request->baseUrl . '/images/gallery/' . $image->url,
-					"",
+					$image->alt_description,
 					array(
-						'alt' => '',
 						'width' => 700,
 						'height' => 525
 					)

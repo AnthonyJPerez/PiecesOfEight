@@ -265,14 +265,14 @@ a:hover
 	width: 100%;	
 	height: 105px;
 	
-	color: #888;
+	color: #aaa;
 	
 	font-size: 10.5pt;
 }
 
 	#footer a:link, #footer a:visited
 	{
-		color: #444;
+		color: #666;
 		text-shadow: 2px 2px 2px #000;
 	}
 	
@@ -281,20 +281,29 @@ a:hover
 		color: #ddd;
 	}
 	
-	#footer .copyright
-	{
-		display: block;
-		width: 50%;
-		margin: 0 auto;
-		padding: 1.5em;
-	}
-	
 	#footer .newsletter
 	{
 		width: 250px;
 		float: right;
 	}
 
+	#footer .footer_menu
+	{
+		position: absolute;
+		width: 400px;
+		left: 50%;
+		top: 1.75em;
+		margin-left: -300px;
+	}
+	
+	#footer .footer_details
+	{
+		position: absolute;
+		width: 400px;
+		left: 50%;
+		bottom: 0.5em;
+		margin-left: -300px;
+	}
 
 
 #social_media_buttons

@@ -12,7 +12,7 @@ if (!$PO8_UNDER_CONSTRUCTION)
 	if (!$P08_LIVE)
 	{
 		$yii=dirname(__FILE__).'/../../framework/yii.php';
-		$config=dirname(__FILE__).'/../piecesofeight_core/protected/config/main.php';
+		$config=dirname(__FILE__).'/../piecesofeight_core/protected/config/live.php';
 		
 		// remove the following lines when in production mode
 		defined('YII_DEBUG') or define('YII_DEBUG',true);

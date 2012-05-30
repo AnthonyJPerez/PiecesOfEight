@@ -5,7 +5,10 @@
 	<a href="<?php echo $data->getUrl(); ?>">
 		<?php 
 			$defaultImage = $data->getDefaultImage();
-			echo CHtml::image(Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImage->url);
+			echo CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImage->url,
+				$data->getProductImgAltDescription()
+			);
 		?>
 	</a>
 	
