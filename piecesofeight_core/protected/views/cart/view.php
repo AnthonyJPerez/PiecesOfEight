@@ -150,7 +150,11 @@ if (!empty($products))
 					$defaultImg = $product->getDefaultImage();
 					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImage->url;
 					echo "<a class='fancybox_cart_product' href='".$imgUrl."'>";
-					echo CHtml::image($imgUrl, '', array('width' => 75, 'align'=>'left'));
+					echo CHtml::image(
+						$imgUrl, 
+						$p->getProductImgAltDescription(), 
+						array('width' => 75, 'align'=>'left')
+					);
 					echo "</a>";
 					
 					echo "<div class='name'>".CHtml::link($product->name, $product->getUrl())."</div>";

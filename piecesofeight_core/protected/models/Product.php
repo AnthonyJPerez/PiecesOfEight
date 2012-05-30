@@ -38,6 +38,23 @@ class Product extends BaseProduct
 	}
 	
 	
+	public function getSlug()
+	{
+		$slug = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);
+		$slug = preg_replace("/[\s]+/", '-', $slug);
+				
+		return strtolower($slug);
+	}
+	
+	
+	public function getProductImgAltDescription()
+	{
+		// Returns a description suitable for the 'alt' tag for a product's image
+		$name = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);
+		return strtolower($name) . " found in " . $this->category;
+	}
+	
+	
 	// Creates a url with the product name in the url:
 	// /product/[id]/[name-of-product]
 	public function getUrl($absolute=false)
@@ -46,18 +63,8 @@ class Product extends BaseProduct
 		
 		// add the name parameter to the URL
 		if ($this->hasAttribute('name'))
-		{
-			//$slug = preg_replace('@[\s!:;_\?=\\\+\*/%&#]+@', '-', $this->name);
-				//this will replace all non alphanumeric char with '-'
-			//$slug = mb_strtolower($slug);
-				//convert string to lowercase
-			//$slug = trim($slug, '-');
-				//trim whitespaces
-				
-			$slug = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);
-			$slug = preg_replace("/[\s]+/", '-', $slug);
-				
-			$params['name'] = strtolower($slug);
+		{		
+			$params['name'] = $this->getSlug();
 		}
 		
 		if ($absolute === true)

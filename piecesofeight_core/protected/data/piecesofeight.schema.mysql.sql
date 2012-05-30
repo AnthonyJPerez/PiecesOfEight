@@ -115,6 +115,7 @@ CREATE TABLE p8_gallery
 	
 	#-- Attributes
 	url				VARCHAR(255) NOT NULL default "gallery_null.jpg",
+	alt_description		VARCHAR(255) NOT NULL default "",
 	product_id			INTEGER UNSIGNED DEFAULT NULL,
 	
 	#-- Constraints

@@ -237,7 +237,7 @@
 <div class="row images_row">
 	<label><?php echo "Images"; ?></label>
 	<ul>
-		<li><span class="note">To look right, images should be 600px (width) by 270px (height)</span></li>
+		<li><span class="note">To look right, images should be 700px (width) by 525px (height)</span></li>
 	</ul>
 	<div class="main_container">
 		

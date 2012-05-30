@@ -92,7 +92,7 @@
 	<body>
 	
 		<div id='content'>
-			<img id='logo' src='images/logo3.png' alt='Pieces of Eight Costumes by Sue LLC logo' />
+			<img id='logo' src='images/pieces-of-eight-costumes-logo.png' alt='Pieces of Eight Costumes by Sue LLC logo' />
 			<div class='letterpress h1'>Avast Ye!</div>
 			<div class='letterpress h2'>This page be <span>Under Construction</span>.</div>
 			<p>

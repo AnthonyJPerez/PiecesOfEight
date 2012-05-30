@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
+		<!-- SEO Meta tags -->
+		<!-- Safe-Surf metatag -->
+		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.classify.org/safesurf/" L gen true for "http://www.piecesofeightcostumes.com/" r (SS~~000 1))' />
+		<meta name="netinsert" content="0.0.1.12.10.1">
+		
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="language" content="en" />
-		<meta name="description" content="Handmade Pirate Costumes and Renaissance Clothing. We specialize in creating the highest quality, 
-			period-authentic clothes that are made to last. Custom orders are available on all of our products!" />
+		<meta name="description" content="Handmade pirate costumes and renaissance clothing. Top quality, period-authentic clothes that are made to last. Custom orders are available on all of the products. Perfect for halloween parties, renaissance faires or weddings." />
 		
-		<meta name="keywords" content="pirate costume, pirate clothes, child pirate costume, adult pirate costume, couples pirate costume, pirate costumes,
-			halloween, party, caribbean pirate, pirate wench, pirate captain, pirate shirt, renaissance clothing, renaissance outfits, handmade clothes,
-			halloween costumes, renaissance costumes, medieval clothing, medieval costumes, renaissance faire clothing, wench costumes, wench clothing" />
+		<meta name="keywords" content="pirate costume, pirate clothes, child pirate costume, adult pirate costume, couples pirate costume, pirate costumes, halloween, party, caribbean pirate, pirate wench, pirate captain, pirate shirt, renaissance clothing, renaissance outfits, handmade clothes, halloween costumes, renaissance costumes, medieval clothing, medieval costumes, renaissance faire clothing, wench costumes, wench clothing" />
 	
 		<!--[if lt IE 9]>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
 
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
-		
-		<!--link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css" media="screen" /-->
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css?v=05292012" media="screen, projection" />
 		
 		<!--[if lt IE 8]>
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
+			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css?v=05292012-2" media="screen, projection" />
 		<![endif]-->
 	
 	
@@ -48,13 +48,16 @@
 		}
 		?>
 	</head>
-	
+	<?php
+		// Site speed optimization:
+		flush();
+	?>
 	<body>
 		<div class="container" id="page">
 			<div id="header">
 				<div id="logo">
 					<a href="<?php echo $this->createUrl('site/index'); ?>">
-						<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/logo3.png', 'Pieces of Eight Costumes by Sue LLC logo', array('width' => '150px', 'height' => '150px')); ?>
+						<?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/pieces-of-eight-costumes-logo.png', 'Pieces of Eight Costumes by Sue LLC logo', array('width' => '150px', 'height' => '150px')); ?>
 					</a>
 					<!--div><?php echo CHtml::encode(Yii::app()->name); ?></div-->
 				</div>
@@ -171,14 +174,17 @@
 				<?php echo $content; ?>
 				
 				<div id="social_media_buttons" class="horizontal_menu">
-					<div>Visit us on <a href="https://www.facebook.com/PiecesOf8Costumes" target="_blank">Facebook</a> and <a href="https://www.etsy.com/shop/PiecesOf8Costumes" target="_blank">Etsy</a>!</div>
+					<div>Visit us on <a href="https://www.facebook.com/PiecesOf8Costumes" rel="nofollow" target="_blank">Facebook</a> and <a href="https://www.etsy.com/shop/PiecesOf8Costumes" target="_blank" rel="nofollow">Etsy</a>!</div>
 					<ul>
 						<li>
 						<?php
 							echo CHtml::link(
 								CHtml::image(Yii::app()->request->baseUrl.'/images/facebook.png', 'Visit us on Facebook!', array('class'=>'')),
 								"https://www.facebook.com/PiecesOf8Costumes",
-								array('target'=>'_blank')
+								array(
+									'target'=>'_blank',
+									'rel' => "nofollow"
+								)
 							);
 						?>
 						</li>
@@ -188,7 +194,10 @@
 							echo CHtml::link(
 								CHtml::image(Yii::app()->request->baseUrl.'/images/etsy.png', 'Visit our Etsy Shop!', array('class'=>'etsy')),
 								"https://www.etsy.com/shop/PiecesOf8Costumes",
-								array('target'=>'_blank')
+								array(
+									'target'=>'_blank',
+									'rel' => "nofollow"
+								)
 							);
 						?>
 						</li>
@@ -224,20 +233,23 @@
 					?>
 				</div>
 				
-				<div> 
+				<div class="footer_menu"> 
 					<?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about'))); ?>
 					|
 					<?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?>
 					|
 					<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> 
+					|
+					<?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners'))); ?> 
+
 				</div>
-				<div>
-					Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
-				</div>
-				<div>
-					<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
-					<br />
-					<span>All Rights Reserved.</span>
+				<div class="footer_details">
+					<div>
+						Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
+					</div>
+					<div>
+						<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
+					</div>
 				</div>
 			</div>
 		</div>
