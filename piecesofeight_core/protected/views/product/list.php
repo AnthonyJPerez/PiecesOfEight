@@ -4,19 +4,37 @@
 		switch ($category)
 		{
 			case 'new': 
-				$this->pageTitle = 'New Products | ' . $this->pageTitle;
+				$this->pageTitle = 'Newest Clothing | ' . $this->pageTitle;
+				$this->pageDescription = "Shop our newest products from our collection of handmade pirate costumes and renaissance clothing. Find your Captain Jack Sparrow costume, Snow White and the Huntsman Costume, 
+				ladies pirate costume, ladies pirate shirt, mens pirate costume, mens pirate shirt, mens pirate pants, halloween costume, pirate wedding dress, renaissance dress, pirate coat, 
+				pirate pants. Custom orders are available on all of our costumes and products!";
+				
+				$this->pageKeywords = "Captain Jack Sparrow costume, Snow White and the Huntsman Costume, 
+				ladies pirate costume, ladies pirate shirt, mens pirate costume, mens pirate shirt, mens pirate pants, halloween costume, pirate wedding dress, renaissance dress, pirate coat, 
+				pirate pants";
 				break;
 				
 			default:
-				$this->pageTitle = ucfirst($category) . ' | ' . $this->pageTitle;
+				$this->pageTitle = ucfirst($categoryModel->name). ' | ' . $this->pageTitle;
+				//$this->pageDescription = $categoryModel->description;
+				//$this->pageKeywords = $categoryModel->keywords;
 				break;
 		}
 		
 	}
 	else
 	{
-		$this->pageTitle = 'Products | ' . $this->pageTitle;
+		$this->pageTitle = 'Pirate Clothes | ' . $this->pageTitle;
+		
+		$this->pageDescription = "Shop our collection of handmade pirate costumes and renaissance clothing. Find your Captain Jack Sparrow costume, Snow White and the Huntsman Costume, 
+		ladies pirate costume, ladies pirate shirt, mens pirate costume, mens pirate shirt, mens pirate pants, halloween costume, pirate wedding dress, renaissance dress, pirate coat, 
+		pirate pants. Custom orders are available on all of our costumes and products!";
+		
+		$this->pageKeywords = "Captain Jack Sparrow costume, Snow White and the Huntsman Costume, 
+		ladies pirate costume, ladies pirate shirt, mens pirate costume, mens pirate shirt, mens pirate pants, halloween costume, pirate wedding dress, renaissance dress, pirate coat, 
+		pirate pants";
 	}
+	
 
 	Yii::app()->clientScript->registerCss(
 		'product_view_rounded',

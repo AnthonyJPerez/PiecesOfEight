@@ -1,6 +1,10 @@
 <?php 
 
 	$this->pageTitle = "Event Schedule | " . $this->pageTitle;
+	$this->pageDescription = "Attending the Portland pirate festival? Going to your favorite Oregon renaissance faire? Look for us at these upcoming renaissance faires and festivals on our list of events.";
+	
+	$this->pageKeywords = "oregon pirate festivals, oregon renaissance faires, pacific northwest renaissance festivals, list of oregon pirate faires";
+	
 	
 	Yii::app()->clientScript->registerCssFile(
 		Yii::app()->request->baseUrl . '/css/fullcalendar.css', 
