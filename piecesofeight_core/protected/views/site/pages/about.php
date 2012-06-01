@@ -1,5 +1,12 @@
 <?php
 	$this->pageTitle = "About Us | " . $this->pageTitle;
+	
+	$this->pageDescription = "Designing costumes her whole life, Susan Perez has years of experience creating
+	custom, handmade costumes and clothing. Susan specializes in creating pirate costumes and renaissance clothes
+	from her costuming shop located in Keizer, Oregon. Born and raised in Cornwall, Sue was inspired by the
+	many famous tales and legends that make up England's history, from notorious pirates to the legends of King Arthur.";
+	
+	$this->pageKeywords = "Costume designer, handmade costumes, Keizer Oregon Costume shop, pirate costumes, renaissance costumes";
 ?>
 <h1>Pieces of Eight Costumes</h1>
 

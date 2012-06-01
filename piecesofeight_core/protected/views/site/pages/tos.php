@@ -1,6 +1,9 @@
 <?php
 	$this->pageTitle = "Terms of Service | " . $this->pageTitle;
+	$this->pageDescription = "View the Terms of Service for Pieces of Eight Costumes";
+	$this->pageKeywords = "Terms of Service, legal, frequently asked questions, faq";
 ?>
+
 <h1>Terms of Service</h1>
 
 

@@ -1,5 +1,7 @@
 <?php
 	$this->pageTitle = "Shopping Cart | " . $this->pageTitle;
+	$this->pageDescription = "Add our costumes to your shopping cart. Need a custom item? Contact us or check out our collection of handmade costumes";
+	$this->pageKeywords = "pieces of eight costumes shopping cart, handmade pirate costumes";
 ?>
 <h1>Shopping Cart</h1>
 

@@ -1,6 +1,8 @@
 <?php 
 	
 	$this->pageTitle = "Partners | " . $this->pageTitle;
+	$this->pageDescription = "List of partners who help us to be a successful pirate costuming shop.";
+	$this->pageKeywords = "costuming shop, pieces of eight costumes partners, shop partners, SEO partners";
 	
 	Yii::app()->clientScript->registerCss(
 		'partners-style',
@@ -207,7 +209,17 @@
 		<a href="http://www.crazyleafdesign.com/webdirectory" target="_blank">CrazyLeaf FREE Web Directory</a>
 	</div>
 	
+	<div>
+		<a href="http://www.2handmade.com/" target="_blank">2handmade.com</a>
+	</div>
 	
+	<div>
+		<a href="http://www.relevantdirectory.com/north-america/united-states/shopping/" target="_blank">Shopping Directory of United States</a> - free online catalog of relevant and useful web sites. Free submit a site to United States web directory and link exchange.
+	</div>
+	
+	<div>
+		<a href="http://thehandmadedirectory.com" title="thehandmadedirectory" target="_blank"><img border="0" height="25" src="http://thehandmadedirectory.com/images/SMTHD.gif" width="140" /></a>
+	</div>
 	
 	
 	

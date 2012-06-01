@@ -1,5 +1,8 @@
 <?php
 	$this->pageTitle = "Lookbook | " . $this->pageTitle;
+	$this->pageDescription = "Check out our latest pirate costume designs and outfits. ";
+	
+	$this->pageKeywords = "pirate clothes, pirate costumes, pirate costume designs, renaissance clothes, renaissance costumes, pirate outfits";
 	
 	
 	// Include the fancybox script
