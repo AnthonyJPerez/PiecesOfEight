@@ -1,5 +1,7 @@
 <?php
 	$this->pageTitle = "Contact Us | " . $this->pageTitle;
+	$this->pageDescription = "Contact Pieces of Eight Costumes by email to order your custom, handmade costume today!";
+	$this->pageKeywords = "contact, custom order, custom made to order, handmade costume, contact us, email, email us";
 
 
 	Yii::app()->clientScript->registerCss(

@@ -1,6 +1,11 @@
 <?php
 	$this->pageTitle = ucwords($model->name) . " | " . $this->pageTitle;
 
+	//$this->pageDescription = $model->pageDescription;
+	//$this->pageKeywords = $model->pageKeywords;
+	
+	
+	
 
 	// Include the jquery library
 	Yii::app()->clientScript->registerCoreScript('jquery');

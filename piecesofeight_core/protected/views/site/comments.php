@@ -1,6 +1,10 @@
 <?php 
 	
 	$this->pageTitle = "Feedback | " . $this->pageTitle;
+	$this->pageDescription = "Check out what others think about our handmade costumes! Bought a costume from us? Leave a comment and let the world
+	know how much you love your unique pirate costume!";
+	
+	$this->pageKeywords = "Leave a comment, pirate costume, handmade costume, leave feedback";
 ?>
 
 <h1>Leave us some Feedback</h1>

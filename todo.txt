@@ -8,19 +8,13 @@ TODO:
 Custom order page: see paper!
 admin home page
 SEO
+	specify conanical links in each view
 	create adwords campaign
-	gallery maintins alt description
 	seo-friendly image filenames
 	make each meta description individual/unique
-	create 'alt' text for images
 	create 'title' text for links
 	blog about the site
 	optimize product titles / descriptions / uploaded images
-	submit to more search engines
-		alta-vista
-		ask
-		fast
-		??
 Fix product listings being displayed weird
 integrate with better paypal api
 Discount codes:

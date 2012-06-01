@@ -1,4 +1,13 @@
 <?php 
+	$this->pageDescription = "Pirate Costumes - find handmade pirate costumes perfect for renaissance faires, halloween parties and even a romantic pirate wedding.
+	With years of experience, our handmade costumes are unique, and guaranteed to make you the life of the party! We have pirate costumes such as
+	Captain Jack Sparrow costumes, Snow White and the Huntsman costume, halloween costume, renaissance costumes, ladies pirate costumes, mens pirate costumes, ladies pirate coats, mens pirate coats, ladies pirate pants
+	mens pirate pants, and childrens pirate costumes. Place your order now for a beautiful, unique pirate costume today!";
+	
+	$this->pageKeywords = "pirate costume, mens pirate costume, ladies pirate costume, mens pirate coat, ladies pirate coat, mens pirate shirt, mens pirate pants, renaissance dress
+	snow white huntsman costume, captain jack sparrow costume, pirate shirt, pirate pants, renaissance faire costume, pirate wedding, halloween costume";
+	
+	
 	// Include the jquery library
 	Yii::app()->clientScript->registerCoreScript('jquery');
 

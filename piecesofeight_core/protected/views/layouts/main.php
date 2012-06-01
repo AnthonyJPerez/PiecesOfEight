@@ -6,18 +6,38 @@
 		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.classify.org/safesurf/" L gen true for "http://www.piecesofeightcostumes.com/" r (SS~~000 1))' />
 		<meta name="netinsert" content="0.0.1.12.10.1">
 		
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
+
 		<meta name="language" content="en" />
-		<meta name="description" content="Handmade pirate costumes and renaissance clothing. Top quality, period-authentic clothes that are made to last. Custom orders are available on all of the products. Perfect for halloween parties, renaissance faires or weddings." />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="copyright" content="Copyright &copy;, <?php echo date('Y'); ?> Peices Of Eight Costumes by Sue LLC. All rights reserved." />
+		<meta name="author" content="Pieces of Eight Costumes" />
+		<meta name="Charset" content="UTF-8" />
+		<meta name="Ditribution" content="Global" />
+		<meta name="Rating" content="General" />
+		<meta name="Robots" content="INDEX,FOLLOW" />
+		<meta name="googlebot" content="index,follow" />
+		<meta name="Revisit-after" content="14 Days" />
+		<meta name="category" content="Costumes" />
 		
-		<meta name="keywords" content="pirate costume, pirate clothes, child pirate costume, adult pirate costume, couples pirate costume, pirate costumes, halloween, party, caribbean pirate, pirate wench, pirate captain, pirate shirt, renaissance clothing, renaissance outfits, handmade clothes, halloween costumes, renaissance costumes, medieval clothing, medieval costumes, renaissance faire clothing, wench costumes, wench clothing" />
-	
+		<!-- open graph -->
+		<meta property="og:title" content="<?php echo CHtml::encode($this->pageTitle); ?>" />
+		<meta property="og:description" content="" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.piecesofeightcostumes.com/" />
+		<meta property="og:image" content="http://www.piecesofeightcostumes.com/images/pieces-of-eight-costumes-logo.png" />
+		<meta property="og:site_name" content="Pieces of Eight Costumes" />
+		<meta property="og:locale" content="en_US" />
+		
+		
+		<meta name="keywords" content="<?php echo CHtml::encode($this->pageKeywords); ?>" />
+		<meta name="description" content="<?php echo CHtml::encode($this->pageDescription); ?>" />
+		
 		<!--[if lt IE 9]>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
 
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css?v=05292012" media="screen, projection" />
 		
 		<!--[if lt IE 8]>
@@ -248,7 +268,7 @@
 						Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
 					</div>
 					<div>
-						<span>Copyright &copy; <?php echo date('Y'); ?> by Peices Of Eight Costumes by Sue LLC.</span>
+						<span>Copyright &copy; <?php echo date('Y'); ?>, Peices Of Eight Costumes by Sue LLC.</span>
 					</div>
 				</div>
 			</div>
