@@ -238,6 +238,13 @@
 	<div>
 		Investigate <a href="http://www.college-scholarships.com" target="_blank">colleges</a>, <a href="http://www.college-scholarships.com/ssac.htm" target="_blank">online school</a> programs, and <a href="http://www.get-recruited.com" target="_blank">career college</a> education.
 	</div>
+	
+	<div>
+		<!-- Begin: WPI Linkexchange -->
+		<link rel="stylesheet" type="text/css" href="http://www.webpromotioninc.com/wpi_css.css" />
+		<script type="text/javascript" src="http://www.webpromotioninc.com/exchjs.php?lid=302213"></script>
+		<!-- End: WPI Linkexchange -->
+	</div>
 </div>
 
 
