@@ -23,7 +23,7 @@
 		
 		<!-- open graph -->
 		<meta property="og:title" content="<?php echo CHtml::encode($this->pageTitle); ?>" />
-		<meta property="og:description" content="" />
+		<meta property="og:description" content="<?php echo CHtml::encode($this->pageDescription); ?>" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.piecesofeightcostumes.com/" />
 		<meta property="og:image" content="http://www.piecesofeightcostumes.com/images/pieces-of-eight-costumes-logo.png" />
