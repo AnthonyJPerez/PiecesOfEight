@@ -11,6 +11,8 @@
  *
  * @property string $id
  * @property string $name
+ * @property string $description
+ * @property string $keywords
  *
  * @property Product[] $products
  */
@@ -34,9 +36,9 @@ abstract class BaseCategory extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('name', 'required'),
-			array('name', 'length', 'max'=>255),
-			array('id, name', 'safe', 'on'=>'search'),
+			array('name, description, keywords', 'required'),
+			array('name, keywords', 'length', 'max'=>255),
+			array('id, name, description, keywords', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,6 +57,8 @@ abstract class BaseCategory extends GxActiveRecord {
 		return array(
 			'id' => Yii::t('app', 'ID'),
 			'name' => Yii::t('app', 'Name'),
+			'description' => Yii::t('app', 'Description'),
+			'keywords' => Yii::t('app', 'Keywords'),
 			'products' => null,
 		);
 	}
@@ -64,6 +68,8 @@ abstract class BaseCategory extends GxActiveRecord {
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('name', $this->name, true);
+		$criteria->compare('description', $this->description, true);
+		$criteria->compare('keywords', $this->keywords, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

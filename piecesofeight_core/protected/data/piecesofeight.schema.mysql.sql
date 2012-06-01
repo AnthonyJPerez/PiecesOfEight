@@ -19,6 +19,8 @@ CREATE TABLE p8_category
 	
 	#-- Attributes
 	name					VARCHAR(255) NOT NULL,
+	description				TEXT,
+	keywords				varchar(255),
 	
 	#-- Constraints
 	PRIMARY KEY (id),

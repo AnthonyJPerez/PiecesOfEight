@@ -161,7 +161,7 @@ class ProductController extends GxController
 		// Find the category id
 		$CategoryModel = Category::model()->find(
 			array(
-				'select' => 'id',
+				'select' => '*',
 				'condition' => 'name=:name',
 				'params' => array(':name' => $category)
 			)
@@ -197,6 +197,7 @@ class ProductController extends GxController
 				)
 			),
 			'category' => $category,
+			'categoryModel' => $CategoryModel,
 		));
 	}
 	
