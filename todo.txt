@@ -8,10 +8,11 @@ TODO:
 Custom order page: see paper!
 admin home page
 SEO
+	server images from static content
 	specify conanical links in each view
 	create adwords campaign
-	seo-friendly image filenames
-	make each meta description individual/unique
+	seo-friendly image filenames (new images are fine, update current images)
+	make each meta description individual/unique (Done. Just need to edit categories and listings in database!)
 	create 'title' text for links
 	blog about the site
 	optimize product titles / descriptions / uploaded images
