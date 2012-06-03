@@ -35,6 +35,12 @@
 			    opacity: 1;
 			    filter: alpha(opacity=100);
 			}
+			
+			
+			.instructions 
+			{
+				font-size: 10pt;
+			}
 		',
 		'screen'
 	);
@@ -68,16 +74,10 @@
 		'screen'
 	);
 	
-	
-	
-	
-	
-	
-	
+	// Init Fancybox
 	Yii::app()->clientScript->registerScript(
 		'Fancybox_CustomProduct',
 		"
-		
 			$('a[img]').fancybox({
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none',
@@ -87,12 +87,140 @@
 		CClientScript::POS_READY
 	);
 	
+	
+	
+	//
+	// Include the Sisyphus script
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/sisyphus/sisyphus.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	
+	// Init Sisyphus
+	Yii::app()->clientScript->registerScript(
+		'Sisyphus_CustomProduct',
+		"
+			// Check to make sure local storage is supported. If so, we'll protect
+			// our forms using Sisyphus!
+			
+			//if (Modernizr.localstorage)
+			//{
+				// http://simsalabim.github.com/sisyphus/ -- documentation
+				$('#customOrderForm').sisyphus(
+				{
+					customKeyPrefix: 'po8_',
+					timeout: 0	// save after every change
+				});
+			//}
+			
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	
+	//
+	// Include the Slidorion script
+	//
+	// documentation: http://www.slidorion.com/
+	//
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/slidorion/js/jquery.slidorion.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Init Slidorion
+	Yii::app()->clientScript->registerScript(
+		'Slidorion_CustomProduct',
+		"
+			$('#slidorion').slidorion(
+			{
+				autoPlay: false,
+				effect: 'fade',
+				first: 1,
+				speed: 50
+			});
+		",
+		CClientScript::POS_READY
+	);
+	
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/slidorion/css/slidorion.css',
+		'screen'
+	);
+	
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/slidorion/css/slidorion-style.css',
+		'screen'
+	);
+	
 ?>
 
 <h1>Custom Order Page</h1>
 <p>
 	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
 </p>
+
+<h2>How to place your custom order:</h2>
+
+<ol class='instructions'>
+	<li>Choose the products you are interested in.</li>
+	<li>Fill out the custom-order form below.</li>
+	<li>Supply your email.</li>
+	<li>Done! Your info will be emailed to us and, as soon as we can, we will let you know what fabrics we have available and give you a quote on your order.</li>
+	<li>When you are ready, we will create a private listing with your custom order so you can purchase and we can start sewing!
+</ol>
+
+
+<div id="slidorion">
+	<div id="slider">
+		<div id="product_selection" class="slide">
+			<span>Select your Items</span>
+		</div>
+		<div id="product_customization" class="slide">
+			<span>Customize</span>
+		</div>
+		<div id="user_info" class="slide">
+			<span>User Information</span>
+		</div>
+		<div id="form_completion" class="slide">
+			<span>Submit!</span>
+		</div>
+	</div>
+	
+	<div id="accordion">
+		<div class="link-header">Select your Items</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+		
+		<div class="link-header">Customize</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+		
+		<div class="link-header">Your Information</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+		
+		<div class="link-header">Send your Inquiry!</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <div id='custom_product_container'>
@@ -105,9 +233,9 @@
 			<li class='product_listing'>
 			<?php
 				echo CHtml::image(
-					Yii::app()->request->baseUrl . '/images/product-images/' . $product->defaultImage->url,
-					$product->name,
-					array('width'=>150)
+					Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+					$product->getProductImgAltDescription(),
+					array('width'=>100)
 				);
 				echo "<p class='product_listing_text'>";
 				echo "<span class='product_name'>".$product->name."</span>";
