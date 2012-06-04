@@ -260,7 +260,7 @@
 					|
 					<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> 
 					|
-					<?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners'))); ?> 
+					<?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners')), array('rel' => "nofollow")); ?> 
 
 				</div>
 				<div class="footer_details">
