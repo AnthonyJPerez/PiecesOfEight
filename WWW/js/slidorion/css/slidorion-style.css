@@ -1,0 +1,41 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+
+/*
+	MAIN STYLES
+*/
+
+
+#accordion p {
+	margin-bottom:14px;
+}
+#accordion strong {
+	font-weight: bold !important;
+}
+
+
+.slide 
+{
+	background:#f2f2f2;
+}
+
+.slide .content 
+{
+	padding: 20px;
+}
+
+
+
+
+
+.description
+{
+	padding: 16px;
+}
+
+
+

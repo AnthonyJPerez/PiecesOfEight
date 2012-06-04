@@ -317,12 +317,12 @@ class ProductController extends GxController
 			foreach ($old_images as $old_img_id=>$old_image)
 			{
 				if (!array_key_exists($old_img_id, $new_images))
-				{
+				{			
+					Gallery::model()->deleteByPk($old_img_id);
+			
+					// Delete the file, suppressing warnings if file does not exist.
 					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'.$old_image->url;
-					if ( unlink($filepath) )
-					{
-						Gallery::model()->deleteByPk($old_img_id);
-					}
+					unlink($filepath);
 				}
 			}
 			
@@ -438,17 +438,17 @@ class ProductController extends GxController
 				{
 					if (!array_key_exists($old_img_id, $new_images))
 					{
-						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$old_image->url;
-						if ( unlink($filepath) )
+						Image::model()->deleteByPk($old_img_id);
+						
+						// If the deleted image was the default image, delete the default image selection from the form:
+						if ($_POST['Product']['defaultImage'] == $old_img_id)
 						{
-							Image::model()->deleteByPk($old_img_id);
-							
-							// If the deleted image was the default image, delete the default image selection from the form:
-							if ($_POST['Product']['defaultImage'] == $old_img_id)
-							{
-								$_POST['Product']['defaultImage'] = '';
-							}
+							$_POST['Product']['defaultImage'] = '';
 						}
+						
+						// Delete the file, suppressing the warning if the file does not exist.
+						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$old_image->url;
+						@unlink($filepath);
 					}
 				}
 								

@@ -35,6 +35,12 @@
 			    opacity: 1;
 			    filter: alpha(opacity=100);
 			}
+			
+			
+			.instructions 
+			{
+				font-size: 10pt;
+			}
 		',
 		'screen'
 	);
@@ -68,112 +74,10 @@
 		'screen'
 	);
 	
-	
-	
-	
-	//
-	// Include the movingboxes script
-	//
-	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/movingboxes/js/jquery.movingboxes.js', 
-		CClientScript::POS_HEAD
-	);
-	
-	// Include the fancybox css file
-	Yii::app()->clientScript->registerCssFile(
-		Yii::app()->request->baseUrl . '/js/movingboxes/css/movingboxes.css',
-		'screen'
-	);
-	
-	
-	
-	
-	
-	Yii::app()->clientScript->registerScript(
-		'Movingboxes_CustomProduct',
-		'
-			$("#product_list").movingBoxes({
-				reducedSize	 : 0.75,
-				speed     	 : 100,
-				easing	 : "linear",
-				fixedHeight  : true,
-				startPanel   : 1,      // start with this panel
-				wrap         : true,   // if true, the panel will "wrap" (it really rewinds/fast forwards) at the ends
-				buildNav     : false,   // if true, navigation links will be added
-				navFormatter : function(index, panel){ return panel.find("span").text(); }, // function which returns the navigation text for each panel
-			
-				// callback when MovingBoxes has completed initialization
-				initialized: function(e, slider, tar)
-				{
-					// Hide all non-current panel text
-					slider.$panels.filter(":not(:eq(" + (tar) + "))").find("button").hide();
-				},
-				
-				// callback upon change panel initialization
-				initChange: function(e, slider, tar)
-				{
-					var t = (tar < 1) ? slider.totalPanels : (tar > slider.totalPanels) ? 1 : tar,
-					$tar = slider.$panels.eq(t);
-					// hide non-current panel text
-					slider.$panels.not($tar).find("button").slideUp("fast");
-					// show current panel text
-					$tar.find("button").slideDown("fast");
-				}
-			});
-			
-			$("#selected_products").movingBoxes({
-				reducedSize	 : 0.75,
-				speed     	 : 100,
-				easing	 : "linear",
-				fixedHeight  : true,
-				startPanel   : 1,      // start with this panel
-				wrap         : true,   // if true, the panel will "wrap" (it really rewinds/fast forwards) at the ends
-				buildNav     : false,   // if true, navigation links will be added
-				navFormatter : function(index, panel){ return panel.find("span").text(); }, // function which returns the navigation text for each panel
-			});
-			
-			var imageNumber = 0,
-			navLinks = function()
-			{
-				var i, t = "", len = $("#selected_products").getMovingBoxes().totalPanels + 1;
-				for ( i = 1; i < len; i++ ) {
-					t += "<a>" + i + "</a> ";
-				}
-				$(".dlinks").find("span").html(t);
-			},		
-			panel = "<li class=\"product_listing\"><img href=\"*1\" /><p><span class=\"product_name\">*2</span></p></li>";
-			slider = $("selected_products");
-			
-			$("button.add").click(function()
-			{
-				//slider.append( panel.replace(/\*2/g, ++imageNumber).replace(/\*1/g, "Product") )
-				slider.append("<li><img href=test.jpg></img><p>HELLO</p></li>");
-				slider.movingBoxes(); // Update movingboxes.
-				navLinks();
-			});
-			
-			$("button.remove").click(function()
-			{
-				var d = slider.data("movingBoxes"),
-					c = d.curPanel,
-					t = d.totalPanels;
-					
-				if (t > 1) {
-					slider.find(".mb-panel:not(.clined):last").remove();
-					if (c > t - 1) { c = t - 1; }
-					slider.movingBoxes(); // update movingboxes
-				}
-				navLinks();
-			});
-		',
-		CClientScript::POS_READY
-	);
-	
-	
+	// Init Fancybox
 	Yii::app()->clientScript->registerScript(
 		'Fancybox_CustomProduct',
 		"
-		
 			$('a[img]').fancybox({
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none',
@@ -183,6 +87,76 @@
 		CClientScript::POS_READY
 	);
 	
+	
+	
+	//
+	// Include the Sisyphus script
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/sisyphus/sisyphus.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	
+	// Init Sisyphus
+	Yii::app()->clientScript->registerScript(
+		'Sisyphus_CustomProduct',
+		"
+			// Check to make sure local storage is supported. If so, we'll protect
+			// our forms using Sisyphus!
+			
+			//if (Modernizr.localstorage)
+			//{
+				// http://simsalabim.github.com/sisyphus/ -- documentation
+				$('#customOrderForm').sisyphus(
+				{
+					customKeyPrefix: 'po8_',
+					timeout: 0	// save after every change
+				});
+			//}
+			
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	
+	//
+	// Include the Slidorion script
+	//
+	// documentation: http://www.slidorion.com/
+	//
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/slidorion/js/jquery.slidorion.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Init Slidorion
+	Yii::app()->clientScript->registerScript(
+		'Slidorion_CustomProduct',
+		"
+			$('#slidorion').slidorion(
+			{
+				autoPlay: false,
+				effect: 'fade',
+				first: 1,
+				speed: 50
+			});
+		",
+		CClientScript::POS_READY
+	);
+	
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/slidorion/css/slidorion.css',
+		'screen'
+	);
+	
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/slidorion/css/slidorion-style.css',
+		'screen'
+	);
+	
 ?>
 
 <h1>Custom Order Page</h1>
@@ -190,7 +164,65 @@
 	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
 </p>
 
-<!--
+<h2>How to place your custom order:</h2>
+
+<ol class='instructions'>
+	<li>Choose the products you are interested in.</li>
+	<li>Fill out the custom-order form below.</li>
+	<li>Supply your email.</li>
+	<li>Done! Your info will be emailed to us and, as soon as we can, we will let you know what fabrics we have available and give you a quote on your order.</li>
+	<li>When you are ready, we will create a private listing with your custom order so you can purchase and we can start sewing!
+</ol>
+
+
+<div id="slidorion">
+	<div id="slider">
+		<div id="product_selection" class="slide">
+			<span>Select your Items</span>
+		</div>
+		<div id="product_customization" class="slide">
+			<span>Customize</span>
+		</div>
+		<div id="user_info" class="slide">
+			<span>User Information</span>
+		</div>
+		<div id="form_completion" class="slide">
+			<span>Submit!</span>
+		</div>
+	</div>
+	
+	<div id="accordion">
+		<div class="link-header">Select your Items</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+		
+		<div class="link-header">Customize</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+		
+		<div class="link-header">Your Information</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+		
+		<div class="link-header">Send your Inquiry!</div>
+		<div class="link-content">
+			<div class="description">
+				Test Content 1
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <div id='custom_product_container'>
 	<br />
 	<ul id='product_list'>
@@ -201,9 +233,9 @@
 			<li class='product_listing'>
 			<?php
 				echo CHtml::image(
-					Yii::app()->request->baseUrl . '/images/product-images/' . $product->defaultImage->url,
-					$product->name,
-					array('width'=>150)
+					Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+					$product->getProductImgAltDescription(),
+					array('width'=>100)
 				);
 				echo "<p class='product_listing_text'>";
 				echo "<span class='product_name'>".$product->name."</span>";
@@ -220,4 +252,3 @@
 	
 	</ul>
 </div>
--->
