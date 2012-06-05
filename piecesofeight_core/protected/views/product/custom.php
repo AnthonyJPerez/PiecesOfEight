@@ -126,6 +126,11 @@
 	//
 	// documentation: http://www.slidorion.com/
 	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/transit/jquery.transit.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
 	
 	Yii::app()->clientScript->registerScriptFile( 
 		Yii::app()->request->baseUrl . '/js/slidorion/js/jquery.slidorion.js', 
@@ -186,13 +191,10 @@
 		<div id="user_info" class="slide">
 			<span>User Information</span>
 		</div>
-		<div id="form_completion" class="slide">
-			<span>Submit!</span>
-		</div>
 	</div>
 	
 	<div id="accordion">
-		<div class="link-header">Select your Items</div>
+		<div class="link-header">Choose Products</div>
 		<div class="link-content">
 			<div class="description">
 				Test Content 1
@@ -206,14 +208,7 @@
 			</div>
 		</div>
 		
-		<div class="link-header">Your Information</div>
-		<div class="link-content">
-			<div class="description">
-				Test Content 1
-			</div>
-		</div>
-		
-		<div class="link-header">Send your Inquiry!</div>
+		<div class="link-header">Email Us!</div>
 		<div class="link-content">
 			<div class="description">
 				Test Content 1
