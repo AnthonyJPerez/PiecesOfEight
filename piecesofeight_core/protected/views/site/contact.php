@@ -4,6 +4,9 @@
 	$this->pageKeywords = "contact, custom order, custom made to order, handmade costume, contact us, email, email us";
 
 
+	$this->pageCanonical = Yii::app()->request->hostInfo . $this->createUrl('site/contact');
+
+
 	Yii::app()->clientScript->registerCss(
 		'contact-form-style',
 		'

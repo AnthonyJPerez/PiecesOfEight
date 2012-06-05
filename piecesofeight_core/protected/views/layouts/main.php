@@ -7,6 +7,15 @@
 		<meta name="netinsert" content="0.0.1.12.10.1">
 		
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
+		
+		<?php
+			if ($this->pageCanonical !== null)
+			{
+				?>
+				<link rel="canonical" href="<?php echo $this->pageCanonical; ?>" />
+				<?
+			}
+		?>
 
 		<meta name="language" content="en" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
