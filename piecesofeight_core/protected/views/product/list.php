@@ -16,6 +16,7 @@
 				
 			default:
 				$this->pageTitle = ucfirst($categoryModel->name). ' | ' . $this->pageTitle;
+				// @todo: grab from database
 				//$this->pageDescription = $categoryModel->description;
 				//$this->pageKeywords = $categoryModel->keywords;
 				break;
