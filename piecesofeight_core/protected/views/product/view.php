@@ -1,10 +1,10 @@
 <?php
 	$this->pageTitle = ucwords($model->name) . " | " . $this->pageTitle;
-
+	
 	//$this->pageDescription = $model->pageDescription;
 	//$this->pageKeywords = $model->pageKeywords;
 	
-	
+	$this->pageCanonical = Yii::app()->request->hostInfo . $model->getUrl();
 	
 
 	// Include the jquery library
