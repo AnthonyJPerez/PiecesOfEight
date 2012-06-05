@@ -197,6 +197,7 @@
 							$('.link-header.active', obj)
 								.removeClass('active')
 								.next('.link-content')
+								//.transition({y: '90px' });
 								.slideUp();
 							
 							$objHeader

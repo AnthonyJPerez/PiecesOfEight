@@ -8,6 +8,9 @@
 	snow white huntsman costume, captain jack sparrow costume, pirate shirt, pirate pants, renaissance faire costume, pirate wedding, halloween costume";
 	
 	
+	$this->pageCanonical = Yii::app()->request->hostInfo . $this->createUrl('site/index');
+	
+	
 	// Include the jquery library
 	Yii::app()->clientScript->registerCoreScript('jquery');
 

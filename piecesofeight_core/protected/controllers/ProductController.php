@@ -322,7 +322,7 @@ class ProductController extends GxController
 			
 					// Delete the file, suppressing warnings if file does not exist.
 					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'.$old_image->url;
-					unlink($filepath);
+					@unlink($filepath);
 				}
 			}
 			
