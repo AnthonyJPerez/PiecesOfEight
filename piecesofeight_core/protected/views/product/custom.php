@@ -169,6 +169,13 @@
 	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
 </p>
 
+
+<?php
+	// TEmporary!! Only have this code here until this page is ready for production mode
+	if (defined('YII_DEBUG') && constant('YII_DEBUG') != false)
+	{
+?>
+		
 <h2>How to place your custom order:</h2>
 
 <ol class='instructions'>
@@ -247,3 +254,7 @@
 	
 	</ul>
 </div>
+
+<?php
+}	// end debug mode
+?>
