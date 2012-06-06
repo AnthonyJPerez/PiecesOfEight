@@ -263,13 +263,15 @@ class ProductController extends GxController
 					// Create image record in database
 					$img = new Gallery();
 					//$img->product_id = $product->id; 	// Add a reference to this image for this product.
+					$img->alt_description = "Description";
 					$img->url = "empty_filename";
 					$img->save();
 					array_push($uploaded_images, $img);
-					
+
 					// Save file to the disk
 					$filename = 'gallery-' . $img->id . '_' . $data->getName();
 					$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/gallery').'/'. $filename;
+
 					if ($img->id != null && $data->saveAs($filepath))
 					{
 						// Image successfully uploaded and saved in the /images/product-images/ directory
