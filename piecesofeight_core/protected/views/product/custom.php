@@ -197,21 +197,21 @@
 		<div class="link-header">Choose Products</div>
 		<div class="link-content">
 			<div class="description">
-				Test Content 1
+				Choose the products you would like to customize.
 			</div>
 		</div>
 		
 		<div class="link-header">Customize</div>
 		<div class="link-content">
 			<div class="description">
-				Test Content 1
+				For each product, specify measurements and customizations such as colors, fabrics, etc..
 			</div>
 		</div>
 		
 		<div class="link-header">Email Us!</div>
 		<div class="link-content">
 			<div class="description">
-				Test Content 1
+				Email us!
 			</div>
 		</div>
 	</div>
