@@ -23,6 +23,7 @@ if (!$PO8_UNDER_CONSTRUCTION)
 	else
 	{
 		// Live website
+		define('YII_DEBUG',false);
 		$yii = dirname(__FILE__).'/../yii/1.1.10/framework/yii.php';
 		$config=dirname(__FILE__).'/../piecesofeight_core/protected/config/live.php';
 	}
