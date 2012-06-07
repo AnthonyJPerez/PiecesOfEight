@@ -29,6 +29,11 @@
 </p>
 
 <div id="partners">
+
+	<div>
+		<a href="http://www.piratenames.net" target="_blank">Pirate Names</a> - Offering over 20,000 Pirate Names!
+	</div>
+	
 	<div>
 		<a href="http://www.abydosgate.com/index.php" target="_blank">Abydos Gate</a> - The new age of directory
 	</div>
