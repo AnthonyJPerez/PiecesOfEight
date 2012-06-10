@@ -70,91 +70,6 @@ class ProductController extends GxController
 	}
 	
 	
-	// Used to generate XML specific for Google's product feed
-	public function actionGoogleProductFeed()
-	{
-		$products = Product::model()->with('images', 'p8Sizes')->findAll();
-		header('Content-Type: text/xml');
-		echo '<?xml version="1.0"?>';
-		echo '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">';
-	
-		echo '<id>tag:piecesofeightcostumes.com,2012-04-21:/product/googleProductFeed</id>';
-		echo '<title>Pieces of Eight Product Listings</title>';
-		echo '<link href="http://piecesofeightcostumes.com" rel="alternate" type="text/html" />';
-		echo '<updated>2012-04-21T02:46:00Z</updated>';
-		echo '<author><name>Pieces of Eight Costumes</name></author>';
-	
-		// Generate each product:
-		$group_id = 0;
-		foreach ($products as $product)
-		{
-			$group_id++;
-			$variant_id = 0;
-			// Size Variants
-			foreach ($product->p8Sizes as $size)
-			{
-				$variant_id++;
-				echo '<entry>';
-					echo '<g:id>po8_'.$product->id.'_'.$variant_id.'</g:id>';
-					echo '<g:item_group_id>'.$group_id.'</g:item_group_id>';
-					echo '<title>'.$product->name.'</title>';
-					echo '<description>[Custom Made to Order] '.$product->description.'</description>';
-					echo '<g:google_product_category>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:google_product_category>';
-					echo '<g:product_type>'.ucfirst($product->category).'</g:product_type>';
-					echo '<link>'. $product->getUrl(true).'</link>';
-					
-					// List the pictures
-					$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl.'/images/product-images/';
-					$defaultImage = $product->getDefaultImage();
-					echo '<g:image_link>'.$baseImgUrl.$defaultImage->url.'</g:image_link>';
-					$imgs = $product->getImages();
-					foreach ($imgs as $img)
-					{
-						if ($img->id != $defaultImage->id)
-						{
-							echo '<g:additional_image_link>'.$baseImgUrl.$img->url.'</g:additional_image_link>';
-						}
-					}
-					echo '<g:condition>new</g:condition>';
-					echo '<g:availability>available for order</g:availability>';
-					echo '<g:price>'.$product->price.' USD</g:price>';
-					// echo '<g:sale_price></g:sale_price>';
-					echo '<g:brand></g:brand>';
-					
-					// Update when products specify their gender
-					echo '<g:gender>unisex</g:gender>';
-					echo '<g:age_group>Adult</g:age_group>';
-					
-					// Update when products specify their colors
-					echo '<g:color>Custom</g:color>';
-					
-					echo '<g:size>'.$size.'</g:size>';
-					
-					
-					// Update if taxes change
-					echo '<g:tax>';
-						echo '<g:country>US</g:country>';
-						echo '<g:region>OR</g:region>';
-						echo '<g:rate>0</g:rate>';
-						echo '<g:tax_ship>n</g:tax_ship>';
-					echo '</g:tax>';
-					
-					// Update if shipping info changes:
-					echo '<g:shipping>';
-						echo '<g:country>US</g:country>';
-						echo '<g:service>Ground</g:service>';
-						echo '<g:price>8.95 USD</g:price>';
-					echo '</g:shipping>';
-					
-				echo '</entry>';
-			}
-		}
-		
-		echo '</feed>';
-		exit();
-	
-	}
-	
 	
 	public function actionList($category=null)
 	{	
@@ -387,7 +302,7 @@ class ProductController extends GxController
 						array_push($uploaded_images, $img);
 						
 						// Save file to the disk
-						$filename = '['.$product->category .']_'. $product->getSlug() . '_(p'.$product->id .'-i'.$img->id .').' . $data->getExtensionName();
+						$filename = '('.$product->category .')_'. $product->getSlug() . '_(p'.$product->id .'-i'.$img->id .').' . $data->getExtensionName();
 						$filepath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/'.$filename;
 						
 						$saved = $data->saveAs($filepath);
@@ -508,6 +423,138 @@ class ProductController extends GxController
 				//'_TagProduct' => new TagProduct
 			)
 		);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	// Used to generate XML specific for Google's product feed
+	public function actionGoogleProductFeed()
+	{
+		$products = Product::model()->with('images', 'p8Sizes')->findAll();
+		header('Content-Type: text/xml');
+		echo '<?xml version="1.0"?>';
+		echo '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">';
+	
+		echo '<id>tag:piecesofeightcostumes.com,2012-04-21:/product/googleProductFeed</id>';
+		echo '<title>Pieces of Eight Costumes Product Listings</title>';
+		echo '<link href="http://piecesofeightcostumes.com" rel="alternate" type="text/html" />';
+		//echo '<updated>2012-04-21T02:46:00Z</updated>';
+		echo '<updated>'.date('Y-m-d\TH:i:s\Z').'</updated>';
+		echo '<author><name>Pieces of Eight Costumes</name></author>';
+	
+		// Generate each product:
+		$group_id = 0;
+		foreach ($products as $product)
+		{
+			$group_id++;
+			$variant_id = 0;
+			// Size Variants
+			foreach ($product->p8Sizes as $size)
+			{
+				$variant_id++;
+				echo '<entry>';
+					echo '<g:id>po8_'.$product->id.'_'.$variant_id.'</g:id>';
+					echo '<g:item_group_id>'.$group_id.'</g:item_group_id>';
+					echo '<title>'.$product->name.'</title>';
+					echo '<description>[Custom Made to Order] '.strip_tags($product->description).'</description>';
+					echo '<g:google_product_category>Apparel &amp; Accessories &gt; Costumes &amp; Accessories &gt; Costumes</g:google_product_category>';
+					echo '<g:product_type>'.ucfirst($product->category).'</g:product_type>';
+					echo '<link>'. $product->getUrl(true).'</link>';
+					
+					// List the pictures
+					$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl.'/images/product-images/';
+					$defaultImage = $product->getDefaultImage();
+					echo '<g:image_link>'.$baseImgUrl.$defaultImage->url.'</g:image_link>';
+					$imgs = $product->getImages();
+					foreach ($imgs as $img)
+					{
+						if ($img->id != $defaultImage->id)
+						{
+							echo '<g:additional_image_link>'.$baseImgUrl.$img->url.'</g:additional_image_link>';
+						}
+					}
+					echo '<g:condition>new</g:condition>';
+					echo '<g:availability>available for order</g:availability>';
+					echo '<g:price>'.$product->price.' USD</g:price>';
+					// echo '<g:sale_price></g:sale_price>';
+					echo '<g:brand>Pieces of Eight Costumes</g:brand>';
+					
+					// Update when products specify their gender
+					echo '<g:gender>unisex</g:gender>';
+					echo '<g:age_group>Adult</g:age_group>';
+					
+					// Update when products specify their colors
+					echo '<g:color>Custom</g:color>';
+					
+					echo '<g:size>'.$size.'</g:size>';
+					
+					
+					// Update if taxes change
+					echo '<g:tax>';
+						echo '<g:country>US</g:country>';
+						echo '<g:region>OR</g:region>';
+						echo '<g:rate>0</g:rate>';
+						echo '<g:tax_ship>n</g:tax_ship>';
+					echo '</g:tax>';
+					
+					// Update if shipping info changes:
+					echo '<g:shipping>';
+						echo '<g:country>US</g:country>';
+						echo '<g:service>Ground</g:service>';
+						echo '<g:price>8.95 USD</g:price>';
+					echo '</g:shipping>';
+					
+				echo '</entry>';
+			}
+		}
+		
+		echo '</feed>';
+		exit();
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	// Used to generate XML specific for Google's product feed
+	public function actionBingProductFeed()
+	{
+		$products = Product::model()->with('images', 'p8Sizes')->findAll();
+		header('Content-Type: text/plain');
+		
+		echo "MPID\tTitle\tBrand\tProductURL\tPrice\tAvailability\tDescription\tImageURL\tShipping\tMerchantCategory\tBingCategory";
+	
+		// Generate each product:
+		foreach ($products as $product)
+		{
+			echo '\n';
+			echo 'po8_'.$product->id.'\t';	// MPID
+			echo $product->name.'\t';		// Title
+			echo 'Pieces of Eight Costumes\t';	// Brand
+			echo $product->getUrl(true) . '\t';	// ProductURL
+			echo $product->price . '\t';		// Price
+			echo 'In Stock\t';			// Availability
+			echo '[Custom Made to Order] '.strip_tags($product->description).'\t';	// Description
+			
+			$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl.'/images/product-images/';
+			$defaultImage = $product->getDefaultImage();
+			echo $baseImgUrl . $defaultImage->url.'\t';	// ImageURL
+			
+			echo 'US::Ground:8.95\t';		// Shipping
+			echo 'Products > '.ucfirst($product->category).'\t';	// MerchantCategory
+			echo 'Clothing & Accessories';	// BingCategory	
+		}		
+		exit();
+	
 	}
 	
 	
