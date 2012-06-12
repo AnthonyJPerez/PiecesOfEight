@@ -126,6 +126,16 @@ class ProductController extends GxController
 	
 	
 	
+	
+	
+	
+	public function actionGetProductCustomForm($productId=NULL)
+	{
+		$product = Product::model()->findbyPk($productId);
+		$this->renderPartial('_productCustomForm', $product, false, true);
+	}
+	
+	
 	public function actionCustom($id=NULL)
 	{
 		if ($id == null)
