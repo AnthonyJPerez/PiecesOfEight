@@ -221,17 +221,27 @@
 
 <!-- Is this the right product? -->
 <div id='product_verification'>
+	<span class='product_name'></span>
 	<img width="100px" href="" />
 	<span>Is this the product you want to add?</span>
-	<?php 
+	<?php /*
 		echo CHtml::ajaxButton(
 			"Yes",
 			$this->createUrl('product/getProductCustomForm'),
-			array('productId' => ""),
+			array(),
 			array('id' => 'button_verification_yes')
 		);
-	?>
+	*/?>
+	<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
 	<button id="button_verification_no">No</button>
+</div>
+
+<br /><br /><br />
+
+
+<!-- Grab details of this product -->
+<div id='product_details'>
+
 </div>
 
 <?php

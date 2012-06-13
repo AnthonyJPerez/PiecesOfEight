@@ -129,10 +129,24 @@ class ProductController extends GxController
 	
 	
 	
-	public function actionGetProductCustomForm($productId=NULL)
+	public function actionGetProductCustomForm($id=NULL, $form_id=0)
 	{
-		$product = Product::model()->findbyPk($productId);
-		$this->renderPartial('_productCustomForm', $product, false, true);
+		if (Yii::app()->request->isAjaxRequest || $_POST['isAjaxRequest']=='1')
+		{
+			// Turn off the debug logging:
+			Yii::app()->log->routes[$id]->enabled=false;
+			
+			$product = Product::model()->findByPk($id);
+			$this->renderPartial(
+				'_productCustomForm', 
+				array(
+					'product' => $product,
+					'form_id' => $form_id
+				), 
+				false, 
+				true);
+			Yii::app()->end();
+		}
 	}
 	
 	

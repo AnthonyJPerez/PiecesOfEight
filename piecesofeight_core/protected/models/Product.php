@@ -38,6 +38,9 @@ class Product extends BaseProduct
 	}
 	
 	
+	
+	
+	
 	public function getSlug()
 	{
 		$slug = preg_replace("/[^A-Za-z0-9\s\s+]/",'', $this->name);
