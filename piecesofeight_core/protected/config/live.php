@@ -86,12 +86,14 @@ $config['components']['urlManager'] = array(
 		'admin/gallery' => 'product/gallery',
 		'admin/product/<id:\d+>' => 'product/create',
 		'admin/product' => 'product/create',
+		
 				
 		'<action:(lookbook)>' => 'product/<action>',
 		'product/<id:\d+>/<name>' => 'product/view',
 		'product/<id:\d+>' => 'product/view',
 		'products/<category>' => 'product/list',
 		'products' => 'product/list',
+		'product/getProductCustomForm/<id:\d+>/<form_id:\d+>' => 'product/getProductCustomForm',
 		'cart' => 'cart/view',			
 				
 		// Default controller url setup
