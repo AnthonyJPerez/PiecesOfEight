@@ -36,11 +36,25 @@
 			    filter: alpha(opacity=100);
 			}
 			
+			#product_selector
+			{
+				border-color: red;
+				width: 100%;
+				height: 250px;
+				overflow: auto;
+			}
+			
+			#product_selector li
+			{
+				float: left;
+			}
+			
 			
 			.instructions 
 			{
 				font-size: 10pt;
 			}
+			
 		',
 		'screen'
 	);
@@ -121,46 +135,23 @@
 	
 	
 	
+	// Custom form javascript:
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/customOrderForm.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	
+	
 	//
 	// Include the Slidorion script
 	//
 	// documentation: http://www.slidorion.com/
 	//
-	Yii::app()->clientScript->registerScriptFile( 
+	/*Yii::app()->clientScript->registerScriptFile( 
 		Yii::app()->request->baseUrl . '/js/transit/jquery.transit.min.js', 
 		CClientScript::POS_HEAD
-	);
-	
-	
-	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/slidorion/js/jquery.slidorion.js', 
-		CClientScript::POS_HEAD
-	);
-	
-	// Init Slidorion
-	Yii::app()->clientScript->registerScript(
-		'Slidorion_CustomProduct',
-		"
-			$('#slidorion').slidorion(
-			{
-				autoPlay: false,
-				effect: 'fade',
-				first: 1,
-				speed: 50
-			});
-		",
-		CClientScript::POS_READY
-	);
-	
-	Yii::app()->clientScript->registerCssFile(
-		Yii::app()->request->baseUrl . '/js/slidorion/css/slidorion.css',
-		'screen'
-	);
-	
-	Yii::app()->clientScript->registerCssFile(
-		Yii::app()->request->baseUrl . '/js/slidorion/css/slidorion-style.css',
-		'screen'
-	);
+	);*/
 	
 ?>
 
@@ -176,57 +167,26 @@
 	{
 ?>
 		
-<h2>How to place your custom order:</h2>
 
-<ol class='instructions'>
+
+
+
+<!--ol class='instructions'>
 	<li>Choose the products you are interested in.</li>
 	<li>Fill out the custom-order form below.</li>
 	<li>Supply your email.</li>
 	<li>Done! Your info will be emailed to us and, as soon as we can, we will let you know what fabrics we have available and give you a quote on your order.</li>
 	<li>When you are ready, we will create a private listing with your custom order so you can purchase and we can start sewing!
-</ol>
+</ol-->
 
 
-<div id="slidorion">
-	<div id="slider">
-		<div id="product_selection" class="slide">
-			<span>Select your Items</span>
-		</div>
-		<div id="product_customization" class="slide">
-			<span>Customize</span>
-		</div>
-		<div id="user_info" class="slide">
-			<span>User Information</span>
-		</div>
-	</div>
-	
-	<div id="accordion">
-		<div class="link-header">Choose Products</div>
-		<div class="link-content">
-			<div class="description">
-				Choose the products you would like to customize.
-			</div>
-		</div>
-		
-		<div class="link-header">Customize</div>
-		<div class="link-content">
-			<div class="description">
-				For each product, specify measurements and customizations such as colors, fabrics, etc..
-			</div>
-		</div>
-		
-		<div class="link-header">Email Us!</div>
-		<div class="link-content">
-			<div class="description">
-				Email us!
-			</div>
-		</div>
-	</div>
-</div>
 
 
-<div id='custom_product_container'>
-	<br />
+
+
+
+<!-- Show all products -->
+<div id='product_selector'>
 	<ul id='product_list'>
 	<?php
 		foreach ($_AllProducts as $product)
@@ -241,7 +201,7 @@
 				);
 				echo "<p class='product_listing_text'>";
 				echo "<span class='product_name'>".$product->name."</span>";
-				echo "<button class='add'>Add</button>";
+				echo "<button class='add' data-productId='".$product->id."'>Add</button>";
 				echo "</p>"
 			?>
 			</li>
@@ -253,6 +213,35 @@
 	<ul id='selected_products'>
 	
 	</ul>
+</div>
+
+
+<br /><br /><br />
+
+
+<!-- Is this the right product? -->
+<div id='product_verification'>
+	<span class='product_name'></span>
+	<img width="100px" href="" />
+	<span>Is this the product you want to add?</span>
+	<?php /*
+		echo CHtml::ajaxButton(
+			"Yes",
+			$this->createUrl('product/getProductCustomForm'),
+			array(),
+			array('id' => 'button_verification_yes')
+		);
+	*/?>
+	<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
+	<button id="button_verification_no">No</button>
+</div>
+
+<br /><br /><br />
+
+
+<!-- Grab details of this product -->
+<div id='product_details'>
+
 </div>
 
 <?php
