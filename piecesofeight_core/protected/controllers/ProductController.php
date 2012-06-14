@@ -560,22 +560,22 @@ class ProductController extends GxController
 		// Generate each product:
 		foreach ($products as $product)
 		{
-			echo '\n';
-			echo 'po8_'.$product->id.'\t';	// MPID
-			echo $product->name.'\t';		// Title
-			echo 'Pieces of Eight Costumes\t';	// Brand
-			echo $product->getUrl(true) . '\t';	// ProductURL
-			echo $product->price . '\t';		// Price
-			echo 'In Stock\t';			// Availability
-			echo '[Custom Made to Order] '.strip_tags($product->description).'\t';	// Description
+			echo "\n";
+			echo "po8_".$product->id."\t";	// MPID
+			echo $product->name."\t";		// Title
+			echo "Pieces of Eight Costumes\t";	// Brand
+			echo $product->getUrl(true) . "\t";	// ProductURL
+			echo $product->price . "\t";		// Price
+			echo "In Stock\t";			// Availability
+			echo "[Custom Made to Order] ".strip_tags($product->description)."\t";	// Description
 			
-			$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl.'/images/product-images/';
+			$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl."/images/product-images/";
 			$defaultImage = $product->getDefaultImage();
-			echo $baseImgUrl . $defaultImage->url.'\t';	// ImageURL
+			echo $baseImgUrl . $defaultImage->url."\t";	// ImageURL
 			
-			echo 'US::Ground:8.95\t';		// Shipping
-			echo 'Products > '.ucfirst($product->category).'\t';	// MerchantCategory
-			echo 'Clothing & Accessories';	// BingCategory	
+			echo "US::Ground:8.95\t";		// Shipping
+			echo "Products > ".ucfirst($product->category)."\t";	// MerchantCategory
+			echo "Clothing & Accessories";	// BingCategory	
 		}		
 		exit();
 	
