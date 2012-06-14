@@ -89,6 +89,7 @@ $config['components']['urlManager'] = array(
 		
 				
 		'<action:(lookbook)>' => 'product/<action>',
+		'product/bingProductFeed.txt' => 'product/bingProductFeed',
 		'product/<id:\d+>/<name>' => 'product/view',
 		'product/<id:\d+>' => 'product/view',
 		'products/<category>' => 'product/list',
