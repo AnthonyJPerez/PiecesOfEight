@@ -37,6 +37,11 @@
 				text-shadow: 0 1px 1px #909090;
 			}
 			
+			.comment p:after
+			{
+				content: no-close-quote;
+			}
+			
 			.comment img
 			{
 				margin-right: 1.5em;
@@ -70,7 +75,61 @@
 </p>
 
 
-	<div id="comments_container">
+<div id="comments_container">
+	
+	<div class="comment">
+		<?php
+			$product = Product::model()->findByPk(38);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'align'=>'left')
+			);
+			
+			echo CHtml::link(
+				$img,
+				$productUrl
+			);
+		?>
+		
+		<p>
+			Thank you so much! The coat is absolutely gorgeous, wonderfully made and I have been pretty much wearing it EVERYWHERE. ♥
+		</p>
+		
+		<span class="source">
+			Anonymous from 
+			<?php 
+				echo CHtml::link(
+					'Etsy',
+					"http://www.etsy.com/people/susanperez3/feedback", 
+					array(
+						'target'=>'_blank',
+						'rel' => "nofollow"
+					)
+				);
+			?>
+		</span>
+		
+		<span class="date">
+			June 8, 2012
+		</span>
+	</div>
+	
+	
+	
+	<br /><br /><br /><br /><br />
 	<div class="comment">
 		<?php
 			$product = Product::model()->findByPk(38);
