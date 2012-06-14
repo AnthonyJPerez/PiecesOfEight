@@ -567,7 +567,10 @@ class ProductController extends GxController
 			echo $product->getUrl(true) . "\t";	// ProductURL
 			echo $product->price . "\t";		// Price
 			echo "In Stock\t";			// Availability
-			echo "[Custom Made to Order] ".strip_tags($product->description)."\t";	// Description
+			
+			$noTags = strip_tags($product->description);
+			$noWhiteSpace = preg_replace("/[\n\r\t]/","",$noTags);
+			echo "[Custom Made to Order] ".$noWhiteSpace."\t";	// Description
 			
 			$baseImgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl."/images/product-images/";
 			$defaultImage = $product->getDefaultImage();
