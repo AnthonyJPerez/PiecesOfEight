@@ -24,6 +24,7 @@
  * @property Category $category
  * @property Image $defaultImage
  * @property Addon[] $p8Addons
+ * @property Fabric[] $p8Fabrics
  * @property Measurement[] $p8Measurements
  * @property Size[] $p8Sizes
  * @property Tag[] $p8Tags
@@ -65,6 +66,7 @@ abstract class BaseProduct extends GxActiveRecord {
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
 			'defaultImage' => array(self::BELONGS_TO, 'Image', 'default_image_id'),
 			'p8Addons' => array(self::MANY_MANY, 'Addon', 'p8_product_addon(product_id, addon_id)'),
+			'p8Fabrics' => array(self::MANY_MANY, 'Fabric', 'p8_product_fabric(product_id, fabric_id)'),
 			'p8Measurements' => array(self::MANY_MANY, 'Measurement', 'p8_product_measurement(product_id, measurement_id)'),
 			'p8Sizes' => array(self::MANY_MANY, 'Size', 'p8_size_product(product_id, size_id)'),
 			'p8Tags' => array(self::MANY_MANY, 'Tag', 'p8_tag_product(product_id, tag_id)'),
@@ -74,6 +76,7 @@ abstract class BaseProduct extends GxActiveRecord {
 	public function pivotModels() {
 		return array(
 			'p8Addons' => 'ProductAddon',
+			'p8Fabrics' => 'ProductFabric',
 			'p8Measurements' => 'ProductMeasurement',
 			'p8Sizes' => 'SizeProduct',
 			'p8Tags' => 'TagProduct',
@@ -96,6 +99,7 @@ abstract class BaseProduct extends GxActiveRecord {
 			'category' => null,
 			'defaultImage' => null,
 			'p8Addons' => null,
+			'p8Fabrics' => null,
 			'p8Measurements' => null,
 			'p8Sizes' => null,
 			'p8Tags' => null,

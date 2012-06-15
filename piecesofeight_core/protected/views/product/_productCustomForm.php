@@ -25,17 +25,21 @@
 	}
 	
 	// Customizations
-	/*
-	echo CHtml::activeLabel($product, 'fabric');
-	echo CHtml::activeRadioButtonList($product, 'fabric', CHtml::listData($product->fabric, 'fabric', 'fabric'));
+	echo CHtml::label('Select your Fabric', '');
+	foreach ($product->p8Fabrics as $fabric)
+	{
+		echo Chtml::radioButton('fabric'.$fabric->id);
+		echo CHtml::label($fabric->name, '');
+	}
+		
 	
-	echo CHtml::label('Preferred Color Choice', string $for);
+	echo CHtml::label('Preferred Color Choice', '');
 	echo "<span class='hint'>Note: Availability</span>";
 	echo CHtml::textField('preferred_color', '');
 	
-	echo CHtml::label('Additional Requests', string $for);
+	echo CHtml::label('Additional Requests', '');
 	echo "<span class='hint'>(hint)</span>";
 	echo CHtml::textArea('additional_requests', '');
-	*/
+	
 ?>
 </fieldset>
