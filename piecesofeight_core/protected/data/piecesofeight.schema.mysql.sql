@@ -312,13 +312,54 @@ CREATE TABLE p8_product_addon
 	addon_id		INTEGER UNSIGNED NOT NULL,
 	
 	#-- Attributes
-	price			DECIMAL (6,2) NOT NULL, #-- Price of this add on for this product
+	price			DECIMAL (6,2) NOT NULL, #-- Price of this add-on for this product
 
 	
 	#-- Constraints
 	PRIMARY KEY (product_id, addon_id),
 	FOREIGN KEY (product_id) REFERENCES p8_product(id),
 	FOREIGN KEY (addon_id) REFERENCES p8_addon(id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+#-- Fabric
+#--
+#-- Represents a fabric that a product can be made out of
+CREATE TABLE p8_fabric
+(
+	#-- KEY
+	id			INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	name			VARCHAR (255), #-- Name of this fabric
+	description		TEXT, #-- Details about this fabric
+
+	#-- Constraints
+	PRIMARY KEY (id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+#-- Product_Addon
+#--
+#-- Product HABTM Fabric. Products can be made out of multiple types of fabrics and fabrics can be
+#-- used to make multiple different products
+CREATE TABLE p8_product_fabric
+(
+	#-- KEY
+	product_id		INTEGER UNSIGNED NOT NULL,
+	fabric_id		INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	price			DECIMAL (6,2) NOT NULL, #-- Price of this fabric for this product
+	
+	#-- Constraints
+	PRIMARY KEY (product_id, fabric_id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id),
+	FOREIGN KEY (fabric_id) REFERENCES p8_fabric(id)
 	
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -391,11 +432,6 @@ VALUES
 	("Bust", "Around the fullest part of bust. (For best accuracy, a bra should be worn)"),
 	("Sleeve-Length", "From shoulder tip down side of arm to preferred length of sleeves (with arm held straight). The shoulder tip is on top of the shoulder just near the arm.");
 	
-
-INSERT INTO p8_addon (name, description)
-VALUES
-	("Skull-Buttons", "These buttons have skulls on them"),
-	("Spikes", "These spikes will probably poke and hurt you.");
 	
 	
 	
@@ -409,6 +445,17 @@ VALUES
 	("Short Pants", 150.00, 7, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white."),
 	("Long Cape", 200.00, 3, NOW(), "This is a description of the Old Shirt. As per its name, this shirt is very old. Actual pirates used to wear this shirt, hence why it is being sold as an old pirate shirt. If you are looking for Authenticity, then this is a shirt for you. Quick, only one of these shirts remains in existence, so you better purchase it before someone else buys it first!<br/><br/>This shirt only comes in one color: white.");
 
+
+INSERT INTO p8_addon (name, description)
+VALUES
+	("Skull-Buttons", "These buttons have skulls on them"),
+	("Spikes", "These spikes will probably poke and hurt you.");
+
+	
+INSERT INTO p8_fabric (name, description)
+VALUES
+	("Cotton", "Cotton Fabric"),
+	("Wool", "Wool Fabric");
 	
 
 	

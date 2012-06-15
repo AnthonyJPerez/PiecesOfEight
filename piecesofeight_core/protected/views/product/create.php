@@ -423,6 +423,24 @@
 		</div>
 		
 		
+		
+		
+		<!-- Fabrics -->
+ 		<div class="row">
+ 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Fabrics')); ?></label>
+ 			<div class="main_container">
+				<span class="note">
+					Check any Fabrics supported by this product:
+				</span>
+				<div class="measurements">
+					<?php 
+						echo $form->checkBoxList($_Product, 'p8Fabrics', GxHtml::encodeEx(CHtml::listData(Fabric::model()->findAll(), 'id', 'name'), false, true)); 
+					?>
+				</div>
+			</div>
+		</div>
+		
+		
 
 <?php
 	echo "<div class='row buttons'>";
