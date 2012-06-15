@@ -405,6 +405,24 @@
 		</div>
 		
 		
+		
+		
+		<!-- Add-ons -->
+ 		<div class="row">
+ 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Addons')); ?></label>
+ 			<div class="main_container">
+				<span class="note">
+					Check any Add-ons supported by this product:
+				</span>
+				<div class="measurements">
+					<?php 
+						echo $form->checkBoxList($_Product, 'p8Addons', GxHtml::encodeEx(CHtml::listData(Addon::model()->findAll(), 'id', 'name'), false, true)); 
+					?>
+				</div>
+			</div>
+		</div>
+		
+		
 
 <?php
 	echo "<div class='row buttons'>";
