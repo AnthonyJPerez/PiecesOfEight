@@ -91,8 +91,11 @@ $(document).ready(function()
 	
 	
 	// Product verified, Go to the measurements section
-	$("#button_verification_yes").click(function()
-	{
+	$('#product_verification').on('click', '#button_verification_yes', function()
+	//$("#button_verification_yes").click(function()	
+	{	
+		console.log('test');
+		console.log('this: ', this);
 		$button = $(this);
 		$.ajax({
 			'url': $button.attr('data-baseurl') + "/product/getProductCustomForm/" + $button.attr('data-productid') + "/" + globalFormCounter++,

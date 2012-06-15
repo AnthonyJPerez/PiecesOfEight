@@ -240,6 +240,48 @@ CREATE TABLE p8_product_promocode
 
 
 
+#-- Measurement
+#--
+#-- Represents a measurement that must be taken for a product, such as chest or a waist measurement
+CREATE TABLE p8_measurement
+(
+	#-- KEY
+	id			INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	name			VARCHAR (255), #-- Name of this measurement, such as waist, chest, etc..
+	description		TEXT, #-- Details about this measurement, such as how to take it
+	
+	#-- Constraints
+	PRIMARY KEY (id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+#-- Product_Measurement
+#--
+#-- Product HABTM Measurement. Products can require multiple measurements and measurements can be
+#-- required by many products
+CREATE TABLE p8_product_measurement
+(
+	#-- KEY
+	product_id		INTEGER UNSIGNED NOT NULL,
+	measurement_id	INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	
+	#-- Constraints
+	PRIMARY KEY (product_id, measurement_id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id),
+	FOREIGN KEY (measurement_id) REFERENCES p8_measurement(id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
 #-- Newsletter
 #--
 #-- Collects emails of individuals who signed up for the newsletter
@@ -291,9 +333,20 @@ VALUES
 	("S"),
 	("M"),
 	("L"),
-	("XL");
+	("XL"),
+	("One Size Fits All");
 	
-	
+
+INSERT INTO p8_measurement (name, description)
+VALUES
+	("Waist", "Around the narrowest part of the waist"),
+	("Chest", "Around the fullest part of the chest"),
+	("Stomach", "Around the fullest part of the stomach."),
+	("Height", "From the top of the head to the floor (your standard height measurement)"),
+	("Hip", "Around the fullest part of the hips. (Be sure to take the largest measurement in this area)"),
+	("Inseam", "From the crotch seam down inner leg to the floor (while barefoot)"),
+	("Bust", "Around the fullest part of bust. (For best accuracy, a bra should be worn)"),
+	("Sleeve-Length", "From shoulder tip down side of arm to preferred length of sleeves (with arm held straight). The shoulder tip is on top of the shoulder just near the arm.");
 	
 	
 	

@@ -184,66 +184,66 @@
 
 
 
-
-<!-- Show all products -->
-<div id='product_selector'>
-	<ul id='product_list'>
-	<?php
-		foreach ($_AllProducts as $product)
-		{
-		?>
-			<li class='product_listing'>
-			<?php
-				echo CHtml::image(
-					Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
-					$product->getProductImgAltDescription(),
-					array('width'=>100)
-				);
-				echo "<p class='product_listing_text'>";
-				echo "<span class='product_name'>".$product->name."</span>";
-				echo "<button class='add' data-productId='".$product->id."'>Add</button>";
-				echo "</p>"
-			?>
-			</li>
+<div id="custom_product_inquiry_form">
+	<!-- Show all products -->
+	<div id='product_selector'>
+		<ul id='product_list'>
 		<?php
-		}
-	?>
-	</ul>
+			foreach ($_AllProducts as $product)
+			{
+			?>
+				<li class='product_listing'>
+				<?php
+					echo CHtml::image(
+						Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+						$product->getProductImgAltDescription(),
+						array('width'=>100)
+					);
+					echo "<p class='product_listing_text'>";
+					echo "<span class='product_name'>".$product->name."</span>";
+					echo "<button class='add' data-productId='".$product->id."'>Add</button>";
+					echo "</p>"
+				?>
+				</li>
+			<?php
+			}
+		?>
+		</ul>
+		
+		<ul id='selected_products'>
+		
+		</ul>
+	</div>
 	
-	<ul id='selected_products'>
 	
-	</ul>
+	<br /><br /><br />
+	
+	
+	<!-- Is this the right product? -->
+	<div id='product_verification'>
+		<span class='product_name'></span>
+		<img width="100px" href="" />
+		<span>Is this the product you want to add?</span>
+		<?php /*
+			echo CHtml::ajaxButton(
+				"Yes",
+				$this->createUrl('product/getProductCustomForm'),
+				array(),
+				array('id' => 'button_verification_yes')
+			);
+		*/?>
+		<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
+		<button id="button_verification_no">No</button>
+	</div>
+	
+	<br /><br /><br />
+	
+	
+	<!-- Grab details of this product -->
+	<div id='product_details'>
+	
+	</div>
 </div>
-
-
-<br /><br /><br />
-
-
-<!-- Is this the right product? -->
-<div id='product_verification'>
-	<span class='product_name'></span>
-	<img width="100px" href="" />
-	<span>Is this the product you want to add?</span>
-	<?php /*
-		echo CHtml::ajaxButton(
-			"Yes",
-			$this->createUrl('product/getProductCustomForm'),
-			array(),
-			array('id' => 'button_verification_yes')
-		);
-	*/?>
-	<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
-	<button id="button_verification_no">No</button>
-</div>
-
-<br /><br /><br />
-
-
-<!-- Grab details of this product -->
-<div id='product_details'>
-
-</div>
-
 <?php
 }	// end debug mode
 ?>
