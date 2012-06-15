@@ -282,6 +282,49 @@ CREATE TABLE p8_product_measurement
 
 
 
+#-- Addon
+#--
+#-- Represents a customization that can be added to a product
+CREATE TABLE p8_addon
+(
+	#-- KEY
+	id			INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	name			VARCHAR (255), #-- Name of this measurement, such as waist, chest, etc..
+	description		TEXT, #-- Details about this measurement, such as how to take it
+	
+	#-- Constraints
+	PRIMARY KEY (id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+#-- Product_Addon
+#--
+#-- Product HABTM Addon. Products can support multiple addons and addons can be
+#-- paired with multiple products
+CREATE TABLE p8_product_addon
+(
+	#-- KEY
+	product_id		INTEGER UNSIGNED NOT NULL,
+	addon_id		INTEGER UNSIGNED NOT NULL,
+	
+	#-- Attributes
+	price			DECIMAL (6,2) NOT NULL, #-- Price of this add on for this product
+
+	
+	#-- Constraints
+	PRIMARY KEY (product_id, addon_id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id),
+	FOREIGN KEY (addon_id) REFERENCES p8_addon(id)
+	
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
 #-- Newsletter
 #--
 #-- Collects emails of individuals who signed up for the newsletter
@@ -348,7 +391,11 @@ VALUES
 	("Bust", "Around the fullest part of bust. (For best accuracy, a bra should be worn)"),
 	("Sleeve-Length", "From shoulder tip down side of arm to preferred length of sleeves (with arm held straight). The shoulder tip is on top of the shoulder just near the arm.");
 	
-	
+
+INSERT INTO p8_addon (name, description)
+VALUES
+	("Skull-Buttons", "These buttons have skulls on them"),
+	("Spikes", "These spikes will probably poke and hurt you.");
 	
 	
 	

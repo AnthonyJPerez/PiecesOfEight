@@ -16,10 +16,13 @@
 	<legend>Add-Ons & Customizations</legend>
 <?php
 	// Add-Ons
-	/*
-	echo CHtml::activeLabel($product, 'addon');
-	echo CHtml::activeCheckBoxList($product, 'addon', CHtml::listData($product->addon, 'addon', 'addon'));
-	*/
+	echo CHtml::label('Select your Add-Ons (Optional)', '');
+	//echo CHtml::activeCheckBoxList($product, 'p8Addons', CHtml::listData(Addon::model()->findAll(), 'id', 'name'));
+	foreach ($product->p8Addons as $addon)
+	{
+		echo Chtml::checkBox('addon_'.$addon->id);
+		echo CHtml::label($addon->name, '');
+	}
 	
 	// Customizations
 	/*
