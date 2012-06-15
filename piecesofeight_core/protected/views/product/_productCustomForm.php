@@ -1,27 +1,38 @@
-<!--<fieldset>
+<fieldset>
+	<legend>Measurements</legend>
+	<span class="hint">How to take measurements</span>
 <?php
-	//echo CHtml::activeLabel($product, 'name');
-	//echo CHtml::activeTextField($product, 'name', array('maxlength' => 4));
+	// Measurements
+	foreach ($product->p8Measurements as $measurement)
+	{
+		echo CHtml::label($measurement->name, '');
+		echo CHtml::textField('measurement_'.$measurement->name, '', array('maxlength' => 4));
+	}
 ?>
-</fieldset>-->
+</fieldset>
 
+
+<fieldset>
+	<legend>Add-Ons & Customizations</legend>
 <?php
-	$form = $this->beginWidget('GxActiveForm', array(
-		'id' => 'custom-product-form-' . $form_id,
-		'enableAjaxValidation' => true,
-		'clientOptions' => array(
-			'validateOnChange' => true,
-			'validationUrl' => $this->createUrl('product/validateProduct')
-		)
-	));
+	// Add-Ons
+	/*
+	echo CHtml::activeLabel($product, 'addon');
+	echo CHtml::activeCheckBoxList($product, 'addon', CHtml::listData($product->addon, 'addon', 'addon'));
+	*/
 	
+	// Customizations
+	/*
+	echo CHtml::activeLabel($product, 'fabric');
+	echo CHtml::activeRadioButtonList($product, 'fabric', CHtml::listData($product->fabric, 'fabric', 'fabric'));
 	
-	echo "<div class='row'>";
-	echo $form->labelEx($product,'name');
-	echo $form->textField($product, 'name', array('maxlength' => 255));
-	echo $form->error($product,'name');
-	echo "</div>";
-
-
-	$this->endWidget();
+	echo CHtml::label('Preferred Color Choice', string $for);
+	echo "<span class='hint'>Note: Availability</span>";
+	echo CHtml::textField('preferred_color', '');
+	
+	echo CHtml::label('Additional Requests', string $for);
+	echo "<span class='hint'>(hint)</span>";
+	echo CHtml::textArea('additional_requests', '');
+	*/
 ?>
+</fieldset>
