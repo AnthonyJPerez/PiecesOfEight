@@ -55,6 +55,25 @@
 				font-size: 10pt;
 			}
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			#custom_product_array
+			{
+				
+			}
+			
+			#custom_product_array .custom_product_details fieldset,
+			#custom_product_array .custom_product_details button
+			{
+				display: none;
+			}
+			
 		',
 		'screen'
 	);
@@ -185,6 +204,11 @@
 
 
 <div id="custom_product_inquiry_form">
+	<!-- Custom products will go here -->
+	<div id='custom_product_array'>
+		
+	</div>
+	
 	<!-- Show all products -->
 	<div id='product_selector'>
 		<ul id='product_list'>

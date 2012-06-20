@@ -92,20 +92,22 @@ $(document).ready(function()
 	
 	// Product verified, Go to the measurements section
 	$('#product_verification').on('click', '#button_verification_yes', function()
-	//$("#button_verification_yes").click(function()	
 	{	
 		console.log('test');
 		console.log('this: ', this);
-		$button = $(this);
+		var button = $(this);
 		$.ajax({
-			'url': $button.attr('data-baseurl') + "/product/getProductCustomForm/" + $button.attr('data-productid') + "/" + globalFormCounter++,
+			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
 			'cache': false,
 			complete: function(jqXHR, textStatus)
 			{
 				if (textStatus == 'success')
 				{
+					// Add the image and the custom html into the #product_details form
 					var html = stripExistingScripts(jqXHR.responseText);
-					$('#product_details').html(html);
+					$('#product_details').html('');
+					//button.siblings('img').clone().appendTo($('#product_details')); // copy the image again into this form.
+					$('#product_details').append(html);	
 				}
 			}
 		});
@@ -113,9 +115,56 @@ $(document).ready(function()
 		// return...?
 	});
 	
-	// Product not verified, go back to the product selection
-	$("#button_verification_no").click(function()
-	{
 	
+	// Product not verified, go back to the product selection
+	$("#product_verification").on('click', '#button_verification_no', function()
+	{
+		
 	});
+	
+	
+	// Clear the form
+	//$('#product_verification').on('click', '#button_verification_yes', function()
+
+
+	// Add the customized product
+	$('#product_details').on('click', '.add_product', function()
+	{
+		console.log("adding product");
+		
+		// Verify the data
+		// ...
+		
+		// Save the data into local storage
+		// ...
+		
+		// Inject this form data into the main form.
+		var original = $('#product_details .custom_product_details');
+		//var cloned = original.clone();
+		//console.log('cloned: ', cloned, cloned.find('textarea'));
+		//cloned.find('textarea').val( original.find('textarea').val() ); // value of text areas are not copied in jquery, it's a bug..
+		
+		var newProduct = $('<div></div>');
+		newProduct.append(original);
+		newProduct.appendTo( $('#custom_product_array') );
+		
+	});
+	
+	
+	// Edit a product
+	$('#custom_product_array').on('click', '.edit', function(event)
+	{
+		console.log('editing product');
+		
+		// Clone the original form, edit it, then copy back the contents.
+		// ...
+		
+		/*
+		var content = $(this).parent().children('*');		
+		$('#product_details').html(content);
+		*/
+		
+		event.preventDefault();
+	});
+
 });
