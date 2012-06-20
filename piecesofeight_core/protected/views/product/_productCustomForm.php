@@ -1,5 +1,5 @@
 
-<div class='custom_product_details'>
+<div class='custom_product_details' data-customproductid='<?php echo $form_id; ?>'>
 	<?php
 		$defaultImage = $product->getDefaultImage();
 		echo CHtml::image(

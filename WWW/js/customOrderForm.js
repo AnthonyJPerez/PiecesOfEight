@@ -156,8 +156,10 @@ $(document).ready(function()
 	{
 		console.log('editing product');
 		
-		// Clone the original form, edit it, then copy back the contents.
-		// ...
+		$(this).siblings('fieldset, button').each(function()
+		{
+			$(this).toggle();
+		});
 		
 		/*
 		var content = $(this).parent().children('*');		
@@ -166,5 +168,13 @@ $(document).ready(function()
 		
 		event.preventDefault();
 	});
-
+	
+	// Save edits
+	$('#custom_product_array').on('click', '.add_product', function()
+	{
+		$(this).parent().children('fieldset, button').each(function()
+		{
+			$(this).toggle();
+		});
+	});
 });
