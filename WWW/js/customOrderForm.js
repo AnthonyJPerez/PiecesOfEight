@@ -144,9 +144,9 @@ $(document).ready(function()
 		//cloned.find('textarea').val( original.find('textarea').val() ); // value of text areas are not copied in jquery, it's a bug..
 		
 		var newProduct = $('<div></div>');
+		$('<a href="#" class="edit">Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
-		newProduct.appendTo( $('#custom_product_array') );
-		
+		newProduct.appendTo( $('#custom_product_array') );		
 	});
 	
 	
@@ -155,7 +155,7 @@ $(document).ready(function()
 	{
 		console.log('editing product');
 		
-		$(this).siblings('fieldset, button').each(function()
+		$(this).siblings('.custom_product_details').find('fieldset').each(function()
 		{
 			$(this).toggle();
 		});
@@ -166,14 +166,5 @@ $(document).ready(function()
 		*/
 		
 		event.preventDefault();
-	});
-	
-	// Save edits
-	$('#custom_product_array').on('click', '.add_product', function()
-	{
-		$(this).parent().children('fieldset, button').each(function()
-		{
-			$(this).toggle();
-		});
 	});
 });

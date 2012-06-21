@@ -12,8 +12,6 @@
 		);
 	?>
 	
-	<a href="#" class="edit">Edit</a>
-	
 	<fieldset>
 		<legend>Measurements</legend>
 		<span class="hint">How to take measurements</span>
