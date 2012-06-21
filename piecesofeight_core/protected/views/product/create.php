@@ -83,12 +83,12 @@
 				display: inline-block;
 			}
 			
-			#create-form .sizes, #create-form .tags
+			#create-form .sizes, #create-form .tags, #create-form .measurements
 			{
 				margin: 0.5em;
 			}
 					
-				#create-form .sizes input, #create-form .tags input
+				#create-form .sizes input, #create-form .tags input, #create-form .measurements input
 				{
 					width: 20px
 				}
@@ -103,6 +103,12 @@
 				{
 					text-align: left;
 					width: 150px;
+				}
+				
+				#create-form .measurements label
+				{
+					text-align: left;
+					width: 100px;
 				}
 			
 			.previously_uploaded
@@ -379,6 +385,61 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		
+		
+		<!-- Measurements -->
+ 		<div class="row">
+ 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Measurements')); ?></label>
+ 			<div class="main_container">
+				<span class="note">
+					Check the sizes supported by this product:
+				</span>
+				<div class="measurements">
+					<?php 
+						echo $form->checkBoxList($_Product, 'p8Measurements', GxHtml::encodeEx(CHtml::listData(Measurement::model()->findAll(), 'id', 'name'), false, true)); 
+					?>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<!-- Add-ons -->
+ 		<div class="row">
+ 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Addons')); ?></label>
+ 			<div class="main_container">
+				<span class="note">
+					Check any Add-ons supported by this product:
+				</span>
+				<div class="measurements">
+					<?php 
+						echo $form->checkBoxList($_Product, 'p8Addons', GxHtml::encodeEx(CHtml::listData(Addon::model()->findAll(), 'id', 'name'), false, true)); 
+					?>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<!-- Fabrics -->
+ 		<div class="row">
+ 			<label><?php echo GxHtml::encode($_Product->getRelationLabel('p8Fabrics')); ?></label>
+ 			<div class="main_container">
+				<span class="note">
+					Check any Fabrics supported by this product:
+				</span>
+				<div class="measurements">
+					<?php 
+						echo $form->checkBoxList($_Product, 'p8Fabrics', GxHtml::encodeEx(CHtml::listData(Fabric::model()->findAll(), 'id', 'name'), false, true)); 
+					?>
+				</div>
+			</div>
+		</div>
+		
 		
 
 <?php

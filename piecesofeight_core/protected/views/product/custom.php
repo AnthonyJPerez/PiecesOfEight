@@ -55,6 +55,25 @@
 				font-size: 10pt;
 			}
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			#custom_product_array
+			{
+				
+			}
+			
+			#custom_product_array .custom_product_details fieldset,
+			#custom_product_array .custom_product_details button
+			{
+				display: none;
+			}
+			
 		',
 		'screen'
 	);
@@ -180,70 +199,117 @@
 </ol-->
 
 
+<?php
+/*
+Array ( 
+	[Product] => Array ( 
+		[name] => name 
+		[price] => 10 
+		[description] => description 
+		[care_information] => care information 
+		[category_id] => 1 
+		[images] => 
+		[defaultImage] => 
+		[p8Sizes] => Array ( 
+			[0] => 1 
+			[1] => 5 
+		) 
+		[p8Tags] => Array ( 
+			[0] => 1 
+		) 
+		[p8Measurements] => Array ( 
+			[0] => 14 
+			[1] => 15 
+		) 
+		[p8Addons] => Array ( 
+			[0] => 1 
+		) 
+		[p8Fabrics] => Array ( 
+			[0] => 1 
+			[1] => 2 
+		) 
+	) 
+	[yt0] => Create Product 
+)
+*/
+?>
 
 
+<?php
+$form = $this->beginWidget('GxActiveForm', array(
+	'id' => 'custom-inquiry-form',
+	'enableAjaxValidation' => false
+));
+?>
 
+<div id="custom_product_inquiry_form">
 
-
-<!-- Show all products -->
-<div id='product_selector'>
-	<ul id='product_list'>
-	<?php
-		foreach ($_AllProducts as $product)
-		{
-		?>
-			<li class='product_listing'>
-			<?php
-				echo CHtml::image(
-					Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
-					$product->getProductImgAltDescription(),
-					array('width'=>100)
-				);
-				echo "<p class='product_listing_text'>";
-				echo "<span class='product_name'>".$product->name."</span>";
-				echo "<button class='add' data-productId='".$product->id."'>Add</button>";
-				echo "</p>"
-			?>
-			</li>
+	<!-- Custom products will go here -->
+	<div id='custom_product_array'>
+		
+	</div>
+	
+	<!-- Show all products -->
+	<div id='product_selector'>
+		<ul id='product_list'>
 		<?php
-		}
+			foreach ($_AllProducts as $product)
+			{
+			?>
+				<li class='product_listing'>
+				<?php
+					echo CHtml::image(
+						Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+						$product->getProductImgAltDescription(),
+						array('width'=>100)
+					);
+					echo "<p class='product_listing_text'>";
+					echo "<span class='product_name'>".$product->name."</span>";
+					echo "<button class='add' data-productId='".$product->id."'>Add</button>";
+					echo "</p>"
+				?>
+				</li>
+			<?php
+			}
+		?>
+		</ul>
+		
+		<ul id='selected_products'>
+		
+		</ul>
+	</div>
+	
+	
+	<br /><br /><br />
+	
+	
+	<!-- Is this the right product? -->
+	<div id='product_verification'>
+		<span class='product_name'></span>
+		<img width="100px" href="" />
+		<span>Is this the product you want to add?</span>
+		<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
+		<button id="button_verification_no">No</button>
+	</div>
+	
+	<br /><br /><br />
+	
+	
+	<!-- Grab details of this product -->
+	<div id='product_details'>
+		<button class='add_product' >Add Product</button>
+	</div>
+	
+	
+	<div>
+	<?php
+		echo GxHtml::submitButton(Yii::t('app', 'Send'));
 	?>
-	</ul>
+	</div>
 	
-	<ul id='selected_products'>
-	
-	</ul>
-</div>
-
-
-<br /><br /><br />
-
-
-<!-- Is this the right product? -->
-<div id='product_verification'>
-	<span class='product_name'></span>
-	<img width="100px" href="" />
-	<span>Is this the product you want to add?</span>
-	<?php /*
-		echo CHtml::ajaxButton(
-			"Yes",
-			$this->createUrl('product/getProductCustomForm'),
-			array(),
-			array('id' => 'button_verification_yes')
-		);
-	*/?>
-	<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
-	<button id="button_verification_no">No</button>
-</div>
-
-<br /><br /><br />
-
-
-<!-- Grab details of this product -->
-<div id='product_details'>
-
 </div>
 
 <?php
+$this->endWidget();
 }	// end debug mode
 ?>
