@@ -87,6 +87,8 @@ $(document).ready(function()
 		productInfo.htmlImg = $(this).parent().siblings('img').clone(); // clone the img as well
 		productInfo.name = $(this).siblings('.product_name').html();
 		setVerificationBox(productInfo);
+		
+		event.preventDefault();
 	});
 	
 	
@@ -112,6 +114,7 @@ $(document).ready(function()
 		});
 		
 		// return...?
+		event.preventDefault();
 	});
 	
 	
@@ -146,7 +149,9 @@ $(document).ready(function()
 		var newProduct = $('<div></div>');
 		$('<a href="#" class="edit">Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
-		newProduct.appendTo( $('#custom_product_array') );		
+		newProduct.appendTo( $('#custom_product_array') );
+		
+		event.preventDefault();
 	});
 	
 	
