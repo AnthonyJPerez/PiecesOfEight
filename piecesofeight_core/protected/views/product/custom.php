@@ -204,6 +204,12 @@
 
 
 <div id="custom_product_inquiry_form">
+<?php
+$form = $this->beginWidget('GxActiveForm', array(
+	'id' => 'custom-inquiry-form',
+	'enableAjaxValidation' => false
+));
+?>
 	<!-- Custom products will go here -->
 	<div id='custom_product_array'>
 		
@@ -248,14 +254,6 @@
 		<span class='product_name'></span>
 		<img width="100px" href="" />
 		<span>Is this the product you want to add?</span>
-		<?php /*
-			echo CHtml::ajaxButton(
-				"Yes",
-				$this->createUrl('product/getProductCustomForm'),
-				array(),
-				array('id' => 'button_verification_yes')
-			);
-		*/?>
 		<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
 		<button id="button_verification_no">No</button>
 	</div>
@@ -267,6 +265,11 @@
 	<div id='product_details'>
 		<button class='add_product' >Add Product</button>
 	</div>
+	
+	
+<?php
+$this->endWidget();
+?>
 </div>
 <?php
 }	// end debug mode
