@@ -199,17 +199,51 @@
 </ol-->
 
 
+<?php
+/*
+Array ( 
+	[Product] => Array ( 
+		[name] => name 
+		[price] => 10 
+		[description] => description 
+		[care_information] => care information 
+		[category_id] => 1 
+		[images] => 
+		[defaultImage] => 
+		[p8Sizes] => Array ( 
+			[0] => 1 
+			[1] => 5 
+		) 
+		[p8Tags] => Array ( 
+			[0] => 1 
+		) 
+		[p8Measurements] => Array ( 
+			[0] => 14 
+			[1] => 15 
+		) 
+		[p8Addons] => Array ( 
+			[0] => 1 
+		) 
+		[p8Fabrics] => Array ( 
+			[0] => 1 
+			[1] => 2 
+		) 
+	) 
+	[yt0] => Create Product 
+)
+*/
+?>
 
 
-
-
-<div id="custom_product_inquiry_form">
 <?php
 $form = $this->beginWidget('GxActiveForm', array(
 	'id' => 'custom-inquiry-form',
 	'enableAjaxValidation' => false
 ));
 ?>
+
+<div id="custom_product_inquiry_form">
+
 	<!-- Custom products will go here -->
 	<div id='custom_product_array'>
 		
@@ -267,10 +301,15 @@ $form = $this->beginWidget('GxActiveForm', array(
 	</div>
 	
 	
+	<div>
+	<?php
+		echo GxHtml::submitButton(Yii::t('app', 'Send'));
+	?>
+	</div>
+	
+</div>
+
 <?php
 $this->endWidget();
-?>
-</div>
-<?php
 }	// end debug mode
 ?>
