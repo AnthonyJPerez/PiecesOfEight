@@ -265,7 +265,7 @@
 	
 	<!-- Grab details of this product -->
 	<div id='product_details'>
-	
+		<button class='add_product' >Add Product</button>
 	</div>
 </div>
 <?php

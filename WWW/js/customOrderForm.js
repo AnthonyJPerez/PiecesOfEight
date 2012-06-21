@@ -105,7 +105,6 @@ $(document).ready(function()
 				{
 					// Add the image and the custom html into the #product_details form
 					var html = stripExistingScripts(jqXHR.responseText);
-					$('#product_details').html('');
 					//button.siblings('img').clone().appendTo($('#product_details')); // copy the image again into this form.
 					$('#product_details').append(html);	
 				}

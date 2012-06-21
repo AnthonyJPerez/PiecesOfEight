@@ -68,7 +68,4 @@
 		
 	?>
 	</fieldset>
-	
-	
-	<button class='add_product' >Add Product</button>
 </div>
