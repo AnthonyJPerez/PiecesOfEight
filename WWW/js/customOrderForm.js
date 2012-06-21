@@ -87,32 +87,89 @@ $(document).ready(function()
 		productInfo.htmlImg = $(this).parent().siblings('img').clone(); // clone the img as well
 		productInfo.name = $(this).siblings('.product_name').html();
 		setVerificationBox(productInfo);
+		
+		event.preventDefault();
 	});
 	
 	
 	// Product verified, Go to the measurements section
-	$("#button_verification_yes").click(function()
-	{
-		$button = $(this);
+	$('#product_verification').on('click', '#button_verification_yes', function()
+	{	
+		console.log('test');
+		console.log('this: ', this);
+		var button = $(this);
 		$.ajax({
-			'url': $button.attr('data-baseurl') + "/product/getProductCustomForm/" + $button.attr('data-productid') + "/" + globalFormCounter++,
+			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
 			'cache': false,
 			complete: function(jqXHR, textStatus)
 			{
 				if (textStatus == 'success')
 				{
+					// Add the image and the custom html into the #product_details form
 					var html = stripExistingScripts(jqXHR.responseText);
-					$('#product_details').html(html);
+					//button.siblings('img').clone().appendTo($('#product_details')); // copy the image again into this form.
+					$('#product_details').append(html);	
 				}
 			}
 		});
 		
 		// return...?
+		event.preventDefault();
 	});
 	
-	// Product not verified, go back to the product selection
-	$("#button_verification_no").click(function()
-	{
 	
+	// Product not verified, go back to the product selection
+	$("#product_verification").on('click', '#button_verification_no', function()
+	{
+		
+	});
+	
+	
+	// Clear the form
+	//$('#product_verification').on('click', '#button_verification_yes', function()
+
+
+	// Add the customized product
+	$('#product_details').on('click', '.add_product', function()
+	{
+		console.log("adding product");
+		
+		// Verify the data
+		// ...
+		
+		// Save the data into local storage
+		// ...
+		
+		// Inject this form data into the main form.
+		var original = $('#product_details .custom_product_details');
+		//var cloned = original.clone();
+		//console.log('cloned: ', cloned, cloned.find('textarea'));
+		//cloned.find('textarea').val( original.find('textarea').val() ); // value of text areas are not copied in jquery, it's a bug..
+		
+		var newProduct = $('<div></div>');
+		$('<a href="#" class="edit">Edit</a>').appendTo(newProduct);
+		newProduct.append(original);
+		newProduct.appendTo( $('#custom_product_array') );
+		
+		event.preventDefault();
+	});
+	
+	
+	// Edit a product
+	$('#custom_product_array').on('click', '.edit', function(event)
+	{
+		console.log('editing product');
+		
+		$(this).siblings('.custom_product_details').find('fieldset').each(function()
+		{
+			$(this).toggle();
+		});
+		
+		/*
+		var content = $(this).parent().children('*');		
+		$('#product_details').html(content);
+		*/
+		
+		event.preventDefault();
 	});
 });

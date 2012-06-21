@@ -289,7 +289,7 @@ class ProductController extends GxController
       	} 
       	else
       	{
-      		$product = Product::model()->with('p8Sizes', 'images', 'p8Tags', 'defaultImage')->findByPk($id);
+      		$product = Product::model()->with('p8Fabrics', 'p8Addons', 'p8Measurements', 'p8Sizes', 'images', 'p8Tags', 'defaultImage')->findByPk($id);
       	}
       	
 		if (isset($_POST['Product'])) 
@@ -396,6 +396,10 @@ class ProductController extends GxController
 				
 				$product->p8Tags = $_POST['Product']['p8Tags'] === '' ? null : $_POST['Product']['p8Tags'];
 				$product->p8Sizes = $_POST['Product']['p8Sizes'] === '' ? null : $_POST['Product']['p8Sizes'];
+				$product->p8Measurements = $_POST['Product']['p8Measurements'] === '' ? null : $_POST['Product']['p8Measurements'];
+				$product->p8Addons = $_POST['Product']['p8Addons'] === '' ? null : $_POST['Product']['p8Addons'];
+				$product->p8Fabrics = $_POST['Product']['p8Fabrics'] === '' ? null : $_POST['Product']['p8Fabrics'];
+				
 				
 				if ($_POST['Product']['defaultImage'] === '')
 				{
@@ -426,7 +430,7 @@ class ProductController extends GxController
 				}
 				
 				// Save the image, and its related data.
-				if ( $product->saveWithRelated(array('p8Tags','p8Sizes')) )
+				if ( $product->saveWithRelated(array('p8Fabrics','p8Tags','p8Sizes','p8Measurements','p8Addons',)) )
 				{					
 					if (Yii::app()->getRequest()->getIsAjaxRequest())
 						Yii::app()->end();
