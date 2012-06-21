@@ -150,11 +150,11 @@ if (!empty($products))
 				
 				echo "<td class='cart_product' align='left'>";
 					$defaultImg = $product->getDefaultImage();
-					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImage->url;
+					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
 					echo "<a class='fancybox_cart_product' href='".$imgUrl."'>";
 					echo CHtml::image(
 						$imgUrl, 
-						$p->getProductImgAltDescription(), 
+						$product->getProductImgAltDescription(), 
 						array('width' => 75, 'align'=>'left')
 					);
 					echo "</a>";
