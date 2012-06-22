@@ -161,6 +161,15 @@ class ProductController extends GxController
       		$product = Product::model()->with('images', 'p8Tags', 'defaultImage')->findByPk($id);
       	}
       	
+      	
+      	// Handle the POST
+      	print_r($_POST);
+      	if (isset($_POST['Product'])) 
+		{
+		
+		}
+      	
+      	
 		$this->render(
 			'custom',
 			array(
