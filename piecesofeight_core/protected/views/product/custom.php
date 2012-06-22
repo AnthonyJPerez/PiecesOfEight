@@ -68,12 +68,6 @@
 				
 			}
 			
-			#custom_product_array .custom_product_details fieldset,
-			#custom_product_array .custom_product_details button
-			{
-				display: none;
-			}
-			
 		',
 		'screen'
 	);
@@ -249,6 +243,10 @@ $form = $this->beginWidget('GxActiveForm', array(
 		
 	</div>
 	
+	
+	<button class='create_product'>Customize an Item</button>
+	
+	
 	<!-- Show all products -->
 	<div id='product_selector'>
 		<ul id='product_list'>
@@ -273,10 +271,6 @@ $form = $this->beginWidget('GxActiveForm', array(
 			}
 		?>
 		</ul>
-		
-		<ul id='selected_products'>
-		
-		</ul>
 	</div>
 	
 	
@@ -298,12 +292,61 @@ $form = $this->beginWidget('GxActiveForm', array(
 	<!-- Grab details of this product -->
 	<div id='product_details'>
 		<button class='add_product' >Add Product</button>
+		<div id="product_details_container">
+		
+		</div>
 	</div>
 	
 	
-	<div>
+	<!-- Grab user info -->
+	<div id='user_details'>
+		<fieldset>
+			<legend>User Information</legend>
+			<?php
+				// email
+				echo "<div>";
+				echo CHtml::label('Email', '');
+				echo CHtml::textField('email');	
+				echo "</div>";
+				
+				// confirm email
+				echo "<div>";
+				echo CHtml::label('Confirm Email', '');
+				echo CHtml::textField('confirm_email');	
+				echo "</div>";
+				
+				// date of event
+				// ...
+				
+				// shipping internationally?
+				echo "<div>";
+				echo CHtml::label('Would you be shipping Internationally?', '');
+				echo CHtml::radioButtonList(
+					'shipping_international',
+					'',	// select, not sure what this does, but people leave it empty
+					array (
+						0 => 'no',
+						1 => 'yes'
+					),
+					array (
+						'separator' => ''
+					)
+				);	
+				echo "</div>";
+			?>
+		</fieldset>
+	</div>
+	
+	
+	<!-- Review the inquiry -->
+	<div id="review_inquiry">
+	
+	</div>
+	
+	
+	<div id='submit'>
 	<?php
-		echo GxHtml::submitButton(Yii::t('app', 'Send'));
+		echo GxHtml::submitButton(Yii::t('app', 'Email your Inquiry'));
 	?>
 	</div>
 	
