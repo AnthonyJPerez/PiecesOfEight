@@ -78,6 +78,14 @@ $(document).ready(function()
 	// Main
 	//
 	
+	// Add a new product
+	$("#custom_product_inquiry_form").on('click', '.create_product', function(event)
+	{
+		$(this).html('Customize another Item');
+		
+		event.preventDefault();
+	});
+	
 
 	// Update the verification box with the selected product
 	$("#product_selector button").click(function()
@@ -107,8 +115,7 @@ $(document).ready(function()
 				{
 					// Add the image and the custom html into the #product_details form
 					var html = stripExistingScripts(jqXHR.responseText);
-					//button.siblings('img').clone().appendTo($('#product_details')); // copy the image again into this form.
-					$('#product_details').append(html);	
+					$('#product_details_container').html(html);	
 				}
 			}
 		});
@@ -142,9 +149,12 @@ $(document).ready(function()
 		
 		// Inject this form data into the main form.
 		var original = $('#product_details .custom_product_details');
-		//var cloned = original.clone();
-		//console.log('cloned: ', cloned, cloned.find('textarea'));
-		//cloned.find('textarea').val( original.find('textarea').val() ); // value of text areas are not copied in jquery, it's a bug..
+		
+		// Make the edit form invisible
+		original.find('fieldset').each(function()
+		{
+			$(this).toggle(); // make invisible
+		});
 		
 		var newProduct = $('<div></div>');
 		$('<a href="#" class="edit">Edit</a>').appendTo(newProduct);
