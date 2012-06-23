@@ -78,6 +78,17 @@
 	
 	
 	//
+	// Include the Transit script
+	//
+	// documentation: http://ricostacruz.com/jquery.transit/
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/transit/jquery.transit.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	
+	//
 	// Include the fancybox script
 	//
 	Yii::app()->clientScript->registerScriptFile( 
@@ -154,17 +165,6 @@
 		CClientScript::POS_HEAD
 	);
 	
-	
-	
-	//
-	// Include the Slidorion script
-	//
-	// documentation: http://www.slidorion.com/
-	//
-	/*Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/transit/jquery.transit.min.js', 
-		CClientScript::POS_HEAD
-	);*/
 	
 ?>
 
@@ -247,53 +247,48 @@ $form = $this->beginWidget('GxActiveForm', array(
 	<button class='create_product'>Customize an Item</button>
 	
 	
-	<!-- Show all products -->
-	<div id='product_selector'>
-		<ul id='product_list'>
-		<?php
-			foreach ($_AllProducts as $product)
-			{
-			?>
-				<li class='product_listing'>
-				<?php
-					echo CHtml::image(
-						Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
-						$product->getProductImgAltDescription(),
-						array('width'=>100)
-					);
-					echo "<p class='product_listing_text'>";
-					echo "<span class='product_name'>".$product->name."</span>";
-					echo "<button class='add' data-productId='".$product->id."'>Add</button>";
-					echo "</p>"
-				?>
-				</li>
+	<div id="create_product_wizard">
+		<!-- Show all products -->
+		<div id='product_selector'>
+			<ul id='product_list'>
 			<?php
-			}
-		?>
-		</ul>
-	</div>
-	
-	
-	<br /><br /><br />
-	
-	
-	<!-- Is this the right product? -->
-	<div id='product_verification'>
-		<span class='product_name'></span>
-		<img width="100px" href="" />
-		<span>Is this the product you want to add?</span>
-		<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
-		<button id="button_verification_no">No</button>
-	</div>
-	
-	<br /><br /><br />
-	
-	
-	<!-- Grab details of this product -->
-	<div id='product_details'>
-		<button class='add_product' >Add Product</button>
-		<div id="product_details_container">
+				foreach ($_AllProducts as $product)
+				{
+				?>
+					<li class='product_listing'>
+					<?php
+						echo CHtml::image(
+							Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+							$product->getProductImgAltDescription(),
+							array('width'=>100)
+						);
+						echo "<p class='product_listing_text'>";
+						echo "<span class='product_name'>".$product->name."</span>";
+						echo "<button class='add' data-productId='".$product->id."'>Add</button>";
+						echo "</p>"
+					?>
+					</li>
+				<?php
+				}
+			?>
+			</ul>
+		</div>		
 		
+		<!-- Is this the right product? -->
+		<div id='product_verification'>
+			<span class='product_name'></span>
+			<img width="100px" href="" />
+			<span>Is this the product you want to add?</span>
+			<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
+			<button id="button_verification_no">No</button>
+		</div>		
+		
+		<!-- Grab details of this product -->
+		<div id='product_details'>
+			<button class='add_product' >Add Product</button>
+			<div id="product_details_container">
+			
+			</div>
 		</div>
 	</div>
 	

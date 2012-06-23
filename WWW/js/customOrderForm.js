@@ -69,6 +69,44 @@ $(document).ready(function()
 	
 	
 	
+	function resetFormWizard(formWizard)
+	{
+		var children = formWizard.children();
+		
+		children.each(function()
+		{
+			$(this).css('opacity', 0).css('x', formWizard.width());
+		});
+		
+		children.first().css('opacity', 1).css('x', 0);
+	}
+	
+	function transitionFormWizard(current)
+	{
+		//current.hide();
+		//current.next().show();
+		var next = current.next();
+		var width = current.width();
+		
+		current.transition(
+			{
+				x: -width,
+				//opacity: 0
+			},
+			250,
+			"in"
+		);
+		
+		next.css({x: next.parent().width() }).transition
+		(
+			{
+				x: 0,
+				opacity: 1
+			},
+			500,
+			"out"
+		);
+	}
 	
 	
 	
@@ -83,11 +121,17 @@ $(document).ready(function()
 	{
 		$(this).html('Customize another Item');
 		
+		var formWizard = $('#create_product_wizard');
+		resetFormWizard(formWizard);
+		formWizard.css('height', 0).css('width', 0).show()
+			.transition({width: '100%', height: '400px'});
+		
+		
 		event.preventDefault();
 	});
 	
 
-	// Update the verification box with the selected product
+	// Form Wizard - Add product - Update the verification box with the selected product
 	$("#product_selector button").click(function()
 	{		
 		var productInfo = {};
@@ -96,15 +140,15 @@ $(document).ready(function()
 		productInfo.name = $(this).siblings('.product_name').html();
 		setVerificationBox(productInfo);
 		
+		transitionFormWizard( $('#product_selector') );
+		
 		event.preventDefault();
 	});
 	
 	
-	// Product verified, Go to the measurements section
+	// Form Wizard - Product verified, Go to the measurements section
 	$('#product_verification').on('click', '#button_verification_yes', function()
 	{	
-		console.log('test');
-		console.log('this: ', this);
 		var button = $(this);
 		$.ajax({
 			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
@@ -116,6 +160,7 @@ $(document).ready(function()
 					// Add the image and the custom html into the #product_details form
 					var html = stripExistingScripts(jqXHR.responseText);
 					$('#product_details_container').html(html);	
+					transitionFormWizard( $('#product_verification') );
 				}
 			}
 		});
@@ -161,6 +206,8 @@ $(document).ready(function()
 		newProduct.append(original);
 		newProduct.appendTo( $('#custom_product_array') );
 		
+		$('#create_product_wizard').hide();
+		
 		event.preventDefault();
 	});
 	
@@ -180,6 +227,26 @@ $(document).ready(function()
 		$('#product_details').html(content);
 		*/
 		
+		
 		event.preventDefault();
 	});
+	
+	
+	
+	// Initialize the form
+	$('#create_product_wizard')
+		.css('position', 'relative')
+		.css('overflow', 'hidden')
+		.css('width', '100%')
+		.css('height', '400px')
+		.css('background-color', 'grey')
+		.hide();
+	$('#create_product_wizard').children().each(function()
+	{
+		// hide each child element as well:
+		var t = $(this);
+		t.css('position', 'absolute');
+		t.css('opacity', 0);
+	});
+	$('#user_details').hide();
 });
