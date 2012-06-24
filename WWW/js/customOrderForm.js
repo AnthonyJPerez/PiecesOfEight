@@ -261,4 +261,82 @@ $(document).ready(function()
 	$('#user_details').hide();
 	$('#review_inquiry').hide();
 	$('#collect_contact_info').hide();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function disableSection(section)
+	{
+		section.addClass('sectionDisabled');
+		section.find('button, input').each(function()
+		{
+			$(this).attr('disabled', true);
+		});
+	}
+	
+	function enableSection(section)
+	{
+		section.removeClass('sectionDisabled');
+		section.find('button, input').each(function()
+		{
+			$(this).removeAttr('disabled');
+		});
+	}
+	
+	function gotoNextSection(section)
+	{
+		disableSection(section);
+		enableSection(section.next());
+	}
+	
+	function gotoPrevSection(section)
+	{
+		disableSection(section);
+		enableSection(section.prev());
+	}
+	
+	
+	//
+	// onClick events
+	//
+	
+	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_next', function(event)
+	{
+		gotoNextSection( $(this).parent() );
+		
+		event.preventDefault();
+	});
+	
+	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_prev', function(event)
+	{
+		gotoPrevSection( $(this).parent() );
+		
+		event.preventDefault();
+	});
+	
+	
+	
+	// TEST
+	var sectionCustomize = $('#TEST_customize');
+	var sectionUserInfo = $('#TEST_user_info');
+	var sectionReview = $('#TEST_review');
+	
+	enableSection(sectionCustomize);
+	disableSection(sectionUserInfo);
+	disableSection(sectionReview);
 });

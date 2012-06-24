@@ -83,6 +83,16 @@
 				background: green;
 			}
 			
+			
+			
+			
+			
+			
+			.sectionDisabled
+			{
+				color: lightgrey;
+			}
+			
 		',
 		'screen'
 	);
@@ -250,6 +260,39 @@ $form = $this->beginWidget('GxActiveForm', array(
 	'enableAjaxValidation' => false
 ));
 ?>
+
+
+<div id='TEST_custom_product_inquiry_form'>
+	<div id="TEST_customize">
+		<h2>Step 1: Customize!</h2>
+		
+		<div id='TEST_added_products_container'>
+			<h3>Your Custom Products</h3>
+			<ul id='TEST_added_products'><li>No Products added</li></ul>
+		</div>
+		
+		<button class='TEST_add_custom_product'>Customize a Product</button>
+		<button class='TEST_next'>Continue to Contact Information</button>
+	</div>
+	
+	
+	<div id="TEST_user_info">
+		<h2>Step 2: Contact Information</h2>
+		
+		<button class='TEST_prev'>Customize more Items</button>
+		<button class='TEST_next'>Review your Inquiry</button>
+	</div>
+	
+	
+	<div id="TEST_review">
+		<h2>Step 3: Review Inquiry</h2>
+		
+		<button class='TEST_prev'>Edit Contact Information</button>
+		<button class='TEST_submit'>Email your Inquiry</button>
+	</div>
+</div>
+
+
 
 <div id="custom_product_inquiry_form">
 
