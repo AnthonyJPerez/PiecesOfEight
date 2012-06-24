@@ -5,15 +5,11 @@
 	Yii::app()->clientScript->registerCss(
 		'product-custom-form-style',
 		'
-			#product_list, #selected_products
-			{
-				width: 675px
-			}
 			
 			#product_list li, #selected_products li
 			{
 				width: 175px;
-			}
+			}*
 			
 			.product_listing_text
 			{
@@ -40,7 +36,7 @@
 			{
 				border-color: red;
 				width: 100%;
-				height: 250px;
+				height: 100%;
 				overflow: auto;
 			}
 			
@@ -63,9 +59,28 @@
 			
 			
 			
+			#create_product_wizard,
+			#user_details,
+			#review_inquiry,
+			#collect_contact_info
+			{
+				display: none;
+			}
+			
+			
 			#custom_product_array
 			{
-				
+				position: relative;
+				width: 100%;
+			}
+			
+			
+			#custom_product_array div
+			{
+				display: inline-block;
+				margin-right: 1em;
+				width: 175px;
+				background: green;
 			}
 			
 		',
@@ -240,11 +255,12 @@ $form = $this->beginWidget('GxActiveForm', array(
 
 	<!-- Custom products will go here -->
 	<div id='custom_product_array'>
-		
+		<h2>Your Customized Products</h2>
 	</div>
 	
 	
 	<button class='create_product'>Customize an Item</button>
+	<button id='collect_contact_info'>Continue to Contact Info</button>
 	
 	
 	<div id="create_product_wizard">
@@ -311,7 +327,10 @@ $form = $this->beginWidget('GxActiveForm', array(
 				echo "</div>";
 				
 				// date of event
-				// ...
+				echo "<div>";
+				echo CHtml::label('Date of Event', '');
+				echo "<input type='date' />";
+				echo "</div>";
 				
 				// shipping internationally?
 				echo "<div>";
@@ -330,17 +349,17 @@ $form = $this->beginWidget('GxActiveForm', array(
 				echo "</div>";
 			?>
 		</fieldset>
+		
+		<button id="review_inquiry_button">Review your Inquiry</button>
 	</div>
 	
 	
 	<!-- Review the inquiry -->
 	<div id="review_inquiry">
 	
-	</div>
-	
-	
-	<div id='submit'>
 	<?php
+		// estimated prices
+		// "I Understand this is just an Inquiry" checkbox
 		echo GxHtml::submitButton(Yii::t('app', 'Email your Inquiry'));
 	?>
 	</div>

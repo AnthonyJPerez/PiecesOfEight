@@ -116,11 +116,9 @@ $(document).ready(function()
 	// Main
 	//
 	
-	// Add a new product
+	// "Customize a new Product" button
 	$("#custom_product_inquiry_form").on('click', '.create_product', function(event)
 	{
-		$(this).html('Customize another Item');
-		
 		var formWizard = $('#create_product_wizard');
 		resetFormWizard(formWizard);
 		formWizard.css('height', 0).css('width', 0).show()
@@ -132,7 +130,7 @@ $(document).ready(function()
 	
 
 	// Form Wizard - Add product - Update the verification box with the selected product
-	$("#product_selector button").click(function()
+	$("#product_list").on('click', '.add', function(event)
 	{		
 		var productInfo = {};
 		productInfo.id = $(this).attr('data-productId');
@@ -206,7 +204,17 @@ $(document).ready(function()
 		newProduct.append(original);
 		newProduct.appendTo( $('#custom_product_array') );
 		
-		$('#create_product_wizard').hide();
+		//$('#create_product_wizard').hide();
+		$('#create_product_wizard')
+			.transition({width: '0', height: '0'}, function()
+			{
+				$(this).hide();
+			});
+			
+		// Enable the 'collect user contact info' button
+		$('#collect_contact_info').show();
+		// Change the button text
+		$('#custom_product_inquiry_form .create_product').html('Customize another Item');
 		
 		event.preventDefault();
 	});
@@ -222,12 +230,14 @@ $(document).ready(function()
 			$(this).toggle();
 		});
 		
-		/*
-		var content = $(this).parent().children('*');		
-		$('#product_details').html(content);
-		*/
-		
-		
+		event.preventDefault();
+	});
+	
+	
+	// Move form onto the collect user information portion of the wizard
+	$('#custom_product_inquiry_form').on('click', '#collect_contact_info', function(event)
+	{
+		$('#user_details').show();
 		event.preventDefault();
 	});
 	
@@ -249,4 +259,6 @@ $(document).ready(function()
 		t.css('opacity', 0);
 	});
 	$('#user_details').hide();
+	$('#review_inquiry').hide();
+	$('#collect_contact_info').hide();
 });
