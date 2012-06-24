@@ -74,12 +74,20 @@
 				color: lightgrey;
 			}
 			
+		
 			
 			#TEST_added_products li
 			{
 				display: inline-block;
-				width: 200px;
+				margin-right: 1em;
+				width: 150px;
 				background-color: red;
+				text-align: center;
+			}
+			
+			#TEST_added_products img
+			{
+				width: 100px;
 			}
 			
 			#TEST_added_products span
@@ -187,7 +195,7 @@
 	
 ?>
 
-<h1>Custom Order Page</h1>
+<h1>Custom Order Inquiries</h1>
 <p>
 	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
 </p>
