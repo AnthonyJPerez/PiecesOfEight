@@ -9,7 +9,7 @@
 			#product_list li, #selected_products li
 			{
 				width: 175px;
-			}*
+			}
 			
 			.product_listing_text
 			{
@@ -23,40 +23,10 @@
 				display: block;
 			}
 			
-			.mb-panel {
-			    opacity: 0.75;
-			    filter: alpha(opacity=75);   
-			}
-			.mb-panel.current {
-			    opacity: 1;
-			    filter: alpha(opacity=100);
-			}
-			
-			#product_selector
-			{
-				border-color: red;
-				width: 100%;
-				height: 100%;
-				overflow: auto;
-			}
-			
-			#product_selector li
-			{
-				float: left;
-			}
-			
-			
 			.instructions 
 			{
 				font-size: 10pt;
 			}
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			#create_product_wizard,
@@ -85,12 +55,36 @@
 			
 			
 			
+			#wizard_selector
+			{
+				border-color: red;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+			}
 			
+			#wizard_selector li
+			{
+				float: left;
+			}
 			
 			
 			.sectionDisabled
 			{
 				color: lightgrey;
+			}
+			
+			
+			#TEST_added_products li
+			{
+				display: inline-block;
+				width: 200px;
+				background-color: red;
+			}
+			
+			#TEST_added_products span
+			{
+				font-size: 10pt;
 			}
 			
 		',
@@ -268,10 +262,57 @@ $form = $this->beginWidget('GxActiveForm', array(
 		
 		<div id='TEST_added_products_container'>
 			<h3>Your Custom Products</h3>
-			<ul id='TEST_added_products'><li>No Products added</li></ul>
+			<span class='TEST_no-products'>No products added</span>
+			<ul id='TEST_added_products'></ul>
 		</div>
 		
 		<button class='TEST_add_custom_product'>Customize a Product</button>
+		
+		<div id="create_product_wizard">
+			<!-- Show all products -->
+			<div id='wizard_selector'>
+				<ul id='product_list'>
+				<?php
+					foreach ($_AllProducts as $product)
+					{
+					?>
+						<li class='product_listing'>
+						<?php
+							echo CHtml::image(
+								Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+								$product->getProductImgAltDescription(),
+								array('width'=>100)
+							);
+							echo "<p class='product_listing_text'>";
+							echo "<span class='product_name'>".$product->name."</span>";
+							echo "<button class='add' data-productId='".$product->id."'>Add</button>";
+							echo "</p>"
+						?>
+						</li>
+					<?php
+					}
+				?>
+				</ul>
+			</div>		
+			
+			<!-- Is this the right product? -->
+			<div id='wizard_verification'>
+				<span class='product_name'></span>
+				<img width="100px" href="" />
+				<span>Is this the product you want to add?</span>
+				<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
+				<button id="button_verification_no">No</button>
+			</div>		
+			
+			<!-- Grab details of this product -->
+			<div id='wizard_details'>
+				<button class='addProductToList' >Add Product</button>
+				<div id="wizard_details_container">
+				
+				</div>
+			</div>
+		</div>
+		
 		<button class='TEST_next'>Continue to Contact Information</button>
 	</div>
 	
@@ -279,81 +320,6 @@ $form = $this->beginWidget('GxActiveForm', array(
 	<div id="TEST_user_info">
 		<h2>Step 2: Contact Information</h2>
 		
-		<button class='TEST_prev'>Customize more Items</button>
-		<button class='TEST_next'>Review your Inquiry</button>
-	</div>
-	
-	
-	<div id="TEST_review">
-		<h2>Step 3: Review Inquiry</h2>
-		
-		<button class='TEST_prev'>Edit Contact Information</button>
-		<button class='TEST_submit'>Email your Inquiry</button>
-	</div>
-</div>
-
-
-
-<div id="custom_product_inquiry_form">
-
-	<!-- Custom products will go here -->
-	<div id='custom_product_array'>
-		<h2>Your Customized Products</h2>
-	</div>
-	
-	
-	<button class='create_product'>Customize an Item</button>
-	<button id='collect_contact_info'>Continue to Contact Info</button>
-	
-	
-	<div id="create_product_wizard">
-		<!-- Show all products -->
-		<div id='product_selector'>
-			<ul id='product_list'>
-			<?php
-				foreach ($_AllProducts as $product)
-				{
-				?>
-					<li class='product_listing'>
-					<?php
-						echo CHtml::image(
-							Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
-							$product->getProductImgAltDescription(),
-							array('width'=>100)
-						);
-						echo "<p class='product_listing_text'>";
-						echo "<span class='product_name'>".$product->name."</span>";
-						echo "<button class='add' data-productId='".$product->id."'>Add</button>";
-						echo "</p>"
-					?>
-					</li>
-				<?php
-				}
-			?>
-			</ul>
-		</div>		
-		
-		<!-- Is this the right product? -->
-		<div id='product_verification'>
-			<span class='product_name'></span>
-			<img width="100px" href="" />
-			<span>Is this the product you want to add?</span>
-			<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
-			<button id="button_verification_no">No</button>
-		</div>		
-		
-		<!-- Grab details of this product -->
-		<div id='product_details'>
-			<button class='add_product' >Add Product</button>
-			<div id="product_details_container">
-			
-			</div>
-		</div>
-	</div>
-	
-	
-	<!-- Grab user info -->
-	<div id='user_details'>
 		<fieldset>
 			<legend>User Information</legend>
 			<?php
@@ -393,21 +359,19 @@ $form = $this->beginWidget('GxActiveForm', array(
 			?>
 		</fieldset>
 		
-		<button id="review_inquiry_button">Review your Inquiry</button>
+		<button class='TEST_prev'>Customize more Items</button>
+		<button class='TEST_next'>Review your Inquiry</button>
 	</div>
 	
 	
-	<!-- Review the inquiry -->
-	<div id="review_inquiry">
-	
-	<?php
-		// estimated prices
-		// "I Understand this is just an Inquiry" checkbox
-		echo GxHtml::submitButton(Yii::t('app', 'Email your Inquiry'));
-	?>
+	<div id="TEST_review">
+		<h2>Step 3: Review Inquiry</h2>
+		
+		<button class='TEST_prev'>Edit Contact Information</button>
+		<button class='TEST_submit'>Email your Inquiry</button>
 	</div>
-	
 </div>
+
 
 <?php
 $this->endWidget();
