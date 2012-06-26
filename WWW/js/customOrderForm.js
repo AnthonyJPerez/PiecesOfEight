@@ -11,56 +11,120 @@ $(document).ready(function()
 	var globalFormCounter = 0;
 	
 	
-	// Avoid injecting duplicate scripts
-	function isDefined(path) 
-	{
-		var target = window;
-		var parts = path.split('.');
-		
-		while(parts.length) {
-		  var branch = parts.shift();
-		  if (typeof target[branch] === 'undefined') {
-			return false;
-		  }
-		
-		  target = target[branch];
-		}
-		
-		return true;
-	}
+	//
+	// Main
+	//
 	
-	function stripExistingScripts(html)
+	
+	
+	
+	// Edit a product
+	$('#custom_product_array').on('click', '.edit', function(event)
 	{
-		var map = {
-			"jquery.js": "$",
-			"jquery.min.js": "$",
-			"jquery-ui.min.js": "$.ui",
-			"jquery.yiiactiveform.js": "$.fn.yiiactiveform",
-			"jquery.yiigridview.js": "$.fn.yiiGridView",
-			"jquery.ba-bbq.js": "$.bbq"
-		};
+		console.log('editing product');
 		
-		for (var scriptName in map) 
+		$(this).siblings('.custom_product_details').find('fieldset').each(function()
 		{
-			var target = map[scriptName];
-			if (isDefined(target)) 
-			{
-				var regexp = new RegExp('<script.*src=".*' +
-							scriptName.replace('.', '\\.') +
-							'".*</script>', 'i');
-				html = html.replace(regexp, '');
-			}
-		}
+			$(this).toggle();
+		});
 		
-		return html;
+		event.preventDefault();
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function scrollTo(section)
+	{
+		$('html, body')
+			.stop()
+			.animate(
+				{
+					scrollTop: section.offset().top
+				}, 
+				750,
+				'easeInOutExpo'
+			);
 	}
 	
-
+	
+	function disableSection(section)
+	{
+		section.addClass('sectionDisabled');
+		section.find('button, input').each(function()
+		{
+			$(this).attr('disabled', true);
+		});
+	}
+	
+	function enableSection(section)
+	{
+		section.removeClass('sectionDisabled');
+		section.find('button, input').each(function()
+		{
+			$(this).removeAttr('disabled');
+		});
+	}
+	
+	function gotoNextSection(section)
+	{
+		var nextSection = section.next();
+		disableSection(section);
+		enableSection(nextSection);
+		scrollTo(nextSection);
+	}
+	
+	function gotoPrevSection(section)
+	{
+		var prevSection = section.prev();
+		disableSection(section);
+		enableSection(prevSection);
+		scrollTo(prevSection);
+	}
+	
+	function checkForProducts(container)
+	{
+		var productList = container.find('#TEST_added_products').children();
+		
+		if (productList.length > 0)
+		{
+			container.find('.TEST_no-products').hide();
+			container.find('.TEST_next').removeAttr('disabled');
+		} else {
+			container.find('.TEST_no-products').show();
+			container.find('.TEST_next').attr('disabled', true);
+		}
+	}
+	
+	
+	function resetFormWizard(formWizard)
+	{
+		var children = formWizard.children();
+		
+		children.each(function()
+		{
+			$(this).css('opacity', 0).css('x', formWizard.width());
+		});
+		
+		children.first().css('opacity', 1).css('x', 0);
+	}
+	
+	
 	function setVerificationBox(productInfo)
 	{
 		// Capture the Id and image associated with the selected product, and put them into the
 		// verification box
-		var verifyBox = $('#product_verification');
+		var verifyBox = $('#wizard_verification');
 		verifyBox.children('img').attr('src', productInfo.htmlImg.attr('src'));
 		verifyBox.children('#button_verification_yes').attr('data-productId', productInfo.id);
 		verifyBox.children('.product_name').html(productInfo.name);
@@ -68,27 +132,67 @@ $(document).ready(function()
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	//
-	// Main
-	//
-	
-	// Add a new product
-	$("#custom_product_inquiry_form").on('click', '.create_product', function(event)
+	function transitionFormWizard(current)
 	{
-		$(this).html('Customize another Item');
+		var next = current.next();
+		var width = current.width();
+		
+		current.transition(
+			{
+				x: -width,
+				//opacity: 0
+			},
+			250,
+			"in"
+		);
+		
+		next.css({x: next.parent().width() }).transition
+		(
+			{
+				x: 0,
+				opacity: 1
+			},
+			500,
+			"out"
+		);
+	}
+	
+	
+	//
+	// onClick events
+	//
+	
+	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_next', function(event)
+	{
+		gotoNextSection( $(this).parent() );
 		
 		event.preventDefault();
 	});
 	
-
-	// Update the verification box with the selected product
-	$("#product_selector button").click(function()
+	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_prev', function(event)
+	{
+		gotoPrevSection( $(this).parent() );
+		
+		event.preventDefault();
+	});
+	
+	// "Customize a new Product" button
+	$("#TEST_customize").on('click', '.TEST_add_custom_product', function(event)
+	{
+		var formWizard = $('#create_product_wizard');
+		resetFormWizard(formWizard);
+		formWizard
+			.css('height', 0)
+			.show()
+			.transition({height: '300px'}, 500, 'in-out');
+		scrollTo($('#create_product_wizard'));
+		
+		event.preventDefault();
+	});
+	
+	
+	// Form Wizard - Add product - Update the verification box with the selected product
+	$("#wizard_selector").on('click', '.add', function(event)
 	{		
 		var productInfo = {};
 		productInfo.id = $(this).attr('data-productId');
@@ -96,15 +200,15 @@ $(document).ready(function()
 		productInfo.name = $(this).siblings('.product_name').html();
 		setVerificationBox(productInfo);
 		
+		transitionFormWizard( $('#wizard_selector') );
+		
 		event.preventDefault();
 	});
 	
 	
-	// Product verified, Go to the measurements section
-	$('#product_verification').on('click', '#button_verification_yes', function()
+	// Form Wizard - Product verified, Go to the measurements section
+	$('#wizard_verification').on('click', '#button_verification_yes', function()
 	{	
-		console.log('test');
-		console.log('this: ', this);
 		var button = $(this);
 		$.ajax({
 			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
@@ -114,8 +218,9 @@ $(document).ready(function()
 				if (textStatus == 'success')
 				{
 					// Add the image and the custom html into the #product_details form
-					var html = stripExistingScripts(jqXHR.responseText);
-					$('#product_details_container').html(html);	
+					var html = jqXHR.responseText;
+					$('#wizard_details_container').html(html);	
+					transitionFormWizard( $('#wizard_verification') );
 				}
 			}
 		});
@@ -132,12 +237,8 @@ $(document).ready(function()
 	});
 	
 	
-	// Clear the form
-	//$('#product_verification').on('click', '#button_verification_yes', function()
-
-
-	// Add the customized product
-	$('#product_details').on('click', '.add_product', function()
+	// Add the customized product to the list
+	$('#wizard_details').on('click', '.addProductToList', function()
 	{
 		console.log("adding product");
 		
@@ -148,7 +249,7 @@ $(document).ready(function()
 		// ...
 		
 		// Inject this form data into the main form.
-		var original = $('#product_details .custom_product_details');
+		var original = $('#wizard_details .custom_product_details');
 		
 		// Make the edit form invisible
 		original.find('fieldset').each(function()
@@ -156,30 +257,51 @@ $(document).ready(function()
 			$(this).toggle(); // make invisible
 		});
 		
-		var newProduct = $('<div></div>');
+		var newProduct = $('<li></li>');
 		$('<a href="#" class="edit">Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
-		newProduct.appendTo( $('#custom_product_array') );
+		newProduct.appendTo( $('#TEST_added_products') );
+		
+		scrollTo($('#TEST_added_products_container'));
+		$('#create_product_wizard')
+			.transition({height: '0'}, 500, 'in-out', function()
+			{
+				$(this).hide();
+			});
+			
+		checkForProducts($('#TEST_customize'));
 		
 		event.preventDefault();
 	});
 	
 	
-	// Edit a product
-	$('#custom_product_array').on('click', '.edit', function(event)
+	
+	// TEST
+	var sectionCustomize = $('#TEST_customize');
+	var sectionUserInfo = $('#TEST_user_info');
+	var sectionReview = $('#TEST_review');
+	
+	$('#create_product_wizard')
+		.css('position', 'relative')
+		.css('overflow', 'hidden')
+		.css('width', '100%')
+		.css('height', '400px')
+		.css('background-color', 'grey')
+		.hide();
+	$('#create_product_wizard').children().each(function()
 	{
-		console.log('editing product');
-		
-		$(this).siblings('.custom_product_details').find('fieldset').each(function()
-		{
-			$(this).toggle();
-		});
-		
-		/*
-		var content = $(this).parent().children('*');		
-		$('#product_details').html(content);
-		*/
-		
-		event.preventDefault();
+		// hide each child element as well:
+		var t = $(this);
+		t.css('position', 'absolute');
+		t.css('opacity', 0);
 	});
+	
+	enableSection(sectionCustomize);
+	disableSection(sectionUserInfo);
+	disableSection(sectionReview);
+	
+	checkForProducts($('#TEST_customize'));
+	
+	
+	
 });

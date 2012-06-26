@@ -172,8 +172,10 @@ if (!empty($products))
 							echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
 						echo "</div>";
 						
-						echo "<div class='row submit'>";
-							echo CHtml::submitButton('Remove');
+						echo "<div class='row submit btn'>";
+							echo CHtml::linkButton(
+								"<i class='icon-minus-sign'></i> Remove"
+							);
 						echo "</div>";
 					
 					$this->endWidget();
@@ -195,12 +197,13 @@ if (!empty($products))
 	
 	
 	<ul class='additional_buttons'>
-		<li><?php echo CHtml::link('Continue Shopping', $this->createUrl('product/list')); ?></li>
+		<?php $continue = "<i class='icon-arrow-left'></i> Continue Shopping" ?>
+		<li><?php echo CHtml::link($continue, $this->createUrl('product/list'), array('class'=>'btn')); ?></li>
 	</ul>
 	
 	
 	<ul class='checkout_buttons'>
-		<li><a class='empty_cart' href="<?php echo $this->createUrl('cart/empty'); ?>">Empty Cart</a></li>
+		<li><a class='empty_cart btn' href="<?php echo $this->createUrl('cart/empty'); ?>"><i class='icon-trash'></i> Empty Cart</a></li>
 
 		<li><form class='checkout' action="https://www.paypal.com/cgi-bin/webscr" method="POST">
 			<input type="hidden" name="cmd" value="_cart" />

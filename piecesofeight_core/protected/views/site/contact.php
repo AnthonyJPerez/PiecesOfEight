@@ -100,7 +100,7 @@
 <?php else: ?>
 
 <p itemscope itemtype="http://schema.org/Organization">
-If you have business inquiries or other questions for <span itemprop="name">Pieces of Eight Costumes</span>, email us at <span itemprop="email">piecesof8costumes@comcast.net</span> by filling out the form below. Thanks!
+If you have business inquiries or other questions for <span itemprop="name">Pieces of Eight Costumes</span>, email us at <span itemprop="email"><?php echo Yii::app()->params['adminEmail']; ?></span> by filling out the form below. Thanks!
 </p>
 
 <div class="form">
@@ -118,8 +118,9 @@ If you have business inquiries or other questions for <span itemprop="name">Piec
 		$body = "";
 		if ($product)
 		{
+			$product_url = $product->getUrl(true);
 			$model->subject = "Custom Order Inquiry";
-			$model->body = "Product: ".$product->name."\n\nI am interested in custom ordering this product. [Replace me with details of your custom order!]";
+			$model->body = "Product:\n\t".$product->name."\n\t(".$product_url.")\n\nI am interested in custom ordering this product.\n\n[Replace me with details of your custom order!]";
 		}
 	?>
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -134,6 +135,12 @@ If you have business inquiries or other questions for <span itemprop="name">Piec
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'confirmEmail'); ?>
+		<?php echo $form->textField($model,'confirmEmail'); ?>
+		<?php echo $form->error($model,'confirmEmail'); ?>
 	</div>
 
 	<div class="row">

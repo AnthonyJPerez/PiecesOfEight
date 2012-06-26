@@ -120,10 +120,28 @@
 			{
 				background-image: none;
 			}
+			
+			
+			#breadcrumbs
+			{
+				display: inline-block;
+			}
+			
+			h1
+			{
+				display: inline-block;
+			}
+			
+			.empty
+			{
+				margin-top: 2em;
+			}
 		',
 		'screen'
 	);
 ?>
+
+
 
 <div id="breadcrumbs">
 	<ul>
@@ -141,7 +159,7 @@
 
 			if (isset($category))
 			{
-				echo "<li><h1>".ucfirst($category)."</h1></li>";
+				echo "<li><span>".ucfirst($category)."</span></li>";
 			}
 		}
 		else
@@ -151,6 +169,25 @@
 	?>
 	</ul>
 </div>
+
+
+<h1>
+<?php
+	$pageH1Category = ucfirst($category);
+	switch ($category)
+	{
+		case 'new':
+			$pageH1Category = 'New Arrivals';
+			break;
+			
+		case "":
+			$pageH1Category = "All Products";
+			break;
+	}
+	
+	echo $pageH1Category;
+?>
+</h1>
 
 
 <?php 

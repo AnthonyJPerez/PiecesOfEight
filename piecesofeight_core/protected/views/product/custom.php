@@ -5,10 +5,6 @@
 	Yii::app()->clientScript->registerCss(
 		'product-custom-form-style',
 		'
-			#product_list, #selected_products
-			{
-				width: 675px
-			}
 			
 			#product_list li, #selected_products li
 			{
@@ -27,47 +23,99 @@
 				display: block;
 			}
 			
-			.mb-panel {
-			    opacity: 0.75;
-			    filter: alpha(opacity=75);   
-			}
-			.mb-panel.current {
-			    opacity: 1;
-			    filter: alpha(opacity=100);
-			}
-			
-			#product_selector
-			{
-				border-color: red;
-				width: 100%;
-				height: 250px;
-				overflow: auto;
-			}
-			
-			#product_selector li
-			{
-				float: left;
-			}
-			
-			
 			.instructions 
 			{
 				font-size: 10pt;
 			}
 			
 			
-			
-			
-			
-			
-			
+			#create_product_wizard,
+			#user_details,
+			#review_inquiry,
+			#collect_contact_info
+			{
+				display: none;
+			}
 			
 			
 			#custom_product_array
 			{
-				
+				position: relative;
+				width: 100%;
 			}
 			
+			
+			#custom_product_array div
+			{
+				display: inline-block;
+				margin-right: 1em;
+				width: 175px;
+				background: green;
+			}
+			
+			
+			
+			#wizard_selector
+			{
+				border-color: red;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+			}
+			
+			#wizard_selector li
+			{
+				float: left;
+			}
+			
+			
+			.sectionDisabled
+			{
+				color: lightgrey;
+			}
+			
+			.sectionDisabled input
+			{
+				background: lightgrey;
+			}
+			
+		
+			
+			#TEST_added_products li
+			{
+				display: inline-block;
+				margin-right: 1em;
+				width: 150px;
+				background-color: red;
+				text-align: center;
+			}
+			
+			#TEST_added_products img
+			{
+				width: 100px;
+			}
+			
+			#TEST_added_products span
+			{
+				font-size: 10pt;
+			}
+			
+			input, textarea
+			{
+				border-radius: 5px; 
+				-moz-border-radius: 5px; 
+				-webkit-border-radius: 5px;
+				
+				box-shadow: 0px 1px 0px #f2f2f2;
+				-moz-box-shadow: 0px 1px 0px #f2f2f2; 
+				-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+				
+				background: white;
+			}
+			
+			input:focus, textarea:focus {
+				background: white;
+			}
 		',
 		'screen'
 	);
@@ -75,6 +123,17 @@
 	
 	// Include the jquery library
 	Yii::app()->clientScript->registerCoreScript('jquery');
+	
+	
+	//
+	// Include the Transit script
+	//
+	// documentation: http://ricostacruz.com/jquery.transit/
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/transit/jquery.transit.min.js', 
+		CClientScript::POS_HEAD
+	);
 	
 	
 	//
@@ -155,20 +214,9 @@
 	);
 	
 	
-	
-	//
-	// Include the Slidorion script
-	//
-	// documentation: http://www.slidorion.com/
-	//
-	/*Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/transit/jquery.transit.min.js', 
-		CClientScript::POS_HEAD
-	);*/
-	
 ?>
 
-<h1>Custom Order Page</h1>
+<h1>Custom Order Inquiries</h1>
 <p>
 	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
 </p>
@@ -236,121 +284,142 @@ $form = $this->beginWidget('GxActiveForm', array(
 ));
 ?>
 
-<div id="custom_product_inquiry_form">
 
-	<!-- Custom products will go here -->
-	<div id='custom_product_array'>
+<div id='TEST_custom_product_inquiry_form'>
+	<div id="TEST_customize">
+		<h2>Step 1: Customize!</h2>
 		
-	</div>
-	
-	
-	<button class='create_product'>Customize an Item</button>
-	
-	
-	<!-- Show all products -->
-	<div id='product_selector'>
-		<ul id='product_list'>
-		<?php
-			foreach ($_AllProducts as $product)
-			{
-			?>
-				<li class='product_listing'>
-				<?php
-					echo CHtml::image(
-						Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
-						$product->getProductImgAltDescription(),
-						array('width'=>100)
-					);
-					echo "<p class='product_listing_text'>";
-					echo "<span class='product_name'>".$product->name."</span>";
-					echo "<button class='add' data-productId='".$product->id."'>Add</button>";
-					echo "</p>"
-				?>
-				</li>
-			<?php
-			}
-		?>
-		</ul>
-	</div>
-	
-	
-	<br /><br /><br />
-	
-	
-	<!-- Is this the right product? -->
-	<div id='product_verification'>
-		<span class='product_name'></span>
-		<img width="100px" href="" />
-		<span>Is this the product you want to add?</span>
-		<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
-		<button id="button_verification_no">No</button>
-	</div>
-	
-	<br /><br /><br />
-	
-	
-	<!-- Grab details of this product -->
-	<div id='product_details'>
-		<button class='add_product' >Add Product</button>
-		<div id="product_details_container">
-		
+		<div id='TEST_added_products_container'>
+			<div><b>Your Custom Products:</b></div>
+			<span class='TEST_no-products'>No products added</span>
+			<ul id='TEST_added_products'></ul>
 		</div>
-	</div>
-	
-	
-	<!-- Grab user info -->
-	<div id='user_details'>
-		<fieldset>
-			<legend>User Information</legend>
-			<?php
-				// email
-				echo "<div>";
-				echo CHtml::label('Email', '');
-				echo CHtml::textField('email');	
-				echo "</div>";
+		
+		
+		<a class="TEST_add_custom_product btn" href="#">
+			<i class="icon-plus"></i>
+			Customize a Product
+		</a>
+		
+		<div id="create_product_wizard">
+			<!-- Show all products -->
+			<div id='wizard_selector'>
+				<ul id='product_list'>
+				<?php
+					foreach ($_AllProducts as $product)
+					{
+					?>
+						<li class='product_listing'>
+						<?php
+							echo CHtml::image(
+								Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
+								$product->getProductImgAltDescription(),
+								array('width'=>100)
+							);
+							echo "<p class='product_listing_text'>";
+							echo "<span class='product_name'>".$product->name."</span>";
+							echo "<button class='add' data-productId='".$product->id."'>Add</button>";
+							echo "</p>"
+						?>
+						</li>
+					<?php
+					}
+				?>
+				</ul>
+			</div>		
+			
+			<!-- Is this the right product? -->
+			<div id='wizard_verification'>
+				<span class='product_name'></span>
+				<img width="100px" href="" />
+				<span>Is this the product you want to add?</span>
+				<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
+				<button id="button_verification_no">No</button>
+			</div>		
+			
+			<!-- Grab details of this product -->
+			<div id='wizard_details'>
+				<button class='addProductToList' >Add Product</button>
+				<div id="wizard_details_container">
 				
-				// confirm email
-				echo "<div>";
-				echo CHtml::label('Confirm Email', '');
-				echo CHtml::textField('confirm_email');	
-				echo "</div>";
-				
-				// date of event
-				// ...
-				
-				// shipping internationally?
-				echo "<div>";
-				echo CHtml::label('Would you be shipping Internationally?', '');
-				echo CHtml::radioButtonList(
-					'shipping_international',
-					'',	// select, not sure what this does, but people leave it empty
-					array (
-						0 => 'no',
-						1 => 'yes'
-					),
-					array (
-						'separator' => ''
-					)
-				);	
-				echo "</div>";
-			?>
-		</fieldset>
+				</div>
+			</div>
+		</div>
+		
+		<a class="TEST_next btn" href="#">
+			<i class="icon-arrow-down"></i>
+			Continue to Contact Information
+		</a>
 	</div>
 	
 	
-	<!-- Review the inquiry -->
-	<div id="review_inquiry">
-	
+	<div id="TEST_user_info">
+		<h2>Step 2: Contact Information</h2>
+		
+		<?php
+			// email
+			echo "<div>";
+			echo CHtml::label('Email', '');
+			echo CHtml::textField('email');	
+			echo "</div>";
+			
+			// confirm email
+			echo "<div>";
+			echo CHtml::label('Confirm Email', '');
+			echo CHtml::textField('confirm_email');	
+			echo "</div>";
+			
+			// date of event
+			echo "<div>";
+			echo CHtml::label('Date of Event', '');
+			echo "<input type='date' />";
+			echo "</div>";
+			
+			// shipping internationally?
+			echo "<div>";
+			echo CHtml::label('Would you be shipping Internationally?', '');
+			echo CHtml::radioButtonList(
+				'shipping_international',
+				'',	// select, not sure what this does, but people leave it empty
+				array (
+					0 => 'no',
+					1 => 'yes'
+				),
+				array (
+					'separator' => ''
+				)
+			);	
+			echo "</div>";
+		?>
+		
+		<a class="TEST_prev btn" href="#">
+			<i class="icon-arrow-up"></i>
+			Customize more Items
+		</a>
+
+		<a class="TEST_next btn" href="#">
+			<i class="icon-arrow-down"></i>
+			Review your Inquiry
+		</a>
+		
 	</div>
 	
 	
-	<div id='submit'>
-	<?php
-		echo GxHtml::submitButton(Yii::t('app', 'Email your Inquiry'));
-	?>
+	<div id="TEST_review">
+		<h2>Step 3: Review Inquiry</h2>
+		
+		<a class="TEST_prev btn" href="#">
+			<i class="icon-arrow-up"></i>
+			Edit Contact Information
+		</a>
+		
+		<a class="TEST_submit btn btn-success" href="#">
+			<i class="icon-envelope-alt"></i>
+			Email your Inquiry
+		</a>
 	</div>
-	
 </div>
+
 
 <?php
 $this->endWidget();
