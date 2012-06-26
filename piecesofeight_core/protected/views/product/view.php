@@ -500,7 +500,11 @@
 				echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				
 				echo "<div class='submit'>";
-					echo "<span class='submit_button'>".CHtml::submitButton('Add to Cart')."</span>";
+					echo "<span class='submit_button btn btn-success'>"
+						.CHtml::linkButton(
+							"<i class='icon-plus'></i> Add to Cart"
+						)."</span>";
+						
 					echo "<span class='etsy_link'>or ". 
 						CHtml::link(
 							"View on Etsy",
