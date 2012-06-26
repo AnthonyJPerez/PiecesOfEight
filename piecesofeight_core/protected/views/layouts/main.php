@@ -125,12 +125,16 @@
 					}
 				?>
 				<div id="top_right_nav">
-					<?php $this->widget('zii.widgets.CMenu',array(
+					<?php 
+						$cart = '<i class="icon-shopping-cart"></i> Cart';
+						$this->widget('zii.widgets.CMenu',array(
+						'encodeLabel' => false,
 						'items'=>array(
 							array('label'=>'LookBook', 	'url'=>$this->createUrl('product/lookbook')),
 							array('label'=>'Custom Orders', 'url'=>$this->createUrl('product/custom')),
-							array('label'=> ($product_cart_count>0) ? 'Cart ('.$product_cart_count.')' : 'Cart', 'url'=>array('/cart')),
+							array('label'=> ($product_cart_count>0) ? $cart.' ('.$product_cart_count.')' : $cart, 'url'=>array('/cart')),
 							),
+						//'lastItemCssClass' => 'icon-shopping-cart'
 					)); ?>
 				</div>
 			</div>
