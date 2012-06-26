@@ -296,7 +296,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 		</div>
 		
 		
-		<a class="TEST_add_custom_product button" href="#">
+		<a class="TEST_add_custom_product btn" href="#">
 			<i class="icon-plus"></i>
 			Customize a Product
 		</a>
@@ -346,7 +346,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 			</div>
 		</div>
 		
-		<a class="TEST_next button" href="#">
+		<a class="TEST_next btn" href="#">
 			<i class="icon-arrow-down"></i>
 			Continue to Contact Information
 		</a>
@@ -392,13 +392,13 @@ $form = $this->beginWidget('GxActiveForm', array(
 			echo "</div>";
 		?>
 		
-		<a class="TEST_prev button" href="#">
+		<a class="TEST_prev btn" href="#">
 			<i class="icon-arrow-up"></i>
 			Customize more Items
 		</a>
 
-		<a class="TEST_next button" href="#">
-			<i class="icon-thumbs-up"></i>
+		<a class="TEST_next btn" href="#">
+			<i class="icon-arrow-down"></i>
 			Review your Inquiry
 		</a>
 		
@@ -408,12 +408,12 @@ $form = $this->beginWidget('GxActiveForm', array(
 	<div id="TEST_review">
 		<h2>Step 3: Review Inquiry</h2>
 		
-		<a class="TEST_prev button" href="#">
+		<a class="TEST_prev btn" href="#">
 			<i class="icon-arrow-up"></i>
 			Edit Contact Information
 		</a>
 		
-		<a class="TEST_submit button" href="#">
+		<a class="TEST_submit btn btn-success" href="#">
 			<i class="icon-envelope-alt"></i>
 			Email your Inquiry
 		</a>
