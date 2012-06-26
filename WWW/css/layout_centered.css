@@ -29,6 +29,8 @@ body
 h1, h2, h3, h4, h5, h6
 {
 	font-family: 'IM Fell English', serif;
+	color: #700;
+	text-shadow: 2px 2px 3px #7F7F7F;
 }
 
 img, a {
@@ -202,6 +204,10 @@ a:hover
 		top: 0;
 		bottom: 0;		
 	}
+		#sidenav a:link, #sidenav a:hover
+		{
+			text-shadow: 2px 2px 3px grey !important;
+		}
 	
 		#sidenav > ul
 		{
@@ -378,14 +384,14 @@ a:hover
 #breadcrumbs
 {
 	margin-left: 2em;
-	width: 60%;
+	width: 50%;
 }
 
 	#breadcrumbs > ul 
 	{
 		margin: 0;
 		padding: 0;
-		display: table;
+		display: table;		
 	}
 	
 	#breadcrumbs > ul > li
@@ -399,11 +405,7 @@ a:hover
 		padding-left: 0;
 	}
 	
-	#breadcrumbs h1
-	{
-		font-size: 11pt;
-		font-weight: normal;
-	}
+	
 
 
 

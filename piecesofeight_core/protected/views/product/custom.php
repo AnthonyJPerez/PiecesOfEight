@@ -74,6 +74,11 @@
 				color: lightgrey;
 			}
 			
+			.sectionDisabled input
+			{
+				background: lightgrey;
+			}
+			
 		
 			
 			#TEST_added_products li
@@ -95,6 +100,22 @@
 				font-size: 10pt;
 			}
 			
+			input, textarea
+			{
+				border-radius: 5px; 
+				-moz-border-radius: 5px; 
+				-webkit-border-radius: 5px;
+				
+				box-shadow: 0px 1px 0px #f2f2f2;
+				-moz-box-shadow: 0px 1px 0px #f2f2f2; 
+				-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+				
+				background: white;
+			}
+			
+			input:focus, textarea:focus {
+				background: white;
+			}
 		',
 		'screen'
 	);
@@ -269,12 +290,16 @@ $form = $this->beginWidget('GxActiveForm', array(
 		<h2>Step 1: Customize!</h2>
 		
 		<div id='TEST_added_products_container'>
-			<h3>Your Custom Products</h3>
+			<div><b>Your Custom Products:</b></div>
 			<span class='TEST_no-products'>No products added</span>
 			<ul id='TEST_added_products'></ul>
 		</div>
 		
-		<button class='TEST_add_custom_product'>Customize a Product</button>
+		
+		<a class="TEST_add_custom_product button" href="#">
+			<i class="icon-plus"></i>
+			Customize a Product
+		</a>
 		
 		<div id="create_product_wizard">
 			<!-- Show all products -->
@@ -321,62 +346,77 @@ $form = $this->beginWidget('GxActiveForm', array(
 			</div>
 		</div>
 		
-		<button class='TEST_next'>Continue to Contact Information</button>
+		<a class="TEST_next button" href="#">
+			<i class="icon-arrow-down"></i>
+			Continue to Contact Information
+		</a>
 	</div>
 	
 	
 	<div id="TEST_user_info">
 		<h2>Step 2: Contact Information</h2>
 		
-		<fieldset>
-			<legend>User Information</legend>
-			<?php
-				// email
-				echo "<div>";
-				echo CHtml::label('Email', '');
-				echo CHtml::textField('email');	
-				echo "</div>";
-				
-				// confirm email
-				echo "<div>";
-				echo CHtml::label('Confirm Email', '');
-				echo CHtml::textField('confirm_email');	
-				echo "</div>";
-				
-				// date of event
-				echo "<div>";
-				echo CHtml::label('Date of Event', '');
-				echo "<input type='date' />";
-				echo "</div>";
-				
-				// shipping internationally?
-				echo "<div>";
-				echo CHtml::label('Would you be shipping Internationally?', '');
-				echo CHtml::radioButtonList(
-					'shipping_international',
-					'',	// select, not sure what this does, but people leave it empty
-					array (
-						0 => 'no',
-						1 => 'yes'
-					),
-					array (
-						'separator' => ''
-					)
-				);	
-				echo "</div>";
-			?>
-		</fieldset>
+		<?php
+			// email
+			echo "<div>";
+			echo CHtml::label('Email', '');
+			echo CHtml::textField('email');	
+			echo "</div>";
+			
+			// confirm email
+			echo "<div>";
+			echo CHtml::label('Confirm Email', '');
+			echo CHtml::textField('confirm_email');	
+			echo "</div>";
+			
+			// date of event
+			echo "<div>";
+			echo CHtml::label('Date of Event', '');
+			echo "<input type='date' />";
+			echo "</div>";
+			
+			// shipping internationally?
+			echo "<div>";
+			echo CHtml::label('Would you be shipping Internationally?', '');
+			echo CHtml::radioButtonList(
+				'shipping_international',
+				'',	// select, not sure what this does, but people leave it empty
+				array (
+					0 => 'no',
+					1 => 'yes'
+				),
+				array (
+					'separator' => ''
+				)
+			);	
+			echo "</div>";
+		?>
 		
-		<button class='TEST_prev'>Customize more Items</button>
-		<button class='TEST_next'>Review your Inquiry</button>
+		<a class="TEST_prev button" href="#">
+			<i class="icon-arrow-up"></i>
+			Customize more Items
+		</a>
+
+		<a class="TEST_next button" href="#">
+			<i class="icon-thumbs-up"></i>
+			Review your Inquiry
+		</a>
+		
 	</div>
 	
 	
 	<div id="TEST_review">
 		<h2>Step 3: Review Inquiry</h2>
 		
-		<button class='TEST_prev'>Edit Contact Information</button>
-		<button class='TEST_submit'>Email your Inquiry</button>
+		<a class="TEST_prev button" href="#">
+			<i class="icon-arrow-up"></i>
+			Edit Contact Information
+		</a>
+		
+		<a class="TEST_submit button" href="#">
+			<i class="icon-envelope-alt"></i>
+			Email your Inquiry
+		</a>
 	</div>
 </div>
 
