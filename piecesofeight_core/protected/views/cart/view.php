@@ -172,9 +172,12 @@ if (!empty($products))
 							echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
 						echo "</div>";
 						
-						echo "<div class='row submit btn'>";
+						echo "<div class='row submit'>";
 							echo CHtml::linkButton(
-								"<i class='icon-minus-sign'></i> Remove"
+								"<i class='icon-minus-sign'></i> Remove",
+								array(
+									'class' => 'btn'
+								)
 							);
 						echo "</div>";
 					
