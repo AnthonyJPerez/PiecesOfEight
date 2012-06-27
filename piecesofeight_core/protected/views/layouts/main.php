@@ -11,6 +11,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 		
 		<?php
+			$cssTag = "06272012";
 			if ($this->pageCanonical !== null)
 			{
 				?>
@@ -49,18 +50,14 @@
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
 
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css?v=06252012" media="screen, projection" />
-		
-		<!--[if lt IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css?v=05292012-2" media="screen, projection" />
-		<![endif]-->
-		
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout_centered.css?v=<?php echo $cssTag; ?>" media="screen, projection" />
 		
 		<!-- Fonts & Icons | Documentation: http://fortawesome.github.com/Font-Awesome/#all-icons -->
-		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/fonts/font-awesome/css/font-awesome.css?v=06252012" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/fonts/font-awesome/css/font-awesome.css?v=<?php echo $cssTag; ?>" media="screen, projection" />
 		
 		<!--[if lt IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/fonts/font-awesome/css/font-awesome-ie7.css?v=06252012" media="screen, projection" />
+			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css?v=<?php echo $cssTag; ?>" media="screen, projection" />
+			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/fonts/font-awesome/css/font-awesome-ie7.css?v=<?php echo $cssTag; ?>" media="screen, projection" />
 		<![endif]-->
 	
 	

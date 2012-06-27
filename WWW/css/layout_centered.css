@@ -1,5 +1,5 @@
 
-@import url(http://fonts.googleapis.com/css?family=IM+Fell+English);
+/*@import url(http://fonts.googleapis.com/css?family=IM+Fell+English);*/
 
 * {
 	-webkit-box-sizing: border-box;
@@ -265,14 +265,13 @@ a:hover
 			
 	#content
 	{
-		padding: 0px;
 		float: right;
 		width: 82%;
 		min-height: 500px;
 		position: relative;
 		word-wrap: break-word;
 		margin-top: 2.5em;
-		padding: 0.5em 1em;
+		padding: 0.5em 1.5em;
 	}
 	
 #footer
