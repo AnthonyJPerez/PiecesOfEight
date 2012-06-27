@@ -172,9 +172,12 @@ if (!empty($products))
 							echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
 						echo "</div>";
 						
-						echo "<div class='row submit btn'>";
+						echo "<div class='row submit'>";
 							echo CHtml::linkButton(
-								"<i class='icon-minus-sign'></i> Remove"
+								"<i class='icon-minus-sign'></i> Remove",
+								array(
+									'class' => 'btn'
+								)
 							);
 						echo "</div>";
 					
@@ -211,7 +214,7 @@ if (!empty($products))
 			<!--input type="hidden" name="business" value="po8_1330738240_biz@gmail.com" /-->
 			<input type="hidden" name="business" value="<?php echo Yii::app()->params['adminEmail']; ?>" />
 			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>" />
-			<input type="hidden" name="image_url" value="<?php echo Yii::app()->request->hostInfo . Yii::app()->baseUrl . '/images/logo3.png'; ?>" />
+			<input type="hidden" name="image_url" value="<?php echo Yii::app()->request->hostInfo . Yii::app()->baseUrl . '/images/pieces-of-eight-costumes-logo.png'; ?>" />
 			<input type="hidden" name="rm" value="1" />
 			<input type="hidden" name="handling_cart" value="<?php echo $shipping; ?>" />
 			
