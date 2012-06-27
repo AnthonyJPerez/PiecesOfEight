@@ -28,10 +28,21 @@ body
 
 h1, h2, h3, h4, h5, h6
 {
-	font-family: 'GothicUltraOTRegular', 'IM Fell English', serif;
+	font-family: 'GothicUltraOTRegular', serif;
 	color: #700;
 	text-shadow: 2px 2px 3px #7F7F7F;
 }
+
+h1
+{
+	font-size: 2.5em;
+}
+
+h2
+{
+	font-size: 2em;
+}
+
 
 img, a {
 	border: none;
@@ -73,7 +84,7 @@ a:hover
 	height: 226px;
 	position: relative;
 	top: 0;	
-	font-family: 'GothicUltraOTRegular', 'IM Fell English', serif;
+	font-family: 'GothicUltraOTRegular', serif;
 	font-size: 1.6em;
 	font-weight: bold;
 }
@@ -163,15 +174,13 @@ a:hover
 	
 #content_container
 {
-	//text-shadow: 3px 3px 3px #999;
-
 	margin-top: -4.5em;
 	position: relative;
 	overflow: hidden;
 	padding: 1em;
-	
-	
 }
+
+	
 	#content a:link, #content a:visited
 	{
 		color: #770000;
@@ -187,7 +196,7 @@ a:hover
 		/* @test 
 		background: #000000;*/
 		
-		font-family: 'GothicUltraOTRegular', 'IM Fell English', serif;
+		font-family: 'GothicUltraOTRegular', serif;
 		font-weight: bold;
 		font-size: 1.3em;
 		
@@ -256,15 +265,14 @@ a:hover
 			
 	#content
 	{
-		/* @test 
-		background: yellow;*/
 		padding: 0px;
-		padding-top: 3em;
 		float: right;
 		width: 82%;
 		min-height: 500px;
 		position: relative;
 		word-wrap: break-word;
+		margin-top: 2.5em;
+		padding: 0.5em 1em;
 	}
 	
 #footer
@@ -382,30 +390,35 @@ a:hover
 		
 		right: 0;
 	}
+	
 
-#breadcrumbs
-{
-	margin-left: 2em;
-	width: 50%;
-}
-
-	#breadcrumbs > ul 
+	/* Place on top right of screen */
+	#breadcrumbs
 	{
-		margin: 0;
-		padding: 0;
-		display: table;		
+		width: 30%;
+		position: absolute;
+		right: 0;
+		top: -1.75em;
+		left: 51%;
 	}
 	
-	#breadcrumbs > ul > li
-	{
-		padding: 0.35em;
-		display: table-cell;
-	}
-	
-	#breadcrumbs > ul > li:first-child
-	{
-		padding-left: 0;
-	}
+		#breadcrumbs > ul 
+		{
+			margin: 0;
+			padding: 0;
+			display: table;		
+		}
+		
+		#breadcrumbs > ul > li
+		{
+			padding: 0.35em;
+			display: table-cell;
+		}
+		
+		#breadcrumbs > ul > li:first-child
+		{
+			padding-left: 0;
+		}
 	
 	
 
@@ -452,12 +465,6 @@ a:hover
 {			
 	color: #770000; 
 	text-shadow: 2px 2px 3px #7f7f7f;
-}
-
-#content
-{
-	margin-top: 3em;
-	padding: 0.5em 1em;
 }
 
 .horizontal_menu

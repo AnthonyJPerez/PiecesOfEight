@@ -122,16 +122,6 @@
 			}
 			
 			
-			#breadcrumbs
-			{
-				display: inline-block;
-			}
-			
-			h1
-			{
-				display: inline-block;
-			}
-			
 			.empty
 			{
 				margin-top: 2em;
