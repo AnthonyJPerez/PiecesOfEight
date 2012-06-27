@@ -129,12 +129,6 @@
 					margin-bottom: 10px;
 					text-align: left;
 				}
-				
-					.product_name h1
-					{
-						font-size: 18pt;
-						font-weight: normal;
-					}
 	
 				.product_price
 				{
@@ -500,9 +494,12 @@
 				echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				
 				echo "<div class='submit'>";
-					echo "<span class='submit_button btn btn-success'>"
+					echo "<span class='submit_button'>"
 						.CHtml::linkButton(
-							"<i class='icon-plus'></i> Add to Cart"
+							"<i class='icon-plus'></i> Add to Cart",
+							array(
+								'class' => 'btn btn-success'
+							)
 						)."</span>";
 						
 					echo "<span class='etsy_link'>or ". 

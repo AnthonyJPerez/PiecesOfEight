@@ -7,6 +7,7 @@
 		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.classify.org/safesurf/" L gen true for "http://www.piecesofeightcostumes.com/" r (SS~~000 1))' />
 		<meta name="netinsert" content="0.0.1.12.10.1" />
 		
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/fonts/gothic-ultra-ot/gothic-ultra-ot-webfont.css" media="screen, projection" />
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 		
 		<?php
