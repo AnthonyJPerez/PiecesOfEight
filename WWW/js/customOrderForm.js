@@ -61,7 +61,7 @@ $(document).ready(function()
 	function disableSection(section)
 	{
 		section.addClass('sectionDisabled');
-		section.find('button, input').each(function()
+		section.find('.btn, input, h2').each(function()
 		{
 			$(this).attr('disabled', true);
 		});
@@ -70,7 +70,7 @@ $(document).ready(function()
 	function enableSection(section)
 	{
 		section.removeClass('sectionDisabled');
-		section.find('button, input').each(function()
+		section.find('.btn, input, h2').each(function()
 		{
 			$(this).removeAttr('disabled');
 		});
@@ -157,6 +157,11 @@ $(document).ready(function()
 		);
 	}
 	
+	function isDisabled(element)
+	{
+		return element.attr('disabled');
+	}
+	
 	
 	//
 	// onClick events
@@ -164,36 +169,42 @@ $(document).ready(function()
 	
 	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_next', function(event)
 	{
-		gotoNextSection( $(this).parent() );
-		
 		event.preventDefault();
+		if (isDisabled($(this))) return;
+		
+		gotoNextSection( $(this).parent() );		
 	});
 	
 	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_prev', function(event)
-	{
-		gotoPrevSection( $(this).parent() );
-		
+	{	
 		event.preventDefault();
+		if (isDisabled($(this))) return;
+		
+		gotoPrevSection( $(this).parent() );
 	});
 	
 	// "Customize a new Product" button
 	$("#TEST_customize").on('click', '.TEST_add_custom_product', function(event)
 	{
+		event.preventDefault();
+		if (isDisabled($(this))) return;
+		
 		var formWizard = $('#create_product_wizard');
 		resetFormWizard(formWizard);
 		formWizard
 			.css('height', 0)
 			.show()
 			.transition({height: '300px'}, 500, 'in-out');
-		scrollTo($('#create_product_wizard'));
-		
-		event.preventDefault();
+		scrollTo($('#create_product_wizard'));		
 	});
 	
 	
 	// Form Wizard - Add product - Update the verification box with the selected product
 	$("#wizard_selector").on('click', '.add', function(event)
 	{		
+		event.preventDefault();
+		if (isDisabled($(this))) return;
+		
 		var productInfo = {};
 		productInfo.id = $(this).attr('data-productId');
 		productInfo.htmlImg = $(this).parent().siblings('img').clone(); // clone the img as well
@@ -201,14 +212,15 @@ $(document).ready(function()
 		setVerificationBox(productInfo);
 		
 		transitionFormWizard( $('#wizard_selector') );
-		
-		event.preventDefault();
 	});
 	
 	
 	// Form Wizard - Product verified, Go to the measurements section
 	$('#wizard_verification').on('click', '#button_verification_yes', function()
 	{	
+		event.preventDefault();
+		if (isDisabled($(this))) return;
+		
 		var button = $(this);
 		$.ajax({
 			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
@@ -223,16 +235,15 @@ $(document).ready(function()
 					transitionFormWizard( $('#wizard_verification') );
 				}
 			}
-		});
-		
-		// return...?
-		event.preventDefault();
+		});		
 	});
 	
 	
 	// Product not verified, go back to the product selection
 	$("#product_verification").on('click', '#button_verification_no', function()
 	{
+		event.preventDefault();
+		if (isDisabled($(this))) return;
 		
 	});
 	
@@ -240,6 +251,9 @@ $(document).ready(function()
 	// Add the customized product to the list
 	$('#wizard_details').on('click', '.addProductToList', function()
 	{
+		event.preventDefault();
+		if (isDisabled($(this))) return;
+		
 		console.log("adding product");
 		
 		// Verify the data
@@ -269,9 +283,14 @@ $(document).ready(function()
 				$(this).hide();
 			});
 			
-		checkForProducts($('#TEST_customize'));
-		
+		checkForProducts($('#TEST_customize'));		
+	});
+	
+	
+	$('#TEST_review').on('click', '.TEST_submit', function()
+	{
 		event.preventDefault();
+		if(isDisabled($(this))) return;
 	});
 	
 	
