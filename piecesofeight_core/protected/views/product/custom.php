@@ -74,6 +74,11 @@
 				color: lightgrey;
 			}
 			
+			.sectionDisabled h2
+			{
+				color: lightgrey;
+			}
+			
 			.sectionDisabled input
 			{
 				background: lightgrey;
