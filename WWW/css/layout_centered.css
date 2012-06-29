@@ -397,8 +397,9 @@ a:hover
 		width: 30%;
 		position: absolute;
 		right: 0;
-		top: -1.75em;
-		left: 51%;
+		top: -1.5em;
+		left: 2.5%;
+		font-size: 0.95em;
 	}
 	
 		#breadcrumbs > ul 

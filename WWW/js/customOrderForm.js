@@ -16,34 +16,6 @@ $(document).ready(function()
 	//
 	
 	
-	
-	
-	// Edit a product
-	$('#custom_product_array').on('click', '.edit', function(event)
-	{
-		console.log('editing product');
-		
-		$(this).siblings('.custom_product_details').find('fieldset').each(function()
-		{
-			$(this).toggle();
-		});
-		
-		event.preventDefault();
-	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	function scrollTo(section)
 	{
 		$('html, body')
@@ -163,9 +135,26 @@ $(document).ready(function()
 	}
 	
 	
+	
+	
+	
+	
 	//
 	// onClick events
 	//
+	
+	// Edit a product
+	$('#TEST_added_products').on('click', '.TEST_edit', function(event)
+	{
+		event.preventDefault();
+		if (isDisabled($(this))) return;
+				
+		$(this).siblings('.custom_product_details').find('fieldset').each(function()
+		{
+			$(this).toggle();
+		});
+	});
+	
 	
 	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_next', function(event)
 	{
@@ -272,7 +261,7 @@ $(document).ready(function()
 		});
 		
 		var newProduct = $('<li></li>');
-		$('<a href="#" class="edit">Edit</a>').appendTo(newProduct);
+		$('<a href="#" class="TEST_edit btn"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
 		newProduct.appendTo( $('#TEST_added_products') );
 		
