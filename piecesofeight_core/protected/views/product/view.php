@@ -504,7 +504,7 @@
 						
 					echo "<span class='etsy_link'>or ". 
 						CHtml::link(
-							"View on Etsy",
+							"View on Etsy <i class='icon-external-link'></i>",
 							"https://www.etsy.com/shop/PiecesOf8Costumes",
 							array(
 								'target'=>'_blank',
