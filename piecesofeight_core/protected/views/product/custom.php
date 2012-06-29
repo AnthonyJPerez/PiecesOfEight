@@ -50,7 +50,6 @@
 				display: inline-block;
 				margin-right: 1em;
 				width: 175px;
-				background: green;
 			}
 			
 			
@@ -90,14 +89,25 @@
 			{
 				display: inline-block;
 				margin-right: 1em;
-				width: 150px;
-				background-color: red;
+				width: 110px;
 				text-align: center;
+				position: relative;
 			}
 			
 			#TEST_added_products img
 			{
-				width: 100px;
+				width: 100%;
+				box-shadow: 2px 2px 4px #888;
+				-moz-box-shadow: 2px 2px 4px #888; 
+				-webkit-box-shadow: 2px 2px 4px #888;
+			}
+			
+			#TEST_added_products .TEST_edit
+			{
+				position: absolute;
+				bottom: 3px;
+				right: 0px;
+				padding: 3px !important;
 			}
 			
 			#TEST_added_products span
