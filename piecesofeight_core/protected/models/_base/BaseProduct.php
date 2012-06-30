@@ -18,6 +18,7 @@
  * @property string $size_chart
  * @property string $care_information
  * @property string $default_image_id
+ * @property string $page_description
  *
  * @property Gallery[] $galleries
  * @property Image[] $images
@@ -49,13 +50,13 @@ abstract class BaseProduct extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('name, price, category_id', 'required'),
+			array('name, price, category_id, page_description', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>6),
 			array('category_id, default_image_id', 'length', 'max'=>10),
 			array('date_inserted, description, size_chart, care_information', 'safe'),
 			array('date_inserted, description, size_chart, care_information, default_image_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id', 'safe', 'on'=>'search'),
+			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -94,6 +95,7 @@ abstract class BaseProduct extends GxActiveRecord {
 			'size_chart' => Yii::t('app', 'Size Chart'),
 			'care_information' => Yii::t('app', 'Care Information'),
 			'default_image_id' => null,
+			'page_description' => Yii::t('app', 'Page Description'),
 			'galleries' => null,
 			'images' => null,
 			'category' => null,
@@ -118,6 +120,7 @@ abstract class BaseProduct extends GxActiveRecord {
 		$criteria->compare('size_chart', $this->size_chart, true);
 		$criteria->compare('care_information', $this->care_information, true);
 		$criteria->compare('default_image_id', $this->default_image_id);
+		$criteria->compare('page_description', $this->page_description, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
