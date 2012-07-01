@@ -261,7 +261,7 @@ $(document).ready(function()
 		});
 		
 		var newProduct = $('<li></li>');
-		$('<a href="#" class="TEST_edit btn"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
+		$('<a href="#" class="TEST_edit btn btn-inverse"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
 		newProduct.appendTo( $('#TEST_added_products') );
 		
