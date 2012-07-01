@@ -9,7 +9,7 @@ $(document).ready(function()
 {
 	// Globals
 	var globalFormCounter = 0;
-	
+	var customHidden = 'isHidden';
 	
 	//
 	// Main
@@ -33,19 +33,23 @@ $(document).ready(function()
 	function disableSection(section)
 	{
 		section.addClass('sectionDisabled');
-		section.find('.btn, input, h2').each(function()
+		section.find('.btn, input').each(function()
 		{
 			$(this).attr('disabled', true);
 		});
+	
+		section.fadeTo('fast', 0.6);
 	}
 	
 	function enableSection(section)
 	{
 		section.removeClass('sectionDisabled');
-		section.find('.btn, input, h2').each(function()
+		section.find('.btn, input').each(function()
 		{
 			$(this).removeAttr('disabled');
 		});
+		
+		section.fadeTo('fast', 1);
 	}
 	
 	function gotoNextSection(section)
@@ -111,8 +115,7 @@ $(document).ready(function()
 		
 		current.transition(
 			{
-				x: -width,
-				//opacity: 0
+				x: -width
 			},
 			250,
 			"in"
@@ -135,6 +138,51 @@ $(document).ready(function()
 	}
 	
 	
+	function openWizard(wizard)
+	{
+		console.log("openwizard: ", wizard.is(":visible"));
+		//if (wizard.is(":visible") == false)
+		if (hasAttr(wizard, customHidden))
+		{
+			wizard
+				.css('height', 0)
+				.show()
+				.transition({height: '300px'}, 500, 'in-out')
+				.removeAttr(customHidden);
+		}
+	}
+	
+	function closeWizard(wizard)
+	{
+		//if (wizard.is(":visible") == true)
+		if (!hasAttr(wizard, customHidden))
+		{
+			wizard
+				.transition({height: '0'}, 500, 'in-out', function()
+				{
+					console.log("hiding", this);
+					$(this)
+						.attr(customHidden, customHidden)
+						.hide();
+				})
+				.attr(customHidden, customHidden);
+		}
+	}
+	
+	
+	function hasAttr(element, attribute)
+	{
+		var attr = element.attr(attribute);
+		
+		console.log("has attr: ", element, attribute, attr);
+		
+		if (typeof attr !== 'undefined' && attr !== false)
+		{
+			return true;
+		}
+		
+		return false;
+	}
 	
 	
 	
@@ -179,12 +227,20 @@ $(document).ready(function()
 		if (isDisabled($(this))) return;
 		
 		var formWizard = $('#create_product_wizard');
+		
 		resetFormWizard(formWizard);
-		formWizard
-			.css('height', 0)
-			.show()
-			.transition({height: '300px'}, 500, 'in-out');
-		scrollTo($('#create_product_wizard'));		
+		if (!hasAttr(formWizard, customHidden))
+		{
+			console.log("closing wizard");
+			closeWizard(formWizard);
+			scrollTo($('#TEST_customize'));
+		}
+		else
+		{
+			console.log("opening wizard");
+			openWizard(formWizard);
+			scrollTo($('#create_product_wizard'));
+		}
 	});
 	
 	
@@ -205,10 +261,13 @@ $(document).ready(function()
 	
 	
 	// Form Wizard - Product verified, Go to the measurements section
-	$('#wizard_verification').on('click', '#button_verification_yes', function()
+	$('#wizard_verification').on('click', '#button_verification_yes', function(event)
 	{	
+		console.log("verifying 1");
 		event.preventDefault();
 		if (isDisabled($(this))) return;
+		
+		console.log("verifying 2");
 		
 		var button = $(this);
 		$.ajax({
@@ -229,7 +288,7 @@ $(document).ready(function()
 	
 	
 	// Product not verified, go back to the product selection
-	$("#product_verification").on('click', '#button_verification_no', function()
+	$("#product_verification").on('click', '#button_verification_no', function(event)
 	{
 		event.preventDefault();
 		if (isDisabled($(this))) return;
@@ -238,7 +297,7 @@ $(document).ready(function()
 	
 	
 	// Add the customized product to the list
-	$('#wizard_details').on('click', '.addProductToList', function()
+	$('#wizard_details').on('click', '.addProductToList', function(event)
 	{
 		event.preventDefault();
 		if (isDisabled($(this))) return;
@@ -261,22 +320,18 @@ $(document).ready(function()
 		});
 		
 		var newProduct = $('<li></li>');
-		$('<a href="#" class="TEST_edit btn btn-inverse"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
+		$('<a href="#" class="TEST_edit btn btn-warning btn-small"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
 		newProduct.appendTo( $('#TEST_added_products') );
 		
-		scrollTo($('#TEST_added_products_container'));
-		$('#create_product_wizard')
-			.transition({height: '0'}, 500, 'in-out', function()
-			{
-				$(this).hide();
-			});
+		scrollTo($('#TEST_customize'));
+		closeWizard($('#create_product_wizard'));
 			
 		checkForProducts($('#TEST_customize'));		
 	});
 	
 	
-	$('#TEST_review').on('click', '.TEST_submit', function()
+	$('#TEST_review').on('click', '.TEST_submit', function(event)
 	{
 		event.preventDefault();
 		if(isDisabled($(this))) return;
@@ -289,19 +344,23 @@ $(document).ready(function()
 	var sectionUserInfo = $('#TEST_user_info');
 	var sectionReview = $('#TEST_review');
 	
-	$('#create_product_wizard')
-		.css('position', 'relative')
-		.css('overflow', 'hidden')
-		.css('width', '100%')
-		.css('height', '400px')
-		.css('background-color', 'grey')
-		.hide();
-	$('#create_product_wizard').children().each(function()
+	$('#create_product_wizard, #edit_product_wizard').each(function()
 	{
-		// hide each child element as well:
-		var t = $(this);
-		t.css('position', 'absolute');
-		t.css('opacity', 0);
+		$(this)
+			.css('position', 'relative')
+			.css('overflow', 'hidden')
+			.css('width', '100%')
+			.css('height', '400px')
+			.css('background-color', 'grey')
+			.attr(customHidden, customHidden)
+			.hide();
+			
+		$(this).children().each(function()
+		{
+			$(this)
+				.css('position', 'absolute')
+				.css('opacity', 0);
+		});
 	});
 	
 	enableSection(sectionCustomize);
