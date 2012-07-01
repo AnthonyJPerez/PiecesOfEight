@@ -201,12 +201,12 @@ if (!empty($products))
 	
 	<ul class='additional_buttons'>
 		<?php $continue = "<i class='icon-arrow-left'></i> Continue Shopping" ?>
-		<li><?php echo CHtml::link($continue, $this->createUrl('product/list'), array('class'=>'btn')); ?></li>
+		<li><?php echo CHtml::link($continue, $this->createUrl('product/list'), array('class'=>'btn btn-primary')); ?></li>
 	</ul>
 	
 	
 	<ul class='checkout_buttons'>
-		<li><a class='empty_cart btn' href="<?php echo $this->createUrl('cart/empty'); ?>"><i class='icon-trash'></i> Empty Cart</a></li>
+		<li><a class='empty_cart btn btn-inverse' href="<?php echo $this->createUrl('cart/empty'); ?>"><i class='icon-trash'></i> Empty Cart</a></li>
 
 		<li><form class='checkout' action="https://www.paypal.com/cgi-bin/webscr" method="POST">
 			<input type="hidden" name="cmd" value="_cart" />

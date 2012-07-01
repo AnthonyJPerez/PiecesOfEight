@@ -311,7 +311,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 		</div>
 		
 		
-		<a class="TEST_add_custom_product btn" href="#">
+		<a class="TEST_add_custom_product btn btn-primary" href="#">
 			<i class="icon-plus"></i>
 			Customize a Product
 		</a>

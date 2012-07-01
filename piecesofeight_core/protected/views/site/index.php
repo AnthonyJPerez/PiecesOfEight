@@ -115,6 +115,11 @@
 					font-size: 10pt;
 					height: 10px;
 				}
+			
+			#col_3_menu h2
+			{
+				font-size: 32pt !important;
+			}
 		',
 		'screen'
 	);	
@@ -173,9 +178,9 @@ if ($isAdmin)
 
 <div id="col_3_menu">
 	<div class="row">
-		<div class="title">Welcome!</div>
-		<div class="title">About</div>
-		<div class="title">Questions?</div>
+		<h2 class="title">Welcome!</h2>
+		<h2 class="title">About</h2>
+		<h2 class="title">Questions?</h2>
 	</div>
 	<div class="row">
 		<p class="menu_item">
