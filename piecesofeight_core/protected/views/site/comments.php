@@ -79,6 +79,59 @@
 	
 	<div class="comment">
 		<?php
+			$product = Product::model()->findByPk(28);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'align'=>'left')
+			);
+			
+			echo CHtml::link(
+				$img,
+				$productUrl
+			);
+		?>
+		
+		<p>
+			Absolutely exactly what I was hoping for. It looks great with all of my vests and ascots. Totally worth every penny.
+		</p>
+		
+		<span class="source">
+			Anonymous from 
+			<?php 
+				echo CHtml::link(
+					'Etsy',
+					"http://www.etsy.com/people/susanperez3/feedback", 
+					array(
+						'target'=>'_blank',
+						'rel' => "nofollow"
+					)
+				);
+			?>
+		</span>
+		
+		<span class="date">
+			June 30, 2012
+		</span>
+	</div>
+	
+	
+	
+	<br /><br /><br /><br /><br />
+	<div class="comment">
+		<?php
 			$product = Product::model()->findByPk(38);
 			$imgUrl = "";
 			$imgAlt = "";
