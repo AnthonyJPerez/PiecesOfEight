@@ -51,7 +51,7 @@
 				margin-right: 1em;
 				width: 175px;
 			}
-			
+						
 			
 			
 			#wizard_selector
@@ -73,11 +73,6 @@
 				color: lightgrey;
 			}
 			
-			.sectionDisabled h2
-			{
-				color: lightgrey;
-			}
-			
 			.sectionDisabled input
 			{
 				background: lightgrey;
@@ -89,9 +84,11 @@
 			{
 				display: inline-block;
 				margin-right: 1em;
+				margin-bottom: 1.5em;
 				width: 110px;
 				text-align: center;
 				position: relative;
+				vertical-align: top;
 			}
 			
 			#TEST_added_products img
@@ -130,6 +127,12 @@
 			
 			input:focus, textarea:focus {
 				background: white;
+			}
+			
+			
+			#edit_product_wizard
+			{
+				background-color: green;
 			}
 		',
 		'screen'
@@ -311,10 +314,14 @@ $form = $this->beginWidget('GxActiveForm', array(
 		</div>
 		
 		
-		<a class="TEST_add_custom_product btn" href="#">
+		<a class="TEST_add_custom_product btn btn-primary" href="#">
 			<i class="icon-plus"></i>
 			Customize a Product
 		</a>
+		
+		<div id="edit_product_wizard">
+		
+		</div>
 		
 		<div id="create_product_wizard">
 			<!-- Show all products -->
@@ -333,7 +340,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 							);
 							echo "<p class='product_listing_text'>";
 							echo "<span class='product_name'>".$product->name."</span>";
-							echo "<button class='add' data-productId='".$product->id."'>Add</button>";
+							echo "<a href='#' class='add btn btn-inverse' data-productId='".$product->id."'>Add</a>";
 							echo "</p>"
 						?>
 						</li>
@@ -348,13 +355,13 @@ $form = $this->beginWidget('GxActiveForm', array(
 				<span class='product_name'></span>
 				<img width="100px" href="" />
 				<span>Is this the product you want to add?</span>
-				<button id="button_verification_yes" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</button>
-				<button id="button_verification_no">No</button>
+				<a id="button_verification_yes" class="btn btn-inverse" href="#" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</a>
+				<a id="button_verification_no" class="btn btn-inverse" href="#">No</a>
 			</div>		
 			
 			<!-- Grab details of this product -->
 			<div id='wizard_details'>
-				<button class='addProductToList' >Add Product</button>
+				<a href="#" class='addProductToList btn btn-inverse' >Add Product</a>
 				<div id="wizard_details_container">
 				
 				</div>

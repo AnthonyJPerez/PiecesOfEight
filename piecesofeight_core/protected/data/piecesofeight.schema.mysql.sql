@@ -70,6 +70,7 @@ CREATE TABLE p8_product
 	size_chart				TEXT,						#-- Every product has exactly one size_chart associated with it.
 	care_information			TEXT,						#-- Every product has care information
 	default_image_id			INTEGER UNSIGNED DEFAULT NULL,		#-- Every product has a default image
+	page_description			TEXT,			#-- SEO-friendly meta-description
 	
 	#-- Constraints
 	PRIMARY KEY (id),
