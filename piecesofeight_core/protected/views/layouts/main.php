@@ -222,7 +222,20 @@
 						<li>
 						<?php
 							echo CHtml::link(
-								CHtml::image(Yii::app()->request->baseUrl.'/images/facebook.png', 'Visit us on Facebook!', array('class'=>'')),
+								CHtml::image(Yii::app()->request->baseUrl.'/images/pinterest.png', 'Visit our Pinterest Board!', array('class'=>'etsy')),
+								"http://pinterest.com/pieceof8costume/",
+								array(
+									'target'=>'_blank',
+									'rel' => "nofollow"
+								)
+							);
+						?>
+						</li>
+						
+						<li>
+						<?php
+							echo CHtml::link(
+								CHtml::image(Yii::app()->request->baseUrl.'/images/facebook.png', 'Visit us on Facebook!', array('class'=>'facebook')),
 								"https://www.facebook.com/PiecesOf8Costumes",
 								array(
 									'target'=>'_blank',
