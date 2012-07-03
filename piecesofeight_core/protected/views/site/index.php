@@ -188,7 +188,7 @@ if ($isAdmin)
 			
 		</p>
 		<p class="menu_item">
-			Pieces of Eight Costumes provides quality, handmade pirate / renaissance clothing and accessories that are washable or dry cleanable. For more information, visit our <a href="<?php echo $this->createUrl('site/page', array('view'=>'about')) ?>">About Us</a> page.
+			Pieces of Eight Costumes provides quality, handmade pirate / renaissance clothing and accessories that are washable or dry cleanable. For more information, visit our <a href="<?php echo $this->createUrl('site/page', array('view'=>'about')) ?>" rel="author">About Us</a> page.
 		</p>
 		<p class="menu_item">
 			If you have any questions, or you would like to place a custom order, please feel free to <a href="<?php echo $this->createUrl('site/contact') ?>">Contact Us</a>.
