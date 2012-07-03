@@ -277,7 +277,7 @@
 				</div>
 				
 				<div class="footer_menu"> 
-					<?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about'))); ?>
+					<?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about', 'rel'=>"author"))); ?>
 					|
 					<?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?>
 					|
