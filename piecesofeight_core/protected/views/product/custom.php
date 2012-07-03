@@ -313,14 +313,8 @@ $form = $this->beginWidget('GxActiveForm', array(
 			<ul id='TEST_added_products'></ul>
 		</div>
 		
-		
-		<a class="TEST_add_custom_product btn btn-primary" href="#">
-			<i class="icon-plus"></i>
-			Customize a Product
-		</a>
-		
 		<div id="edit_product_wizard">
-		
+			<p> REMOVE ME -- EDITING </p>
 		</div>
 		
 		<div id="create_product_wizard">
@@ -367,6 +361,11 @@ $form = $this->beginWidget('GxActiveForm', array(
 				</div>
 			</div>
 		</div>
+		
+		<a id="TEST_add_custom_product" class="btn btn-primary" href="#">
+			<i class="icon-plus"></i>
+			Customize a Product
+		</a>
 		
 		<a class="TEST_next btn" href="#">
 			<i class="icon-arrow-down"></i>
