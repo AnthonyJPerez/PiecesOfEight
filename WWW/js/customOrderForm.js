@@ -117,8 +117,8 @@ $(document).ready(function()
 			{
 				x: -width
 			},
-			250,
-			"in"
+			400,
+			"in-out"
 		);
 		
 		next.css({x: next.parent().width() }).transition
@@ -127,8 +127,33 @@ $(document).ready(function()
 				x: 0,
 				opacity: 1
 			},
-			500,
-			"out"
+			400,
+			"in-out"
+		);
+	}
+	
+	function transitionFormWizardBack(current)
+	{
+		var prev = current.prev();
+		var width = current.width();
+		var parent = current.parent();
+		
+		current.transition(
+			{
+				x: parent.width()
+			},
+			400,
+			"in-out"
+		);
+		
+		prev.css({x: -parent.width() }).transition
+		(
+			{
+				x: 0,
+				opacity: 1
+			},
+			400,
+			"in-out"
 		);
 	}
 	
@@ -185,6 +210,15 @@ $(document).ready(function()
 	}
 	
 	
+	function setButtonStyle(button, text, currentClass, newClass)
+	{
+		button.html(text);
+		button
+			.removeClass(currentClass)
+			.addClass(newClass);
+	}
+	
+	
 	
 	
 	//
@@ -197,10 +231,26 @@ $(document).ready(function()
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 				
-		$(this).siblings('.custom_product_details').find('fieldset').each(function()
+		/*$(this).siblings('.custom_product_details').find('fieldset').each(function()
 		{
 			$(this).toggle();
-		});
+		});*/
+		
+		var editWizard = $('#edit_product_wizard');
+		resetFormWizard(editWizard);
+		
+		if (!hasAttr(editWizard, customHidden))
+		{
+			console.log("closing edit wizard");
+			closeWizard(editWizard);
+			scrollTo($('#TEST_customize'));
+		}
+		else
+		{
+			console.log("opening edit wizard");
+			openWizard(editWizard);
+			scrollTo($('#edit_product_wizard'));
+		}
 	});
 	
 	
@@ -212,6 +262,7 @@ $(document).ready(function()
 		gotoNextSection( $(this).parent() );		
 	});
 	
+	
 	$('#TEST_custom_product_inquiry_form').on('click', '.TEST_prev', function(event)
 	{	
 		event.preventDefault();
@@ -220,25 +271,47 @@ $(document).ready(function()
 		gotoPrevSection( $(this).parent() );
 	});
 	
+	
 	// "Customize a new Product" button
-	$("#TEST_customize").on('click', '.TEST_add_custom_product', function(event)
+	$("#TEST_customize").on('click', '#TEST_add_custom_product', function(event)
 	{
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
 		var formWizard = $('#create_product_wizard');
-		
+		var button = $(this);
 		resetFormWizard(formWizard);
+		
 		if (!hasAttr(formWizard, customHidden))
 		{
+			// Close the wizard
 			console.log("closing wizard");
 			closeWizard(formWizard);
+			
+			// Edit the button
+			setButtonStyle(
+				button,
+				"Customize a Product",
+				"btn-danger",
+				"btn-primary"
+			);
+			
 			scrollTo($('#TEST_customize'));
 		}
 		else
 		{
+			// Open the wizard
 			console.log("opening wizard");
 			openWizard(formWizard);
+			
+			// Edit the button
+			setButtonStyle(
+				button,
+				"Cancel",
+				"btn-primary",
+				"btn-danger"
+			);
+			
 			scrollTo($('#create_product_wizard'));
 		}
 	});
@@ -288,11 +361,12 @@ $(document).ready(function()
 	
 	
 	// Product not verified, go back to the product selection
-	$("#product_verification").on('click', '#button_verification_no', function(event)
+	$("#wizard_verification").on('click', '#button_verification_no', function(event)
 	{
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
+		transitionFormWizardBack( $('#wizard_verification') );
 	});
 	
 	
@@ -323,6 +397,14 @@ $(document).ready(function()
 		$('<a href="#" class="TEST_edit btn btn-warning btn-small"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
 		newProduct.append(original);
 		newProduct.appendTo( $('#TEST_added_products') );
+		
+		// Edit the button
+		setButtonStyle(
+				$("#TEST_add_custom_product"),
+				"Customize a Product",
+				"btn-danger",
+				"btn-primary"
+			);
 		
 		scrollTo($('#TEST_customize'));
 		closeWizard($('#create_product_wizard'));
