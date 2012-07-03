@@ -19,7 +19,18 @@
 	// Include the Pinterest 'pin-it' scripts
 	Yii::app()->clientScript->registerScriptFile(
 		"//assets.pinterest.com/js/pinit.js",
-		CClientScript::POS_HEAD
+		CClientScript::POS_END
+	);
+	
+	// Include the Google+ script
+	Yii::app()->clientScript->registerScript(
+		'GooglePlus',
+		"
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		",
+		CClientScript::POS_READY
 	);
 	
 	// Include the tabify script
@@ -242,6 +253,23 @@
 				display: none;
 			}
 			
+			
+			#social_button_bar
+			{
+				margin-top: 1em;
+			}
+			
+			#social_button_bar div
+			{
+				display: inline-block;
+			}
+			
+			/* In the product view, dont display the social media buttons */
+			#social_media_buttons
+			{
+				display: none;
+			}
+			
 		',
 		'screen'
 	);
@@ -391,15 +419,6 @@
 					<?php echo '$' . $model->price; ?>
 				</span>
 			</div>
-			
-			<?php
-				// Generate the "Pin-It" button for Pinterest
-				$pin_url = "url=" . $model->getUrl(true);
-				$pin_media = "media=" . Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url;
-				$pin_description = "description=" . $model->page_description;
-				$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
-			?>
-			<a href="<?php echo rawurlencode($pin_href); ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
 			
 			<p class="product_description" itemprop="description">
 				<?php echo $model->description; ?>
@@ -582,7 +601,22 @@
 					responsibility of the purchaser.
 					</p>
 				</div>
-			</div>			
+			</div>
+			
+			<div id="social_button_bar">
+				<div>
+					<?php
+						// Generate the "Pin-It" button for Pinterest
+						$pin_url = "url=" . rawurlencode($model->getUrl(true));
+						$pin_media = "media=" . rawurlencode(Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url);
+						$pin_description = "description=" . rawurlencode($model->page_description);
+						$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
+					?>
+					<a href="<?php echo $pin_href; ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+				</div>
+				
+				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
+			</div>
 		</div>
 	</div>
 </div>
