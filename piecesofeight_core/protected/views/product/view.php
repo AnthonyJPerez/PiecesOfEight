@@ -16,6 +16,12 @@
 		CClientScript::POS_HEAD
 	);
 	
+	// Include the Pinterest 'pin-it' scripts
+	Yii::app()->clientScript->registerScriptFile(
+		"//assets.pinterest.com/js/pinit.js",
+		CClientScript::POS_HEAD
+	);
+	
 	// Include the tabify script
 	Yii::app()->clientScript->registerScriptFile( 
 		Yii::app()->request->baseUrl . '/js/jquery.tabify.js', 
@@ -385,6 +391,15 @@
 					<?php echo '$' . $model->price; ?>
 				</span>
 			</div>
+			
+			<?php
+				// Generate the "Pin-It" button for Pinterest
+				$pin_url = "url=" . $model->getUrl(true);
+				$pin_media = "media=" . Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url;
+				$pin_description = "description=" . $model->page_description;
+				$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
+			?>
+			<a href="<?php echo rawurlencode($pin_href); ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
 			
 			<p class="product_description" itemprop="description">
 				<?php echo $model->description; ?>
