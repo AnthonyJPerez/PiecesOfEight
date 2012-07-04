@@ -17,8 +17,7 @@
 
 #products .slides_container {
 	width: 300px;
-	height: 400px;
-	overflow:hidden;
+	min-height: 400px;
 	position:relative;
 	border:1px solid #dfdfdf;
 	display:none;
@@ -27,7 +26,7 @@
 
 .slides_container a {
 	width:300px;
-	height:400px;
+	height: 100%;
 	display:block;
 }
 
