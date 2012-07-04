@@ -341,7 +341,9 @@
 		
 		#social_button_bar div
 		{
+			width: 70px !important;
 			display: inline-block;
+			vertical-align: top;
 		}
 		
 		/* In the product view, dont display the social media buttons */
@@ -709,7 +711,7 @@
 				
 				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
 			
-				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-send="true" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-layout="button_count" data-width="100" data-show-faces="true"></div>
 			</div>
 		</div>
 	</div>
