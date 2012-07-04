@@ -33,6 +33,23 @@
 		CClientScript::POS_READY
 	);
 	
+	
+	// Include the Facebook script
+	Yii::app()->clientScript->registerScript(
+		'Facebook',
+		'
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, "script", "facebook-jssdk"));
+		',
+		CClientScript::POS_READY
+	);
+	
+	
 	// Include the tabify script
 	Yii::app()->clientScript->registerScriptFile( 
 		Yii::app()->request->baseUrl . '/js/jquery.tabify.js', 
@@ -337,6 +354,7 @@
 		'screen'
 	);
 ?>
+
 
 <div id="breadcrumbs">
 	<ul>
@@ -690,9 +708,15 @@
 				</div>
 				
 				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
+			
+				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-send="true" data-layout="button_count" data-width="100" data-show-faces="true"></div>
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	<div id="fb-root"></div>
 </div>
 
 
