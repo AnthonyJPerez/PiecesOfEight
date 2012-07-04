@@ -61,11 +61,40 @@
 		'screen'
 	);
 	
+	
 	// Include the slidejs product css file
 	Yii::app()->clientScript->registerCssFile(
 		Yii::app()->request->baseUrl . '/css/slidejs_product.css',
 		'screen'
 	);
+	
+	
+	//
+	// Include the select2 selectbox jquery plugin (http://ivaynberg.github.com/select2/)
+	//
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/select2/select2.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Include the fancybox css file
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/select2/select2.css',
+		'screen'
+	);
+	
+	// Init Fancybox
+	Yii::app()->clientScript->registerScript(
+		'Select2_Product',
+		"
+			$('.select2_selectbox').select2();
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	
 	
 	Yii::app()->clientScript->registerScript(
 		'Fancybox_Product',
@@ -155,7 +184,7 @@
 	
 				.product_description
 				{
-				
+					margin-bottom: 1.5em;
 				}
 				
 			#product_container input
@@ -220,55 +249,89 @@
 				border-bottom: 1px solid #999;
 			}
 			
-			.size_chart
+		.size_chart
+		{
+			margin-left: 1em;
+			font-size: 10pt;
+		}
+		
+		#size_chart_data
+		{
+			padding: 0.5em;
+			padding-bottom: 0;
+			width: 325px;
+		}
+		
+		#size_chart_data > table
+		{
+			margin-bottom: 1.25em;
+		}
+		
+		.select2_selectbox
+		{
+			width: 45%;
+			margin-bottom: 0.5em;
+		}
+		
+		.button_row
+		{
+			margin: 0 auto;
+			margin-top: 1.5em;
+			margin-bottom: 1em;
+			width: 100%;
+			position: relative;
+		}
+		
+			.button_row a
 			{
-				margin-left: 1em;
+				width: 45%;
+				font-size: 14px !important;
 			}
 			
-			#size_chart_data
+			.button_row a:first-child
 			{
-				padding: 0.5em;
-				padding-bottom: 0;
-				width: 325px;
+				margin-right: 2.5em;
 			}
-			
-			#size_chart_data > table
+		
+		.submit
+		{
+			width: 100%;
+			position: relative;
+			margin-bottom: 1.5em;
+		}
+		
+			.submit a
 			{
-				margin-bottom: 1.25em;
+				width: 100%;
+				font-size: 15px !important;
 			}
-			
-			
-			.AddcartForm .submit_button
-			{
-				margin-right: 0.5em;
-			}
-			
-			.etsy_link
-			{
-				font-size: 10pt;
-			}
-			
-			.hidden_data
-			{
-				display: none;
-			}
-			
-			
-			#social_button_bar
-			{
-				margin-top: 1em;
-			}
-			
-			#social_button_bar div
-			{
-				display: inline-block;
-			}
-			
-			/* In the product view, dont display the social media buttons */
-			#social_media_buttons
-			{
-				display: none;
-			}
+		
+		.etsy_link
+		{
+			font-size: 10pt;
+		}
+		
+		.hidden_data
+		{
+			display: none;
+		}
+		
+		
+		#social_button_bar
+		{
+			margin-top: 1em;
+		}
+		
+		#social_button_bar div
+		{
+			display: inline-block;
+		}
+		
+		/* In the product view, dont display the social media buttons */
+		#social_media_buttons
+		{
+			display: none;
+		}
 			
 		',
 		'screen'
@@ -435,7 +498,16 @@
 								
 				echo "<div class='size'>";
 					echo $form->error($formModel,'size');
-					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
+					echo $form->error($formModel,'quantity');
+					echo $form->dropDownList(
+						$formModel, 
+						'size', 
+						array_merge(
+							array(''=>''),
+							CHtml::listData($model->p8Sizes, 'size', 'size')
+						),
+						array("data-placeholder"=>'Select Size', "class"=>"select2_selectbox")
+					);
 						
 					echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
 					//CHtml::encode($model->size_chart)
@@ -521,43 +593,45 @@
 				echo "</div>";
 				
 				echo "<div class='quantity'>";
-					echo $form->label($formModel, 'quantity');
-					echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
+					echo $form->dropDownList($formModel, 'quantity', array(''=>'', '1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9), array('data-placeholder'=>'Quantity', "class"=>"select2_selectbox"));
+					//echo $form->label($formModel, 'quantity');
+					//echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
 				echo "</div>";
 				
 				echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				
-				echo "<div class='submit'>";
-					echo "<span class='submit_button'>"
-						.CHtml::linkButton(
-							"<i class='icon-plus'></i> Add to Cart",
-							array(
-								'class' => 'btn btn-success'
-							)
-						)."</span>";
-						
-					echo "<span class='etsy_link'>or ". 
-						CHtml::link(
-							"View on Etsy <i class='icon-external-link'></i>",
-							"https://www.etsy.com/shop/PiecesOf8Costumes",
-							array(
-								'target'=>'_blank',
-								'rel' => 'nofollow'
-							)
-						)."</span>";
+				
+				// Etsy and Custom order buttons
+				echo "<div class='button_row'>";
+				echo CHtml::link(
+						"View on Etsy</i>",
+						"https://www.etsy.com/shop/PiecesOf8Costumes",
+						array(
+							'target'=>'_blank',
+							'rel' => 'nofollow',
+							'class' => 'btn'
+						)
+					);
+				
+				echo CHtml::link(
+					"Custom Order",
+					$this->createUrl('site/contact', array('pid'=>$model->id)),
+					array(
+						'target'=>'_blank',
+						'rel' => 'nofollow',
+						'class' => 'btn'
+					)
+				);
 				echo "</div>";
 				
-				echo "<div class='custom_order'>";
-					echo "<span>";
-					echo CHtml::link(
-							"Ask about Custom Orders",
-							$this->createUrl('site/contact', array('pid'=>$model->id)),
-							array(
-								'target'=>'_blank',
-								'rel' => 'nofollow'
-							)
-						);
-					echo "</span>";
+				// Submit Button
+				echo "<div class='submit'>";
+					echo CHtml::linkButton(
+						"<i class='icon-shopping-cart'></i> Add to Cart",
+						array(
+							'class' => 'btn btn-success'
+						)
+					);
 				echo "</div>";
 				
 				$this->endWidget();

@@ -4,7 +4,7 @@
 class AddcartForm extends CFormModel
 {
 	public $product_id;
-	public $quantity=1;
+	public $quantity;
 	public $size;
 	
 	
