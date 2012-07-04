@@ -244,6 +244,12 @@
 				border-bottom: none;
 			}
 			
+			#tabs li a:link,
+			#tabs li a:visited
+			{
+				color: #111 !important;
+			}
+			
 			#tabs li a:hover
 			{
 				background: #fff;
@@ -649,7 +655,7 @@
 					echo CHtml::linkButton(
 						"<i class='icon-shopping-cart'></i> Add to Cart",
 						array(
-							'class' => 'btn btn-success'
+							'class' => 'btn btn-inverse'
 						)
 					);
 				echo "</div>";
