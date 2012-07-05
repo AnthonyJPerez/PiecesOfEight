@@ -170,6 +170,7 @@ if (!empty($products))
 						echo "<div class='row'>";
 							echo $form->hiddenField($AddcartModel, 'product_id', array('value'=>$product->id));
 							echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
+							echo $form->hiddenField($AddcartModel, 'quantity', array('value'=>$p['quantity']));
 						echo "</div>";
 						
 						echo "<div class='row submit'>";
