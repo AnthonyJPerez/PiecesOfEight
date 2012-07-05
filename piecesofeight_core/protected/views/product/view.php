@@ -19,8 +19,36 @@
 	// Include the Pinterest 'pin-it' scripts
 	Yii::app()->clientScript->registerScriptFile(
 		"//assets.pinterest.com/js/pinit.js",
-		CClientScript::POS_HEAD
+		CClientScript::POS_END
 	);
+	
+	// Include the Google+ script
+	Yii::app()->clientScript->registerScript(
+		'GooglePlus',
+		"
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	// Include the Facebook script
+	Yii::app()->clientScript->registerScript(
+		'Facebook',
+		'
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, "script", "facebook-jssdk"));
+		',
+		CClientScript::POS_READY
+	);
+	
 	
 	// Include the tabify script
 	Yii::app()->clientScript->registerScriptFile( 
@@ -50,11 +78,40 @@
 		'screen'
 	);
 	
+	
 	// Include the slidejs product css file
 	Yii::app()->clientScript->registerCssFile(
 		Yii::app()->request->baseUrl . '/css/slidejs_product.css',
 		'screen'
 	);
+	
+	
+	//
+	// Include the select2 selectbox jquery plugin (http://ivaynberg.github.com/select2/)
+	//
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/select2/select2.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Include the fancybox css file
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/select2/select2.css',
+		'screen'
+	);
+	
+	// Init Fancybox
+	Yii::app()->clientScript->registerScript(
+		'Select2_Product',
+		"
+			$('.select2_selectbox').select2();
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	
 	
 	Yii::app()->clientScript->registerScript(
 		'Fancybox_Product',
@@ -144,7 +201,7 @@
 	
 				.product_description
 				{
-				
+					margin-bottom: 1.5em;
 				}
 				
 			#product_container input
@@ -187,6 +244,12 @@
 				border-bottom: none;
 			}
 			
+			#tabs li a:link,
+			#tabs li a:visited
+			{
+				color: #111 !important;
+			}
+			
 			#tabs li a:hover
 			{
 				background: #fff;
@@ -209,43 +272,97 @@
 				border-bottom: 1px solid #999;
 			}
 			
-			.size_chart
+		.size_chart
+		{
+			margin-left: 1em;
+			font-size: 10pt;
+		}
+		
+		#size_chart_data
+		{
+			padding: 0.5em;
+			padding-bottom: 0;
+			width: 325px;
+		}
+		
+		#size_chart_data > table
+		{
+			margin-bottom: 1.25em;
+		}
+		
+		.select2_selectbox
+		{
+			width: 45%;
+			margin-bottom: 0.5em;
+		}
+		
+		.button_row
+		{
+			margin: 0 auto;
+			margin-top: 1.5em;
+			margin-bottom: 1em;
+			width: 100%;
+			position: relative;
+		}
+		
+			.button_row a
 			{
-				margin-left: 1em;
+				width: 45%;
+				font-size: 14px !important;
 			}
 			
-			#size_chart_data
+			.button_row a:first-child
 			{
-				padding: 0.5em;
-				padding-bottom: 0;
-				width: 325px;
+				margin-right: 2.5em;
 			}
-			
-			#size_chart_data > table
+		
+		.submit
+		{
+			width: 100%;
+			position: relative;
+			margin-bottom: 1.5em;
+		}
+		
+			.submit a
 			{
-				margin-bottom: 1.25em;
+				width: 100%;
+				font-size: 15px !important;
 			}
-			
-			
-			.AddcartForm .submit_button
-			{
-				margin-right: 0.5em;
-			}
-			
-			.etsy_link
-			{
-				font-size: 10pt;
-			}
-			
-			.hidden_data
-			{
-				display: none;
-			}
+		
+		.etsy_link
+		{
+			font-size: 10pt;
+		}
+		
+		.hidden_data
+		{
+			display: none;
+		}
+		
+		
+		#social_button_bar
+		{
+			margin-top: 1em;
+		}
+		
+		#social_button_bar div
+		{
+			width: 70px !important;
+			display: inline-block;
+			vertical-align: top;
+		}
+		
+		/* In the product view, dont display the social media buttons */
+		#social_media_buttons
+		{
+			display: none;
+		}
 			
 		',
 		'screen'
 	);
 ?>
+
 
 <div id="breadcrumbs">
 	<ul>
@@ -392,15 +509,6 @@
 				</span>
 			</div>
 			
-			<?php
-				// Generate the "Pin-It" button for Pinterest
-				$pin_url = "url=" . $model->getUrl(true);
-				$pin_media = "media=" . Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url;
-				$pin_description = "description=" . $model->page_description;
-				$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
-			?>
-			<a href="<?php echo rawurlencode($pin_href); ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
-			
 			<p class="product_description" itemprop="description">
 				<?php echo $model->description; ?>
 			</p>
@@ -416,7 +524,16 @@
 								
 				echo "<div class='size'>";
 					echo $form->error($formModel,'size');
-					echo $form->dropDownList($formModel, 'size', CHtml::listData($model->p8Sizes, 'size', 'size'), array('empty'=>'Select Size'));
+					echo $form->error($formModel,'quantity');
+					echo $form->dropDownList(
+						$formModel, 
+						'size', 
+						array_merge(
+							array(''=>''),
+							CHtml::listData($model->p8Sizes, 'size', 'size')
+						),
+						array("data-placeholder"=>'Select Size', "class"=>"select2_selectbox")
+					);
 						
 					echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
 					//CHtml::encode($model->size_chart)
@@ -502,43 +619,45 @@
 				echo "</div>";
 				
 				echo "<div class='quantity'>";
-					echo $form->label($formModel, 'quantity');
-					echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
+					echo $form->dropDownList($formModel, 'quantity', array(''=>'', '1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9), array('data-placeholder'=>'Quantity', "class"=>"select2_selectbox"));
+					//echo $form->label($formModel, 'quantity');
+					//echo $form->textField($formModel, 'quantity', array('value'=>1, 'size'=>1, 'maxlength'=>1));
 				echo "</div>";
 				
 				echo $form->hiddenField($formModel, 'product_id', array('value'=>$model->id));
 				
-				echo "<div class='submit'>";
-					echo "<span class='submit_button'>"
-						.CHtml::linkButton(
-							"<i class='icon-plus'></i> Add to Cart",
-							array(
-								'class' => 'btn btn-success'
-							)
-						)."</span>";
-						
-					echo "<span class='etsy_link'>or ". 
-						CHtml::link(
-							"View on Etsy <i class='icon-external-link'></i>",
-							"https://www.etsy.com/shop/PiecesOf8Costumes",
-							array(
-								'target'=>'_blank',
-								'rel' => 'nofollow'
-							)
-						)."</span>";
+				
+				// Etsy and Custom order buttons
+				echo "<div class='button_row'>";
+				echo CHtml::link(
+						"View on Etsy</i>",
+						"https://www.etsy.com/shop/PiecesOf8Costumes",
+						array(
+							'target'=>'_blank',
+							'rel' => 'nofollow',
+							'class' => 'btn'
+						)
+					);
+				
+				echo CHtml::link(
+					"Custom Order",
+					$this->createUrl('site/contact', array('pid'=>$model->id)),
+					array(
+						'target'=>'_blank',
+						'rel' => 'nofollow',
+						'class' => 'btn'
+					)
+				);
 				echo "</div>";
 				
-				echo "<div class='custom_order'>";
-					echo "<span>";
-					echo CHtml::link(
-							"Ask about Custom Orders",
-							$this->createUrl('site/contact', array('pid'=>$model->id)),
-							array(
-								'target'=>'_blank',
-								'rel' => 'nofollow'
-							)
-						);
-					echo "</span>";
+				// Submit Button
+				echo "<div class='submit'>";
+					echo CHtml::linkButton(
+						"<i class='icon-shopping-cart'></i> Add to Cart",
+						array(
+							'class' => 'btn btn-inverse'
+						)
+					);
 				echo "</div>";
 				
 				$this->endWidget();
@@ -582,9 +701,30 @@
 					responsibility of the purchaser.
 					</p>
 				</div>
-			</div>			
+			</div>
+			
+			<div id="social_button_bar">
+				<div>
+					<?php
+						// Generate the "Pin-It" button for Pinterest
+						$pin_url = "url=" . rawurlencode($model->getUrl(true));
+						$pin_media = "media=" . rawurlencode(Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url);
+						$pin_description = "description=" . rawurlencode($model->page_description);
+						$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
+					?>
+					<a href="<?php echo $pin_href; ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+				</div>
+				
+				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
+			
+				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+			</div>
 		</div>
 	</div>
+	
+	
+	
+	<div id="fb-root"></div>
 </div>
 
 
