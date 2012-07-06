@@ -288,6 +288,37 @@ class ProductController extends GxController
 	}
 	
 	
+	/*
+	public function _startsWith($haystack, $needle)
+	{
+		$length = strlen($needle);
+		return ( substr($haystack, 0, $length) === $needle);
+	}
+	
+	public function actionTempRenameFiles()
+	{
+		$products = Product::model()->with('images')->findAll();
+		$realpath = realpath(Yii::getPathOfAlias('webroot').'/images/product-images').'/';
+		$x = 0;
+		foreach ($products as $product)
+		{
+			foreach ($product->images as $image)
+			{
+				if ($this->_startsWith($image->url, "product-"))
+				{
+					$x++;
+					$oldName = $image->url;
+					$newName = '('.$product->category .')_'. $product->getSlug() . '_(p'.$product->id .'-i'.$image->id .').jpg';
+					
+					$image->url = $newName;
+					$image->save();
+					sleep(1);
+					rename($realpath.$oldName, $realpath.$newName);
+					echo "<br /><div>".$x.") ".$oldName." --> ".$newName."</div>";
+				}
+			}
+		}
+	}*/
 	
 	
 	public function actionCreate($id=null) 

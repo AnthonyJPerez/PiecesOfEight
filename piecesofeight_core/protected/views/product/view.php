@@ -505,7 +505,9 @@
 			
 			<div class="product_price" itemscope itemtype="http://schema.org/Offer">
 				<span itemprop="price">
-					<?php echo '$' . $model->price; ?>
+					<b>
+						<?php echo '$' . $model->price . ' USD'; ?>
+					</b>
 				</span>
 			</div>
 			
