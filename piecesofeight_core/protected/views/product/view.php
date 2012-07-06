@@ -307,7 +307,7 @@
 		
 			.button_row a
 			{
-				width: 45%;
+				width: 44%;
 				font-size: 14px !important;
 			}
 			
