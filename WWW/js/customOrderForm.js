@@ -2,6 +2,12 @@
 // Custom order form
 //
 
+/*
+	If you have a specific alteration or customization in mind, please fill out our inquiry form. To get started, please click the add product button below:
+
+
+	Please select an item you would like to customize.
+*/
 
 
 
@@ -22,7 +28,7 @@ $(document).ready(function()
 			.stop()
 			.animate(
 				{
-					scrollTop: section.offset().top
+					scrollTop: (section.offset().top - 15)
 				}, 
 				750,
 				'easeInOutExpo'
@@ -226,30 +232,66 @@ $(document).ready(function()
 	//
 	
 	// Edit a product
-	$('#TEST_added_products').on('click', '.TEST_edit', function(event)
+	$('#TEST_customize').on('click', '.TEST_edit', function(event)
 	{
 		event.preventDefault();
 		if (isDisabled($(this))) return;
-				
-		/*$(this).siblings('.custom_product_details').find('fieldset').each(function()
-		{
-			$(this).toggle();
-		});*/
 		
 		var editWizard = $('#edit_product_wizard');
-		resetFormWizard(editWizard);
+		var customProduct = $(this).parent();
 		
 		if (!hasAttr(editWizard, customHidden))
-		{
+		{	
+			// find the empty <li />
+			$('#TEST_added_products').children('li').each(function()
+			{
+				var html = $(this).html();
+				if (html == "")
+				{
+					// Add the product back into its <li> tag
+					console.log("Appending custom product: ", customProduct);
+					$(this).append(customProduct);
+					console.log("After: ", customProduct);
+					return false; // break the loop
+				}
+			});
+			
+			// Hide the fieldsets
+			customProduct.find('.custom_product_details').append( editWizard.find('fieldset').hide() );
+			
+			// Enable all other edit buttons
+			$('#TEST_added_products').find('.TEST_edit').each(function()
+			{
+				$(this).removeAttr('disabled');
+			});
+			
 			console.log("closing edit wizard");
 			closeWizard(editWizard);
 			scrollTo($('#TEST_customize'));
 		}
 		else
-		{
+		{	
+			// Copy edit form to edit wizard div
+			editWizard.append(customProduct);
+			
+			// Show the fieldsets
+			customProduct.find('fieldset').each(function()
+			{	
+				// Move fieldsets outside of div and show them
+				editWizard.append($(this));
+				$(this).removeAttr(customHidden, customHidden);
+				$(this).show();
+			});
+			
+			// Disable all other edit buttons
+			$('#TEST_added_products').find('.TEST_edit').each(function()
+			{
+				$(this).attr('disabled', 'disabled');
+			});
+			
 			console.log("opening edit wizard");
 			openWizard(editWizard);
-			scrollTo($('#edit_product_wizard'));
+			scrollTo(editWizard);
 		}
 	});
 	
@@ -393,9 +435,9 @@ $(document).ready(function()
 			$(this).toggle(); // make invisible
 		});
 		
-		var newProduct = $('<li></li>');
-		$('<a href="#" class="TEST_edit btn btn-warning btn-small"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct);
-		newProduct.append(original);
+		var newProduct = $('<li><div class="custom_product_listing"></div></li>');
+		$('<a href="#" class="TEST_edit btn btn-warning btn-small"><i class="icon-pencil"></i>Edit</a>').appendTo(newProduct.find('.custom_product_listing'));
+		newProduct.find('.custom_product_listing').append(original);
 		newProduct.appendTo( $('#TEST_added_products') );
 		
 		// Edit the button

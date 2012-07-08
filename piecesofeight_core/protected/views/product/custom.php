@@ -79,19 +79,24 @@
 			}
 			
 		
-			
 			#TEST_added_products li
 			{
 				display: inline-block;
 				margin-right: 1em;
 				margin-bottom: 1.5em;
 				width: 110px;
-				text-align: center;
 				position: relative;
 				vertical-align: top;
 			}
 			
-			#TEST_added_products img
+			.custom_product_listing
+			{
+				width: 110px;
+				text-align: center;
+				position: relative;
+			}
+			
+			.custom_product_listing img
 			{
 				width: 100%;
 				box-shadow: 2px 2px 4px #888;
@@ -99,7 +104,7 @@
 				-webkit-box-shadow: 2px 2px 4px #888;
 			}
 			
-			#TEST_added_products .TEST_edit
+			.custom_product_listing .TEST_edit
 			{
 				position: absolute;
 				bottom: 3px;
@@ -107,7 +112,7 @@
 				padding: 3px !important;
 			}
 			
-			#TEST_added_products span
+			.custom_product_listing span
 			{
 				font-size: 10pt;
 			}
@@ -314,7 +319,6 @@ $form = $this->beginWidget('GxActiveForm', array(
 		</div>
 		
 		<div id="edit_product_wizard">
-			<p> REMOVE ME -- EDITING </p>
 		</div>
 		
 		<div id="create_product_wizard">
@@ -334,7 +338,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 							);
 							echo "<p class='product_listing_text'>";
 							echo "<span class='product_name'>".$product->name."</span>";
-							echo "<a href='#' class='add btn btn-inverse' data-productId='".$product->id."'>Add</a>";
+							echo "<a href='#' class='add btn btn-inverse' data-productId='".$product->id."'>Customize</a>";
 							echo "</p>"
 						?>
 						</li>
@@ -415,7 +419,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 		
 		<a class="TEST_prev btn" href="#">
 			<i class="icon-arrow-up"></i>
-			Customize more Items
+			Go Back
 		</a>
 
 		<a class="TEST_next btn" href="#">
@@ -431,7 +435,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 		
 		<a class="TEST_prev btn" href="#">
 			<i class="icon-arrow-up"></i>
-			Edit Contact Information
+			Go Back
 		</a>
 		
 		<a class="TEST_submit btn btn-success" href="#">
