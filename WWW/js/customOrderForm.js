@@ -16,11 +16,12 @@ $(document).ready(function()
 	// Globals
 	var globalFormCounter = 0;
 	var customHidden = 'isHidden';
+	var customCurrent = 'current';
+	
 	
 	//
 	// Main
 	//
-	
 	
 	function scrollTo(section)
 	{
@@ -28,7 +29,7 @@ $(document).ready(function()
 			.stop()
 			.animate(
 				{
-					scrollTop: (section.offset().top - 15)
+					scrollTop: (section.offset().top - 12)
 				}, 
 				750,
 				'easeInOutExpo'
@@ -43,8 +44,8 @@ $(document).ready(function()
 		{
 			$(this).attr('disabled', true);
 		});
-	
-		section.fadeTo('fast', 0.6);
+		
+		section.siblings('ul').children('li').eq( $(section).index()-1).addClass('sectionDisabled');
 	}
 	
 	function enableSection(section)
@@ -55,7 +56,7 @@ $(document).ready(function()
 			$(this).removeAttr('disabled');
 		});
 		
-		section.fadeTo('fast', 1);
+		section.siblings('ul').children('li').eq( $(section).index()-1).removeClass('sectionDisabled');
 	}
 	
 	function gotoNextSection(section)
@@ -63,7 +64,8 @@ $(document).ready(function()
 		var nextSection = section.next();
 		disableSection(section);
 		enableSection(nextSection);
-		scrollTo(nextSection);
+		scrollTo(nextSection.parent());
+		transitionFormWizard(section);
 	}
 	
 	function gotoPrevSection(section)
@@ -71,7 +73,8 @@ $(document).ready(function()
 		var prevSection = section.prev();
 		disableSection(section);
 		enableSection(prevSection);
-		scrollTo(prevSection);
+		scrollTo(prevSection.parent());
+		transitionFormWizardBack(section);
 	}
 	
 	function checkForProducts(container)
@@ -163,6 +166,7 @@ $(document).ready(function()
 		);
 	}
 	
+	
 	function isDisabled(element)
 	{
 		return element.attr('disabled');
@@ -171,7 +175,7 @@ $(document).ready(function()
 	
 	function openWizard(wizard)
 	{
-		console.log("openwizard: ", wizard.is(":visible"));
+		//console.log("openwizard: ", wizard.is(":visible"));
 		//if (wizard.is(":visible") == false)
 		if (hasAttr(wizard, customHidden))
 		{
@@ -180,6 +184,8 @@ $(document).ready(function()
 				.show()
 				.transition({height: '300px'}, 500, 'in-out')
 				.removeAttr(customHidden);
+				
+			form.height( form.height() + 300 );
 		}
 	}
 	
@@ -189,14 +195,16 @@ $(document).ready(function()
 		if (!hasAttr(wizard, customHidden))
 		{
 			wizard
-				.transition({height: '0'}, 500, 'in-out', function()
+				.transition({height: '0'}, 250, 'out', function()
 				{
-					console.log("hiding", this);
+					//console.log("hiding", this);
 					$(this)
 						.attr(customHidden, customHidden)
 						.hide();
 				})
 				.attr(customHidden, customHidden);
+				
+			form.height( form.height() - 300 );
 		}
 	}
 	
@@ -205,7 +213,7 @@ $(document).ready(function()
 	{
 		var attr = element.attr(attribute);
 		
-		console.log("has attr: ", element, attribute, attr);
+		//console.log("has attr: ", element, attribute, attr);
 		
 		if (typeof attr !== 'undefined' && attr !== false)
 		{
@@ -267,7 +275,7 @@ $(document).ready(function()
 			
 			console.log("closing edit wizard");
 			closeWizard(editWizard);
-			scrollTo($('#TEST_customize'));
+			scrollTo($('#TEST_customize').parent());
 		}
 		else
 		{	
@@ -338,7 +346,7 @@ $(document).ready(function()
 				"btn-primary"
 			);
 			
-			scrollTo($('#TEST_customize'));
+			scrollTo($('#TEST_customize').parent());
 		}
 		else
 		{
@@ -440,6 +448,12 @@ $(document).ready(function()
 		newProduct.find('.custom_product_listing').append(original);
 		newProduct.appendTo( $('#TEST_added_products') );
 		
+		// fix global form height
+		var newHeight = Math.ceil(($('#TEST_added_products').find('li').size()) / 5) * 230;
+		console.log("SETTING NEW HEIGHT: ", baseFormHeight, newHeight);
+		form.height( baseFormHeight + newHeight );
+		console.log("form height: ", form.height());
+		
 		// Edit the button
 		setButtonStyle(
 				$("#TEST_add_custom_product"),
@@ -448,7 +462,7 @@ $(document).ready(function()
 				"btn-primary"
 			);
 		
-		scrollTo($('#TEST_customize'));
+		scrollTo($('#TEST_customize').parent());
 		closeWizard($('#create_product_wizard'));
 			
 		checkForProducts($('#TEST_customize'));		
@@ -464,6 +478,8 @@ $(document).ready(function()
 	
 	
 	// TEST
+	var form = $('#TEST_custom_product_inquiry_form');
+	var baseFormHeight = form.height();
 	var sectionCustomize = $('#TEST_customize');
 	var sectionUserInfo = $('#TEST_user_info');
 	var sectionReview = $('#TEST_review');
@@ -487,12 +503,23 @@ $(document).ready(function()
 		});
 	});
 	
-	enableSection(sectionCustomize);
-	disableSection(sectionUserInfo);
-	disableSection(sectionReview);
+	// Disable all sections except the first one
+	form.children('div').each(function()
+	{
+		var t = $(this);
+
+		t.css({y: 0})
+		
+		if (t.index() == 1)
+		{
+			enableSection(t);
+		}
+		else
+		{
+			t.css({x: t.parent().width()});
+			disableSection(t);
+		}
+	});
 	
-	checkForProducts($('#TEST_customize'));
-	
-	
-	
+	checkForProducts($('#TEST_customize'));	
 });

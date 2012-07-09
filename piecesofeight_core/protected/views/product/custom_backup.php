@@ -78,11 +78,6 @@
 				background: lightgrey;
 			}
 			
-			.sectionDisabled h2
-			{
-				opacity: 0.35;
-			}
-			
 		
 			#TEST_added_products li
 			{
@@ -144,40 +139,6 @@
 			{
 				background-color: green;
 			}
-			
-			
-			#TEST_custom_product_inquiry_form
-			{
-				position: relative;
-				overflow: hidden;
-				width: 100%;
-				min-height: 460px;
-			}
-			
-			#TEST_custom_product_inquiry_form > div
-			{
-				position: absolute;
-				width: 730px;
-				display: block;
-				padding-left: 2em;
-			}
-			
-			
-			#TEST_custom_product_inquiry_form > ul
-			{
-				width: 100%;
-				margin: 0;
-				padding: 0;
-			}
-			
-			#TEST_custom_product_inquiry_form > ul > li
-			{
-				display: inline-block;
-				text-align: center;
-				margin-left: 2em;
-			}
-			
-			
 		',
 		'screen'
 	);
@@ -348,13 +309,9 @@ $form = $this->beginWidget('GxActiveForm', array(
 
 
 <div id='TEST_custom_product_inquiry_form'>
-	<ul>
-		<li><h2>Step 1: Customize!</h2></li>
-		<li><h2>Step 2: Contact Information</h2></li>
-		<li><h2>Step 3: Review Inquiry</h2></li>
-	</ul>
-
-	<div id="TEST_customize">		
+	<div id="TEST_customize">
+		<h2>Step 1: Customize!</h2>
+		
 		<div id='TEST_added_products_container'>
 			<div><b>Your Custom Products:</b></div>
 			<span class='TEST_no-products'>No products added</span>
@@ -415,12 +372,15 @@ $form = $this->beginWidget('GxActiveForm', array(
 		</a>
 		
 		<a class="TEST_next btn" href="#">
-			Continue <i class="icon-arrow-right"></i>
+			<i class="icon-arrow-down"></i>
+			Continue to Contact Information
 		</a>
 	</div>
 	
 	
-	<div id="TEST_user_info">		
+	<div id="TEST_user_info">
+		<h2>Step 2: Contact Information</h2>
+		
 		<?php
 			// email
 			echo "<div>";
@@ -458,21 +418,24 @@ $form = $this->beginWidget('GxActiveForm', array(
 		?>
 		
 		<a class="TEST_prev btn" href="#">
-			<i class="icon-arrow-left"></i>
-			Back
+			<i class="icon-arrow-up"></i>
+			Go Back
 		</a>
 
 		<a class="TEST_next btn" href="#">
-			Continue <i class="icon-arrow-right"></i>
+			<i class="icon-arrow-down"></i>
+			Review your Inquiry
 		</a>
 		
 	</div>
 	
 	
-	<div id="TEST_review">		
+	<div id="TEST_review">
+		<h2>Step 3: Review Inquiry</h2>
+		
 		<a class="TEST_prev btn" href="#">
-			<i class="icon-arrow-left"></i>
-			Back
+			<i class="icon-arrow-up"></i>
+			Go Back
 		</a>
 		
 		<a class="TEST_submit btn btn-success" href="#">
