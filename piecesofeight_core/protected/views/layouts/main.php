@@ -6,6 +6,7 @@
 		<!-- Safe-Surf metatag -->
 		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.classify.org/safesurf/" L gen true for "http://www.piecesofeightcostumes.com/" r (SS~~000 1))' />
 		<meta name="netinsert" content="0.0.1.12.10.1" />
+		<meta name="alexaVerifyID" content="RwEeuoatshINXtnwr0m4KkjecQs" />
 		
 		<!-- google webmasters verification -->
 		<meta name="google-site-verification" content="x2mCPZ9Lo7NYTPnLOccXUt0FO3hgd85tB4fem9qIeMI" />

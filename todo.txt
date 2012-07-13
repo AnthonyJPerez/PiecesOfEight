@@ -1,18 +1,15 @@
 Currently working on:
 	paypal api
 	discount codes
-	custom-order pages
+	custom-order page
 
 
 TODO:
 canonical links to contact page, product pages, etc.. to reduce duplicate urls
-Custom order page: see paper!
 admin home page
 SEO
-	server images from static content
-	specify conanical links in each view
-	create adwords campaign
-	seo-friendly image filenames (new images are fine, update current images)
+	imgur allows links in comments... yay!
+	serve images from static content
 	make each meta description individual/unique (Done. Just need to edit categories and listings in database!)
 	create 'title' text for links
 	blog about the site
@@ -29,14 +26,12 @@ Discount codes:
 Out of stock -tagged items won't display in main product listings? or at least say out of stock.
 support male/female/unisex (add as hasOne relation)
 Non-debug mode should rely on CDNs for libraries.
-switch to yii-lite database
 combine & minimize javascript code: (http://www.yiiframework.com/doc/guide/1.1/en/topics.performance)
 Caching -- sitewide
 lookbook
 add 'complete the look' items related to a product
 feedback
 bug with 'go back button'
-image cropper
 enable product search box on site
 create etsy-style custom ordering (password-protected private product listings)
 money / check orders page?
