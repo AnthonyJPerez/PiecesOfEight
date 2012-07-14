@@ -309,6 +309,11 @@ $(document).ready(function()
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
+		if ( $(this).attr('id') == "button_user_info" )
+		{
+			var areAllValid = LiveValidation.massValidate( $("TEST_user_info").find('input') );
+		}
+		
 		gotoNextSection( $(this).parent() );		
 	});
 	
@@ -331,6 +336,9 @@ $(document).ready(function()
 		var formWizard = $('#create_product_wizard');
 		var button = $(this);
 		resetFormWizard(formWizard);
+		
+		// Make sure our verification button is enabled, since we disable it when it's clicked
+		$('#button_verification_yes').removeAttr('disabled');
 		
 		if (!hasAttr(formWizard, customHidden))
 		{
@@ -386,13 +394,14 @@ $(document).ready(function()
 	// Form Wizard - Product verified, Go to the measurements section
 	$('#wizard_verification').on('click', '#button_verification_yes', function(event)
 	{	
-		console.log("verifying 1");
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
-		console.log("verifying 2");
-		
 		var button = $(this);
+		
+		// Disable the button, and show the loading gif:
+		button.attr('disabled', true);
+		
 		$.ajax({
 			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
 			'cache': false,

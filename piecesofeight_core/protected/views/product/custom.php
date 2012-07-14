@@ -177,6 +177,18 @@
 				margin-left: 2em;
 			}
 			
+			.icon-ok
+			{
+				color: green;
+				font-size: 16pt !important;
+			}
+			
+			.icon-remove
+			{
+				color: red;
+				font-size: 16pt !important;
+			}
+			
 			
 		',
 		'screen'
@@ -269,6 +281,61 @@
 	
 	
 	
+	//
+	// Live-Validation script (http://livevalidation.com/)
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/live-validation/live-validation-1.3.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Add validation rules
+	Yii::app()->clientScript->registerScript(
+		'LiveValidation_CustomProduct',
+		"
+			var valid = {
+				onValid: function()
+				{
+					var sp = document.createElement('span');
+					var element = document.createElement('i');
+					$(element).addClass('icon-ok');
+					sp.appendChild(element);
+					
+					this.insertMessage( sp ); 
+					this.addFieldClass(); 
+				},
+				
+				onInvalid: function()
+				{
+					var sp = document.createElement('span');
+					$(sp).css('color', 'red');
+					sp.appendChild(document.createTextNode(this.message));
+					
+					this.insertMessage( sp ); 
+					this.addFieldClass(); 
+				}
+			};
+			
+			var email = new LiveValidation('email', valid);
+			email.add( Validate.Email );
+			
+			var confirmEmail = new LiveValidation('confirm_email', valid);
+			confirmEmail.add( 
+				Validate.Confirmation,
+				{
+					match: 'email',
+					failureMessage: 'Email addresses do not match'
+				}
+			);
+			
+			var d = new LiveValidation('date', valid);
+			date.add( Validate.Presence, { failureMessage: 'Please enter a date' });
+		",
+		CClientScript::POS_READY
+	);
+	
+	
+	
 	// Custom form javascript:
 	Yii::app()->clientScript->registerScriptFile( 
 		Yii::app()->request->baseUrl . '/js/customOrderForm.js', 
@@ -285,7 +352,7 @@
 
 
 <?php
-	// TEmporary!! Only have this code here until this page is ready for production mode
+	// Temporary!! Only have this code here until this page is ready for production mode
 	if (defined('YII_DEBUG') && constant('YII_DEBUG') != false)
 	{
 ?>
@@ -437,23 +504,15 @@ $form = $this->beginWidget('GxActiveForm', array(
 			// date of event
 			echo "<div>";
 			echo CHtml::label('Date of Event', '');
-			echo "<input type='date' />";
+			echo "<input type='date' id='date' />";
 			echo "</div>";
 			
 			// shipping internationally?
 			echo "<div>";
-			echo CHtml::label('Would you be shipping Internationally?', '');
-			echo CHtml::radioButtonList(
-				'shipping_international',
-				'',	// select, not sure what this does, but people leave it empty
-				array (
-					0 => 'no',
-					1 => 'yes'
-				),
-				array (
-					'separator' => ''
-				)
-			);	
+			echo CHtml::label("I will require shipping outside of the United States", "");
+			echo CHtml::checkBox(
+				'shipping_international'
+			);
 			echo "</div>";
 		?>
 		
@@ -462,7 +521,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 			Back
 		</a>
 
-		<a class="TEST_next btn" href="#">
+		<a class="TEST_next btn" id="button_user_info" href="#">
 			Continue <i class="icon-arrow-right"></i>
 		</a>
 		
