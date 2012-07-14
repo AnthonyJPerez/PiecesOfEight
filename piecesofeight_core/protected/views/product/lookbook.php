@@ -34,6 +34,7 @@
 			.lookbook-image
 			{
 				margin-left: 1em;
+				margin-bottom: 1em;
 				
 				-webkit-box-shadow: 5px 5px 5px #666;
 				-moz-box-shadow: 5px 5px 5px #666;
@@ -87,7 +88,7 @@
 	$img = CHtml::image(
 		$imgLink,
 		"Women's Pirate Costume",
-		array('width'=>300, 'class'=>'lookbook-image')
+		array('width'=>200, 'class'=>'lookbook-image')
 	);
 	echo "<a href='".$imgLink."' rel='womens_gallery'>".$img."</a>";
 	
@@ -96,11 +97,20 @@
 	$img = CHtml::image(
 		$imgLink,
 		"Women's Pirate Costume",
-		array('width'=>300, 'class'=>'lookbook-image')
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='womens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/womens-pirate-costume-3.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Women's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
 	);
 	echo "<a href='".$imgLink."' rel='womens_gallery'>".$img."</a>";
 	?>
 </div>
+
 
 <h2>
 	Men's Pirate Costume
@@ -111,7 +121,7 @@
 	$img = CHtml::image(
 		$imgLink,
 		"Men's Pirate Costume",
-		array('width'=>300, 'class'=>'lookbook-image')
+		array('width'=>200, 'class'=>'lookbook-image')
 	);
 	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
 	
@@ -120,8 +130,58 @@
 	$img = CHtml::image(
 		$imgLink,
 		"Men's Pirate Costume",
-		array('width'=>300, 'class'=>'lookbook-image')
+		array('width'=>200, 'class'=>'lookbook-image')
 	);
 	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/mens-pirate-costume-3.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Men's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/mens-pirate-costume-4.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Men's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/mens-pirate-costume-5.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Men's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/mens-pirate-costume-6.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Men's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/mens-pirate-costume-7.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Men's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	$imgLink = Yii::app()->request->baseUrl . '/images/lookbook/mens-pirate-costume-8.jpg';
+	$img = CHtml::image(
+		$imgLink,
+		"Men's Pirate Costume",
+		array('width'=>200, 'class'=>'lookbook-image')
+	);
+	echo "<a href='".$imgLink."' rel='mens_gallery'>".$img."</a>";
+	
+	
 	?>
 </div>
