@@ -163,7 +163,7 @@ class ProductController extends GxController
       	
       	
       	// Handle the POST
-      	//print_r($_POST);
+      	print_r($_POST);
       	if (isset($_POST['Product'])) 
 		{
 		
