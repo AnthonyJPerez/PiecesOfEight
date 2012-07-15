@@ -68,6 +68,27 @@
 		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 		
 		<?php
+			// Custom form javascript:
+			Yii::app()->clientScript->registerScript(
+				'smoothscroll_Template',
+				"
+					if (navigator.appVersion.indexOf('Win') >= 0) {
+						if (navigator.userAgent.indexOf('Chrome') >= 0) {
+							// Load SmoothScroll
+							(function() {
+								var sstag = document.createElement('script'); sstag.type = 'text/javascript'; sstag.async = true;
+								sstag.src = '".Yii::app()->request->baseUrl."/js/smoothscroll/smoothscroll.js';
+								var s = document.getElementsByTagName('script')[0];
+								s.parentNode.insertBefore(sstag, s);
+							})();
+						}
+					}
+				",
+				CClientScript::POS_READY
+			);
+		?>
+		
+		<?php
 		if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
 		{
 		?>

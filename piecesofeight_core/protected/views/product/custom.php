@@ -188,8 +188,6 @@
 				color: red;
 				font-size: 16pt !important;
 			}
-			
-			
 		',
 		'screen'
 	);
@@ -284,55 +282,19 @@
 	//
 	// Live-Validation script (http://livevalidation.com/)
 	//
-	Yii::app()->clientScript->registerScriptFile( 
-		Yii::app()->request->baseUrl . '/js/live-validation/live-validation-1.3.js', 
+	/*Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/h5validate/jquery.h5validate.js', 
 		CClientScript::POS_HEAD
 	);
 	
 	// Add validation rules
 	Yii::app()->clientScript->registerScript(
-		'LiveValidation_CustomProduct',
+		'h5validate_CustomProduct',
 		"
-			var valid = {
-				onValid: function()
-				{
-					var sp = document.createElement('span');
-					var element = document.createElement('i');
-					$(element).addClass('icon-ok');
-					sp.appendChild(element);
-					
-					this.insertMessage( sp ); 
-					this.addFieldClass(); 
-				},
-				
-				onInvalid: function()
-				{
-					var sp = document.createElement('span');
-					$(sp).css('color', 'red');
-					sp.appendChild(document.createTextNode(this.message));
-					
-					this.insertMessage( sp ); 
-					this.addFieldClass(); 
-				}
-			};
-			
-			var email = new LiveValidation('email', valid);
-			email.add( Validate.Email );
-			
-			var confirmEmail = new LiveValidation('confirm_email', valid);
-			confirmEmail.add( 
-				Validate.Confirmation,
-				{
-					match: 'email',
-					failureMessage: 'Email addresses do not match'
-				}
-			);
-			
-			var d = new LiveValidation('date', valid);
-			date.add( Validate.Presence, { failureMessage: 'Please enter a date' });
+			$('#custom-inquiry-form').h5Validate();
 		",
 		CClientScript::POS_READY
-	);
+	);*/
 	
 	
 	
@@ -492,19 +454,19 @@ $form = $this->beginWidget('GxActiveForm', array(
 			// email
 			echo "<div>";
 			echo CHtml::label('Email', '');
-			echo CHtml::textField('email');	
+			echo CHtml::textField('email', '', array('required'=>"", 'placeholder'=>"Your Email"));	
 			echo "</div>";
 			
 			// confirm email
 			echo "<div>";
 			echo CHtml::label('Confirm Email', '');
-			echo CHtml::textField('confirm_email');	
+			echo CHtml::textField('confirm_email', '', array('required'=>"", 'placeholder'=>"Confirm Email"));	
 			echo "</div>";
 			
 			// date of event
 			echo "<div>";
 			echo CHtml::label('Date of Event', '');
-			echo "<input type='date' id='date' />";
+			echo "<input type='date' id='date'/>";
 			echo "</div>";
 			
 			// shipping internationally?
