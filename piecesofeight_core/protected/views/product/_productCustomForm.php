@@ -3,12 +3,6 @@
 ?>
 
 <div class='custom_product_details' data-customproductid='<?php echo $form_id; ?>'>
-	<span class='product_name'>
-	<?php
-		echo $product->name;
-	?>
-	</span>
-	
 	<?php
 		$defaultImage = $product->getDefaultImage();
 		echo CHtml::image(
@@ -20,6 +14,12 @@
 			)
 		);
 	?>
+	
+	<h2 class='product_name'>
+	<?php
+		echo $product->name;
+	?>
+	</h2>
 	
 	<fieldset>
 		<legend>Measurements</legend>
@@ -87,7 +87,8 @@
 		echo "<span class='hint'>Note: Availability</span>";
 		echo CHtml::textField(
 			$product_name.'[preferred_color]', 	// name
-			''				// value
+			'ffffff',				// value
+			array('class'=>'color', 'width'=>10, 'height'=>10)
 		);
 		echo "</div>";
 		

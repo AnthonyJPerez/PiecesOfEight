@@ -4,18 +4,18 @@
 
 	Yii::app()->clientScript->registerCss(
 		'product-custom-form-style',
-		'
-			
-			#product_list li, #selected_products li
+		'	
+			#product_list
 			{
-				width: 175px;
+				list-style: none;
 			}
 			
-			.product_listing_text
+			#product_list li
 			{
-				display: block;
-				margin-top: 0.5em;
-				font-size: 0.85em;
+				margin-right: 1em;
+				margin-bottom: 2em;
+				display: inline-block;
+				vertical-align: top;
 			}
 			
 			.product_name
@@ -37,6 +37,15 @@
 				display: none;
 			}
 			
+			#create_product_wizard
+			{			
+				margin-bottom: 1em;
+				background-color: rgba(0, 0, 0, 0.15);				
+				box-shadow: -3px -3px 3px #888;
+				-moz-box-shadow: -3px -3px 3px #888;
+				-webkit-box-shadow: -3px -3px 3px #888;
+			}
+			
 			
 			#custom_product_array
 			{
@@ -51,20 +60,15 @@
 				margin-right: 1em;
 				width: 175px;
 			}
-						
 			
 			
-			#wizard_selector
+			#wizard_selector, #wizard_details
 			{
-				border-color: red;
 				width: 100%;
 				height: 100%;
 				overflow: auto;
-			}
-			
-			#wizard_selector li
-			{
-				float: left;
+				padding: 0;
+				margin: 0;
 			}
 			
 			
@@ -101,8 +105,16 @@
 				position: relative;
 			}
 			
+			.custom_product_listing h2,
+			.custom_product_listeing span
+			{
+				
+				font-size: 9pt;
+			}
+			
 			.custom_product_listing img
 			{
+				margin-top: 0.5em;
 				width: 100%;
 				box-shadow: 2px 2px 4px #888;
 				-moz-box-shadow: 2px 2px 4px #888; 
@@ -115,11 +127,6 @@
 				bottom: 3px;
 				right: 0px;
 				padding: 3px !important;
-			}
-			
-			.custom_product_listing span
-			{
-				font-size: 10pt;
 			}
 			
 			input, textarea
@@ -187,6 +194,56 @@
 			{
 				color: red;
 				font-size: 16pt !important;
+			}
+			
+			
+			#wizard_details
+			{
+				overflow: hidden;
+			}
+			
+			
+			#wizard_details h2
+			{
+				width: 75%;
+				text-align: center;
+				vertical-align: top;
+				display: inline-block;
+				margin: 0;
+			}
+			
+			#wizard_details img
+			{
+				width: 22%;
+			}
+			
+			#wizard_details .back
+			{
+				position: absolute;
+				left: 1px;
+				bottom: 1px;
+			}
+			
+			#wizard_details .addProductToList
+			{
+				position: absolute;
+				right: 1px;
+				bottom: 1px;
+			}
+			
+			#wizard_details_container
+			{
+				overflow: hidden;
+				padding: 0.4em;
+				margin: 0;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#wizard_details_container .product_name
+			{
+				text-align: center;
 			}
 		',
 		'screen'
@@ -275,6 +332,16 @@
 			
 		",
 		CClientScript::POS_READY
+	);
+	
+	
+	
+	//
+	// Include the JS Color script -- http://jscolor.com/try.php
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/jscolor/jscolor.js', 
+		CClientScript::POS_HEAD
 	);
 	
 	
@@ -403,15 +470,15 @@ $form = $this->beginWidget('GxActiveForm', array(
 					?>
 						<li class='product_listing'>
 						<?php
+							echo "<div class='custom_product_listing'>";
+							echo "<a href='#' class='add btn btn-inverse' data-productId='".$product->id."' data-baseurl='".Yii::app()->baseUrl."'>Customize</a>";
 							echo CHtml::image(
 								Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
 								$product->getProductImgAltDescription(),
 								array('width'=>100)
 							);
-							echo "<p class='product_listing_text'>";
 							echo "<span class='product_name'>".$product->name."</span>";
-							echo "<a href='#' class='add btn btn-inverse' data-productId='".$product->id."'>Customize</a>";
-							echo "</p>"
+							echo "</div>"
 						?>
 						</li>
 					<?php
@@ -419,22 +486,15 @@ $form = $this->beginWidget('GxActiveForm', array(
 				?>
 				</ul>
 			</div>		
-			
-			<!-- Is this the right product? -->
-			<div id='wizard_verification'>
-				<span class='product_name'></span>
-				<img width="100px" href="" />
-				<span>Is this the product you want to add?</span>
-				<a id="button_verification_yes" class="btn btn-inverse" href="#" data-productid="" data-baseurl="<?php echo Yii::app()->baseUrl; ?>">Yes</a>
-				<a id="button_verification_no" class="btn btn-inverse" href="#">No</a>
-			</div>		
+					
 			
 			<!-- Grab details of this product -->
 			<div id='wizard_details'>
-				<a href="#" class='addProductToList btn btn-inverse' >Add Product</a>
 				<div id="wizard_details_container">
 				
 				</div>
+				<a href="#" class='btn back'><i class='icon-arrow-left'></i> Back</a>
+				<a href="#" class='addProductToList btn btn-inverse' >Add Item</a>
 			</div>
 		</div>
 		
@@ -496,10 +556,14 @@ $form = $this->beginWidget('GxActiveForm', array(
 			Back
 		</a>
 		
-		<a class="TEST_submit btn btn-success" href="#">
-			<i class="icon-envelope-alt"></i>
-			Email your Inquiry
-		</a>
+		<?php
+			echo CHtml::linkButton(
+				"<i class='icon-envelope-alt'></i> Email your Inquiry",
+				array(
+					'class'=>'TEST_submit btn btn-success'
+				)
+			);
+		?>
 	</div>
 </div>
 
