@@ -311,7 +311,7 @@ $(document).ready(function()
 		
 		if ( $(this).attr('id') == "button_user_info" )
 		{
-			var areAllValid = LiveValidation.massValidate( $("TEST_user_info").find('input') );
+			console.log("Going to validate");
 		}
 		
 		gotoNextSection( $(this).parent() );		
