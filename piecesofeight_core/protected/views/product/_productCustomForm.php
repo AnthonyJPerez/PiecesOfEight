@@ -3,12 +3,6 @@
 ?>
 
 <div class='custom_product_details' data-customproductid='<?php echo $form_id; ?>'>
-	<span class='product_name'>
-	<?php
-		echo $product->name;
-	?>
-	</span>
-	
 	<?php
 		$defaultImage = $product->getDefaultImage();
 		echo CHtml::image(
@@ -21,6 +15,12 @@
 		);
 	?>
 	
+	<h2 class='product_name'>
+	<?php
+		echo $product->name;
+	?>
+	</h2>
+	
 	<fieldset>
 		<legend>Measurements</legend>
 		<span class="hint">How to take measurements</span>
@@ -30,7 +30,7 @@
 		{
 			echo CHtml::label($measurement->name, '');
 			echo CHtml::textField(
-				$product_name.'[measurement_'.$measurement->id.']', 	// Name
+				$product_name.'[measurement]['.$measurement->id.']', 	// Name
 				'', 						// Value
 				array (					// Html Options
 					'maxlength' => 4
@@ -87,7 +87,8 @@
 		echo "<span class='hint'>Note: Availability</span>";
 		echo CHtml::textField(
 			$product_name.'[preferred_color]', 	// name
-			''				// value
+			'ffffff',				// value
+			array('class'=>'color', 'width'=>10, 'height'=>10)
 		);
 		echo "</div>";
 		
@@ -96,7 +97,7 @@
 		echo CHtml::label('Additional Requests', '');
 		echo "<span class='hint'>(hint)</span>";
 		echo CHtml::textArea(
-			$product_name.'[additional_requests]', 		// name
+			$product_name.'[additional_requests]', // name
 			''					// value
 		);
 		echo "</div>";

@@ -6,6 +6,7 @@
 		<!-- Safe-Surf metatag -->
 		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.classify.org/safesurf/" L gen true for "http://www.piecesofeightcostumes.com/" r (SS~~000 1))' />
 		<meta name="netinsert" content="0.0.1.12.10.1" />
+		<meta name="alexaVerifyID" content="RwEeuoatshINXtnwr0m4KkjecQs" />
 		
 		<!-- google webmasters verification -->
 		<meta name="google-site-verification" content="x2mCPZ9Lo7NYTPnLOccXUt0FO3hgd85tB4fem9qIeMI" />
@@ -65,6 +66,27 @@
 	
 	
 		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+		
+		<?php
+			// Custom form javascript:
+			Yii::app()->clientScript->registerScript(
+				'smoothscroll_Template',
+				"
+					if (navigator.appVersion.indexOf('Win') >= 0) {
+						if (navigator.userAgent.indexOf('Chrome') >= 0) {
+							// Load SmoothScroll
+							(function() {
+								var sstag = document.createElement('script'); sstag.type = 'text/javascript'; sstag.async = true;
+								sstag.src = '".Yii::app()->request->baseUrl."/js/smoothscroll/smoothscroll.js';
+								var s = document.getElementsByTagName('script')[0];
+								s.parentNode.insertBefore(sstag, s);
+							})();
+						}
+					}
+				",
+				CClientScript::POS_READY
+			);
+		?>
 		
 		<?php
 		if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)

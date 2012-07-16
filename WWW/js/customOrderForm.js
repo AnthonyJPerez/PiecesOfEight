@@ -17,6 +17,8 @@ $(document).ready(function()
 	var globalFormCounter = 0;
 	var customHidden = 'isHidden';
 	var customCurrent = 'current';
+	var wizardHeight = '400px';
+	var wizardHeightNum = 400;
 	
 	
 	//
@@ -40,10 +42,10 @@ $(document).ready(function()
 	function disableSection(section)
 	{
 		section.addClass('sectionDisabled');
-		section.find('.btn, input').each(function()
+		/*section.find('.btn, input').each(function()
 		{
 			$(this).attr('disabled', true);
-		});
+		});*/
 		
 		section.siblings('ul').children('li').eq( $(section).index()-1).addClass('sectionDisabled');
 	}
@@ -51,10 +53,10 @@ $(document).ready(function()
 	function enableSection(section)
 	{
 		section.removeClass('sectionDisabled');
-		section.find('.btn, input').each(function()
+		/*section.find('.btn, input').each(function()
 		{
 			$(this).removeAttr('disabled');
-		});
+		});*/
 		
 		section.siblings('ul').children('li').eq( $(section).index()-1).removeClass('sectionDisabled');
 	}
@@ -182,10 +184,10 @@ $(document).ready(function()
 			wizard
 				.css('height', 0)
 				.show()
-				.transition({height: '300px'}, 500, 'in-out')
+				.transition({height: wizardHeight}, 500, 'in-out')
 				.removeAttr(customHidden);
 				
-			form.height( form.height() + 300 );
+			form.height( form.height() + wizardHeightNum );
 		}
 	}
 	
@@ -204,7 +206,7 @@ $(document).ready(function()
 				})
 				.attr(customHidden, customHidden);
 				
-			form.height( form.height() - 300 );
+			form.height( form.height() - wizardHeightNum );
 		}
 	}
 	
@@ -309,6 +311,11 @@ $(document).ready(function()
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
+		if ( $(this).attr('id') == "button_user_info" )
+		{
+			console.log("Going to validate");
+		}
+		
 		gotoNextSection( $(this).parent() );		
 	});
 	
@@ -331,6 +338,9 @@ $(document).ready(function()
 		var formWizard = $('#create_product_wizard');
 		var button = $(this);
 		resetFormWizard(formWizard);
+		
+		// Make sure our verification button is enabled, since we disable it when it's clicked
+		formWizard.find('.btn').removeAttr('disabled');
 		
 		if (!hasAttr(formWizard, customHidden))
 		{
@@ -368,7 +378,7 @@ $(document).ready(function()
 	
 	
 	// Form Wizard - Add product - Update the verification box with the selected product
-	$("#wizard_selector").on('click', '.add', function(event)
+	/*$("#wizard_selector").on('click', '.add', function(event)
 	{		
 		event.preventDefault();
 		if (isDisabled($(this))) return;
@@ -380,19 +390,20 @@ $(document).ready(function()
 		setVerificationBox(productInfo);
 		
 		transitionFormWizard( $('#wizard_selector') );
-	});
+	});*/
 	
 	
 	// Form Wizard - Product verified, Go to the measurements section
-	$('#wizard_verification').on('click', '#button_verification_yes', function(event)
+	$('#wizard_selector').on('click', '.add', function(event)
 	{	
-		console.log("verifying 1");
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
-		console.log("verifying 2");
-		
 		var button = $(this);
+		
+		// Disable the button, and show the loading gif:
+		button.attr('disabled', true);
+		
 		$.ajax({
 			'url': button.attr('data-baseurl') + "/product/getProductCustomForm/" + button.attr('data-productid') + "/" + globalFormCounter++,
 			'cache': false,
@@ -403,7 +414,10 @@ $(document).ready(function()
 					// Add the image and the custom html into the #product_details form
 					var html = jqXHR.responseText;
 					$('#wizard_details_container').html(html);	
-					transitionFormWizard( $('#wizard_verification') );
+					transitionFormWizard( $('#wizard_selector') );
+					
+					// Run the init routine for jsColor, Since we are dynamically adding elements into the DOM
+					jscolor.init();
 				}
 			}
 		});		
@@ -411,12 +425,15 @@ $(document).ready(function()
 	
 	
 	// Product not verified, go back to the product selection
-	$("#wizard_verification").on('click', '#button_verification_no', function(event)
+	$("#wizard_details").on('click', '.back', function(event)
 	{
 		event.preventDefault();
 		if (isDisabled($(this))) return;
 		
-		transitionFormWizardBack( $('#wizard_verification') );
+		// Make sure our verification button is enabled, since we disable it when it's clicked
+		$('#create_product_wizard').find('.btn').removeAttr('disabled');
+		
+		transitionFormWizardBack( $('#wizard_details') );
 	});
 	
 	
@@ -469,11 +486,10 @@ $(document).ready(function()
 	});
 	
 	
-	$('#TEST_review').on('click', '.TEST_submit', function(event)
+	/*$('#TEST_review').on('click', '.TEST_submit', function(event)
 	{
-		event.preventDefault();
-		if(isDisabled($(this))) return;
-	});
+		// Submit the form!
+	});*/
 	
 	
 	
@@ -490,8 +506,6 @@ $(document).ready(function()
 			.css('position', 'relative')
 			.css('overflow', 'hidden')
 			.css('width', '100%')
-			.css('height', '400px')
-			.css('background-color', 'grey')
 			.attr(customHidden, customHidden)
 			.hide();
 			
