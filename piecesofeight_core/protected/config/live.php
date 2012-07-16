@@ -39,6 +39,7 @@ $config['preload'] = array('log');
 $config['import'] = array(
 	'application.models.*',
 	'application.components.*',
+	'ext.mail.YiiMailMessage',
 	'ext.giix-components.*', 	// giix components
 );
 
@@ -143,8 +144,25 @@ $config['components']['errorHandler'] = array(
 	'errorAction' => 'site/error'
 );
 
-// log component
+// Swiftmailer component (http://www.yiiframework.com/extension/mail/)
+$config['components']['mail'] = array(
+	'class' => 'ext.mail.YiiMail',
+	'transportType' => 'smtp',
+	'transportOptions' => array(
+		'host' => 'mail.piecesofeightcostumes.com',
+		'username' => 'info+piecesofeightcostumes.com',
+		'password' => '#1cornwall',
+		'port' => '25',
+		'encryption' => '',
+		'timeout' => ''
+	),
+	'viewPath' => 'application.views.mail',
+	'logging' => true,
+	'dryRun' => false
+);
 
+
+// log component
 $config['components']['log'] = array(
 	'class' => 'CLogRouter',
 	'routes' => array(
@@ -161,7 +179,7 @@ if ($debug)
 
 $config['params'] = array(
 	// this is used in contact page
-	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@comcast.net',
+	'adminEmail'=> ($debug) ? 'info@piecesofeightcostumes.com' : 'piecesof8costumes@comcast.net',
 	'webmasterEmail'=>'piecesof8costumes@gmail.com',
 );
 
