@@ -163,10 +163,28 @@ class ProductController extends GxController
       	
       	
       	// Handle the POST
-      	print_r($_POST);
       	if (isset($_POST['Product'])) 
-		{
-		
+		{		
+			// test
+			print_r($_POST);
+			
+			// Sanitize the Input
+			// ... @todo
+
+			// Email the form
+			$msg = new YiiMailMessage;
+			$msg->view = 'customOrder';
+			$msg->addTo(Yii::app()->params['adminEmail']);
+			$name = ucfirst($_POST['first_name']).' '.ucfirst($_POST['last_name']);
+			$msg->setFrom(array($_POST['email'] => $name));
+			$msg->setSubject('Custom Order Inquiry');
+			$msg->setBody(array('orderDetails'=>$_POST), 'text/html');
+
+			// Mail it!
+			Yii::app()->mail->send($msg);
+			
+			// Redirect the user
+			// ...
 		}
       	
       	

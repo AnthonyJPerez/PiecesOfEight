@@ -511,6 +511,18 @@ $form = $this->beginWidget('GxActiveForm', array(
 	
 	<div id="TEST_user_info">		
 		<?php
+			// first name
+			echo "<div>";
+			echo CHtml::label('First Name', '');
+			echo CHtml::textField('first_name', '', array('required'=>"", 'placeholder'=>"First Name"));	
+			echo "</div>";
+			
+			// last name
+			echo "<div>";
+			echo CHtml::label('Last Name', '');
+			echo CHtml::textField('last_name', '', array('required'=>"", 'placeholder'=>"Last Name"));	
+			echo "</div>";
+			
 			// email
 			echo "<div>";
 			echo CHtml::label('Email', '');

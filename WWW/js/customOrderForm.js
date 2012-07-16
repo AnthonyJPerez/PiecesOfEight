@@ -42,10 +42,10 @@ $(document).ready(function()
 	function disableSection(section)
 	{
 		section.addClass('sectionDisabled');
-		section.find('.btn, input').each(function()
+		/*section.find('.btn, input').each(function()
 		{
 			$(this).attr('disabled', true);
-		});
+		});*/
 		
 		section.siblings('ul').children('li').eq( $(section).index()-1).addClass('sectionDisabled');
 	}
@@ -53,10 +53,10 @@ $(document).ready(function()
 	function enableSection(section)
 	{
 		section.removeClass('sectionDisabled');
-		section.find('.btn, input').each(function()
+		/*section.find('.btn, input').each(function()
 		{
 			$(this).removeAttr('disabled');
-		});
+		});*/
 		
 		section.siblings('ul').children('li').eq( $(section).index()-1).removeClass('sectionDisabled');
 	}
@@ -486,10 +486,10 @@ $(document).ready(function()
 	});
 	
 	
-	$('#TEST_review').on('click', '.TEST_submit', function(event)
+	/*$('#TEST_review').on('click', '.TEST_submit', function(event)
 	{
 		// Submit the form!
-	});
+	});*/
 	
 	
 	

@@ -30,7 +30,7 @@
 		{
 			echo CHtml::label($measurement->name, '');
 			echo CHtml::textField(
-				$product_name.'[measurement_'.$measurement->id.']', 	// Name
+				$product_name.'[measurement]['.$measurement->id.']', 	// Name
 				'', 						// Value
 				array (					// Html Options
 					'maxlength' => 4
@@ -97,7 +97,7 @@
 		echo CHtml::label('Additional Requests', '');
 		echo "<span class='hint'>(hint)</span>";
 		echo CHtml::textArea(
-			$product_name.'[additional_requests]', 		// name
+			$product_name.'[additional_requests]', // name
 			''					// value
 		);
 		echo "</div>";
