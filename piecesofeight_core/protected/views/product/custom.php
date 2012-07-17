@@ -375,8 +375,26 @@
 ?>
 
 <h1>Custom Order Inquiries</h1>
-<p>
+<!--p>
 	This page is currently in development. For custom order inquiries, check out our <?php echo CHtml::link('Contact Page', $this->createUrl('site/contact')); ?>
+</p-->
+
+<p>
+	If you would like to order a custom item, or have questions about a product, please fill 
+	out our custom order inquiry form below! 
+</p>
+
+<p>
+	<?php
+		$faqLink = CHtml::link(
+			"FAQ",
+			$this->createUrl('site/page', array('view'=>"faq", "#"=>"custom-orders")),
+			array(
+				'title' => 'Frequently Asked Questions'
+			)
+		);
+	?>
+	Read our <?php echo $faqLink; ?> to learn more about our Custom Ordering process.
 </p>
 
 
@@ -538,12 +556,23 @@ $form = $this->beginWidget('GxActiveForm', array(
 			// date of event
 			echo "<div>";
 			echo CHtml::label('Date of Event', '');
+			echo "<span class='note'>If you are attending an event, and you would like to 
+			receive your custom item in time, please tell us the date and we will attempt 
+			to complete your order in time. However, depending on the detail and/or 
+			difficulty of a custom order please allow between 3-6 weeks for construction 
+			and completion. We will try to accommodate rush orders, but they cannot be 
+			guaranteed depending on production schedule. An additional fee for rush orders 
+			may apply.</span>";
 			echo "<input type='date' id='date'/>";
 			echo "</div>";
 			
 			// shipping internationally?
 			echo "<div>";
 			echo CHtml::label("I will require shipping outside of the United States", "");
+			echo "<span class='note'>If you would like to purchase an item from outside of 
+			the US, please send me your destination and I can calculate the additional 
+			shipping charges to be added to your order. Any international customs and 
+			taxes will be the purchasers responsibility.</span>";
 			echo CHtml::checkBox(
 				'shipping_international'
 			);
