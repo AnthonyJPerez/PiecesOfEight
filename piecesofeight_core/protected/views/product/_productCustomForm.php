@@ -84,7 +84,12 @@
 			
 		echo "<div>";
 		echo CHtml::label('Preferred Color Choice', '');
-		echo "<span class='hint'>Note: Availability</span>";
+		echo "<span class='note'>Note: Please note that colors may slightly differ depending 
+		on your monitor and calibration. For best results please give us the name of the 
+		color you would like, and choose a color from the color chart that most closely 
+		resembles the color you would like. We will work with you to try and select a fabric 
+		that closely resembles your color choice, however this depends upon the availability 
+		of the fabric. </span>";
 		echo CHtml::textField(
 			$product_name.'[preferred_color]', 	// name
 			'ffffff',				// value
@@ -95,7 +100,10 @@
 		
 		echo "<div>";
 		echo CHtml::label('Additional Requests', '');
-		echo "<span class='hint'>(hint)</span>";
+		echo "<span class='note'>This is a space for you to tell us any other special requests
+		that you have. Try to include as much information as possible about the custom item 
+		you are envisioning. You can include pictures and links in this space to help 
+		describe what you are looking for.</span>";
 		echo CHtml::textArea(
 			$product_name.'[additional_requests]', // name
 			''					// value
