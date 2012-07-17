@@ -536,4 +536,18 @@ $(document).ready(function()
 	});
 	
 	checkForProducts($('#TEST_customize'));	
+	
+	
+	
+	
+	
+	
+	//TEST, REMOVE THIS
+	
+	$("body").on('click', '#THISISCLICK', function(event)
+	{
+		console.log("test");
+		
+		event.preventDefault();
+	});
 });
