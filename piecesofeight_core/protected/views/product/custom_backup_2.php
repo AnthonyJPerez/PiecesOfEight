@@ -624,33 +624,18 @@ $form = $this->beginWidget('GxActiveForm', array(
 
 
 <!-- TEST, remove this -->
-<a id="NEW_customOrderForm" href="#NEW_wizard_selector">
+<a id="NEW_customOrderForm" href="#NEW_form">
 	open!
 </a>
-<div>
-	<div id='NEW_wizard_selector' style="width: 700px; height: 500px;">
-		<ul id='product_list'>
-		<?php
-			foreach ($_AllProducts as $product)
-			{
-			?>
-				<li class='product_listing'>
-				<?php
-					echo "<div class='custom_product_listing'>";
-					echo "<a href='#' class='add btn btn-inverse' data-productId='".$product->id."' data-baseurl='".Yii::app()->baseUrl."'>Customize</a>";
-					echo CHtml::image(
-						Yii::app()->request->baseUrl . '/images/product-images/' . $product->getDefaultImage(),
-						$product->getProductImgAltDescription(),
-						array('width'=>100)
-					);
-					echo "<span class='product_name'>".$product->name."</span>";
-					echo "</div>"
-				?>
-				</li>
-			<?php
-			}
-		?>
-		</ul>
+<div style="display: none;">
+	<div id="NEW_form">
+		<div style="width: 800px; height: 500px";>
+			this is a test;
+			<a id="THISISCLICK" class="btn btn-primary" href="#">
+				<i class="icon-plus"></i>
+				Customize a Product
+			</a>
+		</div>
 	</div>
 </div>
 
