@@ -1,37 +1,84 @@
 <?php
-	$this->pageTitle = "About Us | " . $this->pageTitle;
+	$this->pageTitle = "Frequently Asked Questions | " . $this->pageTitle;
 	
-	$this->pageDescription = "Designing costumes her whole life, Susan Perez has years of experience creating
-	custom, handmade costumes and clothing. Susan specializes in creating pirate costumes and renaissance clothes
-	from her costuming shop located in Keizer, Oregon. Born and raised in Cornwall, Sue was inspired by the
-	many famous tales and legends that make up England's history, from notorious pirates to the legends of King Arthur.";
+	$this->pageDescription = "Have a question regarding a costume? Want to learn how to custom-order a costume?
+	Read our most frequently-asked questions to learn the answer!";
 	
-	$this->pageKeywords = "Costume designer, handmade costumes, Keizer Oregon Costume shop, pirate costumes, renaissance costumes";
+	$this->pageKeywords = "Frequently Asked Questions, How to custom order, common questions";
+
+
+
+	Yii::app()->clientScript->registerCss(
+		'faq-style',
+		'	
+			.questions
+			{
+				list-style: none;
+			}
+			
+			.question
+			{
+				font-weight: bold;
+			}
+			
+			
+		',
+		'screen'
+	);
+
+
 ?>
-<h1>Pieces of Eight Costumes</h1>
+<h1>Frequently Asked Questions</h1>
 
 <p>
-	Hello, my name is <a href="https://plus.google.com/111991154896541294171/about" rel="me">Sue Perez</a> and I have been creating costumes and other clothes my 
-	whole life. I was born and raised in Cornwall which is a beautiful peninsula at the 
-	southwestern most tip of England, full of history with ties to many Pirates and the 
-	legends of King Arthur.
+	<?php
+		$contactLink = CHtml::link(
+			"ask it here",
+			$this->createUrl('site/contact'),
+			array(
+				'title' => 'Contact Pieces of Eight Costumes'
+			)
+		);
+	?>
+	Take a look at our most frequently asked questions below. If you can't find the answer to
+	your question, please feel free to <?php echo $contactLink; ?>.
 </p>
-<p>
-	My interest in sewing started very young when I would make 
-	dolls clothes from scraps of materials and progressed from there. I studied 
-	dressmaking at school and started making a lot of my own clothes as a teenager, 
-	then when I became heavily involved in dance I used those same sewing skills to 
-	make my own costumes for the stage. 
-</p>
-<p>
-	I specialize in quality Pirate and Renaissance 
-	costumes and am always up for a challenge. My creations have won numerous costume 
-	contests and are always the talk of the party. I strive to obtain a good balance 
-	between historic accuracy and modern comfort and convenience and like to select 
-	items that are versatile and can be accessorized multiple ways to portray 
-	different charaters. Most of my items are machine or hand washable although some 
-	fabric choices will need dry cleaning. 
-</p>
-<p>
-	I hope you have as much fun wearing these items as I do creating them.
-</p>
+
+
+<!-- Questions -->
+<h2 id="custom-orders">
+	Custom Orders
+</h2>
+
+<ul class='questions'>
+	<li>
+		<a href="#how-to-custom-order">
+			How do I Custom Order a product from Pieces of Eight Costumes?
+		</a>
+	</li>
+</ul>
+
+
+
+<!-- Answers -->
+<h2>
+	Custom Orders
+</h2>
+
+<div>
+	<span id="how-to-custom-order" class='question'>
+		How do I Custom Order a product from Pieces of Eight Costumes?
+	</span>
+	<p>
+		<?php
+			$customOrderLink = CHtml::link(
+				"Custom Order Form",
+				$this->createUrl('product/custom'),
+				array(
+					'title' => 'Custom Order Form'
+				)
+			);
+		?>
+		To Custom Order a product, fill-out our <?php echo $customOrderLink; ?>
+	</p>
+</div>
