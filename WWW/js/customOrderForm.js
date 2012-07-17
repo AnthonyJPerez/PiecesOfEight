@@ -17,8 +17,8 @@ $(document).ready(function()
 	var globalFormCounter = 0;
 	var customHidden = 'isHidden';
 	var customCurrent = 'current';
-	var wizardHeight = '400px';
-	var wizardHeightNum = 400;
+	var wizardHeight = '450px';
+	var wizardHeightNum = 450;
 	
 	
 	//
