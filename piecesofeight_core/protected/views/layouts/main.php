@@ -287,31 +287,6 @@
 		
 		
 			<div id="footer">
-				<div class='newsletter'>
-					<span>Sign up for our Newsletter to get product updates and discounts:</span>
-					<?php
-						$newsletterModel = new Newsletter();
-						$form = $this->beginWidget('CActiveForm', array(
-							'id' => 'newsletter',
-							'enableAjaxValidation'=>true,
-							'action' => array('site/newsletter'),
-							'clientOptions' => array(
-								'validateOnSubmit' => true
-							)
-						));
-						
-						echo '<div class="row">';
-							echo $form->textField($newsletterModel,'email');
-							echo $form->error($newsletterModel,'email');
-						echo '</div>';
-						
-						echo GxHtml::submitButton(Yii::t('app', 'Sign Up'));
-						
-						$this->endWidget();
-					?>
-				</div>
-				
-				
 				<div class="footer_menu_container">
 					<div>
 						<span>Help</span>
@@ -345,26 +320,39 @@
 							<li><?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners')), array('title'=>'Pieces of Eight Costumes Partners')); ?></li>
 						</ul>
 					</div>
-				</div>
 				
-				<!--div class="footer_menu"> 
-					<?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about', 'rel'=>"author"))); ?>
-					|
-					<?php echo CHtml::link('Contact Us', $this->createUrl('site/contact')); ?>
-					|
-					<?php echo CHtml::link('Terms of Service', $this->createUrl('site/page', array('view'=>'tos'))); ?> 
-					|
-					<?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners')), array('rel' => "nofollow")); ?> 
-
-				</div-->
-				<div class="footer_details">
+					<div class='newsletter'>
+						<span>Sign up for our Newsletter to get product updates and discounts:</span>
+						<?php
+							$newsletterModel = new Newsletter();
+							$form = $this->beginWidget('CActiveForm', array(
+								'id' => 'newsletter',
+								'enableAjaxValidation'=>true,
+								'action' => array('site/newsletter'),
+								'clientOptions' => array(
+									'validateOnSubmit' => true
+								)
+							));
+							
+							echo '<div class="row">';
+								echo $form->textField($newsletterModel,'email', array('placeholder'=>'Your Email'));
+								echo $form->error($newsletterModel,'email');
+							echo '</div>';
+							
+							echo GxHtml::submitButton(Yii::t('app', 'Sign Up'));
+							
+							$this->endWidget();
+						?>
+					</div>
+				</div>
+				<!--div class="footer_details">
 					<div>
 						Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
 					</div>
 					<div>
 						<span>Copyright &copy; <?php echo date('Y'); ?>, Peices Of Eight Costumes by Sue LLC.</span>
 					</div>
-				</div>
+				</div-->
 			</div>
 		</div>
 	</body>
