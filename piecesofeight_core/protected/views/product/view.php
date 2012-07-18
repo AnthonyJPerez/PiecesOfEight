@@ -684,22 +684,22 @@
 				<div id="nav_returns" class="tab">
 					<p>
 					As with many small costuming businesses, all sales are final. Size 
-					adjustments can be made to custom orders, item will need to be mailed 
-					back to me with clear indications of the adjustments needed and will 
+					adjustments can be made to custom orders, the item will need to be mailed 
+					back with clear instructions of the adjustments needed. The item will 
 					be shipped back out within 3-5 business days.
 					</p>
 				</div>
 				<div id="nav_shipping" class="tab">
 					<p>
-					Shipping and handling fees are $8.95 within the US or $12.95 for 
-					2 or more items shipped together. Items will be shipped 
-					UPS or USPS standard ground with tracking. 3-10 days from date shipped. 
-					Rush delivery available for an additional fee depending on the destination.
+					Shipping and handling fees are $8.95 USD within the US or $12.95 USD for 
+					two or more items shipped together. Items will be shipped 
+					UPS or USPS standard ground with tracking 3-10 days from date shipped. 
+					Rush delivery is available for an additional fee depending on the destination.
 					</p>
 					<p>
 					In stock items will be shipped out within 1-5 days of order.
-					Custom orders will take 3-6 weeks to ship. Oversees orders subject 
-					to additional shipping fees, all customs and taxes will be the 
+					Custom orders will take 3-6 weeks to ship. Overseas orders are subject 
+					to additional shipping fees. Customs and taxes will be the 
 					responsibility of the purchaser.
 					</p>
 				</div>

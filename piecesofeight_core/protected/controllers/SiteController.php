@@ -97,6 +97,13 @@ class SiteController extends GxController
 		);
 	}
 	
+	public function actionWebmasterContact()
+	{
+		$this->render(
+			'webmasterContact'
+		);
+	}
+	
 	
 	//
 	// Adds a user to the newsletter list and displays the 
