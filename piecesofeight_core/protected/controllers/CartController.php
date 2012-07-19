@@ -91,7 +91,27 @@ class CartController extends GxController
 			$totalQuantity += $data['quantity'];
 		}
 		
-		$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
+		//$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
+		if ($totalQuantity >= 8)
+		{
+			$shipping = 35.95;
+		}
+		else if ($totalQuantity >= 5)
+		{
+			$shipping = 24.95;
+		}
+		else if ($totalQuantity >= 3)
+		{
+			$shipping = 18.95;
+		}
+		else if ($totalQuantity == 2)
+		{
+			$shipping = 12.95;
+		}
+		else
+		{
+			$shipping = 8.95;
+		}
 		
 		return array(
 			'products' => $products,
