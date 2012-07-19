@@ -291,17 +291,17 @@
 					<div>
 						<span>Help</span>
 						<ul>
-							<li><?php echo CHtml::link('FAQ', $this->createUrl('site/faq'), array('title'=>'Frequently Asked Questions')); ?></li>
+							<li><?php echo CHtml::link('FAQ', $this->createUrl('site/page', array('view'=>'faq')), array('title'=>'Frequently Asked Questions')); ?></li>
 							<li><?php echo CHtml::link('Size Chart', $this->createUrl('site/page', array('view'=>'size-chart')), array('title'=>'Pieces of Eight Costumes Size Chart')); ?></li>
-							<li><?php echo CHtml::link('Site Feedback', $this->createUrl('site/comments'), array('title'=>'Product Comments and Feedback')); ?></li>
+							<li><?php echo CHtml::link('Site Feedback', $this->createUrl('site/webmasterContact'), array('title'=>'Product Comments and Feedback')); ?></li>
 						</ul>
 					</div>
 					<div>
 						<span>Follow Us</span>
 						<ul>
-							<li><?php echo CHtml::link('Facebook', "https://www.facebook.com/PiecesOf8Costumes", array('title'=>'Pieces of Eight Costumes Facebook Page')); ?></li>
-							<li><?php echo CHtml::link('Pinterest', "http://pinterest.com/pieceof8costume/", array('title'=>'Pieces of Eight Costumes Pinterest Board')); ?></li>
-							<li><?php echo CHtml::link('Google+', "https://plus.google.com/107715338617466620653", array('title'=>'Pieces of Eight Costumes Google+ Page')); ?></li>
+							<li><?php echo CHtml::link('Facebook', "https://www.facebook.com/PiecesOf8Costumes", array('target'=>'_BLANK', 'title'=>'Pieces of Eight Costumes Facebook Page')); ?></li>
+							<li><?php echo CHtml::link('Pinterest', "http://pinterest.com/pieceof8costume/", array('target'=>'_BLANK', 'title'=>'Pieces of Eight Costumes Pinterest Board')); ?></li>
+							<li><?php echo CHtml::link('Google+', "https://plus.google.com/107715338617466620653", array('target'=>'_BLANK', 'title'=>'Pieces of Eight Costumes Google+ Page')); ?></li>
 						</ul>
 					</div>
 					<div>
@@ -309,14 +309,14 @@
 						<ul>
 							<li><?php echo CHtml::link('About Us', $this->createUrl('site/page', array('view'=>'about')), array('title'=>'About Susan Perez, Owner of Pieces of Eight Costumes')); ?></li>
 							<li><?php echo CHtml::link('Contact Us', $this->createUrl('site/contact'), array('title'=>'Contact Pieces of Eight Costumes')); ?></li>
-							<li><?php echo CHtml::link('Etsy Shop', "https://www.etsy.com/shop/PiecesOf8Costumes", array('title'=>'Pieces of Eight Costumes Etsy Shop')); ?></li>
+							<li><?php echo CHtml::link('Etsy Shop', "https://www.etsy.com/shop/PiecesOf8Costumes", array('target'=>'_BLANK', 'title'=>'Pieces of Eight Costumes Etsy Shop')); ?></li>
 						</ul>
 					</div>
 					<div>
 						<span>Site Info</span>
 						<ul>
 							<li><?php echo CHtml::link('Terms & Conditions', $this->createUrl('site/page', array('view'=>'tos')), array('title'=>'Pieces of Eight Costumes Terms and Conditions')); ?></li>
-							<li><?php echo CHtml::link('Privacy Policy', $this->createUrl('site/page', array('view'=>'tos', '#'=>'privacy')), array('title'=>'Pieces of Eight Costumes Privacy Policy')); ?></li>
+							<li><?php echo CHtml::link('Privacy Policy', $this->createUrl('site/page', array('view'=>'tos', '#'=>'Privacy')), array('title'=>'Pieces of Eight Costumes Privacy Policy')); ?></li>
 							<li><?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners')), array('title'=>'Pieces of Eight Costumes Partners')); ?></li>
 						</ul>
 					</div>
