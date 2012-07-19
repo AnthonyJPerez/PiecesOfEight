@@ -72,7 +72,8 @@ class CartController extends GxController
 	}*/
 	
 	
-	public function actionView()
+	
+	function _getPriceDetails()
 	{
 		$products_session = $this->_getSession();
 		
@@ -92,22 +93,95 @@ class CartController extends GxController
 		
 		$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
 		
+		return array(
+			'products' => $products,
+			'shipping' => number_format($shipping, 2), // converts $x to $x.00
+			'subTotal' => number_format($subTotal, 2)
+		);
+	}
+	
+	
+	
+	public function actionView()
+	{
+		$details = $this->_getPriceDetails();
+		
 		$this->render(
 			'view',
 			array(
-				'products' => $products,
-				'shipping' => number_format($shipping, 2),
-				'subTotal' => number_format($subTotal,2), // converts $x to $x.00
+				'products' => $details['products'],
+				'shipping' => $details['shipping'],
+				'subTotal' => $details['subTotal'],
 				'AddcartModel' => new AddcartForm,
 			)
 		);
 	}
 	
 	
+	public function actionAPIError()
+	{
+		$this->render(
+			'apiError'
+		);
+	}
+	
 	
 	public function actionCheckout()
 	{
-		$this->_emptyCart();
+		// NVP API Reference: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_reference
+		
+		//$this->_emptyCart();
+		require_once('paypal/CallerService.php');
+		
+		//print_r($_REQUEST);
+		
+		if(! isset($_REQUEST['token'])) 
+		{
+			$details = $this->_getPriceDetails();
+			$nvp = array();
+			$nvp['PAYMENTREQUEST_0_AMT'] = $details['subTotal'];
+			$nvp['RETURNURL'] = $this->createAbsoluteUrl('cart/checkout');
+			$nvp['CANCELURL'] = $this->createAbsoluteUrl('cart/checkout');
+			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
+			
+			$nvpString = "";
+			foreach ($nvp as $key=>$value)
+			{
+				$nvpString .= $key.'='.$value.'&';
+			}
+			$nvpString = rtrim($nvpString, '&');
+			//$nvpString = http_build_query($nvp); // or urlencode
+			
+			/* Make the call to PayPal to set the Express Checkout token
+			If the API call succeded, then redirect the buyer to PayPal
+			to begin to authorize payment.  If an error occured, show the
+			resulting errors
+			*/
+			//print_r("NVP: " . $nvpString);
+			$resArray = hash_call("SetExpressCheckout",$nvpString);
+			$_SESSION['reshash'] = $resArray;
+			
+			$ack = strtoupper($resArray["ACK"]);
+			
+			if ($ack == "SUCCESS")
+			{
+				// Redirect to paypal.com here
+				$token = urldecode($resArray["TOKEN"]);
+				$payPalURL = PAYPAL_URL.$token;
+				header("Location: ".$payPalURL);
+			} 
+			else  
+			{
+				print_r($_SESSION);
+				// Redirecting to APIError.php to display errors.
+				$location = "APIError.php";
+				header("Location: $location");
+			}
+		}
+		else
+		{
+			echo "2";
+		}
 	
 		$this->render(
 			'checkout'
