@@ -179,7 +179,7 @@ if ($debug)
 
 $config['params'] = array(
 	// this is used in contact page
-	'adminEmail'=> ($debug) ? 'info@piecesofeightcostumes.com' : 'piecesof8costumes@comcast.net',
+	'adminEmail'=> ($debug) ? 'piecesof8costumes@gmail.com' : 'piecesof8costumes@comcast.net',
 	'webmasterEmail'=>'piecesof8costumes@gmail.com',
 );
 

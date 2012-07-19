@@ -81,9 +81,19 @@ class SiteController extends GxController
 		{
 			$model->attributes=$_POST['ContactForm'];
 			if($model->validate())
-			{
-				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
+			{	
+				// Email the form
+				$msg = new YiiMailMessage;
+				$msg->view = 'contact';
+				$msg->addTo(Yii::app()->params['adminEmail']);
+				$name = ucfirst($model->name);
+				$msg->setFrom(array($model->email => $name));
+				$msg->setSubject($model->subject);
+				$msg->setBody(array('model'=>$model), 'text/html');
+	
+				// Mail it!
+				Yii::app()->mail->send($msg);
+				
 				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to your email as soon as we can!');
 				$this->refresh();
 			}
@@ -99,8 +109,33 @@ class SiteController extends GxController
 	
 	public function actionWebmasterContact()
 	{
+		$model=new ContactForm;
+		if(isset($_POST['ContactForm']))
+		{
+			$model->attributes=$_POST['ContactForm'];
+			if($model->validate())
+			{
+				// Email the form
+				$msg = new YiiMailMessage;
+				$msg->view = 'contact';
+				$msg->addTo(Yii::app()->params['webmasterEmail']);
+				$name = ucfirst($model->name);
+				$msg->setFrom(array($model->email => $name));
+				$msg->setSubject("[Webmaster Inquiry] " . $model->subject);
+				$msg->setBody(array('model'=>$model), 'text/html');
+	
+				// Mail it!
+				Yii::app()->mail->send($msg);
+				
+				Yii::app()->user->setFlash('contact','Thank you for contacting our Webmaster!');
+				$this->refresh();
+			}
+		}
 		$this->render(
-			'webmasterContact'
+			'webmasterContact',
+			array(
+				'model' => $model
+			)
 		);
 	}
 	

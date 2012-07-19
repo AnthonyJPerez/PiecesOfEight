@@ -6,11 +6,17 @@
 	
 	$this->pageKeywords = "Frequently Asked Questions, How to custom order, common questions";
 
+	$this->pageCanonical = Yii::app()->request->hostInfo . $this->createUrl('site/page', array('view'=>'faq'));
 
 
 	Yii::app()->clientScript->registerCss(
 		'faq-style',
 		'	
+			.category
+			{
+				padding: 0.5em;
+			}
+			
 			.category > span
 			{
 				font-weight: bold;
@@ -21,6 +27,7 @@
 			.category > ul
 			{
 				list-style: none;
+				margin: 0.25em;
 			}
 			
 			.answers > li > span
