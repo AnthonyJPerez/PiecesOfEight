@@ -209,7 +209,9 @@ if (!empty($products))
 	<ul class='checkout_buttons'>
 		<li><a class='empty_cart btn btn-inverse' href="<?php echo $this->createUrl('cart/empty'); ?>"><i class='icon-trash'></i> Empty Cart</a></li>
 
-		<li><form class='checkout' action="https://www.paypal.com/cgi-bin/webscr" method="POST">
+		<li>
+		<!--form class='checkout' action="https://www.paypal.com/cgi-bin/webscr" method="POST"-->
+		<form class='checkout' method="POST" action="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>">
 			<input type="hidden" name="cmd" value="_cart" />
 			<input type="hidden" name="upload" value="1" />			
 			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>" />
@@ -231,10 +233,11 @@ if (!empty($products))
 					$count++;
 				}
 				
-				echo CHtml::imageButton(Yii::app()->baseUrl . '/images/paypal_button.gif', array('alt'=>'Checkout with Paypal'));
+				echo CHtml::imageButton(Yii::app()->baseUrl . '/images/paypal_button.gif', array('alt'=>'Checkout with Paypal'));				
 			?>
 			
-		</form></li>
+		</form>
+		</li>
 	</ul>		
 </div>
 	
