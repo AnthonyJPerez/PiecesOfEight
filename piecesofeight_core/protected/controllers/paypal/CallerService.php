@@ -40,7 +40,7 @@ $AUTH_timestamp=AUTH_TIMESTAMP;
 
 function nvpHeader()
 {
-global $API_Endpoint,$version,$API_UserName,$API_Password,$API_Signature,$nvp_Header, $subject, $AUTH_token,$AUTH_signature,$AUTH_timestamp;
+$API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Password=API_PASSWORD;$API_Signature=API_SIGNATURE;$nvp_Header; $subject=SUBJECT; $AUTH_token=AUTH_TOKEN;$AUTH_signature=AUTH_SIGNATURE;$AUTH_timestamp=AUTH_TIMESTAMP;
 $nvpHeaderStr = "";
 
 if(defined('AUTH_MODE')) {
@@ -95,7 +95,7 @@ switch($AuthMode) {
 function hash_call($methodName,$nvpStr)
 {
 	//declaring of global variables
-	global $API_Endpoint,$version,$API_UserName,$API_Password,$API_Signature,$nvp_Header, $subject, $AUTH_token,$AUTH_signature,$AUTH_timestamp;
+$API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Password=API_PASSWORD;$API_Signature=API_SIGNATURE;$nvp_Header; $subject=SUBJECT; $AUTH_token=AUTH_TOKEN;$AUTH_signature=AUTH_SIGNATURE;$AUTH_timestamp=AUTH_TIMESTAMP;
 	// form header string
 	$nvpheader=nvpHeader();
 	//setting the curl parameters.
@@ -129,12 +129,10 @@ function hash_call($methodName,$nvpStr)
 
 	//check if version is included in $nvpStr else include the version.
 	if(strlen(str_replace('VERSION=', '', strtoupper($nvpStr))) == strlen($nvpStr)) {
-		$nvpStr = "&VERSION=" . urlencode(VERSION) . $nvpStr;	
+		$nvpStr = "&VERSION=" . urlencode($version) . $nvpStr;	
 	}
 	
 	$nvpreq="METHOD=".urlencode($methodName).$nvpStr;
-	
-	print_r($nvpreq);
 	
 	//setting the nvpreq as POST FIELD to curl
 	curl_setopt($ch,CURLOPT_POSTFIELDS,$nvpreq);
@@ -156,11 +154,9 @@ function hash_call($methodName,$nvpStr)
 
 	if (curl_errno($ch)) {
 		// moving to display page to display curl errors
-		print_r($_SESSION['curl_error_no']);
-		print_r($_SESSION['curl_error_msg']);
 		  $_SESSION['curl_error_no']=curl_errno($ch) ;
 		  $_SESSION['curl_error_msg']=curl_error($ch);
-		  $location = "APIError";
+		  $location = "APIError.php";
 		  header("Location: $location");
 	 } else {
 		 //closing the curl
