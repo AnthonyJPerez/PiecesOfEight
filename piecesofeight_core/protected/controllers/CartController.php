@@ -1,4 +1,5 @@
 <?php
+//require_once('paypal/CallerService.php');
 
 class CartController extends GxController
 {
@@ -91,7 +92,27 @@ class CartController extends GxController
 			$totalQuantity += $data['quantity'];
 		}
 		
-		$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
+		//$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
+		if ($totalQuantity >= 8)
+		{
+			$shipping = 35.95;
+		}
+		else if ($totalQuantity >= 5)
+		{
+			$shipping = 24.95;
+		}
+		else if ($totalQuantity >= 3)
+		{
+			$shipping = 18.95;
+		}
+		else if ($totalQuantity == 2)
+		{
+			$shipping = 12.95;
+		}
+		else
+		{
+			$shipping = 8.95;
+		}
 		
 		return array(
 			'products' => $products,
@@ -120,6 +141,7 @@ class CartController extends GxController
 	
 	public function actionAPIError()
 	{
+		print_r($_SESSION);
 		$this->render(
 			'apiError'
 		);
@@ -131,7 +153,7 @@ class CartController extends GxController
 		// NVP API Reference: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_reference
 		
 		//$this->_emptyCart();
-		require_once('paypal/CallerService.php');
+		
 		
 		//print_r($_REQUEST);
 		
@@ -140,17 +162,38 @@ class CartController extends GxController
 			$details = $this->_getPriceDetails();
 			$nvp = array();
 			$nvp['PAYMENTREQUEST_0_AMT'] = $details['subTotal'];
-			$nvp['RETURNURL'] = $this->createAbsoluteUrl('cart/checkout');
-			$nvp['CANCELURL'] = $this->createAbsoluteUrl('cart/checkout');
+			$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
+			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
+			$nvp['ALLOWNOTE'] = 1; // The buyer is able to enter a note to the merchant.
+			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
+			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
 			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
 			
-			$nvpString = "";
+			// Add each product
+			$count = 0;
+			$nvp['PAYMENTREQUEST_0_ITEMAMT'] = 0;
+			foreach ($details['products'] as $pid=>$value)
+			{
+				$nvp['L_PAYMENTREQUEST_0_NAME'.$count] = urlencode($value['product']->name);
+				$nvp['L_PAYMENTREQUEST_0_AMT'.$count] = $value['product']->price;
+				$nvp['L_PAYMENTREQUEST_0_QTY'.$count] = $value['quantity'];
+				$nvp['L_PAYMENTREQUEST_0_ITEMCATEGORY'.$count] = "Physical";
+				$count++;
+				$nvp['PAYMENTREQUEST_0_ITEMAMT'] += $value['product']->price * $value['quantity'];
+			}
+			
+			
+			// format the nvp string as url parameters
+			$nvpString = "&";
 			foreach ($nvp as $key=>$value)
 			{
 				$nvpString .= $key.'='.$value.'&';
 			}
 			$nvpString = rtrim($nvpString, '&');
-			//$nvpString = http_build_query($nvp); // or urlencode
+			
+			/*echo "<div>";
+			print_r($nvpString);
+			echo "</div>";*/
 			
 			/* Make the call to PayPal to set the Express Checkout token
 			If the API call succeded, then redirect the buyer to PayPal
@@ -174,13 +217,45 @@ class CartController extends GxController
 			{
 				print_r($_SESSION);
 				// Redirecting to APIError.php to display errors.
-				$location = "APIError.php";
+				$location = "APIError";
 				header("Location: $location");
 			}
 		}
 		else
 		{
-			echo "2";
+			/* Gather the information to make the final call to
+			   finalize the PayPal payment.  The variable nvpstr
+			   holds the name value pairs
+			   */
+			$token =urlencode( $_REQUEST['token']);
+			$paymentAmount =urlencode ($_REQUEST['TotalAmount']);
+			$paymentType = urlencode($_REQUEST['paymentType']);
+			$currCodeType = urlencode($_REQUEST['currencyCodeType']);
+			$payerID = urlencode($_REQUEST['PayerID']);
+			$serverName = urlencode($_REQUEST['SERVER_NAME']);
+			
+			$nvpstr='&TOKEN='.$token.'&PAYERID='.$payerID.'&PAYMENTACTION='.$paymentType.'&AMT='.$paymentAmount.'&CURRENCYCODE='.$currCodeType.'&IPADDRESS='.$serverName ;
+			
+			
+			
+			 /* Make the call to PayPal to finalize payment
+			    If an error occured, show the resulting errors
+			    */
+			$resArray=hash_call("DoExpressCheckoutPayment",$nvpstr);
+			
+			/* Display the API response back to the browser.
+			   If the response from PayPal was a success, display the response parameters'
+			   If the response was an error, display the errors received using APIError.php.
+			   */
+			$ack = strtoupper($resArray["ACK"]);
+			
+			
+			if($ack != 'SUCCESS' && $ack != 'SUCCESSWITHWARNING'){
+				print_r($_SESSION);
+				$_SESSION['reshash']=$resArray;
+				$location = "APIError";
+					 header("Location: $location");
+					   }
 		}
 	
 		$this->render(

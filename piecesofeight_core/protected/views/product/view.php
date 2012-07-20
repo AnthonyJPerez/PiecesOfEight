@@ -328,6 +328,17 @@
 				width: 100%;
 				font-size: 15px !important;
 			}
+			
+			.submit div
+			{
+				width: 100%;
+				font-size: 15px !important;
+				text-align: center;
+				padding: 0.75em;
+				background-color: rgba(50, 50, 50, 0.5);
+				border-radius: 2px;
+				color: #eee;
+			}
 		
 		.etsy_link
 		{
@@ -652,15 +663,25 @@
 				);
 				echo "</div>";
 				
+				
+				
 				// Submit Button
 				echo "<div class='submit'>";
+				if ($model->out_of_stock == 0)
+				{
 					echo CHtml::linkButton(
 						"<i class='icon-shopping-cart'></i> Add to Cart",
 						array(
-							'class' => 'btn btn-inverse'
+							'class' => 'btn btn-inverse',
 						)
 					);
+				}
+				else
+				{
+					echo "<div>Out of Stock</div>";
+				}
 				echo "</div>";
+				
 				
 				$this->endWidget();
 			?>
@@ -691,15 +712,73 @@
 				</div>
 				<div id="nav_shipping" class="tab">
 					<p>
-					Shipping and handling fees are $8.95 USD within the US or $12.95 USD for 
-					two or more items shipped together. Items will be shipped 
-					UPS or USPS standard ground with tracking 3-10 days from date shipped. 
-					Rush delivery is available for an additional fee depending on the destination.
+					Items will be shipped via UPS or USPS standard ground with tracking, 
+					3-10 days from date shipped. U.S. and International rates can are calculated
+					via the table below. Rush delivery available for an additional 
+					fee depending on the destination.
 					</p>
+					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="3">
+						<tr>
+							<th colspan=2>USA</th>
+						</tr>
+						<tr>
+							<th>Quantity</th>
+							<th>Price</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>$8.95 USD</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>$12.95 USD</td>
+						</tr>
+						<tr>
+							<td>3 - 4</td>
+							<td>$18.95 USD</td>
+						</tr>
+						<tr>
+							<td>5 - 7</td>
+							<td>$24.95 USD</td>
+						</tr>
+						<tr>
+							<td>8+</td>
+							<td>$35.95 USD</td>
+						</tr>
+					</table>
+					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="3">
+						<tr>
+							<th colspan=2>International</th>
+						</tr>
+						<tr>
+							<th>Quantity</th>
+							<th>Price</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>$49.95 USD</td>
+						</tr>
+						<tr>
+							<td>2 - 3</td>
+							<td>$59.95 USD</td>
+						</tr>
+						<tr>
+							<td>4 - 6</td>
+							<td>$79.95 USD</td>
+						</tr>
+						<tr>
+							<td>7 - 9</td>
+							<td>$99.95 USD</td>
+						</tr>
+						<tr>
+							<td>10+</td>
+							<td>$150 USD</td>
+						</tr>
+					</table>
 					<p>
-					In stock items will be shipped out within 1-5 days of order.
+					In stock items will be shipped out within 3-7 business days of the order.
 					Custom orders will take 3-6 weeks to ship. Overseas orders are subject 
-					to additional shipping fees. Customs and taxes will be the 
+					to additional shipping fees, all customs and taxes will be the 
 					responsibility of the purchaser.
 					</p>
 				</div>
