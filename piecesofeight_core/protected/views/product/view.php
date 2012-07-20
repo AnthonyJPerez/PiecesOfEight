@@ -328,6 +328,17 @@
 				width: 100%;
 				font-size: 15px !important;
 			}
+			
+			.submit div
+			{
+				width: 100%;
+				font-size: 15px !important;
+				text-align: center;
+				padding: 0.75em;
+				background-color: rgba(50, 50, 50, 0.5);
+				border-radius: 2px;
+				color: #eee;
+			}
 		
 		.etsy_link
 		{
@@ -652,15 +663,25 @@
 				);
 				echo "</div>";
 				
+				
+				
 				// Submit Button
 				echo "<div class='submit'>";
+				if ($model->out_of_stock == 0)
+				{
 					echo CHtml::linkButton(
 						"<i class='icon-shopping-cart'></i> Add to Cart",
 						array(
-							'class' => 'btn btn-inverse'
+							'class' => 'btn btn-inverse',
 						)
 					);
+				}
+				else
+				{
+					echo "<div>Out of Stock</div>";
+				}
 				echo "</div>";
+				
 				
 				$this->endWidget();
 			?>

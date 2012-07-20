@@ -19,6 +19,7 @@
  * @property string $care_information
  * @property string $default_image_id
  * @property string $page_description
+ * @property string $out_of_stock
  *
  * @property Gallery[] $galleries
  * @property Image[] $images
@@ -54,9 +55,10 @@ abstract class BaseProduct extends GxActiveRecord {
 			array('name', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>6),
 			array('category_id, default_image_id', 'length', 'max'=>10),
+			array('out_of_stock', 'length', 'max'=>1),
 			array('date_inserted, description, size_chart, care_information', 'safe'),
-			array('date_inserted, description, size_chart, care_information, default_image_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description', 'safe', 'on'=>'search'),
+			array('date_inserted, description, size_chart, care_information, default_image_id, out_of_stock', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description, out_of_stock', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -96,6 +98,7 @@ abstract class BaseProduct extends GxActiveRecord {
 			'care_information' => Yii::t('app', 'Care Information'),
 			'default_image_id' => null,
 			'page_description' => Yii::t('app', 'Page Description'),
+			'out_of_stock' => Yii::t('app', 'Out Of Stock'),
 			'galleries' => null,
 			'images' => null,
 			'category' => null,
@@ -121,6 +124,7 @@ abstract class BaseProduct extends GxActiveRecord {
 		$criteria->compare('care_information', $this->care_information, true);
 		$criteria->compare('default_image_id', $this->default_image_id);
 		$criteria->compare('page_description', $this->page_description, true);
+		$criteria->compare('out_of_stock', $this->out_of_stock, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
