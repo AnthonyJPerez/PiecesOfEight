@@ -85,6 +85,7 @@ class ProductController extends GxController
 		// Select any images associated with this product as well.
 		$criteria = array(
 			'with' => array('images'),
+			'condition' => 'out_of_stock != 1',
 			'order' => 'date_inserted DESC'
 		);
 		
@@ -92,7 +93,7 @@ class ProductController extends GxController
 		// else default to showing all products
 		if ( !is_null($CategoryModel) )
 		{	
-			$criteria['condition'] = 'category_id='.$CategoryModel->id;
+			$criteria['condition'] .= '&& category_id='.$CategoryModel->id;
 		}
 		/*// If the category is 'new', then only show products posted within the last 6 months.
 		else if ($category === 'new')

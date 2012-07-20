@@ -52,13 +52,6 @@
 							url: 'http://www.canterburyfaire.com'
 						},
 						{
-							title: 'Canterbury Renaissance Faire',
-							start: new Date(2012, 6, 21),
-							end: new Date(2012, 6, 22),
-							allDay: true,
-							url: 'http://www.canterburyfaire.com'
-						},
-						{
 							title: 'Faire In The Grove',
 							start: new Date(2012, 4, 5),
 							end: new Date(2012, 4, 6),
