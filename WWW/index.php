@@ -1,5 +1,7 @@
 <?php
 
+include_once('CallerService.php');
+
 // remove this when not under construction
 $PO8_UNDER_CONSTRUCTION = false;
 $P08_LIVE = false;

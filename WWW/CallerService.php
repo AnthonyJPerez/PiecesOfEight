@@ -40,7 +40,7 @@ $AUTH_timestamp=AUTH_TIMESTAMP;
 
 function nvpHeader()
 {
-$API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Password=API_PASSWORD;$API_Signature=API_SIGNATURE;$nvp_Header; $subject=SUBJECT; $AUTH_token=AUTH_TOKEN;$AUTH_signature=AUTH_SIGNATURE;$AUTH_timestamp=AUTH_TIMESTAMP;
+global $API_Endpoint,$version,$API_UserName,$API_Password,$API_Signature,$nvp_Header, $subject, $AUTH_token,$AUTH_signature,$AUTH_timestamp;
 $nvpHeaderStr = "";
 
 if(defined('AUTH_MODE')) {
@@ -95,7 +95,7 @@ switch($AuthMode) {
 function hash_call($methodName,$nvpStr)
 {
 	//declaring of global variables
-$API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Password=API_PASSWORD;$API_Signature=API_SIGNATURE;$nvp_Header; $subject=SUBJECT; $AUTH_token=AUTH_TOKEN;$AUTH_signature=AUTH_SIGNATURE;$AUTH_timestamp=AUTH_TIMESTAMP;
+	global $API_Endpoint,$version,$API_UserName,$API_Password,$API_Signature,$nvp_Header, $subject, $AUTH_token,$AUTH_signature,$AUTH_timestamp;
 	// form header string
 	$nvpheader=nvpHeader();
 	//setting the curl parameters.
@@ -115,10 +115,8 @@ $API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Pass
 	 {
 		$headers_array[] = "X-PP-AUTHORIZATION: ".$nvpheader;
   
-  		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers_array);
-		curl_setopt($ch, CURLOPT_HEADER, false);
-		//curl_setopt($ch, CURLOPT_HEADER, true);
-		//curl_setopt($ch, CURLOPT_VERBOSE, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers_array);
+    curl_setopt($ch, CURLOPT_HEADER, false);
 	}
 	else 
 	{
@@ -142,7 +140,8 @@ $API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Pass
 	//getting response from server
 	$response = curl_exec($ch);
 	
-	//print_r(curl_getinfo($ch));
+		//print_r(curl_getinfo($ch));
+
 	
 	 if (curl_errno($ch) == 60) { 
       
@@ -160,7 +159,7 @@ $API_Endpoint=API_ENDPOINT;$version=VERSION;$API_UserName=API_USERNAME;$API_Pass
 		// moving to display page to display curl errors
 		  $_SESSION['curl_error_no']=curl_errno($ch) ;
 		  $_SESSION['curl_error_msg']=curl_error($ch);
-		  $location = "APIError";
+		  $location = "APIError.php";
 		  header("Location: $location");
 	 } else {
 		 //closing the curl
