@@ -1,5 +1,5 @@
 <?php
-require_once('paypal/CallerService.php');
+//require_once('paypal/CallerService.php');
 
 class CartController extends GxController
 {
@@ -163,8 +163,8 @@ class CartController extends GxController
 			$nvp = array();
 			$nvp['PAYMENTREQUEST_0_AMT'] = $details['subTotal'];
 			$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
-			//$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
-			//$nvp['ALLOWNOTE'] = 1; // The buyer is able to enter a note to the merchant.
+			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
+			$nvp['ALLOWNOTE'] = 1; // The buyer is able to enter a note to the merchant.
 			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
 			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
@@ -223,7 +223,39 @@ class CartController extends GxController
 		}
 		else
 		{
-			echo "2";
+			/* Gather the information to make the final call to
+			   finalize the PayPal payment.  The variable nvpstr
+			   holds the name value pairs
+			   */
+			$token =urlencode( $_REQUEST['token']);
+			$paymentAmount =urlencode ($_REQUEST['TotalAmount']);
+			$paymentType = urlencode($_REQUEST['paymentType']);
+			$currCodeType = urlencode($_REQUEST['currencyCodeType']);
+			$payerID = urlencode($_REQUEST['PayerID']);
+			$serverName = urlencode($_REQUEST['SERVER_NAME']);
+			
+			$nvpstr='&TOKEN='.$token.'&PAYERID='.$payerID.'&PAYMENTACTION='.$paymentType.'&AMT='.$paymentAmount.'&CURRENCYCODE='.$currCodeType.'&IPADDRESS='.$serverName ;
+			
+			
+			
+			 /* Make the call to PayPal to finalize payment
+			    If an error occured, show the resulting errors
+			    */
+			$resArray=hash_call("DoExpressCheckoutPayment",$nvpstr);
+			
+			/* Display the API response back to the browser.
+			   If the response from PayPal was a success, display the response parameters'
+			   If the response was an error, display the errors received using APIError.php.
+			   */
+			$ack = strtoupper($resArray["ACK"]);
+			
+			
+			if($ack != 'SUCCESS' && $ack != 'SUCCESSWITHWARNING'){
+				print_r($_SESSION);
+				$_SESSION['reshash']=$resArray;
+				$location = "APIError";
+					 header("Location: $location");
+					   }
 		}
 	
 		$this->render(
