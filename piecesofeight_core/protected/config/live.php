@@ -118,7 +118,7 @@ $config['components']['db'] =
 	?
 		// Debug mode
 		array(
-			'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',
+			'connectionString' => 'mysql:host=localhost;port=8888;dbname=piecesofeight',
 			'emulatePrepare' => true,
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
