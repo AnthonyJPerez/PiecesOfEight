@@ -142,7 +142,10 @@ class CartController extends GxController
 	public function actionError($error)
 	{
 		$this->render(
-			'error'
+			'error',
+			array(
+				'error' => $error
+			)
 		);
 	}
 	
@@ -158,6 +161,14 @@ class CartController extends GxController
 		if(! isset($_REQUEST['token'])) 
 		{
 			$details = $this->_getPriceDetails();
+			
+			if (count($details['products']) <= 0)
+			{
+				// There is nothing in the cart, so redirect the user:
+				$this->redirect(
+					$this->createUrl('cart/view')
+				);
+			}
 			$nvp = array();
 			$nvp['PAYMENTREQUEST_0_AMT'] = $details['subTotal'];
 			$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
@@ -265,6 +276,39 @@ class CartController extends GxController
 				}
 				else
 				{
+					
+					// create a new order in the database
+					print_r($getOrderDetails);
+					$Order = new Order;
+					$Order->confirmation_code = $this->_createConfirmationCode();
+					$Order->email = $getOrderDetails['EMAIL'];
+					$Order->order_date = new CDbExpression('NOW()');
+					$Order->first_name = $getOrderDetails['FIRSTNAME'] || "n/a";
+					$Order->last_name = $getOrderDetails['LASTNAME'] || "n/a";
+					$Order->shipto_name = $getOrderDetails['PAYMENTREQUEST_0_SHIPTONAME'] || "n/a";
+					$Order->shipto_street = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOSTREET'] || "n/a";
+					$Order->shipto_city = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOCITY'] || "n/a";
+					$Order->shipto_state = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOSTATE'] || "n/a";
+					$Order->shipto_zip = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOZIP'] || "n/a";
+					$Order->shipto_countrycode = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE'] || "n/a";
+					$Order->shipto_countryname = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME'] || "n/a";
+					$Order->total_amt = $getOrderDetails['PAYMENTREQUEST_0_AMT'] || "n/a";
+					$Order->subtotal_amt = $getOrderDetails['PAYMENTREQUEST_0_ITEMAMT'] || "n/a";
+					$Order->shipping_amt = $getOrderDetails['PAYMENTREQUEST_0_SHIPPINGAMT'] || "n/a";
+					$Order->shipping_type = $getOrderDetails['SHIPPINGOPTIONNAME'] || "n/a";
+					$Order->tax_amt = $getOrderDetails['PAYMENTREQUEST_0_TAXAMT'] || "n/a";
+					$Order->discount_amt = $getOrderDetails['PAYMENTREQUEST_0_SHIPDISCAMT'] || "n/a";
+					$Order->discount_msg = "";
+					
+					$details = $this->_getPriceDetails();
+					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
+					$Order->save();
+					
+					// Send the confirmation emails
+						// send one to adminEmail
+						// send one to customerEmail
+					// ...
+					
 					// Empty the cart!
 					$this->_emptyCart();
 					
@@ -277,6 +321,19 @@ class CartController extends GxController
 	}
 	
 	
+	private function _createConfirmationCode()
+	{
+		$charpool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890abcdefghijklmnopqrstuvwxyz";
+		$code = "";
+		$max = strlen($charpool) - 1;
+		for ($x=0; $x<8; $x++)
+		{
+			$code .= rand(0, $max);
+		}
+		
+		// @todo make sure this is unique in database before returning
+		return $code;
+	}
 	
 	private function _getSession()
 	{
