@@ -30,14 +30,14 @@ abstract class BaseMeasurement extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'description';
+		return 'name';
 	}
 
 	public function rules() {
 		return array(
-			array('description', 'required'),
 			array('name', 'length', 'max'=>255),
-			array('name', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('description', 'safe'),
+			array('name, description', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, name, description', 'safe', 'on'=>'search'),
 		);
 	}

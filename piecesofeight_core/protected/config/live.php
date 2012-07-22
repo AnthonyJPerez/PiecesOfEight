@@ -179,9 +179,9 @@ if ($debug)
 
 $config['params'] = array(
 	// this is used in contact page
-	'adminEmail'=> ($debug) ? 'piecesof8costumes@gmail.com' : 'piecesof8costumes@comcast.net',
+	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@comcast.net',
 	'paypalEmail'=> ($debug) ? 'po8_1330738240_biz@gmail.com' : 'piecesof8costumes@comcast.net',
-	'webmasterEmail'=>'piecesof8costumes@gmail.com',
+	'webmasterEmail'=>'AnthonyJPerez@comcast.net',
 );
 
 return $config;

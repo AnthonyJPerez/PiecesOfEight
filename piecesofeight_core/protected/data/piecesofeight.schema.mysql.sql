@@ -386,6 +386,44 @@ CREATE TABLE p8_newsletter
 
 
 
+#-- Order
+#--
+#-- Tracks customer orders. Contains all information relevant to an order
+CREATE TABLE p8_order
+(
+	#-- KEY
+	id			INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	confirmation_code = VARCHAR (255) NOT NULL,
+	email			VARCHAR (255) NOT NULL,
+	order_date		DATETIME NOT NULL,
+	first_name		VARCHAR (255) NOT NULL,
+	last_name		VARCHAR (255) NOT NULL,
+	shipto_name		VARCHAR (255) NOT NULL,
+	shipto_street	VARCHAR (255) NOT NULL,
+	shipto_city		VARCHAR (255) NOT NULL,
+	shipto_state	VARCHAR (255) NOT NULL,
+	shipto_zip		VARCHAR (255) NOT NULL,
+	shipto_countrycode	VARCHAR (255) NOT NULL,
+	shipto_countryname	VARCHAR (255) NOT NULL,
+	
+	total_amt		DECIMAL (6, 2) NOT NULL,
+	subtotal_amt	DECIMAL (6, 2) NOT NULL,
+	shipping_amt	DECIMAL (6, 2) NOT NULL,
+	shipping_type	VARCHAR (255) NOT NULL,
+	tax_amt			DECIMAL (6, 2) NOT NULL,
+	
+	discount_amt	DECIMAL (6, 2) NOT NULL,
+	discount_msg	VARCHAR (255) NOT NULL,
+	
+	order_details	BLOB, #-- we will serialize the array of order items to make it easier to display
+	
+	#-- Constraints
+	PRIMARY KEY (id),
+	UNIQUE KEY fk_confirmation_code(confirmation_code)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 #----------------------------------------------------------------------------------------------
 #-- INSERT DATA
