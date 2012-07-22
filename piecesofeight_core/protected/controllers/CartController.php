@@ -278,27 +278,28 @@ class CartController extends GxController
 				{
 					
 					// create a new order in the database
+					$d = $getOrderDetails;
 					print_r($getOrderDetails);
 					$Order = new Order;
 					$Order->confirmation_code = $this->_createConfirmationCode();
 					$Order->email = $getOrderDetails['EMAIL'];
 					$Order->order_date = new CDbExpression('NOW()');
-					$Order->first_name = $getOrderDetails['FIRSTNAME'] || "n/a";
-					$Order->last_name = $getOrderDetails['LASTNAME'] || "n/a";
-					$Order->shipto_name = $getOrderDetails['PAYMENTREQUEST_0_SHIPTONAME'] || "n/a";
-					$Order->shipto_street = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOSTREET'] || "n/a";
-					$Order->shipto_city = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOCITY'] || "n/a";
-					$Order->shipto_state = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOSTATE'] || "n/a";
-					$Order->shipto_zip = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOZIP'] || "n/a";
-					$Order->shipto_countrycode = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE'] || "n/a";
-					$Order->shipto_countryname = $getOrderDetails['PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME'] || "n/a";
-					$Order->total_amt = $getOrderDetails['PAYMENTREQUEST_0_AMT'] || "n/a";
-					$Order->subtotal_amt = $getOrderDetails['PAYMENTREQUEST_0_ITEMAMT'] || "n/a";
-					$Order->shipping_amt = $getOrderDetails['PAYMENTREQUEST_0_SHIPPINGAMT'] || "n/a";
-					$Order->shipping_type = $getOrderDetails['SHIPPINGOPTIONNAME'] || "n/a";
-					$Order->tax_amt = $getOrderDetails['PAYMENTREQUEST_0_TAXAMT'] || "n/a";
-					$Order->discount_amt = $getOrderDetails['PAYMENTREQUEST_0_SHIPDISCAMT'] || "n/a";
-					$Order->discount_msg = "";
+					$Order->first_name = $this->_getValue($d, 'FIRSTNAME');
+					$Order->last_name = $this->_getValue($d, 'LASTNAME');
+					$Order->shipto_name = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTONAME');
+					$Order->shipto_street = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOSTREET');
+					$Order->shipto_city = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCITY');
+					$Order->shipto_state = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOSTATE');
+					$Order->shipto_zip = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOZIP');
+					$Order->shipto_countrycode = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE');
+					$Order->shipto_countryname = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME');
+					$Order->total_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_AMT');
+					$Order->subtotal_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_ITEMAMT');
+					$Order->shipping_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPPINGAMT');
+					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
+					$Order->tax_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_TAXAMT');
+					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
+					$Order->discount_msg = "n/a";
 					
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
@@ -318,6 +319,16 @@ class CartController extends GxController
 				}
 			}
 		}
+	}
+	
+	private function _getValue($arr, $key)
+	{
+		if (array_key_exists($key, $arr))
+		{
+			return $arr[$key];
+		}
+		
+		return "n/a";
 	}
 	
 	
