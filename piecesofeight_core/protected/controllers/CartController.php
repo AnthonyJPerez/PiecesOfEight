@@ -139,24 +139,22 @@ class CartController extends GxController
 	}
 	
 	
-	public function actionAPIError()
+	public function actionError($error)
 	{
-		print_r($_SESSION);
 		$this->render(
-			'apiError'
+			'error'
 		);
 	}
 	
 	
 	public function actionCheckout()
 	{
-		// NVP API Reference: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_reference
+		// NVP API Reference: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_reference		
+		// google for: paypal setexpresscheckout, etc..
 		
-		//$this->_emptyCart();
-		
-		
-		//print_r($_REQUEST);
-		
+		//
+		// SetExpressCheckout
+		//
 		if(! isset($_REQUEST['token'])) 
 		{
 			$details = $this->_getPriceDetails();
@@ -166,7 +164,7 @@ class CartController extends GxController
 			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
 			$nvp['ALLOWNOTE'] = 1; // The buyer is able to enter a note to the merchant.
 			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
-			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
+			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
 			
 			// Add each product
@@ -182,7 +180,6 @@ class CartController extends GxController
 				$nvp['PAYMENTREQUEST_0_ITEMAMT'] += $value['product']->price * $value['quantity'];
 			}
 			
-			
 			// format the nvp string as url parameters
 			$nvpString = "&";
 			foreach ($nvp as $key=>$value)
@@ -191,19 +188,8 @@ class CartController extends GxController
 			}
 			$nvpString = rtrim($nvpString, '&');
 			
-			/*echo "<div>";
-			print_r($nvpString);
-			echo "</div>";*/
-			
-			/* Make the call to PayPal to set the Express Checkout token
-			If the API call succeded, then redirect the buyer to PayPal
-			to begin to authorize payment.  If an error occured, show the
-			resulting errors
-			*/
-			//print_r("NVP: " . $nvpString);
-			$resArray = hash_call("SetExpressCheckout",$nvpString);
-			$_SESSION['reshash'] = $resArray;
-			
+			// Call the SetExpressCheckout action
+			$resArray = hash_call("SetExpressCheckout",$nvpString);			
 			$ack = strtoupper($resArray["ACK"]);
 			
 			if ($ack == "SUCCESS")
@@ -215,52 +201,79 @@ class CartController extends GxController
 			} 
 			else  
 			{
-				print_r($_SESSION);
-				// Redirecting to APIError.php to display errors.
-				$location = "APIError";
-				header("Location: $location");
+				// SetExpressCheckout error
+				$this->redirect(
+					$this->createUrl(array('cart/error', array('error'=>'set')))
+				);
 			}
 		}
+		
+		//
+		// GetExpressCheckoutDetails
+		//
 		else
 		{
-			/* Gather the information to make the final call to
-			   finalize the PayPal payment.  The variable nvpstr
-			   holds the name value pairs
-			   */
 			$token =urlencode( $_REQUEST['token']);
-			$paymentAmount =urlencode ($_REQUEST['TotalAmount']);
-			$paymentType = urlencode($_REQUEST['paymentType']);
-			$currCodeType = urlencode($_REQUEST['currencyCodeType']);
-			$payerID = urlencode($_REQUEST['PayerID']);
-			$serverName = urlencode($_REQUEST['SERVER_NAME']);
+			$nvpstr="&TOKEN=".$token;
 			
-			$nvpstr='&TOKEN='.$token.'&PAYERID='.$payerID.'&PAYMENTACTION='.$paymentType.'&AMT='.$paymentAmount.'&CURRENCYCODE='.$currCodeType.'&IPADDRESS='.$serverName ;
+			// Do the GetExpressCheckoutDetails action
+			$resArray=hash_call("GetExpressCheckoutDetails",$nvpstr);
 			
-			
-			
-			 /* Make the call to PayPal to finalize payment
-			    If an error occured, show the resulting errors
-			    */
-			$resArray=hash_call("DoExpressCheckoutPayment",$nvpstr);
-			
-			/* Display the API response back to the browser.
-			   If the response from PayPal was a success, display the response parameters'
-			   If the response was an error, display the errors received using APIError.php.
-			   */
+			// Grab a copy of the details, so we can use them later.
 			$ack = strtoupper($resArray["ACK"]);
+			$getOrderDetails = $resArray;
 			
+			if($ack != 'SUCCESS' && $ack != 'SUCCESSWITHWARNING')
+			{
+				// GetExpressCheckoutDetails error
+				$this->redirect(
+					$this->createUrl(array('cart/error', array('error'=>'get')))
+				);
+			}
 			
-			if($ack != 'SUCCESS' && $ack != 'SUCCESSWITHWARNING'){
-				print_r($_SESSION);
-				$_SESSION['reshash']=$resArray;
-				$location = "APIError";
-					 header("Location: $location");
-					   }
+			//
+			// DoExpressCheckout
+			//
+			else
+			{								
+				// Perform the DoExpressCheckout action
+				$nvp = array();
+				$nvp['TOKEN'] = $resArray['TOKEN'];
+				$nvp['PAYERID'] = $resArray['PAYERID'];
+				$nvp['PAYMENTREQUEST_0_AMT'] = $resArray['PAYMENTREQUEST_0_AMT'];
+				$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
+				$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
+				
+				// format the nvp string as url parameters
+				$nvpString = "&";
+				foreach ($nvp as $key=>$value)
+				{
+					$nvpString .= $key.'='.$value.'&';
+				}
+				$nvpString = rtrim($nvpString, '&');
+				
+				// Do the DoExpressCheckoutPayment action
+				$resArray=hash_call("DoExpressCheckoutPayment",$nvpString);
+			
+				$ack = strtoupper($resArray["ACK"]);	
+				if($ack != 'SUCCESS' && $ack != 'SUCCESSWITHWARNING')
+				{
+					// GetExpressCheckoutDetails error
+					$this->redirect(
+						$this->createUrl(array('cart/error', array('error'=>'do')))
+					);
+				}
+				else
+				{
+					// Empty the cart!
+					$this->_emptyCart();
+					
+					$this->render(
+						'checkout'
+					);
+				}
+			}
 		}
-	
-		$this->render(
-			'checkout'
-		);
 	}
 	
 	
