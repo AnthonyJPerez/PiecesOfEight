@@ -15,7 +15,6 @@
  * @property string $order_date
  * @property string $first_name
  * @property string $last_name
- * @property string $countrycode
  * @property string $shipto_name
  * @property string $shipto_street
  * @property string $shipto_city
@@ -55,11 +54,10 @@ abstract class BaseOrder extends GxActiveRecord {
 		return array(
 			array('confirmation_code', 'required'),
 			array('confirmation_code, email, first_name, last_name, shipto_name, shipto_street, shipto_city, shipto_state, shipto_zip, shipto_countrycode, shipto_countryname, shipping_type, discount_msg', 'length', 'max'=>255),
-			array('countrycode', 'length', 'max'=>5),
 			array('total_amt, subtotal_amt, shipping_amt, tax_amt, discount_amt', 'length', 'max'=>6),
 			array('order_date, order_details', 'safe'),
-			array('email, order_date, first_name, last_name, countrycode, shipto_name, shipto_street, shipto_city, shipto_state, shipto_zip, shipto_countrycode, shipto_countryname, total_amt, subtotal_amt, shipping_amt, shipping_type, tax_amt, discount_amt, discount_msg, order_details', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, confirmation_code, email, order_date, first_name, last_name, countrycode, shipto_name, shipto_street, shipto_city, shipto_state, shipto_zip, shipto_countrycode, shipto_countryname, total_amt, subtotal_amt, shipping_amt, shipping_type, tax_amt, discount_amt, discount_msg, order_details', 'safe', 'on'=>'search'),
+			array('email, order_date, first_name, last_name, shipto_name, shipto_street, shipto_city, shipto_state, shipto_zip, shipto_countrycode, shipto_countryname, total_amt, subtotal_amt, shipping_amt, shipping_type, tax_amt, discount_amt, discount_msg, order_details', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, confirmation_code, email, order_date, first_name, last_name, shipto_name, shipto_street, shipto_city, shipto_state, shipto_zip, shipto_countrycode, shipto_countryname, total_amt, subtotal_amt, shipping_amt, shipping_type, tax_amt, discount_amt, discount_msg, order_details', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -81,7 +79,6 @@ abstract class BaseOrder extends GxActiveRecord {
 			'order_date' => Yii::t('app', 'Order Date'),
 			'first_name' => Yii::t('app', 'First Name'),
 			'last_name' => Yii::t('app', 'Last Name'),
-			'countrycode' => Yii::t('app', 'Countrycode'),
 			'shipto_name' => Yii::t('app', 'Shipto Name'),
 			'shipto_street' => Yii::t('app', 'Shipto Street'),
 			'shipto_city' => Yii::t('app', 'Shipto City'),
@@ -109,7 +106,6 @@ abstract class BaseOrder extends GxActiveRecord {
 		$criteria->compare('order_date', $this->order_date, true);
 		$criteria->compare('first_name', $this->first_name, true);
 		$criteria->compare('last_name', $this->last_name, true);
-		$criteria->compare('countrycode', $this->countrycode, true);
 		$criteria->compare('shipto_name', $this->shipto_name, true);
 		$criteria->compare('shipto_street', $this->shipto_street, true);
 		$criteria->compare('shipto_city', $this->shipto_city, true);

@@ -339,7 +339,7 @@ class CartController extends GxController
 		$max = strlen($charpool) - 1;
 		for ($x=0; $x<8; $x++)
 		{
-			$code .= rand(0, $max);
+			$code .= $charpool[rand(0, $max)];
 		}
 		
 		// @todo make sure this is unique in database before returning
