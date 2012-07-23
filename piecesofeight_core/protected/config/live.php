@@ -26,7 +26,7 @@ $config['basePath'] = $protectedPath;
 $config['runtimePath'] = $runtimePath;
 $config['defaultController'] = 'site';
 
-$config['name'] = 'Handmade Pirate Costumes and Renaissance Clothing | Pieces of Eight Costumes';
+$config['name'] = 'Handmade Pirate Garb | Pieces of Eight Costumes';
 if ($debug) 
 {
 	$config['name'] = 'DEBUG Mode | ' . $config['name'];
@@ -118,7 +118,7 @@ $config['components']['db'] =
 	?
 		// Debug mode
 		array(
-			'connectionString' => 'mysql:host=localhost;dbname=piecesofeight',
+			'connectionString' => 'mysql:host=localhost;port=8888;dbname=piecesofeight',
 			'emulatePrepare' => true,
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
@@ -179,9 +179,10 @@ if ($debug)
 
 $config['params'] = array(
 	// this is used in contact page
-	'adminEmail'=> ($debug) ? 'piecesof8costumes@gmail.com' : 'piecesof8costumes@comcast.net',
+	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@comcast.net',
 	'paypalEmail'=> ($debug) ? 'po8_1330738240_biz@gmail.com' : 'piecesof8costumes@comcast.net',
-	'webmasterEmail'=>'piecesof8costumes@gmail.com',
+	'paypalUrl' => ($debug) ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr',
+	'webmasterEmail'=>'AnthonyJPerez@comcast.net',
 );
 
 return $config;
