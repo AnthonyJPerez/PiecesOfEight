@@ -280,10 +280,12 @@ class CartController extends GxController
 					// create a new order in the database
 					$d = $getOrderDetails;
 					print_r($getOrderDetails);
+					echo "<br /><br />";
+					print_r($resArray);
 					$Order = new Order;
-					$Order->confirmation_code = $this->_createConfirmationCode();
+					$Order->confirmation_code = $this->_getValue($resArray, 'PAYMENTINFO_0_TRANSACTIONID');
 					$Order->email = $getOrderDetails['EMAIL'];
-					$Order->order_date = new CDbExpression('NOW()');
+					$Order->order_date = $this->_getValue($resArray, 'PAYMENTINFO_0_ORDERTIME');
 					$Order->first_name = $this->_getValue($d, 'FIRSTNAME');
 					$Order->last_name = $this->_getValue($d, 'LASTNAME');
 					$Order->shipto_name = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTONAME');
@@ -293,11 +295,11 @@ class CartController extends GxController
 					$Order->shipto_zip = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOZIP');
 					$Order->shipto_countrycode = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE');
 					$Order->shipto_countryname = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME');
-					$Order->total_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_AMT');
+					$Order->total_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_AMT');
 					$Order->subtotal_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_ITEMAMT');
 					$Order->shipping_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPPINGAMT');
 					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
-					$Order->tax_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_TAXAMT');
+					$Order->tax_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_TAXAMT');
 					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
 					$Order->discount_msg = "n/a";
 					
