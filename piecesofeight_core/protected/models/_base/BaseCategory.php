@@ -36,8 +36,10 @@ abstract class BaseCategory extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('name, description, keywords', 'required'),
+			array('name', 'required'),
 			array('name, keywords', 'length', 'max'=>255),
+			array('description', 'safe'),
+			array('description, keywords', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, name, description, keywords', 'safe', 'on'=>'search'),
 		);
 	}

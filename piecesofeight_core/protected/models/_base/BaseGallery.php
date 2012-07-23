@@ -36,10 +36,9 @@ abstract class BaseGallery extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('alt_description', 'required'),
 			array('url, alt_description', 'length', 'max'=>255),
 			array('product_id', 'length', 'max'=>10),
-			array('url, product_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('url, alt_description, product_id', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, url, alt_description, product_id', 'safe', 'on'=>'search'),
 		);
 	}
