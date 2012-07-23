@@ -26,7 +26,7 @@ $config['basePath'] = $protectedPath;
 $config['runtimePath'] = $runtimePath;
 $config['defaultController'] = 'site';
 
-$config['name'] = 'Handmade Pirate Costumes and Renaissance Clothing | Pieces of Eight Costumes';
+$config['name'] = 'Handmade Pirate Garb | Pieces of Eight Costumes';
 if ($debug) 
 {
 	$config['name'] = 'DEBUG Mode | ' . $config['name'];
@@ -181,6 +181,7 @@ $config['params'] = array(
 	// this is used in contact page
 	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@comcast.net',
 	'paypalEmail'=> ($debug) ? 'po8_1330738240_biz@gmail.com' : 'piecesof8costumes@comcast.net',
+	'paypalUrl' => ($debug) ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr',
 	'webmasterEmail'=>'AnthonyJPerez@comcast.net',
 );
 
