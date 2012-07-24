@@ -497,10 +497,42 @@
 					What are the charges for shipping and handling?
 				</span>
 				<p>
-					Standard shipping and handling fees are $8.95 USD or $12.95 USD
-					for two or more items shipped together. Shipping and Handling fees
-					are subject to change and may vary depending on order weight
-					and destination.
+					Items will be shipped via UPS or USPS standard ground with tracking, 
+					3-10 days from date shipped. U.S. and International rates can are calculated
+					via the table below. Rush delivery available for an additional 
+					fee depending on the destination.
+				</p>
+				<p>
+					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="4">
+						<tr>
+							<th colspan=2>USA</th>
+						</tr>
+						<tr>
+							<th>Quantity</th>
+							<th>Price</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>$8.95 USD</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>$12.95 USD</td>
+						</tr>
+						<tr>
+							<td>3 - 4</td>
+							<td>$18.95 USD</td>
+						</tr>
+						<tr>
+							<td>5 - 7</td>
+							<td>$24.95 USD</td>
+						</tr>
+						<tr>
+							<td>8+</td>
+							<td>$35.95 USD</td>
+						</tr>
+					</table>
+					<br />
 				</p>
 			</li>
 			
@@ -509,12 +541,41 @@
 					Do you ship internationally?
 				</span>
 				<p>
-					Yes! If you would like to purchase an item from outside of the
-					United States please fill out our <?php echo $customOrderLink; ?>
-					and be sure to record your shipping destination. This will enable
-					us to calculate the additional shipping charges that will be added
-					to your order. Please note that any international customs and taxes
-					will be the responsibility of the purchaser.
+					Yes! Please note that any international customs and taxes
+					will be the responsibility of the purchaser. Our international
+					shipping rates are calculated via the table below:
+				</p>
+				<p>
+					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="4">
+						<tr>
+							<th colspan=2>International</th>
+						</tr>
+						<tr>
+							<th>Quantity</th>
+							<th>Price</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>$49.95 USD</td>
+						</tr>
+						<tr>
+							<td>2 - 3</td>
+							<td>$59.95 USD</td>
+						</tr>
+						<tr>
+							<td>4 - 6</td>
+							<td>$79.95 USD</td>
+						</tr>
+						<tr>
+							<td>7 - 9</td>
+							<td>$99.95 USD</td>
+						</tr>
+						<tr>
+							<td>10+</td>
+							<td>$150 USD</td>
+						</tr>
+					</table>
+					<br />
 				</p>
 			</li>
 		</ul>

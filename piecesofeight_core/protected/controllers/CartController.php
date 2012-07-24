@@ -242,12 +242,125 @@ PENDINGREASON is deprecated since version 6
 	}
 	
 	
+	private function _calculateShipping($domestic, $quantity)
+	{
+		$shipping = 8.95;
+		$name = 'U.S. Ground';
+		
+		if ($domestic)
+		{
+			$name = 'U.S. Ground';
+			if ($quantity >= 8)
+			{
+				$shipping = 35.95;
+			}
+			else if ($quantity >= 5)
+			{
+				$shipping = 24.95;
+			}
+			else if ($quantity >= 3)
+			{
+				$shipping = 18.95;
+			}
+			else if ($quantity >= 2)
+			{
+				$shipping = 12.95;
+			}
+			else
+			{
+				$shipping = 8.95;
+			}
+		}
+		else
+		{
+			$name = 'International Economy Air';
+			if ($quantity >= 10)
+			{
+				$shipping = 150;
+			}
+			else if ($quantity >= 7)
+			{
+				$shipping = 99.95;
+			}
+			else if ($quantity >= 4)
+			{
+				$shipping = 79.95;
+			}
+			else if ($quantity >= 2)
+			{
+				$shipping = 59.95;
+			}
+			else
+			{
+				$shipping = 49.95;
+			}
+		}
+		
+		return array(
+			'amount' => $shipping,
+			'name' => $name
+		);
+	}
+	
+	
+	public function actionPaypalShippingCallback()
+	{
+		$quantity = 0;
+		$domestic = true;
+		
+				
+		if (strcmp($this->_getValue($_POST, 'SHIPTOCOUNTRY'), "US") != 0)
+		{
+			$domestic = false;
+		}
+
+		// Calculate quantity
+		$productKey = 'L_QTY';
+		foreach ($_POST as $key=>$value)
+		{
+			if (strpos($key, $productKey) !== false)
+			{
+				$quantity += intval($value);
+			}
+		}
+		
+		// For security:
+		if ($quantity <= 0)
+		{
+			$quantity = 1;
+		}
+		
+		$shippingInfo = $this->_calculateShipping($domestic, $quantity);
+		
+		$nvp = array();
+		$nvp['OFFERINSURANCEOPTION'] = 'false';
+		//$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode($shippingInfo['name']);
+		$nvp['L_SHIPPINGOPTIONLABEL0'] = urlencode($shippingInfo['name']);
+		$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($shippingInfo['amount']);
+		$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'true';
+		$nvp['L_TAXAMT0'] = urlencode('0.00');
+		$nvp['L_INSURANCEAMOUNT'] = urlencode('0.00');
+	
+		// format the nvp string as url parameters
+		$nvpString = "&";
+		foreach ($nvp as $key=>$value)
+		{
+			$nvpString .= $key.'='.$value.'&';
+		}
+		$nvpString = rtrim($nvpString, '&');
+		
+		// Call the SetExpressCheckout action
+		$nvpString = "METHOD=CallbackResponse" . $nvpString;
+		
+		echo $nvpString;	
+	}
+	
+	
 	public function actionCheckout()
 	{
 		// Paypal Checkout methods: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/library_documentation
 		// Paypal developer guide: https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_NVPAPI_DeveloperGuide.pdf
 		// Express Checkout advanced features: https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_ExpressCheckout_AdvancedFeaturesGuide.pdf
-		// NVP API Reference: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_reference		
 		// google for: paypal setexpresscheckout, etc..
 		
 		//
@@ -265,7 +378,6 @@ PENDINGREASON is deprecated since version 6
 				);
 			}
 			$nvp = array();
-			$nvp['PAYMENTREQUEST_0_AMT'] = $details['subTotal'];
 			$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
 			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
 			$nvp['REQCONFIRMSHIPPING'] = '1';
@@ -274,29 +386,38 @@ PENDINGREASON is deprecated since version 6
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
 			$nvp['LANDINGPAGE'] = "Billing";
-			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
+			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";			
+			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
+			$nvp['CALLBACKTIMEOUT'] = 4;
+			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
+			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
+			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = '8.95';
+			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Economy Air');
+			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = '49.95';
+			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
+			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';
 			
 			// Add each product
 			$count = 0;
+			$nvp['PAYMENTREQUEST_0_SHIPPINGAMT'] = '8.95';
 			$nvp['PAYMENTREQUEST_0_ITEMAMT'] = 0;
 			foreach ($details['products'] as $pid=>$value)
 			{
 				$nvp['L_PAYMENTREQUEST_0_NAME'.$count] = urlencode($value['product']->name);
-				$nvp['L_PAYMENTREQUEST_0_AMT'.$count] = $value['product']->price;
+				$nvp['L_PAYMENTREQUEST_0_NUMBER'.$count] = urlencode($value['product']->id);
+				$nvp['L_PAYMENTREQUEST_0_DESC'.$count] = urlencode(substr($value['product']->description, 0, 127));
+				$nvp['L_PAYMENTREQUEST_0_ITEMURL'.$count] = urlencode($value['product']->getUrl(true));
+				$nvp['L_PAYMENTREQUEST_0_AMT'.$count] = number_format($value['product']->price, 2);
 				$nvp['L_PAYMENTREQUEST_0_QTY'.$count] = $value['quantity'];
 				$nvp['L_PAYMENTREQUEST_0_ITEMCATEGORY'.$count] = "Physical";
 				$count++;
-				$nvp['PAYMENTREQUEST_0_ITEMAMT'] += $value['product']->price * $value['quantity'];
+				$nvp['PAYMENTREQUEST_0_ITEMAMT'] += number_format($value['product']->price, 2) * number_format($value['quantity'], 2);
 			}
 			
-			// Either: Use instantUPdate API to automatically grab shipping based on country code
-			// or:
-			// Ask user for shipping location before checking out, and pass values based on selection
-			// or:
-			// On order review page, display shipping options and have user click checkout. (with no SSL)
-			// https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECInstantUpdateAPI
-			//
-			
+			// Required for security reasons
+			$nvp['MAXAMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + 49.95 + 40.00;
+			$nvp['PAYMENTREQUEST_0_AMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + 8.95;
+
 			// format the nvp string as url parameters
 			$nvpString = "&";
 			foreach ($nvp as $key=>$value)
@@ -304,7 +425,7 @@ PENDINGREASON is deprecated since version 6
 				$nvpString .= $key.'='.$value.'&';
 			}
 			$nvpString = rtrim($nvpString, '&');
-			
+						
 			// Call the SetExpressCheckout action
 			$resArray = hash_call("SetExpressCheckout",$nvpString);			
 			$ack = strtoupper($resArray["ACK"]);
@@ -319,8 +440,11 @@ PENDINGREASON is deprecated since version 6
 			else  
 			{
 				// SetExpressCheckout error
+				echo "<div><div>ResArray:</div>";
+				print_r($resArray);
+				echo "</div>";
 				$this->redirect(
-					$this->createUrl(array('cart/error', array('error'=>'set')))
+					$this->createUrl('cart/error', array('error'=>'set'))
 				);
 			}
 		}
@@ -390,9 +514,11 @@ PENDINGREASON is deprecated since version 6
 					print_r($resArray);
 					$Order = new Order;
 					$Order->total_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_AMT');
-					$Order->confirmation_code = $this->_getValue($resArray, 'PAYMENTINFO_0_TRANSACTIONID');
+					$Order->paypalfee_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_FEEAMT');
 					$Order->tax_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_TAXAMT');
-					$Order->order_date = $this->_getValue($resArray, 'PAYMENTINFO_0_ORDERTIME');			
+					$Order->confirmation_code = $this->_getValue($resArray, 'PAYMENTINFO_0_TRANSACTIONID');
+					$Order->order_date = $this->_getValue($resArray, 'PAYMENTINFO_0_ORDERTIME');
+					
 					$Order->email = $this->_getValue($d, 'EMAIL');
 					$Order->first_name = $this->_getValue($d, 'FIRSTNAME');
 					$Order->last_name = $this->_getValue($d, 'LASTNAME');
@@ -407,6 +533,8 @@ PENDINGREASON is deprecated since version 6
 					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
 					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
 					$Order->discount_msg = "n/a";
+					
+					//$Order->buyer_note = $this->_getValue($d, 'NOTE');
 					
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
