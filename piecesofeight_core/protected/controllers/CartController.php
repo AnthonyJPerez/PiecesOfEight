@@ -315,12 +315,12 @@ PENDINGREASON is deprecated since version 6
 		}
 
 		// Calculate quantity
-		$productKey = 'L_NAME';
+		$productKey = 'L_QTY';
 		foreach ($_POST as $key=>$value)
 		{
 			if (strpos($key, $productKey) !== false)
 			{
-				$quantity++;
+				$quantity += intval($value);
 			}
 		}
 		
@@ -387,12 +387,9 @@ PENDINGREASON is deprecated since version 6
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
 			$nvp['LANDINGPAGE'] = "Billing";
-			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";
-			
-			// Callback API (Instant Update api)
+			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";			
 			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
-			
-			$nvp['CALLBACKTIMEOUT'] = 5;
+			$nvp['CALLBACKTIMEOUT'] = 4;
 			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
 			$nvp['L_SHIPPINGOPTIONNAME0'] = 'U.S. Ground';
 			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = '8.95';
@@ -518,9 +515,11 @@ PENDINGREASON is deprecated since version 6
 					print_r($resArray);
 					$Order = new Order;
 					$Order->total_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_AMT');
-					$Order->confirmation_code = $this->_getValue($resArray, 'PAYMENTINFO_0_TRANSACTIONID');
+					$Order->paypalfee_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_FEEAMT');
 					$Order->tax_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_TAXAMT');
-					$Order->order_date = $this->_getValue($resArray, 'PAYMENTINFO_0_ORDERTIME');			
+					$Order->confirmation_code = $this->_getValue($resArray, 'PAYMENTINFO_0_TRANSACTIONID');
+					$Order->order_date = $this->_getValue($resArray, 'PAYMENTINFO_0_ORDERTIME');
+					
 					$Order->email = $this->_getValue($d, 'EMAIL');
 					$Order->first_name = $this->_getValue($d, 'FIRSTNAME');
 					$Order->last_name = $this->_getValue($d, 'LASTNAME');
@@ -535,6 +534,8 @@ PENDINGREASON is deprecated since version 6
 					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
 					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
 					$Order->discount_msg = "n/a";
+					
+					//$Order->buyer_note = $this->_getValue($d, 'NOTE');
 					
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
