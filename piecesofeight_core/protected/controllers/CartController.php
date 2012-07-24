@@ -350,7 +350,6 @@ PENDINGREASON is deprecated since version 6
 		$nvpString = rtrim($nvpString, '&');
 		
 		// Call the SetExpressCheckout action
-		//$resArray = hash_call("CallbackResponse",$nvpString);	
 		$nvpString = "METHOD=CallbackResponse" . $nvpString;
 		
 		echo $nvpString;	
@@ -391,9 +390,9 @@ PENDINGREASON is deprecated since version 6
 			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
 			$nvp['CALLBACKTIMEOUT'] = 4;
 			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
-			$nvp['L_SHIPPINGOPTIONNAME0'] = 'U.S. Ground';
+			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
 			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = '8.95';
-			$nvp['L_SHIPPINGOPTIONNAME1'] = 'International Economy Air';
+			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Economy Air');
 			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = '49.95';
 			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
 			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';

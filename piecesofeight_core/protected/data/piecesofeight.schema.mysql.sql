@@ -416,6 +416,8 @@ CREATE TABLE p8_order
 	
 	discount_amt	DECIMAL (6, 2) NOT NULL,
 	discount_msg	VARCHAR (255) NOT NULL,
+	paypalfee_amt 	DECIMAL (6, 2) NOT NULL,
+	buyer_note		TEXT,
 	
 	order_details	BLOB, #-- we will serialize the array of order items to make it easier to display
 	
