@@ -117,7 +117,8 @@ class CartController extends GxController
 		return array(
 			'products' => $products,
 			'shipping' => number_format($shipping, 2), // converts $x to $x.00
-			'subTotal' => number_format($subTotal, 2)
+			'subTotal' => number_format($subTotal, 2),
+			'totalQuantity' => $totalQuantity
 		);
 	}
 	
@@ -126,6 +127,13 @@ class CartController extends GxController
 	public function actionView()
 	{
 		$details = $this->_getPriceDetails();
+		$domesticShipping = $this->_calculateShipping(true, $details['totalQuantity']);
+		$internationalShipping = $this->_calculateShipping(false, $details['totalQuantity']);
+		
+		$shippingOptions = array(
+			$domesticShipping['name'] . ' - $' . $domesticShipping['amount'],
+			$internationalShipping['name'] . ' - $' . $internationalShipping['amount']
+		);
 		
 		$this->render(
 			'view',
@@ -134,6 +142,7 @@ class CartController extends GxController
 				'shipping' => $details['shipping'],
 				'subTotal' => $details['subTotal'],
 				'AddcartModel' => new AddcartForm,
+				'shippingOptions' => $shippingOptions
 			)
 		);
 	}
@@ -273,7 +282,7 @@ PENDINGREASON is deprecated since version 6
 		}
 		else
 		{
-			$name = 'International Economy Air';
+			$name = 'International Air';
 			if ($quantity >= 10)
 			{
 				$shipping = 150;
@@ -381,7 +390,7 @@ PENDINGREASON is deprecated since version 6
 			$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
 			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
 			$nvp['REQCONFIRMSHIPPING'] = '1';
-			$nvp['ALLOWNOTE'] = 1; // The buyer is able to enter a note to the merchant.
+			$nvp['ALLOWNOTE'] = 0; // The buyer is not able to enter a note to the merchant.
 			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
@@ -392,7 +401,7 @@ PENDINGREASON is deprecated since version 6
 			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
 			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
 			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = '8.95';
-			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Economy Air');
+			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Air');
 			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = '49.95';
 			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
 			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';
@@ -440,9 +449,9 @@ PENDINGREASON is deprecated since version 6
 			else  
 			{
 				// SetExpressCheckout error
-				echo "<div><div>ResArray:</div>";
+				/*echo "<div><div>ResArray:</div>";
 				print_r($resArray);
-				echo "</div>";
+				echo "</div>";*/
 				$this->redirect(
 					$this->createUrl('cart/error', array('error'=>'set'))
 				);
@@ -506,12 +515,17 @@ PENDINGREASON is deprecated since version 6
 				}
 				else
 				{
+					$debug = true;
+					if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
+					{
+						$debug = false;
+					}
 					
 					// create a new order in the database
 					$d = $getOrderDetails;
-					print_r($getOrderDetails);
+					/*print_r($getOrderDetails);
 					echo "<br /><br />";
-					print_r($resArray);
+					print_r($resArray);*/
 					$Order = new Order;
 					$Order->total_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_AMT');
 					$Order->paypalfee_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_FEEAMT');
@@ -533,18 +547,30 @@ PENDINGREASON is deprecated since version 6
 					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
 					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
 					$Order->discount_msg = "n/a";
-					
-					//$Order->buyer_note = $this->_getValue($d, 'NOTE');
-					
+										
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
 					$Order->save();
 					
 					// Send the confirmation emails
-						// send one to adminEmail
-						// send one to customerEmail
-					// ...
+					// Email the form to the customer
+					$msg = new YiiMailMessage;
+					$msg->view = 'customerCheckout';
+					$msg->addTo(($debug) ? Yii::app()->params['adminEmail'] : $Order->email);
+					$msg->setFrom(array(Yii::app()->params['checkoutEmail'] => "Pieces of Eight Costumes"));
+					$msg->setSubject("Your Order with Pieces of Eight Costumes");
+					$msg->setBody(array('model'=>$Order), 'text/html');
+					Yii::app()->mail->send($msg);
 					
+					// Email the form to the admin
+					$msg = new YiiMailMessage;
+					$msg->view = 'adminCheckout';
+					$msg->addTo(Yii::app()->params['adminEmail']);
+					$msg->setFrom(array(Yii::app()->params['checkoutEmail']=>"Pieces of Eight Costumes"));
+					$msg->setSubject("Order Notification");
+					$msg->setBody(array('model'=>$Order), 'text/html');			
+					Yii::app()->mail->send($msg);
+										
 					// Empty the cart!
 					$this->_emptyCart();
 					

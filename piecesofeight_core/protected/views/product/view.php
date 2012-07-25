@@ -95,13 +95,13 @@
 		CClientScript::POS_HEAD
 	);
 	
-	// Include the fancybox css file
+	// Include the select2 css file
 	Yii::app()->clientScript->registerCssFile(
 		Yii::app()->request->baseUrl . '/js/select2/select2.css',
 		'screen'
 	);
 	
-	// Init Fancybox
+	// Init select2
 	Yii::app()->clientScript->registerScript(
 		'Select2_Product',
 		"
