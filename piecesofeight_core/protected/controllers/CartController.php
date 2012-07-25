@@ -117,7 +117,8 @@ class CartController extends GxController
 		return array(
 			'products' => $products,
 			'shipping' => number_format($shipping, 2), // converts $x to $x.00
-			'subTotal' => number_format($subTotal, 2)
+			'subTotal' => number_format($subTotal, 2),
+			'totalQuantity' => $totalQuantity
 		);
 	}
 	
@@ -126,6 +127,13 @@ class CartController extends GxController
 	public function actionView()
 	{
 		$details = $this->_getPriceDetails();
+		$domesticShipping = $this->_calculateShipping(true, $details['totalQuantity']);
+		$internationalShipping = $this->_calculateShipping(false, $details['totalQuantity']);
+		
+		$shippingOptions = array(
+			$domesticShipping['name'] . ' - $' . $domesticShipping['amount'],
+			$internationalShipping['name'] . ' - $' . $internationalShipping['amount']
+		);
 		
 		$this->render(
 			'view',
@@ -134,6 +142,7 @@ class CartController extends GxController
 				'shipping' => $details['shipping'],
 				'subTotal' => $details['subTotal'],
 				'AddcartModel' => new AddcartForm,
+				'shippingOptions' => $shippingOptions
 			)
 		);
 	}
@@ -273,7 +282,7 @@ PENDINGREASON is deprecated since version 6
 		}
 		else
 		{
-			$name = 'International Economy Air';
+			$name = 'International Air';
 			if ($quantity >= 10)
 			{
 				$shipping = 150;
@@ -381,7 +390,7 @@ PENDINGREASON is deprecated since version 6
 			$nvp['PAYMENTREQUEST_0_CURRENCYCODE'] = 'USD';
 			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
 			$nvp['REQCONFIRMSHIPPING'] = '1';
-			$nvp['ALLOWNOTE'] = 1; // The buyer is able to enter a note to the merchant.
+			$nvp['ALLOWNOTE'] = 0; // The buyer is not able to enter a note to the merchant.
 			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
@@ -392,7 +401,7 @@ PENDINGREASON is deprecated since version 6
 			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
 			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
 			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = '8.95';
-			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Economy Air');
+			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Air');
 			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = '49.95';
 			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
 			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';
@@ -533,9 +542,7 @@ PENDINGREASON is deprecated since version 6
 					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
 					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
 					$Order->discount_msg = "n/a";
-					
-					//$Order->buyer_note = $this->_getValue($d, 'NOTE');
-					
+										
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
 					$Order->save();

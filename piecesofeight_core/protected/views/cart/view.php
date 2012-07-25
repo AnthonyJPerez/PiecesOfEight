@@ -46,6 +46,50 @@
 	);
 	
 	
+	
+	//
+	// Include the select2 selectbox jquery plugin (http://ivaynberg.github.com/select2/)
+	//
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/select2/select2.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	// Include the select2 css file
+	Yii::app()->clientScript->registerCssFile(
+		Yii::app()->request->baseUrl . '/js/select2/select2.css',
+		'screen'
+	);
+	
+	// Init select2
+	Yii::app()->clientScript->registerScript(
+		'Select2_Shipping',
+		"
+			$('.select2_selectbox').select2();
+			
+			function updateCart()
+			{
+				var subtotal = ".$subTotal.";
+				var select = $('#shipping_select');
+				var val = select.val();
+				var index = val.lastIndexOf('$');
+				var shippingPrice = parseFloat(val.substring(index+1), 10);
+				
+				$('#subtotal_price').html('' + (subtotal + shippingPrice));
+				
+				//console.log('price: ' + shippingPrice );
+			}
+			
+			updateCart();
+			
+			// Edit the subtotal when the options are selected
+			$('.select2_selectbox').bind('change', updateCart);
+		",
+		CClientScript::POS_READY
+	);
+	
+	
 if (!empty($products))
 {
 
@@ -129,6 +173,20 @@ if (!empty($products))
 				display: table-cell;
 				vertical-align: top;
 			}
+			
+		.select2_selectbox
+		{
+			font-size: 10pt;
+			width: 190px;
+		}
+		
+		.select2_selectbox a,
+		.select2_selectbox a:visited,
+		.select2_selectbox a:link
+		{
+			color: #000 !important;
+		}
+		
 		',
 		'screen'
 	);
@@ -193,8 +251,17 @@ if (!empty($products))
 			echo "</tr>";
 		}
 		
-		echo "<tr><td class='shipping' colspan='4' align='right'><span>Shipping & Handling:</span> $". $shipping ."</td></tr>";
-		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal:</span> $". ($subTotal + $shipping) ."</td></tr>";
+		//echo "<tr><td class='shipping' colspan='4' align='right'><span>Shipping & Handling:</span></td></tr>";
+		
+		echo "<tr><td colspan='4' align='right'><hr />
+		<div>Shipping &amp; Handling</div><select id='shipping_select' class='select2_selectbox'>";
+			foreach ($shippingOptions as $option)
+			{
+				echo "<option>".$option."</option>";
+			}
+		echo"</select></tr></td>";
+		
+		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal: $</span><span id='subtotal_price'>". ($subTotal + $shipping) ."</span> USD</td></tr>";
 		?>
 	
 	</table>
@@ -203,12 +270,12 @@ if (!empty($products))
 	<ul class='additional_buttons'>
 		<?php $continue = "<i class='icon-arrow-left'></i> Continue Shopping" ?>
 		<li><?php echo CHtml::link($continue, $this->createUrl('product/list'), array('class'=>'btn btn-primary')); ?></li>
+		<li><a class='empty_cart btn btn-inverse' href="<?php echo $this->createUrl('cart/empty'); ?>"><i class='icon-trash'></i> Empty Cart</a></li>
+
 	</ul>
 	
 	
 	<ul class='checkout_buttons'>
-		<li><a class='empty_cart btn btn-inverse' href="<?php echo $this->createUrl('cart/empty'); ?>"><i class='icon-trash'></i> Empty Cart</a></li>
-
 		<li>
 		<!--form class='checkout' action="<?php echo Yii::app()->params['paypalUrl']; ?>" method="POST"-->
 		<form class='checkout' method="POST" action="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>">
