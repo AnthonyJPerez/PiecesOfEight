@@ -152,8 +152,8 @@ $config['components']['mail'] = array(
 		'host' => 'mail.piecesofeightcostumes.com',
 		'username' => 'info+piecesofeightcostumes.com',
 		'password' => '#1cornwall',
-		'port' => '25',
-		'encryption' => '',
+		'port' => '465',
+		'encryption' => 'ssl',
 		'timeout' => ''
 	),
 	'viewPath' => 'application.views.mail',
@@ -180,7 +180,7 @@ if ($debug)
 $config['params'] = array(
 	// this is used in contact page
 	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@gmail.net',
-	'checkoutEmail'=> ($debug) ? 'info@piecesofeightcostumes.com' : 'info@piecesofeightcostumes.com',
+	'checkoutEmail'=> 'info@piecesofeightcostumes.com',
 	'paypalEmail'=> ($debug) ? 'po8_1330738240_biz@gmail.com' : 'piecesof8costumes@comcast.net',
 	'paypalUrl' => ($debug) ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr',
 	'webmasterEmail'=>'AnthonyJPerez@comcast.net',
