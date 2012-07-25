@@ -449,9 +449,9 @@ PENDINGREASON is deprecated since version 6
 			else  
 			{
 				// SetExpressCheckout error
-				echo "<div><div>ResArray:</div>";
+				/*echo "<div><div>ResArray:</div>";
 				print_r($resArray);
-				echo "</div>";
+				echo "</div>";*/
 				$this->redirect(
 					$this->createUrl('cart/error', array('error'=>'set'))
 				);
@@ -515,12 +515,17 @@ PENDINGREASON is deprecated since version 6
 				}
 				else
 				{
+					$debug = true;
+					if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
+					{
+						$debug = false;
+					}
 					
 					// create a new order in the database
 					$d = $getOrderDetails;
-					print_r($getOrderDetails);
+					/*print_r($getOrderDetails);
 					echo "<br /><br />";
-					print_r($resArray);
+					print_r($resArray);*/
 					$Order = new Order;
 					$Order->total_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_AMT');
 					$Order->paypalfee_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_FEEAMT');
@@ -548,10 +553,24 @@ PENDINGREASON is deprecated since version 6
 					$Order->save();
 					
 					// Send the confirmation emails
-						// send one to adminEmail
-						// send one to customerEmail
-					// ...
+					// Email the form to the customer
+					$msg = new YiiMailMessage;
+					$msg->view = 'customerCheckout';
+					$msg->addTo(($debug) ? Yii::app()->params['adminEmail'] : $Order->email);
+					$msg->setFrom(array(Yii::app()->params['checkoutEmail'] => "Pieces of Eight Costumes"));
+					$msg->setSubject("Your Order with Pieces of Eight Costumes");
+					$msg->setBody(array('model'=>$Order), 'text/html');
+					Yii::app()->mail->send($msg);
 					
+					// Email the form to the admin
+					$msg = new YiiMailMessage;
+					$msg->view = 'adminCheckout';
+					$msg->addTo(Yii::app()->params['adminEmail']);
+					$msg->setFrom(array(Yii::app()->params['checkoutEmail']=>"Pieces of Eight Costumes"));
+					$msg->setSubject("Order Notification");
+					$msg->setBody(array('model'=>$Order), 'text/html');			
+					Yii::app()->mail->send($msg);
+										
 					// Empty the cart!
 					$this->_emptyCart();
 					

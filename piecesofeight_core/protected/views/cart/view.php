@@ -176,8 +176,8 @@ if (!empty($products))
 			
 		.select2_selectbox
 		{
-			font-size: 10pt;
-			width: 190px;
+			font-size: 0.75em;
+			width: 160px;
 		}
 		
 		.select2_selectbox a,
