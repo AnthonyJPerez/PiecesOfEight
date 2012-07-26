@@ -559,7 +559,7 @@ PENDINGREASON is deprecated since version 6
 					$msg->addTo(($debug) ? Yii::app()->params['adminEmail'] : $Order->email);
 					$msg->setFrom(array(Yii::app()->params['checkoutEmail'] => "Pieces of Eight Costumes"));
 					$msg->setSender(array(Yii::app()->params['checkoutEmail'] => "Pieces of Eight Costumes"));
-					$msg->setSubject("Your Order with Pieces of Eight Costumes");
+					$msg->setSubject("Thank you for your order with Pieces of Eight Costumes!");
 					$msg->setBody(array('model'=>$Order), 'text/html');
 					Yii::app()->mail->send($msg);
 					
@@ -582,6 +582,16 @@ PENDINGREASON is deprecated since version 6
 				}
 			}
 		}
+	}
+	
+	public function actionTestEmail()
+	{
+		$this->render(
+			'testEmail',
+			array(
+				'model' => Order::model()->findByPk(6)
+			)
+		);
 	}
 	
 	private function _getValue($arr, $key)
