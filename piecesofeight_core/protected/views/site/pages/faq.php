@@ -231,17 +231,21 @@
 	
 	$sizeChartLink = CHtml::link(
 		"Size Chart",
-		$this->createUrl('site/page', array('view'=>'size-chart')),
+		//$this->createUrl('site/page', array('view'=>'size-chart')),
+		Yii::app()->baseUrl.'/images/Size-Chart.png',
 		array(
-			'title' => 'Size Chart'
+			'title' => 'Size Chart',
+			'target' => '_BLANK'
 		)
 	);
 	
 	$regularSizesLink = CHtml::link(
 		"regular sizes",
-		$this->createUrl('site/page', array('view'=>'size-chart')),
+		//$this->createUrl('site/page', array('view'=>'size-chart')),
+		Yii::app()->baseUrl.'/images/Size-Chart.png',
 		array(
-			'title' => 'Size Chart'
+			'title' => 'Size Chart',
+			'target' => '_BLANK'
 		)
 	);
 	
