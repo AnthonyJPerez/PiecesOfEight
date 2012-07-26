@@ -127,7 +127,9 @@
 			});
 			
 			$('.size_chart').fancybox({
-				'hideOnContentClick': true
+				'autoScale': false,
+				'width': 800,
+				'height': 1340
 			});
 		",
 		CClientScript::POS_READY
@@ -272,7 +274,8 @@
 				border-bottom: 1px solid #999;
 			}
 			
-		.size_chart
+		.size_chart,
+		.size_chart_2
 		{
 			margin-left: 1em;
 			font-size: 10pt;
@@ -548,11 +551,13 @@
 						array("data-placeholder"=>'Select Size', "class"=>"select2_selectbox")
 					);
 						
-					echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
-					//CHtml::encode($model->size_chart)
+					//echo CHtml::link('Size Chart', $this->createUrl('site/page', array('view'=>'size-chart')), array('target'=>'_BLANK', 'class'=>'size_chart_2'));
+					echo CHtml::link('Size Chart', Yii::app()->baseUrl.'/images/Size-Chart.png', array('target'=>'_BLANK', 'class'=>'size_chart_2', 'title'=>'Size Chart'));
+					//echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
 					?>
 					<div class='hidden_data'>
-						<div id='size_chart_data'>
+						<img id='size_chart_data' width='800px' height='1340px' src="<?php echo Yii::app()->baseUrl . '/images/Size-Chart.png'; ?>" />
+						<div id='size_chart_data_2'>
 							<span>Women's Size Chart:</span>
 							<table border="1" align="center" cellpadding="4">
 								<tr>

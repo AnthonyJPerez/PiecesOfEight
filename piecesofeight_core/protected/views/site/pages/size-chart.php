@@ -4,6 +4,4 @@
 
 <h1>Size Chart</h1>
 
-<p>
-	This page is currently under construction.
-</p>
+<img id='size_chart_data' width='800px' height='1340px' src="<?php echo Yii::app()->baseUrl . '/images/Size-Chart.png'; ?>" />

@@ -292,7 +292,7 @@
 						<span>Help</span>
 						<ul>
 							<li><?php echo CHtml::link('FAQ', $this->createUrl('site/page', array('view'=>'faq')), array('title'=>'Frequently Asked Questions')); ?></li>
-							<li><?php echo CHtml::link('Size Chart', $this->createUrl('site/page', array('view'=>'size-chart')), array('title'=>'Pieces of Eight Costumes Size Chart')); ?></li>
+							<li><?php echo CHtml::link('Size Chart', Yii::app()->baseUrl.'/images/Size-Chart.png', array('title'=>'Pieces of Eight Costumes Size Chart', 'target'=>'_BLANK')); ?></li>
 							<li><?php echo CHtml::link('Site Feedback', $this->createUrl('site/webmasterContact'), array('title'=>'Product Comments and Feedback')); ?></li>
 						</ul>
 					</div>
