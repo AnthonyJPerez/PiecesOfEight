@@ -5,18 +5,18 @@
 	// Follow this guide for best results: http://24ways.org/2009/rock-solid-html-emails
 ?>
 
-<table border=0 width="600px">
+<table border=0 width="600px" cellpadding="0" cellspacing="0">
 	<tr>
 		<?php
-			$bgImg = Yii::app()->request->baseUrl . '/images/header_shadow.png';
-			$imgUrl = Yii::app()->request->baseUrl . '/images/pieces-of-eight-costumes-logo.png';
+			$bgImg = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl . '/images/header_shadow_600x143.png';
+			$imgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl . '/images/pieces-of-eight-costumes-logo.png';
 		?>
-		<td height="141" style="padding-top: 32px; background-image: url(<?php echo $bgImg; ?>); background-size: 100%;" align="center" valign="middle">
+		<td height="143px" width="600" background="<?php echo $bgImg; ?>" style="overflow: hidden;" align="center" valign="middle">
 		<?php
 			echo CHtml::image(
 				$imgUrl, 
 				"Pieces of Eight Costumes Header Image", 
-				array('width'=>'94px')
+				array('width'=>'94px', 'style'=>"margin-top: 31px;")
 			);
 		?>
 		</td>
@@ -84,7 +84,7 @@
 					
 					echo "<td class='cart_product' align='left' width='15%' style='padding: 0.5em;'>";
 						$defaultImg = $pdetails['product']->getDefaultImage();
-						$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
+						$imgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
 						echo CHtml::image(
 							$imgUrl, 
 							$pdetails['product']->getProductImgAltDescription(), 
@@ -104,7 +104,7 @@
 			echo "<tr><td colspan='5'><hr /></td></tr>";
 			
 			echo "<tr><td colspan='3' align='right'>Shipping &amp; Handling: </td>";
-			echo "<td colspan='2' align='right'>$".$model->shipping_amt."</tr></td>";
+			echo "<td colspan='2' align='right'>$".$model->shipping_amt."</td></tr>";
 			
 			echo "<tr><td colspan='3' align='right'><b>Total: </b></td>";
 			echo "<td colspan='2' align='right'><b>$".$model->total_amt." USD</b></td></tr>";

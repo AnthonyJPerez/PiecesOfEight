@@ -1,5 +1,11 @@
+Deploy:
+	install curl
+	get paypal api credentials
+	overwrite main.css
+	add new header_shadow_600x143.png image
+	add new paypal files to WWW/
+
 Currently working on:
-	paypal api
 	discount codes
 	custom-order page
 

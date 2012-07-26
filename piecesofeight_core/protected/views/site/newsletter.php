@@ -90,9 +90,18 @@
 
 <?php if(Yii::app()->user->hasFlash('newsletter')): ?>
 
-<div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('newsletter'); ?>
-</div>
+<h2>Ahoy Mateys!</h2>
+<p>
+	Thank you for subscribing to our newsletter! You will now receive special offers, 
+	discounts, and product updates from Pieces Of Eight Costumes.
+</p>
+<p>
+	If you have any questions or comments, feel free to contact us. 
+</p>
+<p>
+	<i>Aye, good luck in findin’ yer treasure,</i><br />
+	Pieces Of Eight Costumes By Sue LLC 
+</p>
 
 <?php else: ?>
 
