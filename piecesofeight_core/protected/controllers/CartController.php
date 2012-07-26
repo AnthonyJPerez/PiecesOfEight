@@ -365,7 +365,7 @@ PENDINGREASON is deprecated since version 6
 	}
 	
 	
-	public function actionCheckout()
+	public function actionDoCheckout()
 	{
 		// Paypal Checkout methods: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/library_documentation
 		// Paypal developer guide: https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_NVPAPI_DeveloperGuide.pdf
@@ -391,7 +391,7 @@ PENDINGREASON is deprecated since version 6
 			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
 			$nvp['REQCONFIRMSHIPPING'] = '1';
 			$nvp['ALLOWNOTE'] = 0; // The buyer is not able to enter a note to the merchant.
-			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
+			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/doCheckout'));
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
 			$nvp['LANDINGPAGE'] = "Billing";
@@ -576,12 +576,19 @@ PENDINGREASON is deprecated since version 6
 					// Empty the cart!
 					$this->_emptyCart();
 					
-					$this->render(
-						'checkout'
+					Yii::redirect(
+						$this->createUrl('site/checkout')
 					);
 				}
 			}
 		}
+	}
+	
+	public function actionCheckout()
+	{
+		$this->render(
+			'checkout'
+		);
 	}
 	
 	public function actionTestEmail()

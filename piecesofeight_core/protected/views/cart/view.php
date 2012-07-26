@@ -278,10 +278,10 @@ if (!empty($products))
 	<ul class='checkout_buttons'>
 		<li>
 		<!--form class='checkout' action="<?php echo Yii::app()->params['paypalUrl']; ?>" method="POST"-->
-		<form class='checkout' method="POST" action="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>">
+		<form class='checkout' method="POST" action="<?php echo $this->createAbsoluteUrl('cart/doCheckout'); ?>">
 			<!--input type="hidden" name="cmd" value="_cart" />
 			<input type="hidden" name="upload" value="1" />			
-			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/checkout'); ?>" />
+			<input type="hidden" name="return" value="<?php echo $this->createAbsoluteUrl('cart/doCheckout'); ?>" />
 			<input type="hidden" name="image_url" value="<?php echo Yii::app()->request->hostInfo . Yii::app()->baseUrl . '/images/pieces-of-eight-costumes-logo.png'; ?>" />
 			<input type="hidden" name="rm" value="1" />
 			<input type="hidden" name="handling_cart" value="<?php echo $shipping; ?>" />
