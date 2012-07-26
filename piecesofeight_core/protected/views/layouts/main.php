@@ -322,13 +322,13 @@
 					</div>
 				
 					<div class='newsletter'>
-						<span>Sign up for our Newsletter to get product updates and discounts:</span>
+						<span>Subscribe to our Newsletter to get product updates and discounts:</span>
 						<?php
-							$newsletterModel = new Newsletter();
+							$newsletterModel = new Newsletter('inline');
 							$form = $this->beginWidget('CActiveForm', array(
 								'id' => 'newsletter',
 								'enableAjaxValidation'=>true,
-								'action' => array('site/newsletter'),
+								'action' => array('site/newsletterInline'),
 								'clientOptions' => array(
 									'validateOnSubmit' => true
 								)
@@ -339,7 +339,7 @@
 								echo $form->error($newsletterModel,'email');
 							echo '</div>';
 							
-							echo GxHtml::submitButton(Yii::t('app', 'Sign Up'));
+							echo GxHtml::submitButton(Yii::t('app', 'Subscribe'));
 							
 							$this->endWidget();
 						?>

@@ -142,7 +142,7 @@
 			</p>
 			
 			<span class="source">
-				Anonymous on 
+				Federal Way, WA on 
 				<?php 
 					echo CHtml::link(
 						'Etsy',
@@ -192,7 +192,7 @@
 			</p>
 			
 			<span class="source">
-				Anonymous on 
+				Riverside, CA on 
 				<?php 
 					echo CHtml::link(
 						'Etsy',
