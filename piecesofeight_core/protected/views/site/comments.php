@@ -113,6 +113,57 @@
 	
 	<div class="comment">
 		<?php
+			$product = Product::model()->findByPk(22);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				These fit perfectly and were so comfortable! The craftsmanship is spot on! 
+				Thank you for the terrific product!	
+			</p>
+			
+			<span class="source">
+				Federal Way, WA on 
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				July 25, 2012
+			</span>
+		</div>
+	</div>
+	
+	
+	<div class="comment">
+		<?php
 			$product = Product::model()->findByPk(32);
 			$imgUrl = "";
 			$imgAlt = "";
@@ -141,7 +192,7 @@
 			</p>
 			
 			<span class="source">
-				Anonymous on 
+				Riverside, CA on 
 				<?php 
 					echo CHtml::link(
 						'Etsy',

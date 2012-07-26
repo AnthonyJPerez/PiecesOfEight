@@ -365,7 +365,7 @@ PENDINGREASON is deprecated since version 6
 	}
 	
 	
-	public function actionCheckout()
+	public function actionDoCheckout()
 	{
 		// Paypal Checkout methods: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/library_documentation
 		// Paypal developer guide: https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_NVPAPI_DeveloperGuide.pdf
@@ -391,7 +391,7 @@ PENDINGREASON is deprecated since version 6
 			$nvp['NOSHIPPING'] = 0; // Force display of shipping address on paypal pages.
 			$nvp['REQCONFIRMSHIPPING'] = '1';
 			$nvp['ALLOWNOTE'] = 0; // The buyer is not able to enter a note to the merchant.
-			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/checkout'));
+			$nvp['RETURNURL'] = urlencode($this->createAbsoluteUrl('cart/doCheckout'));
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
 			$nvp['LANDINGPAGE'] = "Billing";
@@ -558,7 +558,8 @@ PENDINGREASON is deprecated since version 6
 					$msg->view = 'customerCheckout';
 					$msg->addTo(($debug) ? Yii::app()->params['adminEmail'] : $Order->email);
 					$msg->setFrom(array(Yii::app()->params['checkoutEmail'] => "Pieces of Eight Costumes"));
-					$msg->setSubject("Your Order with Pieces of Eight Costumes");
+					$msg->setSender(array(Yii::app()->params['checkoutEmail'] => "Pieces of Eight Costumes"));
+					$msg->setSubject("Thank you for your order with Pieces of Eight Costumes!");
 					$msg->setBody(array('model'=>$Order), 'text/html');
 					Yii::app()->mail->send($msg);
 					
@@ -567,6 +568,7 @@ PENDINGREASON is deprecated since version 6
 					$msg->view = 'adminCheckout';
 					$msg->addTo(Yii::app()->params['adminEmail']);
 					$msg->setFrom(array(Yii::app()->params['checkoutEmail']=>"Pieces of Eight Costumes"));
+					$msg->setSender(array(Yii::app()->params['checkoutEmail']=>"Pieces of Eight Costumes"));
 					$msg->setSubject("Order Notification");
 					$msg->setBody(array('model'=>$Order), 'text/html');			
 					Yii::app()->mail->send($msg);
@@ -574,12 +576,29 @@ PENDINGREASON is deprecated since version 6
 					// Empty the cart!
 					$this->_emptyCart();
 					
-					$this->render(
-						'checkout'
+					$this->redirect(
+						$this->createUrl('cart/checkout')
 					);
 				}
 			}
 		}
+	}
+	
+	public function actionCheckout()
+	{
+		$this->render(
+			'checkout'
+		);
+	}
+	
+	public function actionTestEmail()
+	{
+		$this->render(
+			'testEmail',
+			array(
+				'model' => Order::model()->findByPk(6)
+			)
+		);
 	}
 	
 	private function _getValue($arr, $key)
