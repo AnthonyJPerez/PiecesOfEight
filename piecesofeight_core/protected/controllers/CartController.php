@@ -576,8 +576,8 @@ PENDINGREASON is deprecated since version 6
 					// Empty the cart!
 					$this->_emptyCart();
 					
-					Yii::redirect(
-						$this->createUrl('site/checkout')
+					$this->redirect(
+						$this->createUrl('cart/checkout')
 					);
 				}
 			}
