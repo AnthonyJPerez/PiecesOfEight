@@ -145,8 +145,7 @@ class SiteController extends GxController
 	// confirmation page.
 	public function actionNewsletter()
 	{
-		$model=new Newsletter;
-		$success = false;
+		$model=new Newsletter('default');
 		
 		if(isset($_POST['ajax']) && $_POST['ajax']==='newsletter')
 		{
@@ -161,13 +160,49 @@ class SiteController extends GxController
 			
 			if($model->save())
 			{
-				$success = true;
+				Yii::app()->user->setFlash('newsletter','Thank you for subscribing to our newsletter! Please add .... to your contacts to ensure you get our emails.');
+				$this->refresh();
 			}
 		}
 		
 		$this->render(
 			'newsletter',
-			array ('success' => $success)
+			array (
+				'model' => $model,
+			)
+		);
+	}
+	
+	//
+	// Adds a user to the newsletter list and displays the 
+	// confirmation page.
+	public function actionNewsletterInline()
+	{
+		$model=new Newsletter('inline');
+		
+		if(isset($_POST['ajax']) && $_POST['ajax']==='newsletter')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		else if (isset($_POST['Newsletter']))
+		{
+			$model->attributes=$_POST['Newsletter'];
+			$model->date_enrolled = new CDbExpression('now()');
+			
+			if($model->save())
+			{
+				Yii::app()->user->setFlash('newsletter','Thank you for subscribing to our newsletter! Please add .... to your contacts to ensure you get our emails.');
+				$this->refresh();
+			}
+		}
+		
+		$this->render(
+			'newsletter',
+			array (
+				'model' => $model,
+			)
 		);
 	}
 	
