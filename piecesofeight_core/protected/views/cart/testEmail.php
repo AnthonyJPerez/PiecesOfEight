@@ -5,16 +5,19 @@
 	// Follow this guide for best results: http://24ways.org/2009/rock-solid-html-emails
 ?>
 
-<table border=2 width="600px">
+<table border=0 width="600px">
 	<tr>
-		<td>
 		<?php
-			$imgUrl = Yii::app()->request->baseUrl . '/images/header_shadow.png';
+			$bgImg = Yii::app()->request->baseUrl . '/images/header_shadow.png';
+			$imgUrl = Yii::app()->request->baseUrl . '/images/pieces-of-eight-costumes-logo.png';
+		?>
+		<td height="141" style="padding-top: 32px; background-image: url(<?php echo $bgImg; ?>); background-size: 100%;" align="center" valign="middle">
+		<?php
 			echo CHtml::image(
 				$imgUrl, 
 				"Pieces of Eight Costumes Header Image", 
-				array('width'=>'100%')
-			);	
+				array('width'=>'94px')
+			);
 		?>
 		</td>
 	</tr>
@@ -42,7 +45,7 @@
 					<td>
 						<p>
 						We have successfully received your online order and it is now being processed. 
-						Please note that your order cannot be cancelled or modified.
+						Please note that this order cannot be cancelled or modified.
 						<br /><br />
 						For further assistance, please email us at 
 						<a href="mailto:<?php echo Yii::app()->params['adminEmail'];?>">
@@ -125,13 +128,20 @@
 			</p>
 			<p>
 				Would you like to receive special offers, discounts, and product updates 
-				from Pieces Of Eight Costumes? Sign up for our newsletter to stay connected.
+				from Pieces Of Eight Costumes? Subscribe to our 
+				<?php echo CHtml::link('newsletter', $this->createAbsoluteUrl('site/newsletter'), array('target'=>'_BLANK')); ?> 
+				to stay connected.
 			</p>
 			<p>
 				Thank you again, we appreciate your business and look forward to serving you again
 				in the near future!
 			</p>
+			<br />
 			<p>
+				Sincerely,
+				<br /><br />
+				Susan Perez
+				<br />
 				Pieces Of Eight Costumes By Sue LLC
 			</p>
 		</td>
