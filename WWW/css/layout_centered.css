@@ -285,7 +285,7 @@ a:hover
 	position: relative;
 	margin: 0;
 	width: 100%;	
-	height: 115px;	
+	height: 180px;	//115
 	color: #aaa;	
 }
 
@@ -322,7 +322,7 @@ a:hover
 	.footer_menu_container
 	{
 		width: 100%;
-		height: 100%;
+		height: 115px;
 		padding-top: 1em;
 	}
 	
@@ -339,6 +339,19 @@ a:hover
 	.footer_menu_container > div > span
 	{
 		font-size: 1.25em;
+	}
+	
+	.footer_details
+	{
+		display: block;
+		position: relative;
+		text-align: center;
+		vertical-align: bottom;
+		margin-top: 1em;
+	}
+	.footer_details > span
+	{
+		display: block;
 	}
 	
 	.newsletter

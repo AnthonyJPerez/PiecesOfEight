@@ -126,12 +126,6 @@ If you have a question or comment about this site, email our webmaster at <span 
 	<?php
 		$subject = "";
 		$body = "";
-		if ($product)
-		{
-			$product_url = $product->getUrl(true);
-			$model->subject = "Custom Order Inquiry";
-			$model->body = "Product:\n\t".$product->name."\n\t(".$product_url.")\n\nI am interested in custom ordering this product.\n\n[Replace me with details of your custom order!]";
-		}
 	?>
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
