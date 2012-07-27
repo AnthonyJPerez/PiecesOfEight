@@ -231,17 +231,23 @@
 	
 	$sizeChartLink = CHtml::link(
 		"Size Chart",
-		$this->createUrl('site/page', array('view'=>'size-chart')),
+		//$this->createUrl('site/page', array('view'=>'size-chart')),
+		Yii::app()->baseUrl.'/images/Size-Chart.png',
 		array(
-			'title' => 'Size Chart'
+			'title' => 'Size Chart',
+			'target' => '_BLANK',
+			'onclick' => "window.open('".$this->createAbsoluteUrl('site/SizeChart')."','popup','width=820,height=1360,scrollbars=yes,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false"
 		)
 	);
 	
 	$regularSizesLink = CHtml::link(
 		"regular sizes",
-		$this->createUrl('site/page', array('view'=>'size-chart')),
+		//$this->createUrl('site/page', array('view'=>'size-chart')),
+		Yii::app()->baseUrl.'/images/Size-Chart.png',
 		array(
-			'title' => 'Size Chart'
+			'title' => 'Size Chart',
+			'target' => '_BLANK',
+			'onclick' => "window.open('".$this->createAbsoluteUrl('site/SizeChart')."','popup','width=820,height=1360,scrollbars=yes,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false"
 		)
 	);
 	

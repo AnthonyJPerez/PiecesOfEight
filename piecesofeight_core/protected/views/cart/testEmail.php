@@ -25,36 +25,76 @@
 	<!-- Welcome Message -->
 	<tr>
 		<td>
-			<h2>ORDER CONFIRMATION</h2>
+			<h1>Notification of Order</h1>
 			<table border=0>
 				<tr>
 					<td>
-						Hi <?php echo $model->first_name; ?>,
-						<br /><br />
-						Thank you for shopping at Pieces Of Eight Costumes! Your order number is: 
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<br />
-							<b><?php echo $model->confirmation_code; ?></b>
-						<br />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p>
-						We have successfully received your online order and it is now being processed. 
-						Please note that this order cannot be cancelled or modified.
-						<br /><br />
-						For further assistance, please email us at 
-						<a href="mailto:<?php echo Yii::app()->params['adminEmail'];?>">
-							<?php 
-								echo Yii::app()->params['adminEmail'];
-							 ?> 
-						</a>
-						. Don't forget to reference your order number!
-						</p>
+						<h2>Order Details:</h2>
+						<table border=0 align='left' cellpadding="4" cellspacing="4">
+							<tr>
+								<td align='right'>
+									<b>Order #:</b>
+								</td>
+								<td>
+									<?php echo $model->confirmation_code; ?>
+								</td>
+							</tr>
+							<tr>
+								<td align='right'>
+									<b>Date:</b>
+								</td>
+								<td>
+									<?php echo $model->order_date; ?>
+								</td>
+							<tr />
+							<tr align='left'>
+								<td align='right'>
+									<b>Name:</b>
+								</td>
+								<td>
+									<?php echo ucfirst($model->first_name).' '.ucfirst($model->last_name); ?>
+								</td>
+							</tr>
+							<tr>
+								<td align='right'>
+									<b>Email:</b>
+								</td>
+								<td>
+									<?php echo $model->email; ?>
+								</td>
+							</tr>
+							<tr>
+								<td align='right'>
+									<b>Shipping Info:</b>
+								</td>
+								<td>
+									<?php
+										echo $model->shipto_name."<br />";
+										echo $model->shipto_street."<br />";
+										echo $model->shipto_city.", ";
+										echo $model->shipto_state.", ";
+										echo $model->shipto_zip."<br />";
+										echo $model->shipto_countryname." (".$model->shipto_countrycode.")";
+									?>
+								</td>
+							</tr>
+							<tr>
+								<td align='right'>
+									<b>Total Price:</b>
+								</td>
+								<td>
+									<?php echo "$".$model->total_amt; ?>
+								</td>
+							</tr>
+							<tr>
+								<td align='right'>
+									<b>Paypal Fee:</b>
+								</td>
+								<td>
+									<?php echo "$".$model->paypalfee_amt; ?>
+								</td>
+							</tr>
+						</table>
 					</td>
 				</tr>
 			</table>
@@ -67,7 +107,7 @@
 	<!-- Order Details -->
 	<tr>
 		<td>
-			<h2>Order Details: </h2>
+			<h2>Items Ordered: </h2>
 			<table border="0" width="100%">
 			<tr class="heading">
 				<th width="70%" colspan="2">Product Description</th>
@@ -111,39 +151,6 @@
 			?>
 		
 		</table>
-		</td>
-	</tr>
-	
-	
-	
-	
-	<!-- Footer Message -->
-	<tr>
-		<td>
-			<br /><br />
-			<p>
-				By placing this order you have agreed to Pieces Of Eight Costume’s 
-				<?php echo CHtml::link('terms of service', $this->createAbsoluteUrl('site/page', array('view'=>'tos')), array('target'=>'_BLANK')); ?> and 
-				<?php echo CHtml::link('privacy policy', $this->createAbsoluteUrl('site/page', array('view'=>'tos', '#'=>'Privacy')), array('target'=>'_BLANK')); ?>.
-			</p>
-			<p>
-				Would you like to receive special offers, discounts, and product updates 
-				from Pieces Of Eight Costumes? Subscribe to our 
-				<?php echo CHtml::link('newsletter', $this->createAbsoluteUrl('site/newsletter'), array('target'=>'_BLANK')); ?> 
-				to stay connected.
-			</p>
-			<p>
-				Thank you again, we appreciate your business and look forward to serving you again
-				in the near future!
-			</p>
-			<br />
-			<p>
-				Sincerely,
-				<br /><br />
-				Susan Perez
-				<br />
-				Pieces Of Eight Costumes By Sue LLC
-			</p>
 		</td>
 	</tr>
 </table>
