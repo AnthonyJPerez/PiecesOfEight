@@ -81,7 +81,7 @@
 		<ul class='questions'>
 			<li>
 				<a href="#determine-size">
-					How do I know what size I am?
+					What size am I?
 				</a>
 			</li>
 			<li>
@@ -96,7 +96,7 @@
 			</li>
 			<li>
 				<a href="#no-longer-listed">
-					What if the item that I wanted is no longer listed?
+					The item that I wanted is no longer listed.
 				</a>
 			</li>
 			<li>
@@ -326,7 +326,7 @@
 		<ul class='answers'>
 			<li>
 				<span id="determine-size">
-					How do I know what size I am?
+					What size am I?
 				</span>
 				<p>
 					Determining your size is easy with the help of our <?php echo $sizeChartLink; ?>.
@@ -360,7 +360,7 @@
 					please <?php echo $contactUsLink; ?> and we can put the item on
 					hold for up to 48 hours. If at the end of the 48-hour period you have
 					not committed to purchasing the item, it will be made available
-					to other customers. We cannot gaurantee being able to have the exact
+					to other customers. We cannot guarantee being able to have the exact
 					same item again because the same fabric and trim may not be available.
 					However, if you have missed out on an item we can always create a similar
 					item for you!
@@ -368,11 +368,11 @@
 			</li>
 			<li>
 				<span id="no-longer-listed">
-					What if the item that I wanted is no longer listed?
+					The item that I wanted is no longer listed.
 				</span>
 				<p>
-					Restocking of some of our specialty items depend upon the availability
-					of the fabric. While we cannot gaurantee being able to have the
+					Restocking some of our specialty items depends upon the availability
+					of the fabric. While we cannot guarantee being able to have the
 					exact same item again, if you <?php echo $contactUsLink; ?> we will work
 					with you to create a similar item for you.
 				</p>
@@ -440,9 +440,9 @@
 				<p>
 					Depending on the detail and/or difficulty of a custom order, please
 					allow between 3-6 weeks for construction and completion. We will
-					try to accomodate rush orders, but as it depends on our production
-					schedule, they cannot be gauranteed. <b>We recommend placing your
-					orders as early as possible to gaurantee early delivery.</b> An additional fee for rush orders
+					try to accommodate rush orders, but as it depends on our production
+					schedule, they cannot be guaranteed. <b>We recommend placing your
+					orders as early as possible to guarantee early delivery.</b> An additional fee for rush orders
 					may apply.
 				</p>
 			</li>
@@ -474,7 +474,7 @@
 				<p>
 					The only form of payment that Pieces of Eight Costumes
 					currently accepts is <?php echo $paypalLink; ?>. With Paypal, you can choose to pay
-					with oyur debit card, bank account, credit card, or the balance
+					with your debit card, bank account, credit card, or the balance
 					on your Paypal account. We also accept credit cards directly through
 					our <?php echo $etsyLink; ?>. On Etsy, we accept Visa, Master Card,
 					American Express, and Discover cards.
@@ -684,7 +684,7 @@
 					<ul class='contact-info'>
 						<li>Sue Perez</li>
 						<li>Owner</li>
-						<li>Piees of Eight Costumes by Sue, LLC</li>
+						<li>Pieces of Eight Costumes by Sue, LLC</li>
 						<li><?php echo Yii::app()->params['adminEmail']; ?></li>
 						<li>Keizer, Oregon, USA</li>
 					</ul>
