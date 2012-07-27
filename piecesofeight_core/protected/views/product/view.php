@@ -552,7 +552,18 @@
 					);
 						
 					//echo CHtml::link('Size Chart', $this->createUrl('site/page', array('view'=>'size-chart')), array('target'=>'_BLANK', 'class'=>'size_chart_2'));
-					echo CHtml::link('Size Chart', Yii::app()->baseUrl.'/images/Size-Chart.png', array('target'=>'_BLANK', 'class'=>'size_chart_2', 'title'=>'Size Chart'));
+					echo CHtml::link(
+						'Size Chart', 
+						Yii::app()->baseUrl.'/images/Size-Chart.png', 
+						array(
+							'target'=>'_BLANK', 
+							'class'=>'size_chart_2', 
+							'title'=>'Size Chart',
+							'onclick' => "
+								window.open('".$this->createAbsoluteUrl('site/SizeChart')."','popup','width=820,height=1360,scrollbars=yes,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false
+							"
+						)
+					);
 					//echo "<a class='size_chart' href='#size_chart_data' >Size Chart</a>";
 					?>
 					<div class='hidden_data'>

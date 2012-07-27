@@ -523,13 +523,13 @@ PENDINGREASON is deprecated since version 6
 					
 					// create a new order in the database
 					$d = $getOrderDetails;
-					/*print_r($getOrderDetails);
-					echo "<br /><br />";
-					print_r($resArray);*/
+					//print_r($getOrderDetails);
+					//echo "<br /><br />";
+					//print_r($resArray);
 					$Order = new Order;
-					$Order->total_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_AMT');
-					$Order->paypalfee_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_FEEAMT');
-					$Order->tax_amt = $this->_getValue($resArray, 'PAYMENTINFO_0_TAXAMT');
+					$Order->total_amt = number_format($this->_getValue($resArray, 'PAYMENTINFO_0_AMT'), 2);
+					$Order->paypalfee_amt = number_format($this->_getValue($resArray, 'PAYMENTINFO_0_FEEAMT'), 2);
+					$Order->tax_amt = number_format($this->_getValue($resArray, 'PAYMENTINFO_0_TAXAMT'), 2);
 					$Order->confirmation_code = $this->_getValue($resArray, 'PAYMENTINFO_0_TRANSACTIONID');
 					$Order->order_date = $this->_getValue($resArray, 'PAYMENTINFO_0_ORDERTIME');
 					
@@ -543,15 +543,15 @@ PENDINGREASON is deprecated since version 6
 					$Order->shipto_zip = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOZIP');
 					$Order->shipto_countrycode = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE');
 					$Order->shipto_countryname = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME');
-					$Order->shipping_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPPINGAMT');
+					$Order->shipping_amt = number_format($this->_getValue($d, 'PAYMENTREQUEST_0_SHIPPINGAMT'), 2);
 					$Order->shipping_type = $this->_getValue($d, 'SHIPPINGOPTIONNAME');
-					$Order->discount_amt = $this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT');
+					$Order->discount_amt = number_format($this->_getValue($d, 'PAYMENTREQUEST_0_SHIPDISCAMT'), 2);
 					$Order->discount_msg = "n/a";
 										
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
 					$Order->save();
-					
+										
 					// Send the confirmation emails
 					// Email the form to the customer
 					$msg = new YiiMailMessage;
@@ -596,7 +596,7 @@ PENDINGREASON is deprecated since version 6
 		$this->render(
 			'testEmail',
 			array(
-				'model' => Order::model()->findByPk(6)
+				'model' => Order::model()->findByPk(1)
 			)
 		);
 	}
@@ -608,7 +608,7 @@ PENDINGREASON is deprecated since version 6
 			return $arr[$key];
 		}
 		
-		return "n/a";
+		return "0";
 	}
 	
 	
