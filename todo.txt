@@ -1,11 +1,11 @@
 
 Deploy:
-	install curl
 	get paypal api credentials
 	overwrite layout_centered.css
 	add new header_shadow_600x143.png image
 	add new paypal files to WWW/
-
+	update index.php with new paypal locations
+	
 Currently working on:
 	discount codes
 	custom-order page
@@ -71,7 +71,7 @@ People to contact:
 
 
 
-
+custom order page stuff
 
 *GENERAL INFO
 If you would like to customize an item please fill out our custom order form. Click on the add product button below to get started. Once you have completed the form, submit your inquiry and you will then receive a confirmation email stating that we have received your inquiry. After we have reviewed your inquiry we will then send you an email containing a link that will direct you to your private custom order listing, where you will then be able to purchase your custom item. Please note that custom orders will not be started until at least 50% of payment has been received. Depending on the detail and/or difficulty of a custom order please allow between 3-6 weeks for construction and completion. We will try to accommodate rush orders, but they cannot be guaranteed depending on production schedule. An additional fee for rush orders may apply. 
