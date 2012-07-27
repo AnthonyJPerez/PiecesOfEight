@@ -346,14 +346,14 @@
 						?>
 					</div>
 				</div>
-				<!--div class="footer_details">
-					<div>
-						Website by <a href="mailto:AnthonyJPerez@comcast.net?Subject=PiecesOfEightCostumes.net%20Site%20Inquiry">Anthony J. Perez</a>
-					</div>
-					<div>
+				<span class="footer_details">
+					<span>
+						Website by <?php echo CHtml::link('Anthony J. Perez', $this->createUrl('site/webmasterContact'), array('title' => 'Email the Pieces of Eight Costumes Webmaster')); ?>
+					</span>
+					<span>
 						<span>Copyright &copy; <?php echo date('Y'); ?>, Peices Of Eight Costumes by Sue LLC.</span>
-					</div>
-				</div-->
+					</span>
+				</span>
 			</div>
 		</div>
 	</body>
