@@ -572,9 +572,8 @@ PENDINGREASON is deprecated since version 6
 					$msg->setSubject("Order Notification");
 					$msg->setBody(array('model'=>$Order), 'text/html');			
 					Yii::app()->mail->send($msg);
-										
-					// Empty the cart!
-					$this->_emptyCart();
+					
+					Yii::app()->session['confirmCode'] = $Order->confirmation_code;
 					
 					$this->redirect(
 						$this->createUrl('cart/checkout')
@@ -586,8 +585,16 @@ PENDINGREASON is deprecated since version 6
 	
 	public function actionCheckout()
 	{
+		$confirmCode = Yii::app()->session['confirmCode'];
+		
+		// Empty the cart!
+		$this->_emptyCart();
+				
 		$this->render(
-			'checkout'
+			'checkout',
+			array(
+				'confirmCode' => $confirmCode
+			)
 		);
 	}
 	
