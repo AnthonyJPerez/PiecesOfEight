@@ -292,7 +292,8 @@
 						<span>Help</span>
 						<ul>
 							<li><?php echo CHtml::link('FAQ', $this->createUrl('site/page', array('view'=>'faq')), array('title'=>'Frequently Asked Questions')); ?></li>
-							<li><?php echo CHtml::link('Size Chart', Yii::app()->baseUrl.'/images/Size-Chart.png', array('title'=>'Pieces of Eight Costumes Size Chart', 'target'=>'_BLANK')); ?></li>
+							<li><?php echo CHtml::link('Size Chart', Yii::app()->baseUrl.'/images/Size-Chart.png', array('title'=>'Pieces of Eight Costumes Size Chart', 'target'=>'_BLANK', 'onclick' => "window.open('".$this->createAbsoluteUrl('site/SizeChart')."','popup','width=820,height=1360,scrollbars=yes,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false")); ?>
+								</li>
 							<li><?php echo CHtml::link('Site Feedback', $this->createUrl('site/webmasterContact'), array('title'=>'Product Comments and Feedback')); ?></li>
 						</ul>
 					</div>
@@ -317,7 +318,7 @@
 						<ul>
 							<li><?php echo CHtml::link('Terms & Conditions', $this->createUrl('site/page', array('view'=>'tos')), array('title'=>'Pieces of Eight Costumes Terms and Conditions')); ?></li>
 							<li><?php echo CHtml::link('Privacy Policy', $this->createUrl('site/page', array('view'=>'tos', '#'=>'Privacy')), array('title'=>'Pieces of Eight Costumes Privacy Policy')); ?></li>
-							<li><?php echo CHtml::link('Partners', $this->createUrl('site/page', array('view'=>'partners')), array('title'=>'Pieces of Eight Costumes Partners')); ?></li>
+							<li><?php echo CHtml::link('Our Friends', $this->createUrl('site/page', array('view'=>'friends')), array('title'=>'Friends of Pieces of Eight Costumes')); ?></li>
 						</ul>
 					</div>
 				

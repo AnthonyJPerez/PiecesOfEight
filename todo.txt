@@ -1,3 +1,9 @@
+fix webmaster contact
+fix all size_chart links:
+onclick="window.open('http://www.yourweblog.com/yourfile.html','popup','width=500,height=500,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false"
+
+add confirmation order to checkout page
+
 Deploy:
 	install curl
 	get paypal api credentials

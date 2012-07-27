@@ -206,6 +206,20 @@ class SiteController extends GxController
 		);
 	}
 	
+	public function actionSizeChart()
+	{
+		echo "<html><body style='padding: 0; margin: 0;'>";
+		echo CHtml::image(
+			Yii::app()->baseUrl . '/images/Size-Chart.png',
+			'Size Chart',
+			array(
+				'width' => 800,
+				'height' => 1340
+			)
+		);
+		echo "</body></html>";
+	}
+	
 	public function actionLogin()
 	{
 		$model=new LoginForm;
