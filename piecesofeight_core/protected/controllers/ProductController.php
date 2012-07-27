@@ -357,7 +357,11 @@ class ProductController extends GxController
 			//print_r($_POST);
 		
 			$product->setAttributes($_POST['Product']);
-			$product->date_inserted = new CDbExpression('now()');
+			
+			if (!isset($product->date_inserted))
+			{
+				$product->date_inserted = new CDbExpression('now()');
+			}
 			
 			// Make sure the 'images' array is an empty array if there are no images
 			if (empty($_POST['Product']['images']))
