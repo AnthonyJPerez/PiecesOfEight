@@ -181,7 +181,7 @@ $config['params'] = array(
 	// this is used in contact page
 	'adminEmail'=> ($debug) ? 'holy.crap.its.aj@gmail.com' : 'piecesof8costumes@gmail.com',
 	'checkoutEmail'=> 'piecesof8costumes@gmail.com',
-	'paypalEmail'=> ($debug) ? 'po8_1330738240_biz@gmail.com' : 'piecesof8costumes@comcast.net',
+	'paypalEmail'=> ($debug) ? 'po8_1330738240_biz@gmail.com' : 'Piecesof8costumes_api1.comcast.net',
 	'paypalUrl' => ($debug) ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr',
 	'webmasterEmail'=>'AnthonyJPerez@comcast.net',
 );
