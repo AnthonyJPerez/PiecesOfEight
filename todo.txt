@@ -2,8 +2,6 @@
 Deploy:
 	get paypal api credentials
 	overwrite layout_centered.css
-	add new header_shadow_600x143.png image
-	add new paypal files to
 	
 Currently working on:
 	discount codes
