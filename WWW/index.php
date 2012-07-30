@@ -1,6 +1,6 @@
 <?php
 
-include_once('CallerService.php');
+include_once('../piecesofeight_core/paypal_core/CallerService.php');
 
 // remove this when not under construction
 $PO8_UNDER_CONSTRUCTION = false;
