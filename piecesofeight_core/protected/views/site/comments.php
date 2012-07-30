@@ -113,7 +113,7 @@
 	
 	<div class="comment">
 		<?php
-			$product = Product::model()->findByPk(22);
+			$product = Product::model()->findByPk(25);
 			$imgUrl = "";
 			$imgAlt = "";
 			$productUrl = "";
