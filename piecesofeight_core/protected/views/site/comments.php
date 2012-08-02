@@ -113,6 +113,56 @@
 	
 	<div class="comment">
 		<?php
+			$product = Product::model()->findByPk(38);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				Beautiful in person and the quality is great! ARRRRR THANK YOU!
+			</p>
+			
+			<span class="source">
+				Park Ridge, IL on
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				July 30, 2012
+			</span>
+		</div>
+	</div>
+	
+	
+	<div class="comment">
+		<?php
 			$product = Product::model()->findByPk(25);
 			$imgUrl = "";
 			$imgAlt = "";
