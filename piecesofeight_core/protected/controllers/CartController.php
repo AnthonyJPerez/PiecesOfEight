@@ -414,7 +414,7 @@ PENDINGREASON is deprecated since version 6
 			{
 				$nvp['L_PAYMENTREQUEST_0_NAME'.$count] = urlencode($value['product']->name);
 				$nvp['L_PAYMENTREQUEST_0_NUMBER'.$count] = urlencode($value['product']->id);
-				$nvp['L_PAYMENTREQUEST_0_DESC'.$count] = urlencode(substr($value['product']->description, 0, 127));
+				$nvp['L_PAYMENTREQUEST_0_DESC'.$count] = urlencode(substr("[Size: ".$value['size']."] ".$value['product']->description, 0, 127));
 				$nvp['L_PAYMENTREQUEST_0_ITEMURL'.$count] = urlencode($value['product']->getUrl(true));
 				$nvp['L_PAYMENTREQUEST_0_AMT'.$count] = number_format($value['product']->price, 2);
 				$nvp['L_PAYMENTREQUEST_0_QTY'.$count] = $value['quantity'];
