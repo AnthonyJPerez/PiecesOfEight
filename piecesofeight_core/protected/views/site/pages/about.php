@@ -7,11 +7,21 @@
 	many famous tales and legends that make up England's history, from notorious pirates to the legends of King Arthur.";
 	
 	$this->pageKeywords = "Costume designer, handmade costumes, Keizer Oregon Costume shop, pirate costumes, renaissance costumes";
+
+	Yii::app()->clientScript->registerCss(
+		'about-me-style',
+		'
+			img {
+				padding-right: 1em;
+			}
+		',
+		'screen'
+	);
 ?>
 <h1>Pieces of Eight Costumes</h1>
 
 <p>
-	Hello, my name is <a href="https://plus.google.com/111991154896541294171/about" rel="me">Sue Perez</a> and I have been creating costumes and other clothes my 
+	<img align="left" width="200px" src="<?php echo Yii::app()->baseUrl . '/images/susan_perez.jpg' ?>" />Hello, my name is <a href="https://plus.google.com/111991154896541294171/about" rel="me">Sue Perez</a> and I have been creating costumes and other clothes my 
 	whole life. I was born and raised in Cornwall which is a beautiful peninsula at the 
 	southwestern most tip of England, full of history with ties to many Pirates and the 
 	legends of King Arthur.
