@@ -21,6 +21,9 @@ Called by CallerService.php.
 */
 //for 3-token -> API_USERNAME,API_PASSWORD,API_SIGNATURE  are needed
 
+define ('ADMIN_USERNAME', 'sperez8');
+define ('ADMIN_PASSWORD', '#1cornwall');
+
 //define('API_USERNAME', 'platfo_1255077030_biz_api1.gmail.com');
 define('API_USERNAME', 'po8_1330738240_biz_api1.gmail.com');
 //define('API_USERNAME', 'sdk-three_api1.sdk.com');
