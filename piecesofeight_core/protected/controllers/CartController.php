@@ -397,18 +397,21 @@ PENDINGREASON is deprecated since version 6
 			$nvp['LANDINGPAGE'] = "Billing";
 			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";			
 			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
-			$nvp['CALLBACKTIMEOUT'] = 4;
+			$nvp['CALLBACKTIMEOUT'] = 6;
+			
+			$domestic = $this->_calculateShipping(true, $details['totalQuantity']);
+			$international = $this->_calculateShipping(false, $details['totalQuantity']);
 			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
 			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
-			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = '8.95';
+			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($domestic['amount']);
 			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Air');
-			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = '49.95';
+			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = urlencode($international['amount']);
 			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
 			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';
 			
 			// Add each product
 			$count = 0;
-			$nvp['PAYMENTREQUEST_0_SHIPPINGAMT'] = '8.95';
+			$nvp['PAYMENTREQUEST_0_SHIPPINGAMT'] = number_format($domestic['amount'],2);
 			$nvp['PAYMENTREQUEST_0_ITEMAMT'] = 0;
 			foreach ($details['products'] as $pid=>$value)
 			{
@@ -424,8 +427,8 @@ PENDINGREASON is deprecated since version 6
 			}
 			
 			// Required for security reasons
-			$nvp['MAXAMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + 49.95 + 40.00;
-			$nvp['PAYMENTREQUEST_0_AMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + 8.95;
+			$nvp['MAXAMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + 149.95;
+			$nvp['PAYMENTREQUEST_0_AMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + $domestic['amount'];
 
 			// format the nvp string as url parameters
 			$nvpString = "&";
@@ -671,6 +674,18 @@ PENDINGREASON is deprecated since version 6
 		Yii::app()->session->clear();
 		Yii::app()->session->destroy();
 	}
+	
+	/*
+	public function actionCheckOrders()
+	{
+		$orders = Order::model()->findAll();
+		$this->render(
+			'checkOrders',
+			array(
+				'orders' => $orders
+			)
+		);
+	}*/
 
 	// Uncomment the following methods and override them if needed
 	/*
