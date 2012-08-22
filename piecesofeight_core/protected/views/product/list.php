@@ -94,7 +94,7 @@
 				{
 					display: inline-block;
 					vertical-align: top;
-					margin: .8em;
+					margin: .7em;
 					padding: 0.5em;
 					width: 30%;		
 				}
@@ -189,6 +189,9 @@ $this->widget('zii.widgets.CListView', array(
 	'sortableAttributes' => array(
 		'price'
 	),
+	'viewData' => array(
+		'category' => $category
+	)
 )); 
 
 ?>
