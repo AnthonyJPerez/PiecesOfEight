@@ -70,15 +70,15 @@
 			
 			function updateCart()
 			{
-				var subtotal = ".$subTotal.";
+				var subtotal = parseFloat(".number_format($subTotal, 2).");
 				var select = $('#shipping_select');
 				var val = select.val();
 				var index = val.lastIndexOf('$');
 				var shippingPrice = parseFloat(val.substring(index+1), 10);
 				
-				$('#subtotal_price').html('' + (subtotal + shippingPrice));
+				$('#subtotal_price').html('' + parseFloat(subtotal + shippingPrice).toFixed(2));
 				
-				//console.log('price: ' + shippingPrice );
+				//console.log (select, val, index, shippingPrice, subtotal, subtotal+shippingPrice, parseFloat(subtotal+shippingPrice).toFixed(2));
 			}
 			
 			updateCart();
@@ -261,7 +261,19 @@ if (!empty($products))
 			}
 		echo"</select></tr></td>";
 		
-		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal: $</span><span id='subtotal_price'>". ($subTotal + $shipping) ."</span> USD</td></tr>";
+		$totalShipping = bcadd($subTotal, $shipping, 2);
+		
+		/*echo "<tr>";
+			echo "<td class='subtotal' colspan='4' align='right'>";
+				echo "<span>Subtotal: </span><span>";
+				echo "$" . $totalShipping . " USD";
+				echo "</span>";
+			echo "</td>";
+		echo "</tr>";*/
+		
+		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal: $</span><span id='subtotal_price'>";
+		echo $totalShipping;
+		echo "</span><span> USD</span></td></tr>";
 		?>
 	
 	</table>

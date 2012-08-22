@@ -83,40 +83,17 @@ class CartController extends GxController
 		$totalQuantity = 0;
 		foreach ($products_session as $pid=>$data)
 		{
+			$product = Product::model()->with('images')->findByPk($pid);
+			$products[$pid]['product'] = $product;
 			$products[$pid]['quantity'] = $data['quantity'];
-			$products[$pid]['product'] = Product::model()->with('images')->findByPk($pid);
 			$products[$pid]['size'] = $data['size'];
 			
 			// Calculate the running subtotal
 			$subTotal += $products[$pid]['product']->price * $data['quantity'];
-			$totalQuantity += $data['quantity'];
-		}
-		
-		//$shipping = ($totalQuantity > 1) ? 12.95 : 8.95;
-		if ($totalQuantity >= 8)
-		{
-			$shipping = 35.95;
-		}
-		else if ($totalQuantity >= 5)
-		{
-			$shipping = 24.95;
-		}
-		else if ($totalQuantity >= 3)
-		{
-			$shipping = 18.95;
-		}
-		else if ($totalQuantity == 2)
-		{
-			$shipping = 12.95;
-		}
-		else
-		{
-			$shipping = 8.95;
 		}
 		
 		return array(
 			'products' => $products,
-			'shipping' => number_format($shipping, 2), // converts $x to $x.00
 			'subTotal' => number_format($subTotal, 2),
 			'totalQuantity' => $totalQuantity
 		);
@@ -127,8 +104,9 @@ class CartController extends GxController
 	public function actionView()
 	{
 		$details = $this->_getPriceDetails();
-		$domesticShipping = $this->_calculateShipping(true, $details['totalQuantity']);
-		$internationalShipping = $this->_calculateShipping(false, $details['totalQuantity']);
+		$quantity = $this->_getShippingQuantity($details);
+		$domesticShipping = $this->_calculateShipping(true, $quantity);
+		$internationalShipping = $this->_calculateShipping(false, $quantity);
 		
 		$shippingOptions = array(
 			$domesticShipping['name'] . ' - $' . $domesticShipping['amount'],
@@ -139,8 +117,8 @@ class CartController extends GxController
 			'view',
 			array(
 				'products' => $details['products'],
-				'shipping' => $details['shipping'],
 				'subTotal' => $details['subTotal'],
+				'shipping' => $domesticShipping['amount'],
 				'AddcartModel' => new AddcartForm,
 				'shippingOptions' => $shippingOptions
 			)
@@ -251,11 +229,25 @@ PENDINGREASON is deprecated since version 6
 	}
 	
 	
+	private function _getShippingQuantity($details)
+	{
+		$quantity = 0;
+		foreach ($details['products'] as $product)
+		{
+			if ($product['product']->shippable == 1)
+			{
+				$quantity += $product['quantity'];
+			}
+		}
+		
+		return $quantity;
+	}
+	
 	private function _calculateShipping($domestic, $quantity)
 	{
 		$shipping = 8.95;
 		$name = 'U.S. Ground';
-		
+				
 		if ($domestic)
 		{
 			$name = 'U.S. Ground';
@@ -275,9 +267,13 @@ PENDINGREASON is deprecated since version 6
 			{
 				$shipping = 12.95;
 			}
-			else
+			else if ($quantity >= 1)
 			{
 				$shipping = 8.95;
+			}
+			else
+			{
+				$shipping = 0.00;
 			}
 		}
 		else
@@ -285,7 +281,7 @@ PENDINGREASON is deprecated since version 6
 			$name = 'International Air';
 			if ($quantity >= 10)
 			{
-				$shipping = 150;
+				$shipping = 150.00;
 			}
 			else if ($quantity >= 7)
 			{
@@ -299,9 +295,13 @@ PENDINGREASON is deprecated since version 6
 			{
 				$shipping = 59.95;
 			}
-			else
+			else if ($quantity >= 1)
 			{
 				$shipping = 49.95;
+			}
+			else
+			{
+				$shipping = 0.00;
 			}
 		}
 		
@@ -325,25 +325,31 @@ PENDINGREASON is deprecated since version 6
 
 		// Calculate quantity
 		$productKey = 'L_QTY';
+		$shippingKey = 'L_DESC';
 		foreach ($_POST as $key=>$value)
 		{
 			if (strpos($key, $productKey) !== false)
 			{
 				$quantity += intval($value);
 			}
+			
+			// Remove products that are not shippable
+			if (strpos($key, 'L_DESC') !== false && strpos($value, '[Shipping]') !== false)
+			{
+				$quantity -= 1;
+			}
 		}
 		
 		// For security:
-		if ($quantity <= 0)
+		if ($quantity < 0)
 		{
-			$quantity = 1;
+			$quantity = 0;
 		}
 		
 		$shippingInfo = $this->_calculateShipping($domestic, $quantity);
 		
 		$nvp = array();
 		$nvp['OFFERINSURANCEOPTION'] = 'false';
-		//$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode($shippingInfo['name']);
 		$nvp['L_SHIPPINGOPTIONLABEL0'] = urlencode($shippingInfo['name']);
 		$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($shippingInfo['amount']);
 		$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'true';
@@ -399,8 +405,9 @@ PENDINGREASON is deprecated since version 6
 			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
 			$nvp['CALLBACKTIMEOUT'] = 6;
 			
-			$domestic = $this->_calculateShipping(true, $details['totalQuantity']);
-			$international = $this->_calculateShipping(false, $details['totalQuantity']);
+			$quantity = $this->_getShippingQuantity($details);
+			$domestic = $this->_calculateShipping(true, $quantity);
+			$international = $this->_calculateShipping(false, $quantity);
 			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
 			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
 			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($domestic['amount']);
@@ -417,7 +424,13 @@ PENDINGREASON is deprecated since version 6
 			{
 				$nvp['L_PAYMENTREQUEST_0_NAME'.$count] = urlencode($value['product']->name);
 				$nvp['L_PAYMENTREQUEST_0_NUMBER'.$count] = urlencode($value['product']->id);
-				$nvp['L_PAYMENTREQUEST_0_DESC'.$count] = urlencode(substr("[Size: ".$value['size']."] ".$value['product']->description, 0, 127));
+				
+				$desc = ($value['product']->shippable == 1) 
+					? "[Size: ".$value['size']."] "
+					: "[Shipping] ";
+				$desc .= $value['product']->description;
+				$nvp['L_PAYMENTREQUEST_0_DESC'.$count] = urlencode(substr($desc, 0, 127));
+				
 				$nvp['L_PAYMENTREQUEST_0_ITEMURL'.$count] = urlencode($value['product']->getUrl(true));
 				$nvp['L_PAYMENTREQUEST_0_AMT'.$count] = number_format($value['product']->price, 2);
 				$nvp['L_PAYMENTREQUEST_0_QTY'.$count] = $value['quantity'];
