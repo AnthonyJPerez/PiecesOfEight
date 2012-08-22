@@ -525,8 +525,14 @@ class ProductController extends GxController
 	
 	// Used to generate XML specific for Google's product feed
 	public function actionGoogleProductFeed()
-	{
-		$products = Product::model()->with('images', 'p8Sizes')->findAll();
+	{		
+		$criteria = new CDbCriteria;
+		$criteria->condition = 'shippable != 0';
+		$criteria->with = array(
+			'images', 'p8Sizes'
+		);
+		$products = Product::model()->findAll($criteria);
+		
 		header('Content-Type: text/xml');
 		echo '<?xml version="1.0"?>';
 		echo '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">';
@@ -619,7 +625,13 @@ class ProductController extends GxController
 	// Used to generate XML specific for Google's product feed
 	public function actionBingProductFeed()
 	{
-		$products = Product::model()->with('images', 'p8Sizes')->findAll();
+		$criteria = new CDbCriteria;
+		$criteria->condition = 'shippable != 0';
+		$criteria->with = array(
+			'images', 'p8Sizes'
+		);
+		$products = Product::model()->findAll($criteria);
+		
 		header('Content-Type: text/plain');
 		
 		echo "MPID\tTitle\tBrand\tProductURL\tPrice\tAvailability\tDescription\tImageURL\tShipping\tMerchantCategory\tBingCategory";
