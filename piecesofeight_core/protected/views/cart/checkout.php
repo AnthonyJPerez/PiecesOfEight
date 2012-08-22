@@ -10,10 +10,12 @@
 	<b><?php echo $confirmCode; ?></b>
 </p>
 <p>
-	We have received yer order. Ye shall receive an email shortly containing yer invoice and estimated shipping information.
+	We have received yer order. Ye shall receive an email shortly containing yer invoice and estimated shipping information. 
 </p>
 <p>
-	Have question about your order? <?php echo CHtml::link('Email us here', $this->createUrl('site/contact'), array('title'=>'Questions about your Pieces of Eight Costumes Order')); ?>
+	Don't forget to add <?php echo Yii::app()->params['adminEmail']; ?> to your contact list to ensure your confirmation email 
+	goes straight into your inbox! Have question about your order? 
+	<?php echo CHtml::link('Email us here', $this->createUrl('site/contact'), array('title'=>'Questions about your Pieces of Eight Costumes Order')); ?>
 </p>
 
 <?php

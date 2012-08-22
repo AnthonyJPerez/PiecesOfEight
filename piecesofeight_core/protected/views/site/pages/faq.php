@@ -115,6 +115,11 @@
 					Can I cancel or modify my order?
 				</a>
 			</li>
+			<li>
+				<a href="#no-confirmation">
+					I did not receive a confirmation email after my purchase.
+				</a>
+			</li>
 		</ul>
 	</div>
 	
@@ -409,6 +414,17 @@
 					Please check the garment sizing and descriptions carefully before
 					ordering. Please feel free to <?php echo $contactUsLink; ?> if you
 					have any questions!
+				</p>
+			</li>
+			<li>
+				<span id="no-confirmation">
+					I did not receive a confirmation email after my purchase.
+				</span>
+				<p>
+					If you did not receive a confirmation email after placing an order,
+					check your spam folder to see if your email provider blocked it. Be sure
+					to add <?php echo Yii::app()->params['adminEmail']; ?> to your contact
+					list to ensure receipt of future emails.
 				</p>
 			</li>
 		</ul>
