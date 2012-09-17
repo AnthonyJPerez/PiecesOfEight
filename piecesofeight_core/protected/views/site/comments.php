@@ -110,6 +110,251 @@
 
 
 <div id="comments_container">
+
+	<div class="comment">
+		<?php
+			$product = Product::model()->findByPk(63);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				I can't believe I ordered this on /Wednesday/ and have it in my hands on Saturday. Beautiful!
+			</p>
+			
+			<span class="source">
+				Suffolk, VA on
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				September 15, 2012
+			</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<?php
+			$product = Product::model()->findByPk(47);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				Gorgeous!!! I can't believe I ordered this on Tuesday and have it in my hands on Saturday. Fabulous work, quick shipping - thank you so much!
+			</p>
+			
+			<span class="source">
+				Suffolk, VA on
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				September 15, 2012
+			</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<?php
+			$product = Product::model()->findByPk(62);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				Absolutely wonderful. Shop owner is wonderful to work with too.
+			</p>
+			
+			<span class="source">
+				Bonney Lake, WA on
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				September 8, 2012
+			</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<?php
+			$product = Product::model()->findByPk(26);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				The breeches are so well made. I received them within a week. I am very happy with this purchase.
+			</p>
+			
+			<span class="source">
+				Fowler, IN on
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				September 6, 2012
+			</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<?php
+			$product = Product::model()->findByPk(52);
+			$imgUrl = "";
+			$imgAlt = "";
+			$productUrl = "";
+			
+			if ($product->id)
+			{
+				$imgUrl = $product->getDefaultImage()->url;
+				$imgAlt = $product->getProductImgAltDescription();
+				$productUrl = $product->getUrl();
+			}
+			
+			// Display the default image for this product
+			$img = CHtml::image(
+				Yii::app()->request->baseUrl . '/images/product-images/' . $imgUrl,
+				$imgAlt,
+				array('width'=>140, 'class' => 'img')
+			);
+		?>
+		<div class='img_container'>
+			<?php echo CHtml::link($img, $productUrl); ?>
+		</div>
+		<div class='text_container'>
+			<p>
+				Very Nice! Thank you!
+			</p>
+			
+			<span class="source">
+				Winsted, CT on
+				<?php 
+					echo CHtml::link(
+						'Etsy',
+						"http://www.etsy.com/people/susanperez3/feedback", 
+						array(
+							'target'=>'_blank',
+							'rel' => "nofollow"
+						)
+					);
+				?>
+			</span>
+			
+			<span class="date">
+				September 6, 2012
+			</span>
+		</div>
+	</div>
 	
 	<div class="comment">
 		<?php
