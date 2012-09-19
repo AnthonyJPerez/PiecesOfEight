@@ -40,7 +40,8 @@
 							foreach ($orders as $order)
 							{
 								echo "<li>";
-								$date = preg_split("/\s/", $order->order_date)[0];
+								$date = preg_split("/\s/", $order->order_date);
+								$date = $date[0];
 								echo CHtml::link(
 									"[".$date ."] " . $order->shipto_name . " -- " . $order->confirmation_code,
 									$this->createUrl('admin/order', array('id' => $order->id))
