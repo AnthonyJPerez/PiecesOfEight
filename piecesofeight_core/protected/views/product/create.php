@@ -271,6 +271,12 @@
 		<?php echo $form->textField($_Product, 'price', array('maxlength' => 6)); ?>
 		<?php echo $form->error($_Product,'price'); ?>
 		</div><!-- row -->
+
+		<div class="row">
+		<?php echo $form->labelEx($_Product, 'out_of_stock'); ?>
+		<?php echo $form->checkBox($_Product, 'out_of_stock'); ?>
+		<?php echo $form->error($_Product, 'out_of_stock'); ?>
+		</div>
 		
 		<div class="row">
 		<?php echo $form->labelEx($_Product,'description'); ?>

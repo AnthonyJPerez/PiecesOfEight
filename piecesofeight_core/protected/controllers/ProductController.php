@@ -85,18 +85,29 @@ class ProductController extends GxController
 		// Select any images associated with this product as well.
 		$criteria = array(
 			'with' => array('images'),
-			'condition' => 'out_of_stock != 1',
+			'condition' => '',
 			'order' => 'date_inserted DESC'
 		);
-		
-		// If the data is a valid category, then only show that category.
-		// else default to showing all products
-		if ( !is_null($CategoryModel) )
+
+		// The data is a valid category, only show this category in the results.
+		// else, show all items, even out of stock ones.
+		if (!is_null($CategoryModel))
 		{	
-			$criteria['condition'] .= '&& category_id='.$CategoryModel->id;
+			$criteria['condition'] = 'out_of_stock != 1 && category_id='.$CategoryModel->id;
 		}
+		else if ($category == 'new')
+		{
+			// Show all items, don't show out-of-stock ones
+			$criteria['condition'] = 'out_of_stock != 1';
+		}
+		else
+		{
+			// No category chosen, show all items (even out of stock), in reverse order
+			$criteria['order'] = 'date_inserted ASC';
+		}
+		
 		/*// If the category is 'new', then only show products posted within the last 6 months.
-		else if ($category === 'new')
+		if ($category === 'new')
 		{
 			// @todo THIS DOES NOT WORK, FIX IT!!!!
 			$date_SixMonthsOld = mktime(0, 0, 0, date("m")-6, date("d"),   date("Y"));
