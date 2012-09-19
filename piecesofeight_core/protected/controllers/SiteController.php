@@ -239,7 +239,7 @@ class SiteController extends GxController
 			if($model->validate() && $model->login())
 			{
 				//$this->redirect(Yii::app()->user->returnUrl);
-				$this->redirect($this->createUrl('product/list'));
+				$this->redirect($this->createUrl('admin/index'));
 			}
 		}
 		// display the login form
