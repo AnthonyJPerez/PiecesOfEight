@@ -390,8 +390,7 @@
 </p-->
 
 <p>
-	If you would like to order a custom item, or have questions about a product, please fill 
-	out our custom order inquiry form below! 
+	If you would like to order a custom item, or have questions about a product, please <?php echo CHtml::link('Contact Us!', $this->createUrl('site/contact')); ?>
 </p>
 
 <p>
