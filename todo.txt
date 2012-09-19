@@ -1,48 +1,37 @@
 
-Deploy:
-	get paypal api credentials
-	overwrite layout_centered.css
 	
 Currently working on:
 	discount codes
-	custom-order page
 	private listings
-	admin homepage
 	proper pagination
-	welcome email from newsletter
 
 
 TODO:
-canonical links to contact page, product pages, etc.. to reduce duplicate urls
-admin home page
-SEO
-	serve images from static content
-	make each meta description individual/unique (Done. Just need to edit categories and listings in database!)
-	create 'title' text for links
-	blog about the site
-	optimize product titles / descriptions / uploaded images
-Fix product listings being displayed weird
-Discount codes:
+-- create etsy-style custom ordering (password-protected private product listings)
+-- proper pagination!
+-- Discount codes:
 	Allow admin to create custom discount codes. Codes are applied on checkout, can do many
 	things:
 		* free shipping
 		* discounted prices (on individual item or in combo with items)
 		* etc..
 	Also parents can tag code with special events, so they can use it to track where people came to website from.
-support male/female/unisex (add as hasOne relation)
-Non-debug mode should rely on CDNs for libraries.
-combine & minimize javascript code: (http://www.yiiframework.com/doc/guide/1.1/en/topics.performance)
-Caching -- sitewide
-lookbook
-add 'complete the look' items related to a product
-bug with 'go back button'
-enable product search box on site
-create etsy-style custom ordering (password-protected private product listings)
-money / check orders page?
-
-
-
---
+-- 	welcome email from newsletter
+-- SEO
+	canonical links to contact page, product pages, etc.. to reduce duplicate urls
+	serve images from static content
+	make each meta description individual/unique (Done. Just need to edit categories and listings in database!)
+	create 'title' text for all links
+	blog about the site
+	optimize product titles / descriptions / uploaded images
+	
+-- Non-debug mode should rely on CDNs for libraries.
+-- combine & minimize javascript code: (http://www.yiiframework.com/doc/guide/1.1/en/topics.performance)
+-- Caching -- sitewide
+-- lookbook
+-- add 'complete the look' items related to a product
+-- enable product search box on site
+-- Streamline the custom ordering process...?
 	
 	
 People to contact:
