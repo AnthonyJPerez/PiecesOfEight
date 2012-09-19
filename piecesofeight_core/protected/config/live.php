@@ -80,14 +80,14 @@ $config['components']['urlManager'] = array(
 		// Custom rules go first
 		'' => 'site/index',
 		'custom-order' => 'product/custom',
+		'admin' => 'admin/index',
 		'<action:(comments|events|contact)>/<pid:\d+>' => 'site/<action>',
 		'<action:(comments|events|contact|newsletter)>' => 'site/<action>',
 				
 		'admin/<action:(login|logout)>' => 'site/<action>',
 		'admin/gallery' => 'product/gallery',
 		'admin/product/<id:\d+>' => 'product/create',
-		'admin/product' => 'product/create',
-		
+		'admin/product' => 'product/create',		
 				
 		'<action:(lookbook)>' => 'product/<action>',
 		'product/bingProductFeed.txt' => 'product/bingProductFeed',

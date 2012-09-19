@@ -229,6 +229,21 @@
 	);
 ?>
 
+<div id="breadcrumbs">
+	<ul>
+		<li>
+			<?php echo CHtml::link(
+					'Admin Home',
+					$this->createUrl('admin/index')
+				);
+			?>
+		</li>
+		<li>
+			> Create Product
+		</li>
+	</ul>
+</div>
+
 <div id="create-form">
 
 
