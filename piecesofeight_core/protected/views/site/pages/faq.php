@@ -438,10 +438,10 @@
 					How do I custom order an item?
 				</span>
 				<p>
-					If you would like to customize an item, please fill out our
-					<?php echo $customOrderLink; ?>. Once you have completed the form,
+					If you would like to customize an item, please send us a message at our
+					<?php echo $contactUsLink; ?>. Once you have completed the form,
 					submit your inquiry and you will then receive a confirmation email
-					stating that we have received your inquiry. After we have reviewed
+					stating that we have received your email. After we have reviewed
 					your inquiry we will send you an email containing a link that will
 					direct you to your private custom order listing, where you will then
 					be able to purchase your custom item. <b>Please note that custom orders
