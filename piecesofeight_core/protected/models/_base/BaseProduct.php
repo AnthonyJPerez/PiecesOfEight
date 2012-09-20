@@ -21,7 +21,9 @@
  * @property string $page_description
  * @property string $out_of_stock
  * @property integer $shippable
+ * @property string $custom_order
  *
+ * @property Feedback[] $feedbacks
  * @property Gallery[] $galleries
  * @property Image[] $images
  * @property Category $category
@@ -53,20 +55,21 @@ abstract class BaseProduct extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('name, price, category_id', 'required'),
+			array('name, price, category_id, custom_order', 'required'),
 			array('shippable', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>6),
 			array('category_id, default_image_id', 'length', 'max'=>10),
-			array('out_of_stock', 'length', 'max'=>1),
+			array('out_of_stock, custom_order', 'length', 'max'=>1),
 			array('date_inserted, description, size_chart, care_information, page_description', 'safe'),
 			array('date_inserted, description, size_chart, care_information, default_image_id, page_description, out_of_stock, shippable', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description, out_of_stock, shippable', 'safe', 'on'=>'search'),
+			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description, out_of_stock, shippable, custom_order', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
+			'feedbacks' => array(self::HAS_MANY, 'Feedback', 'product_id'),
 			'galleries' => array(self::HAS_MANY, 'Gallery', 'product_id'),
 			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
@@ -105,6 +108,8 @@ abstract class BaseProduct extends GxActiveRecord {
 			'page_description' => Yii::t('app', 'Page Description'),
 			'out_of_stock' => Yii::t('app', 'Out Of Stock'),
 			'shippable' => Yii::t('app', 'Shippable'),
+			'custom_order' => Yii::t('app', 'Custom Order'),
+			'feedbacks' => null,
 			'galleries' => null,
 			'images' => null,
 			'category' => null,
@@ -133,6 +138,7 @@ abstract class BaseProduct extends GxActiveRecord {
 		$criteria->compare('page_description', $this->page_description, true);
 		$criteria->compare('out_of_stock', $this->out_of_stock, true);
 		$criteria->compare('shippable', $this->shippable);
+		$criteria->compare('custom_order', $this->custom_order, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

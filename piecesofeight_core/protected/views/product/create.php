@@ -273,6 +273,12 @@
 		</div><!-- row -->
 
 		<div class="row">
+		<?php echo $form->labelEx($_Product, 'custom_order'); ?>
+		<?php echo $form->checkBox($_Product, 'custom_order'); ?>
+		<?php echo $form->error($_Product, 'custom_order'); ?>
+		</div>
+
+		<div class="row">
 		<?php echo $form->labelEx($_Product, 'out_of_stock'); ?>
 		<?php echo $form->checkBox($_Product, 'out_of_stock'); ?>
 		<?php echo $form->error($_Product, 'out_of_stock'); ?>

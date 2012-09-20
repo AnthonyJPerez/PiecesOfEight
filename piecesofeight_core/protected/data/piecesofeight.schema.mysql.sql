@@ -71,8 +71,9 @@ CREATE TABLE p8_product
 	care_information			TEXT,						#-- Every product has care information
 	default_image_id			INTEGER UNSIGNED DEFAULT NULL,		#-- Every product has a default image
 	page_description			TEXT,			#-- SEO-friendly meta-description
-	out_of_stock			INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not the product is out of stock, default 0
-	
+	out_of_stock			INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is out of stock, default 0
+	custom_order			INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is a custom order/listing
+
 	#-- Constraints
 	PRIMARY KEY (id),
 	UNIQUE KEY uk_product_name (name),
