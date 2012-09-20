@@ -1,7 +1,5 @@
 Deploy:
-	WWW/
-		New select2() library
-		layout_centered.css
+	
 	
 Currently working on:
 	discount codes
