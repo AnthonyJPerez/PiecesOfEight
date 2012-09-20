@@ -219,6 +219,7 @@ a:hover
 		{
 			text-shadow: 2px 2px 3px grey !important;
 		}
+
 	
 		#sidenav > ul
 		{
@@ -519,6 +520,18 @@ a:hover
 {			
 	color: #770000; 
 	text-shadow: 2px 2px 3px #7f7f7f;
+}
+
+.linkcolor_red,
+.linkcolor_red a:link,
+.linkcolor_red a:visited
+{
+	color: #770000;
+}
+
+.linkcolor_red a:hover
+{
+	color: #aa0000;
 }
 
 .horizontal_menu
