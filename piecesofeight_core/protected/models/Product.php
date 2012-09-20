@@ -32,7 +32,7 @@ class Product extends BaseProduct
 			array('price', 'type', 'type'=>'float'),
 			array('category_id', 'exist', 'attributeName'=>'id', 'className'=>'Category'),
 			//array('default_image_id', 'exist', 'attributeName'=>'id', 'className'=>'Image'), <-- can use this, but must support null as well
-			array('date_inserted, description, care_information, out_of_stock', 'safe'),
+			array('date_inserted, description, care_information, out_of_stock, custom_order', 'safe'),
 			array('date_inserted, description, care_information', 'default', 'setOnEmpty' => true, 'value' => null),
 		);
 	}

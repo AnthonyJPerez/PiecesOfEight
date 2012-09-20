@@ -85,7 +85,7 @@ class ProductController extends GxController
 		// Select any images associated with this product as well.
 		$criteria = array(
 			'with' => array('images'),
-			'condition' => '',
+			'condition' => 'custom_order != 1',
 			'order' => 'date_inserted DESC'
 		);
 
@@ -93,12 +93,12 @@ class ProductController extends GxController
 		// else, show all items, even out of stock ones.
 		if (!is_null($CategoryModel))
 		{	
-			$criteria['condition'] = 'out_of_stock != 1 && category_id='.$CategoryModel->id;
+			$criteria['condition'] .= ' && out_of_stock != 1 && category_id='.$CategoryModel->id;
 		}
 		else if ($category == 'new')
 		{
 			// Show all items, don't show out-of-stock ones
-			$criteria['condition'] = 'out_of_stock != 1';
+			$criteria['condition'] .= ' && out_of_stock != 1';
 		}
 		else
 		{
@@ -198,11 +198,26 @@ class ProductController extends GxController
 			// Redirect the user
 			// ...
 		}
+
+
+		$criteria = array(
+			'with' => array('images'),
+			'condition' => 'custom_order = 1',
+			'order' => 'date_inserted DESC'
+		);
       	
       	
 		$this->render(
 			'custom',
 			array(
+				'_CustomProducts' => new CActiveDataProvider('Product', 
+					array(
+						'criteria' => $criteria,
+						'pagination' => array(
+							'pageSize' => 12
+						),
+					)
+				),
 				'_AllProducts' => Product::model()->with('images','p8Tags','defaultImage')->findAll(),
 				'_Product' => $product
 			)
