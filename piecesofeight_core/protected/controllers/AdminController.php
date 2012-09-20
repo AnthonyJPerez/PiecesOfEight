@@ -31,11 +31,44 @@ class AdminController extends GxController
 	
 	function actionIndex()
 	{
-
 		$this->render('index');
 	}
 
 
+	function actionFeedback($id=null)
+	{
+      	$feedback = ($id == null)
+      		? new Feedback()
+      		: Feedback::model()->findByPk($id);
+
+      	// Was data posted?
+		if (isset($_POST['Feedback'])) 
+		{
+			// Debug output, remove for production.
+			//print_r($_POST);
+		
+			$feedback->setAttributes($_POST['Feedback']);
+
+			$date = new DateTime($feedback->date_inserted);
+			$feedback->date_inserted = $date->format('Y-m-d');
+
+			if ($feedback->save())
+			{
+				$this->redirect($this->createUrl('admin/index'));
+			}
+		}
+
+		$this->render(
+			'feedback',
+			array(
+				'_Products' => Product::model()->findAll(),
+				'_Feedback' => $feedback
+			)
+		);
+	}
+
+
+	// Shows details of one order
 	function actionOrder($id)
 	{
 		$order = Order::model()->findByPk($id);
@@ -57,7 +90,9 @@ class AdminController extends GxController
 	}
 
 
+
 	// @todo: Would be nice in the future to track when orders are shipped, etc..
+	// Lists all orders in the system
 	function actionOrders()
 	{
 		$orders_list = Order::model()->findAll(

@@ -226,7 +226,7 @@ class ProductController extends GxController
 	{
 		$_Gallery = Gallery::model()->findAll();
 		
-		if (isset($_POST['Gallery'])) 
+		if (isset($_POST['Gallery']))
 		{
 			// Debug output, remove for production.
 			//print_r($_POST);					
