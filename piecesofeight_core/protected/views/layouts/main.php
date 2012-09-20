@@ -182,6 +182,20 @@
 					
 					<?php 
 						$menu_items = array();
+
+						// If Admin, show the admin link
+						$isAdmin = !Yii::app()->user->isGuest;
+						if ($isAdmin)
+						{
+							array_push(
+								$menu_items,
+								array(
+									'label' => 'Admin Home', 
+									'url'=>$this->createUrl('admin/index')
+								)
+							);
+						}
+
 						array_push(
 							$menu_items,
 							array('label'=>'New Arrivals','url'=>$this->createUrl('product/list', array('category'=>'new')))
@@ -211,28 +225,12 @@
 							
 							
 						$this->widget('zii.widgets.CMenu',array(
-							'items'=>$menu_items
+							'items'=>$menu_items,
+							'activateItems' => true,
+							'activeCssClass' => 'active_menu_item',
+							'activateParents' => true,
+							'firstItemCssClass' => ($isAdmin) ? 'linkcolor_red' : null
 						)); 
-					
-					/*
-					$this->widget('zii.widgets.CMenu',array(
-						'items'=>array(
-							array('label'=>'New Arrivals','url'=>$this->createUrl('product/list', array('category'=>'new'))),
-							array('label'=>'Accessories', 'url'=>$this->createUrl('product/list', array('category'=>'accessories'))),
-							array('label'=>'Blouses', 	'url'=>$this->createUrl('product/list', array('category'=>'blouses'))),
-							array('label'=>'Capes', 	'url'=>$this->createUrl('product/list', array('category'=>'capes'))),
-							array('label'=>'Coats', 	'url'=>$this->createUrl('product/list', array('category'=>'coats'))),
-							array('label'=>'Dresses',	'url'=>$this->createUrl('product/list', array('category'=>'dresses'))),
-							array('label'=>'Miscellaneous','url'=>$this->createUrl('product/list', array('category'=>'miscellaneous'))),
-							array('label'=>'Pants', 	'url'=>$this->createUrl('product/list', array('category'=>'pants'))),
-							array('label'=>'Skirts', 	'url'=>$this->createUrl('product/list', array('category'=>'skirts'))),
-							array('label'=>'Shirts', 	'url'=>$this->createUrl('product/list', array('category'=>'shirts'))),
-							array('label'=>'Tabards', 	'url'=>$this->createUrl('product/list', array('category'=>'tabards'))),
-							array('label'=>'Vests', 	'url'=>$this->createUrl('product/list', array('category'=>'vests'))),
-							array('label'=>'View All',	'url'=>$this->createUrl('product/list')),
-							),
-					)); 
-					*/
 					?>
 				</div>
 			
