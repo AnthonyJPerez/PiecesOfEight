@@ -6,6 +6,7 @@
 	Administration Section
 </h1>
 
+
 <div>
 	<ul>
 		<li>
@@ -27,12 +28,23 @@
 		<li>
 		<?php
 			echo CHtml::link(
-				"Manage Orders",
+				"Manage Orders (".$totalOpenOrders." open)",
 				$this->createUrl('admin/orders')
 			);
 		?>
 		</li>
 	</ul>
+</div>
+
+
+<div>
+	<b>Total Sales:</b> <?php echo $totalOrders; ?>
+</div>
+<div>
+	<?php
+		$month = date('F');
+		echo "<b>Sales for {$month}:</b> {$totalOrdersMonth}";
+	?>
 </div>
 
 
