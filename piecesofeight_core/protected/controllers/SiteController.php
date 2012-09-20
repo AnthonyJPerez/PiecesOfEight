@@ -61,7 +61,12 @@ class SiteController extends GxController
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('comments');
+		$this->render(
+			'comments',
+			array(
+				'_Comments' => Feedback::model()->findAll(array('order'=>'date_inserted DESC'))
+			)
+		);
 	}
 	
 	public function actionEvents()

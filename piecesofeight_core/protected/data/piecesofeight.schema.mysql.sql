@@ -427,6 +427,29 @@ CREATE TABLE p8_order
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+
+
+#-- Feedback
+#--
+#-- Holds customer feedback / comments
+CREATE TABLE p8_feedback
+(
+	#-- KEY
+	id				INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	comment			TEXT NOT NULL,			#-- The actual comment / feedback
+	geo_location	VARCHAR(256) NOT NULL,	#-- Geographical origination of the comment
+	web_location	enum('Etsy','Pieces of Eight') NOT NULL DEFAULT 'Etsy', #-- Website the comment came from
+	date_inserted	Date NOT NULL, #-- Date the comment was left on a website
+	product_id		INTEGER UNSIGNED NOT NULL,	#-- ID of the product this comment was intended for
+
+	#-- Constraints
+	PRIMARY KEY (id),
+	FOREIGN KEY (product_id) REFERENCES p8_product(id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
 #----------------------------------------------------------------------------------------------
 #-- INSERT DATA
 #----------------------------------------------------------------------------------------------

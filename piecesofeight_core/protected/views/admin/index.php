@@ -19,6 +19,14 @@
 		<li>
 		<?php
 			echo CHtml::link(
+				"Insert New Feedback",
+				$this->createUrl('admin/feedback')
+			);
+		?>
+		</li>
+		<li>
+		<?php
+			echo CHtml::link(
 				"Manage Orders",
 				$this->createUrl('admin/orders')
 			);

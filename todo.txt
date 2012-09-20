@@ -7,6 +7,7 @@ Currently working on:
 
 
 TODO:
+-- WYSISYG editor for contact page
 -- Automate feedback
 -- create etsy-style custom ordering (password-protected private product listings)
 -- proper pagination!
