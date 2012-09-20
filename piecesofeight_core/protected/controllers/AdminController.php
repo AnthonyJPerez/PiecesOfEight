@@ -31,7 +31,24 @@ class AdminController extends GxController
 	
 	function actionIndex()
 	{
-		$this->render('index');
+		$this->render(
+			'index',
+			array(
+				'totalOpenOrders' => Order::model()->count(
+					array(
+						'condition' => 'order_status=:status',
+						'params' => array(':status' => 'open')
+					)
+				),
+				'totalOrders' => Order::model()->count(),
+				'totalOrdersMonth' => Order::model()->count(
+					array(
+						'condition' => 'MONTH(CURDATE()) = MONTH(order_date)',
+
+					)
+				)
+			)
+		);
 	}
 
 
