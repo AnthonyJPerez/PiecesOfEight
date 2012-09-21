@@ -3,14 +3,14 @@ Deploy:
 	
 Currently working on:
 	discount codes
-	private listings
 	proper pagination
+
+sitelinks:
+	Costumes
 
 
 TODO:
--- WYSISYG editor for contact page
--- Automate feedback
--- create etsy-style custom ordering (password-protected private product listings)
+-- WYSISYG editor for contact page / update Text
 -- proper pagination!
 -- Discount codes:
 	Allow admin to create custom discount codes. Codes are applied on checkout, can do many
