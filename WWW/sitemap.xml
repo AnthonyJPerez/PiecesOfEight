@@ -4,155 +4,168 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 <url>
   <loc>http://www.piecesofeightcostumes.com/</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/comments</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/events</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+  <changefreq>yearly</changefreq>
+  <priority>0.50</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/lookbook</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/custom-order</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/cart</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+  <changefreq>yearly</changefreq>
+  <priority>0.40</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/new</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/accessories</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/blouses</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/capes</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/coats</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/costumes</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/dresses</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/miscellaneous</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/pants</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/shirts</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/skirts</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/tabards</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products/vests</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/products</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/about</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/contact</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/faq</loc>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/site/webmasterContact</loc>
+  <changefreq>yearly</changefreq>
+  <priority>0.40</priority>
 </url>
 <url>
   <loc>http://www.piecesofeightcostumes.com/tos</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+  <changefreq>yearly</changefreq>
+  <priority>0.40</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/partners</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+  <loc>http://www.piecesofeightcostumes.com/friends</loc>
+  <changefreq>yearly</changefreq>
+  <priority>0.4</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/39/purple-pirate-wench-costume</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.piecesofeightcostumes.com/product/37/pirate-wench-costume-red-and-black</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/68/ladies-pirate-coat-red</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/40/pirate-wench-costume-silver-and-blue</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/47/pirate-wench-layering-skirt-lyons-blue-satin</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/43/mens-pirate-shirt-white</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/63/ladies-renaissance-or-pirate-blouse-ivory</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/41/ladies-pirate-blouse-white</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/62/mens-pirate-first-mate-vest-long-</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/42/ladies-pirate-blouse-cream</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/52/pirate-sash-red-cotton-unisex</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/26/pirate-pants-mens-flap-front-knee-breeches-</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/25/renaissance-pants-mens-or-unisex-black-med</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
@@ -162,27 +175,102 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/28/mens-pirate-shirt-renaissance-style-white</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.piecesofeightcostumes.com/product/35/pirate-or-musketeer-hat-blueblack-brocade</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.piecesofeightcostumes.com/product/21/captain-hook-pirate-coat</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://www.piecesofeightcostumes.com/product/32/ladies-pirate-hat-lace-trimmed-double-sided</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/3/lilac-brocade-vest</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/28/mens-pirate-shirt-renaissance-style-white</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/77/custom-white-freddy-mercury-pants-for-louis</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/76/custom-pants-embelishment-for-louis</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/75/custom-freddy-mercury-jacket-for-louis</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/74/custom-huntsman-costume-for-don</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/73/custom-snow-white-for-diana</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/72/custom-order-for-amy-2nd-installment</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/71/custom-order-for-amy-1st-install</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/69/mens-first-mate-pirate-costume</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/67/lady-pirate-costume-black-and-gold</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/66/ladies-pirate-or-renaissance-vest-gold</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/65/ladies-pirate-or-renaissance-vest-blue</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/64/ladies-renaissance-or-pirate-blouse-grey</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/61/pirate-captain-costume-</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/60/pirate-frock-coat-morgan-grey-flannel</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/59/renaissance-or-fantasy-cape-grey</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/58/snow-white-ensemble</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/53/pirate-sash-yellow-gold-cotton-unisex</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/35/pirate-or-musketeer-hat-blueblack-brocade</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
@@ -197,22 +285,57 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/20/red-riding-hood-cape</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/41/ladies-pirate-blouse-white</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/19/basic-full-length-cape</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/42/ladies-pirate-blouse-long-sleeved-cream</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/22/pirate-coat-captains-coat-in-brown-flannel</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/19/medieval-renaissance-velvet-cloak</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/36/snow-white-style-fairytale-dress</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/20/red-riding-hood-velvet-cape</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/21/captain-hook-pirate-coat-royal-blue</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/57/huntsman-inspired-costume</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/40/pirate-wench-costume-silver-and-blue</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/39/purple-pirate-wench-costume</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/37/pirate-wench-costume-red-and-black</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/51/piraterenaissance-style-shift-isabella-white</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/36/snow-white-inspired-fairytale-dress</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
@@ -222,12 +345,42 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/26/pirate-pants-mens-flap-front-knee-length-xl-</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/55/huntsman-inspired-renaissancepirate-pants</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.piecesofeightcostumes.com/product/25/renaissance-pants-mens-or-unisex-black-med</loc>
+  <loc>http://www.piecesofeightcostumes.com/product/56/huntsman-inspired-piraterenaissance-shirt</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/43/mens-pirate-shirt-black</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/49/pirate-wench-layering-skirt-grey-moleskin</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/48/pirate-wench-layering-skirt-black-satin</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/46/pirate-wench-layering-skirt-deep-blue-satin</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/45/pirate-wench-layering-skirt-purple-crepe-</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/44/pirate-wench-layering-skirt-purple-taffeta</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
@@ -242,12 +395,32 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>http://www.piecesofeightcostumes.com/product/54/huntsman-inspired-doublet</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/50/pirate-wench-vest-blacksilver-brocade</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>http://www.piecesofeightcostumes.com/product/30/pirate-vest-short-length-mens-silver-brocade-l</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>http://www.piecesofeightcostumes.com/product/3/lilac-brocade-vest</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>http://www.piecesofeightcostumes.com/product/23/ladies-pirate-vest-black-velveteen</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.piecesofeightcostumes.com/product/22/pirate-coat-captains-coat-in-brown-flannel</loc>
   <changefreq>monthly</changefreq>
   <priority>0.64</priority>
 </url>
