@@ -139,6 +139,7 @@ a:hover
 		#top_right_nav > ul > li:last-child
 		{
 			padding-right: 0em;
+			font-size: 0.95em;
 		}
 	
 	#top_left_nav
