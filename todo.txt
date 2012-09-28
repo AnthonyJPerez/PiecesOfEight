@@ -5,8 +5,6 @@ Currently working on:
 	discount codes
 	proper pagination
 
-sitelinks:
-	Costumes
 
 
 TODO:
