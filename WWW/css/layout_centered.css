@@ -556,6 +556,21 @@ a:hover
 	}
 	
 
+.halloween_notice
+{
+	width: 375px;
+	position: absolute;
+	right: 20px;
+	background-color: #F79F1C;
+	text-align: center;
+	padding: 0.5em;
+	border: 3px solid black;
+	color: #660505;
+	border-radius: 12px;
+	margin-top: 0.25em;
+	font-size: 12.25px;
+}
+
 	
 	
 	
