@@ -234,13 +234,21 @@
 					?>
 				</div>
 
-				<!-- Test -->
+				<!-- Halloween-specific Note -->
+				<?php
+				$c = Yii::app()->getController();
+				if ($c->getId() == 'product' || $c->getId() == 'cart')
+				{
+				?>
 				<span class="halloween_notice">
 					Sorry, we are completely booked for Halloween orders. Any purchase 
 					made after October 3rd cannot be guaranteed to arrive in time for 
 					Halloween. 
 				</span>
-				<!-- End Test -->
+				<?php
+				}
+				?>
+				<!-- End Halloween note -->
 			
 				<?php echo $content; ?>
 				
