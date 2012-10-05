@@ -4,18 +4,22 @@ Deploy:
 Currently working on:
 	discount codes
 	proper pagination
+	FIX: bing/google merchants need to filter out custom products
 
 
 
 TODO:
+-- Proper shipping!
 -- WYSISYG editor for contact page / update Text
 -- proper pagination!
 -- Discount codes:
 	Allow admin to create custom discount codes. Codes are applied on checkout, can do many
 	things:
 		* free shipping
-		* discounted prices (on individual item or in combo with items)
-		* etc..
+		* discounted prices (on individual item or specific combos) (0 -- 100%)
+		* Buy X get Y discounted (0 -- 100%)
+		* save X dollars (ex. $10 coupon)
+		* 
 	Also parents can tag code with special events, so they can use it to track where people came to website from.
 -- 	welcome email from newsletter
 -- SEO

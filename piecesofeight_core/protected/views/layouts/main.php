@@ -233,6 +233,14 @@
 						)); 
 					?>
 				</div>
+
+				<!-- Test -->
+				<span class="halloween_notice">
+					Sorry, we are completely booked for Halloween orders. Any purchase 
+					made after October 3rd cannot be guaranteed to arrive in time for 
+					Halloween. 
+				</span>
+				<!-- End Test -->
 			
 				<?php echo $content; ?>
 				
