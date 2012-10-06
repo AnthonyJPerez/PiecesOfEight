@@ -553,7 +553,7 @@ class ProductController extends GxController
 	public function actionGoogleProductFeed()
 	{		
 		$criteria = new CDbCriteria;
-		$criteria->condition = 'shippable != 0';
+		$criteria->condition = 'shippable != 0 && custom_order != 1 && out_of_stock != 1';
 		$criteria->with = array(
 			'images', 'p8Sizes'
 		);
@@ -652,7 +652,7 @@ class ProductController extends GxController
 	public function actionBingProductFeed()
 	{
 		$criteria = new CDbCriteria;
-		$criteria->condition = 'shippable != 0';
+		$criteria->condition = 'shippable != 0 && custom_order != 1 && out_of_stock != 1';
 		$criteria->with = array(
 			'images', 'p8Sizes'
 		);
