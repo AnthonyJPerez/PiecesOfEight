@@ -236,7 +236,7 @@
 
 				<!-- Halloween-specific Note -->
 				<?php
-				$c = Yii::app()->getController();
+				/*$c = Yii::app()->getController();
 				if ($c->getId() == 'product' || $c->getId() == 'cart')
 				{
 				?>
@@ -246,7 +246,7 @@
 					Halloween. 
 				</span>
 				<?php
-				}
+				}*/
 				?>
 				<!-- End Halloween note -->
 			
