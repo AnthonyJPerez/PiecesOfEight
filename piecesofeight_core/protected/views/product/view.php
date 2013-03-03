@@ -36,7 +36,7 @@
 	
 	// Include the Facebook script
 	Yii::app()->clientScript->registerScript(
-		'Facebook',
+		'Facebook2',
 		'
 		(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -814,7 +814,7 @@
 				
 				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
 			
-				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-width="100" data-show-faces="true"></div>
 			</div>
 		</div>
 	</div>
