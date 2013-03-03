@@ -45,7 +45,7 @@
 		<meta property="og:image" content="http://www.piecesofeightcostumes.com/images/pieces-of-eight-costumes-logo.png" />
 		<meta property="og:site_name" content="Pieces of Eight Costumes" />
 		<meta property="og:locale" content="en_US" />
-		
+		<meta property="fb:app_id" content="191894117582714" />
 		
 		<meta name="keywords" content="<?php echo CHtml::encode($this->pageKeywords); ?>" />
 		<meta name="description" content="<?php echo CHtml::encode($this->pageDescription); ?>" />
