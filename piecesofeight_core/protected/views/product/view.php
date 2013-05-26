@@ -685,16 +685,20 @@
 				echo "<div class='submit'>";
 				if ($model->out_of_stock == 0)
 				{
+					echo "<div>Out of Stock</div>";
+				}
+				else if (defined('VACATION_MODE'))
+				{
+					echo "<div>Will be available in July</div>";
+				}
+				else
+				{
 					echo CHtml::linkButton(
 						"<i class='icon-shopping-cart'></i> Add to Cart",
 						array(
 							'class' => 'btn btn-inverse',
 						)
 					);
-				}
-				else
-				{
-					echo "<div>Out of Stock</div>";
 				}
 				echo "</div>";
 				

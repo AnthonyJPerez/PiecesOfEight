@@ -5,6 +5,7 @@ include_once('../piecesofeight_core/paypal_core/CallerService.php');
 // remove this when not under construction
 $PO8_UNDER_CONSTRUCTION = false;
 $P08_LIVE = false;
+define('VACATION_MODE', true);
 
 
 
