@@ -683,7 +683,7 @@
 				
 				// Submit Button
 				echo "<div class='submit'>";
-				if ($model->out_of_stock == 0)
+				if ($model->out_of_stock == 1)
 				{
 					echo "<div>Out of Stock</div>";
 				}
