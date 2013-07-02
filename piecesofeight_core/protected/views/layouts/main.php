@@ -252,17 +252,20 @@
 
 				<!-- Vacation-specific Note -->
 				<?php
-				$c = Yii::app()->getController();
-				if ($c->getId() == 'product' || $c->getId() == 'cart' || $c->getId() == 'site')
+				if (VACATION_MODE)
 				{
-				?>
-				<span class="vacation_notice">
-					Pieces of Eight Costumes is on vacation through June 30th. We are 
-					unable to produce or process any orders until July 1st. We are sorry 
-					for the inconvenience and hope that you will visit the shop again when 
-					we re-open in July!
-				</span>
+					$c = Yii::app()->getController();
+					if ($c->getId() == 'product' || $c->getId() == 'cart' || $c->getId() == 'site')
+					{
+					?>
+					<span class="vacation_notice">
+						Pieces of Eight Costumes is on vacation through June 30th. We are 
+						unable to produce or process any orders until July 1st. We are sorry 
+						for the inconvenience and hope that you will visit the shop again when 
+						we re-open in July!
+					</span>
 				<?php
+					}
 				}
 				?>
 				<!-- End Vacation note -->

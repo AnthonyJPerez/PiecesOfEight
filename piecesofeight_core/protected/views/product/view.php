@@ -687,7 +687,7 @@
 				{
 					echo "<div>Out of Stock</div>";
 				}
-				else if (defined('VACATION_MODE'))
+				else if (true == constant('VACATION_MODE'))
 				{
 					echo "<div>Will be available in July</div>";
 				}
