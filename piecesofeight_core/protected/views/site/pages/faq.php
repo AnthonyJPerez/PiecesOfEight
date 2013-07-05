@@ -615,7 +615,13 @@
 					non-refundable. Please check the <?php echo $sizeChartLink; ?> and
 					product descriptions carefully before ordering. Please feel free to
 					<?php echo $contactUsLink; ?> and ask any questions before placing
-					your order! We are more than happy to help!
+					your order! I will be happy to help guide you to the best size choice.
+				</p>
+				<p>
+					Custom orders are made in your requested fabric and colors to fit the measurements
+					you provide. If your item does not fit, the best I can do for you is to have the item
+					returned to me so that I can make the necessary adjustments before sending it back.
+					<br /><br /><b><i>** Please be sure to take extra care to ensure your measurements are accurate! **</i></b>
 				</p>
 			</li>
 			<li>

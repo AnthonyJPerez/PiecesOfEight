@@ -710,9 +710,9 @@
 			
 			<div id="tabs_container">
 				<ul id="tabs">
-					<li class="active"><a href="#nav_care">Care</a></li>
-					<li><a href="#nav_returns">Returns</a></li>
+					<li class="active"><a href="#nav_returns">Exchanges</a></li>
 					<li><a href="#nav_shipping">Shipping</a></li>
+					<li><a href="#nav_care">Care</a></li>
 				</ul>  
 				
 				<div id="nav_care" class="tab">
@@ -725,9 +725,20 @@
 				<div id="nav_returns" class="tab">
 					<p>
 					As with many small costuming businesses, all sales are final. Size 
-					adjustments can be made to custom orders, the item will need to be mailed 
+					adjustments can be made to all orders; the item will need to be mailed 
 					back with clear instructions of the adjustments needed. The item will 
 					be shipped back out within 3-5 business days.
+					<br /><br />
+					Please Read our full 
+					<?php
+						echo CHtml::link(
+							"Exchange Policy",
+							$this->createUrl('site/page', array('view'=>'faq', '#'=>'return-policy')),
+							array(
+								'title' => "Costume Exchange Policy"
+							)
+						);
+					?>
 					</p>
 				</div>
 				<div id="nav_shipping" class="tab">

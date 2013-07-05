@@ -129,7 +129,7 @@
 						'items'=>array(
 							array('label'=>'Home', 		'url'=>array('/site/index')),
 							array('label'=>'Feedback', 	'url'=>array('/site/comments')),
-							array('label'=>'Events',	'url'=>array('/site/events')),
+							array('label'=>'Exchanges',	'url'=>array('/site/page', 'view'=>'faq', '#'=>'return-policy')),
 							),
 					)); ?>
 				</div>
