@@ -43,7 +43,7 @@ class AdminController extends GxController
 				'totalOrders' => Order::model()->count(),
 				'totalOrdersMonth' => Order::model()->count(
 					array(
-						'condition' => 'MONTH(CURDATE()) = MONTH(order_date)',
+						'condition' => 'MONTH(CURDATE()) = MONTH(order_date) AND YEAR(CURDATE()) = YEAR(order_date)',
 
 					)
 				)
