@@ -60,19 +60,19 @@ CREATE TABLE p8_product
 	id					INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	
 	#-- Attributes
-	name					VARCHAR(255) NOT NULL,						#-- Product name
+	name				VARCHAR(255) NOT NULL,					#-- Product name
 	
-	#-- quantity				INTEGER UNSIGNED NOT NULL DEFAULT 0,			#-- Quantity in stock -- Removed for now, not really needed!
-	price					DECIMAL(6,2) NOT NULL,						#-- Price per item
-	date_inserted			DATETIME,						#-- Date product was listed
-	description				TEXT,								#-- Description of the product
-	category_id				INTEGER UNSIGNED NOT NULL,					#-- Product belongs to one Category
-	size_chart				TEXT,						#-- Every product has exactly one size_chart associated with it.
-	care_information			TEXT,						#-- Every product has care information
-	default_image_id			INTEGER UNSIGNED DEFAULT NULL,		#-- Every product has a default image
-	page_description			TEXT,			#-- SEO-friendly meta-description
-	out_of_stock			INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is out of stock, default 0
-	custom_order			INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is a custom order/listing
+	#-- quantity		INTEGER UNSIGNED NOT NULL DEFAULT 0,	#-- Quantity in stock -- Removed for now, not really needed!
+	price				DECIMAL(6,2) NOT NULL,					#-- Price per item
+	date_inserted		DATETIME,								#-- Date product was listed
+	description			TEXT,									#-- Description of the product
+	category_id			INTEGER UNSIGNED NOT NULL,				#-- Product belongs to one Category
+	size_chart			TEXT,									#-- Every product has exactly one size_chart associated with it.
+	care_information	TEXT,									#-- Every product has care information
+	default_image_id	INTEGER UNSIGNED DEFAULT NULL,			#-- Every product has a default image
+	page_description	TEXT,									#-- SEO-friendly meta-description
+	out_of_stock		INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is out of stock, default 0
+	custom_order		INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is a custom order/listing
 
 	#-- Constraints
 	PRIMARY KEY (id),

@@ -567,6 +567,19 @@ PENDINGREASON is deprecated since version 6
 					$details = $this->_getPriceDetails();
 					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
 					$Order->save();
+
+					// Iterate the products that were purchased. Mark each "Custom" product 
+					// as out of stock.
+					foreach ($details['products'] as $pid => $productDetails)
+					{
+						// Grab this product from the database
+						$product = Product::model()->findByPk($pid);
+						if ($product->custom_order)
+						{
+							$product->out_of_stock = 1;
+							$product->save();
+						}
+					}
 										
 					// Send the confirmation emails
 					// Email the form to the customer
@@ -637,7 +650,7 @@ PENDINGREASON is deprecated since version 6
 	
 	private function _createConfirmationCode()
 	{
-		$charpool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890abcdefghijklmnopqrstuvwxyz";
+		$charpool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
 		$code = "";
 		$max = strlen($charpool) - 1;
 		for ($x=0; $x<8; $x++)
