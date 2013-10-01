@@ -272,6 +272,30 @@
 		<?php echo $form->error($_Product,'price'); ?>
 		</div><!-- row -->
 
+		<div class="row price">
+		<?php echo $form->labelEx($_Product,'ship_domestic_primary'); ?>
+		<?php echo $form->textField($_Product, 'ship_domestic_primary', array('maxlength' => 6)); ?>
+		<?php echo $form->error($_Product,'ship_domestic_primary'); ?>
+		</div><!-- row -->
+
+		<div class="row price">
+		<?php echo $form->labelEx($_Product,'ship_domestic_secondary'); ?>
+		<?php echo $form->textField($_Product, 'ship_domestic_secondary', array('maxlength' => 6)); ?>
+		<?php echo $form->error($_Product,'ship_domestic_secondary'); ?>
+		</div><!-- row -->
+
+		<div class="row price">
+		<?php echo $form->labelEx($_Product,'ship_international_primary'); ?>
+		<?php echo $form->textField($_Product, 'ship_international_primary', array('maxlength' => 6)); ?>
+		<?php echo $form->error($_Product,'ship_international_primary'); ?>
+		</div><!-- row -->
+
+		<div class="row price">
+		<?php echo $form->labelEx($_Product,'ship_international_secondary'); ?>
+		<?php echo $form->textField($_Product, 'ship_international_secondary', array('maxlength' => 6)); ?>
+		<?php echo $form->error($_Product,'ship_international_secondary'); ?>
+		</div><!-- row -->
+
 		<div class="row">
 		<?php echo $form->labelEx($_Product, 'custom_order'); ?>
 		<?php echo $form->checkBox($_Product, 'custom_order'); ?>

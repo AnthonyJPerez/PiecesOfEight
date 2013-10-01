@@ -12,6 +12,10 @@
  * @property string $id
  * @property string $name
  * @property string $price
+ * @property string $ship_domestic_primary
+ * @property string $ship_domestic_secondary
+ * @property string $ship_international_primary
+ * @property string $ship_international_secondary
  * @property string $date_inserted
  * @property string $description
  * @property string $category_id
@@ -55,15 +59,15 @@ abstract class BaseProduct extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('name, price, category_id, custom_order', 'required'),
+			array('name, price, ship_domestic_primary, ship_domestic_secondary, ship_international_primary, ship_international_secondary, category_id, custom_order', 'required'),
 			array('shippable', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
-			array('price', 'length', 'max'=>6),
+			array('price, ship_domestic_primary, ship_domestic_secondary, ship_international_primary, ship_international_secondary', 'length', 'max'=>6),
 			array('category_id, default_image_id', 'length', 'max'=>10),
 			array('out_of_stock, custom_order', 'length', 'max'=>1),
 			array('date_inserted, description, size_chart, care_information, page_description', 'safe'),
 			array('date_inserted, description, size_chart, care_information, default_image_id, page_description, out_of_stock, shippable', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, name, price, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description, out_of_stock, shippable, custom_order', 'safe', 'on'=>'search'),
+			array('id, name, price, ship_domestic_primary, ship_domestic_secondary, ship_international_primary, ship_international_secondary, date_inserted, description, category_id, size_chart, care_information, default_image_id, page_description, out_of_stock, shippable, custom_order', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -99,6 +103,10 @@ abstract class BaseProduct extends GxActiveRecord {
 			'id' => Yii::t('app', 'ID'),
 			'name' => Yii::t('app', 'Name'),
 			'price' => Yii::t('app', 'Price'),
+			'ship_domestic_primary' => Yii::t('app', 'Ship Domestic Primary'),
+			'ship_domestic_secondary' => Yii::t('app', 'Ship Domestic Secondary'),
+			'ship_international_primary' => Yii::t('app', 'Ship International Primary'),
+			'ship_international_secondary' => Yii::t('app', 'Ship International Secondary'),
 			'date_inserted' => Yii::t('app', 'Date Inserted'),
 			'description' => Yii::t('app', 'Description'),
 			'category_id' => null,
@@ -129,6 +137,10 @@ abstract class BaseProduct extends GxActiveRecord {
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('name', $this->name, true);
 		$criteria->compare('price', $this->price, true);
+		$criteria->compare('ship_domestic_primary', $this->ship_domestic_primary, true);
+		$criteria->compare('ship_domestic_secondary', $this->ship_domestic_secondary, true);
+		$criteria->compare('ship_international_primary', $this->ship_international_primary, true);
+		$criteria->compare('ship_international_secondary', $this->ship_international_secondary, true);
 		$criteria->compare('date_inserted', $this->date_inserted, true);
 		$criteria->compare('description', $this->description, true);
 		$criteria->compare('category_id', $this->category_id);
