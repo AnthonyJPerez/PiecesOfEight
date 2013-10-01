@@ -24,12 +24,12 @@ class Product extends BaseProduct
 	public function rules()
 	{
 		return array(
-			array('name, price, category_id, description, care_information', 'required'),
+			array('name, price, ship_domestic_primary, ship_domestic_secondary, ship_international_primary, ship_international_secondary, category_id, description, care_information', 'required'),
 			array('name', 'length', 'max'=>75),
-			array('name,description,size_chart,care_information', 'type', 'type'=>'string'),
+			array('name, description, size_chart, care_information', 'type', 'type'=>'string'),
 			array('name', 'unique', 'className' => 'Product'),
-			array('price', 'length', 'max'=>7),
-			array('price', 'type', 'type'=>'float'),
+			array('price, ship_domestic_primary, ship_domestic_secondary, ship_international_primary, ship_international_secondary', 'length', 'max'=>7),
+			array('price, ship_domestic_primary, ship_domestic_secondary, ship_international_primary, ship_international_secondary', 'type', 'type'=>'float'),
 			array('category_id', 'exist', 'attributeName'=>'id', 'className'=>'Category'),
 			//array('default_image_id', 'exist', 'attributeName'=>'id', 'className'=>'Image'), <-- can use this, but must support null as well
 			array('date_inserted, description, care_information, out_of_stock, custom_order', 'safe'),
@@ -38,7 +38,15 @@ class Product extends BaseProduct
 	}
 	
 	
-	
+	public function attributeLabels()
+	{
+		return array (
+			'ship_domestic_primary' => "Primary Domestic Shipping",
+			'ship_domestic_secondary' => "Secondary Domestic Shipping",
+			'ship_international_primary' => "Primary International Shipping",
+			'ship_international_secondary' => "Secondary International Shipping",
+		);
+	}
 	
 	
 	public function getSlug()

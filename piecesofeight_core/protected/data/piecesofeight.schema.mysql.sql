@@ -73,6 +73,10 @@ CREATE TABLE p8_product
 	page_description	TEXT,									#-- SEO-friendly meta-description
 	out_of_stock		INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is out of stock, default 0
 	custom_order		INTEGER(1) UNSIGNED NOT NULL DEFAULT 0, #-- boolean whether or not this product is a custom order/listing
+	ship_domestic_primary			DECIMAL(6,2) NOT NULL,		#-- Primary shipping rate for this product. When multiple items are purchased together, the item with the largest primary shipping takes priority.
+	ship_domestic_secondary			DECIMAL(6,2) NOT NULL,		#-- Secondary/Discounted shipping rate. Used when multiple items are purchased together.
+	ship_international_primary		DECIMAL(6,2) NOT NULL,		#-- Primary shipping rate for this product. When multiple items are purchased together, the item with the largest primary shipping takes priority.
+	ship_international_secondary	DECIMAL(6,2) NOT NULL,		#-- Secondary/Discounted shipping rate. Used when multiple items are purchased together.
 
 	#-- Constraints
 	PRIMARY KEY (id),
