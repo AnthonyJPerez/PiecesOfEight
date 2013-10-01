@@ -758,23 +758,11 @@
 						</tr>
 						<tr>
 							<td>1</td>
-							<td>$8.95 USD</td>
+							<td>$<?php echo number_format($model->ship_domestic_primary,2) . " "; ?>USD</td>
 						</tr>
 						<tr>
-							<td>2</td>
-							<td>$12.95 USD</td>
-						</tr>
-						<tr>
-							<td>3 - 4</td>
-							<td>$18.95 USD</td>
-						</tr>
-						<tr>
-							<td>5 - 7</td>
-							<td>$24.95 USD</td>
-						</tr>
-						<tr>
-							<td>8+</td>
-							<td>$35.95 USD</td>
+							<td>2+</td>
+							<td>$<?php echo number_format($model->ship_domestic_secondary,2) . " "; ?>USD</td>
 						</tr>
 					</table>
 					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="3">
@@ -787,23 +775,11 @@
 						</tr>
 						<tr>
 							<td>1</td>
-							<td>$49.95 USD</td>
+							<td>$<?php echo number_format($model->ship_international_primary,2) . " "; ?>USD</td>
 						</tr>
 						<tr>
-							<td>2 - 3</td>
-							<td>$59.95 USD</td>
-						</tr>
-						<tr>
-							<td>4 - 6</td>
-							<td>$79.95 USD</td>
-						</tr>
-						<tr>
-							<td>7 - 9</td>
-							<td>$99.95 USD</td>
-						</tr>
-						<tr>
-							<td>10+</td>
-							<td>$150 USD</td>
+							<td>2+</td>
+							<td>$<?php echo number_format($model->ship_international_secondary,2) . " "; ?>USD</td>
 						</tr>
 					</table>
 					<p>

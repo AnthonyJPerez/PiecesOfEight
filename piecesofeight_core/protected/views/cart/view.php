@@ -272,7 +272,7 @@ if (!empty($products))
 		echo "</tr>";*/
 		
 		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal: $</span><span id='subtotal_price'>";
-		echo $totalShipping;
+		echo number_format($totalShipping,2);
 		echo "</span><span> USD</span></td></tr>";
 		?>
 	
