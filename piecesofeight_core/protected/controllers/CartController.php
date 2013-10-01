@@ -1,6 +1,30 @@
 <?php
 //require_once('paypal/CallerService.php');
 
+	function cmp_domestic($productA, $productB)
+	{
+		if ($productA->ship_domestic_primary == $productB->ship_domestic_primary)
+		{
+			return 0;
+		}
+
+		// Highest to Lowest
+		return ($productA->ship_domestic_primary > $productB->ship_domestic_primary) ? -1 : 1;
+	}
+
+
+	function cmp_international($productA, $productB)
+	{
+		if ($productA->ship_international_primary == $productB->ship_international_primary)
+		{
+			return 0;
+		}
+
+		// Highest to Lowest
+		return ($productA->ship_international_primary > $productB->ship_international_primary) ? -1 : 1;
+	}
+
+
 class CartController extends GxController
 {
 	public $defaultAction = 'view';
@@ -79,6 +103,7 @@ class CartController extends GxController
 		$products_session = $this->_getSession();
 		
 		$products = array();
+		$flat_products = array();
 		$subTotal = 0.00;
 		$totalQuantity = 0;
 		foreach ($products_session as $pid=>$data)
@@ -87,6 +112,11 @@ class CartController extends GxController
 			$products[$pid]['product'] = $product;
 			$products[$pid]['quantity'] = $data['quantity'];
 			$products[$pid]['size'] = $data['size'];
+
+			for ($a=0; $a<$products[$pid]['quantity']; $a++)
+			{
+				array_push($flat_products, $product);
+			}
 			
 			// Calculate the running subtotal
 			$subTotal += $products[$pid]['product']->price * $data['quantity'];
@@ -94,6 +124,7 @@ class CartController extends GxController
 		
 		return array(
 			'products' => $products,
+			'flat_products' => $flat_products,	// each individual item takes up a unique position in the list
 			'subTotal' => number_format($subTotal, 2),
 			'totalQuantity' => $totalQuantity
 		);
@@ -105,12 +136,12 @@ class CartController extends GxController
 	{
 		$details = $this->_getPriceDetails();
 		$quantity = $this->_getShippingQuantity($details);
-		$domesticShipping = $this->_calculateShipping(true, $quantity);
-		$internationalShipping = $this->_calculateShipping(false, $quantity);
+		$domesticShipping = $this->_calculateShipping(true, $details['flat_products']);
+		$internationalShipping = $this->_calculateShipping(false, $details['flat_products']);
 		
 		$shippingOptions = array(
-			$domesticShipping['name'] . ' - $' . $domesticShipping['amount'],
-			$internationalShipping['name'] . ' - $' . $internationalShipping['amount']
+			$domesticShipping['name'] . ' - $' . number_format($domesticShipping['amount'],2),
+			$internationalShipping['name'] . ' - $' . number_format($internationalShipping['amount'],2)
 		);
 		
 		$this->render(
@@ -243,7 +274,8 @@ PENDINGREASON is deprecated since version 6
 		return $quantity;
 	}
 	
-	private function _calculateShipping($domestic, $quantity)
+
+	private function _calculateShipping_fixed($domestic, $quantity)
 	{
 		$shipping = 8.95;
 		$name = 'U.S. Ground';
@@ -310,9 +342,109 @@ PENDINGREASON is deprecated since version 6
 			'name' => $name
 		);
 	}
-	
-	
+
+
+	private function _calculateShipping($domestic, $products)
+	{
+		$shipping = 0;
+		$name = 'U.S. Ground';
+				
+		if ($domestic)
+		{
+			$name = 'U.S. Ground';
+			uasort($products, 'cmp_domestic');
+			$baseElement = array_shift($products);
+			$shipping = $baseElement->ship_domestic_primary;
+			foreach ($products as $product)
+			{
+				$shipping += $product->ship_domestic_secondary;
+			}
+		}
+		else
+		{
+			$name = 'International Air';
+			uasort($products, 'cmp_international');
+			$baseElement = array_shift($products);
+			$shipping = $baseElement->ship_international_primary;
+			foreach ($products as $product)
+			{
+				$shipping += $product->ship_international_secondary;
+			}
+		}
+		
+		return array(
+			'amount' => $shipping,
+			'name' => $name
+		);
+	}
+
+
 	public function actionPaypalShippingCallback()
+	{
+		$quantity = 0;
+		$domestic = true;
+		$products = array();
+		
+		if (strcmp($this->_getValue($_POST, 'SHIPTOCOUNTRY'), "US") != 0)
+		{
+			$domestic = false;
+		}
+
+		// Grab each product, including their quantities, out of the list
+		$quantityKey = 'L_QTY';
+		$descriptionKey = 'L_DESC';
+		$productIdKey = 'L_NUMBER';
+		$c = 0;
+		while (true)
+		{
+			$pid = intval($this->_getValue($_POST, $productIdKey.$c));
+			if ($pid == false)
+			{
+				break;
+			}
+
+			$quantity = intval($this->_getValue($_POST, $quantityKey.$c));
+				
+			// Only add shippable products
+			$description = "";
+			if ( ($description = $this->_getValue($_POST, $descriptionKey.$c)) == false || strpos($description, '[Shipping]') == false)
+			{
+				// Push each item individually into the array.
+				for ($a = 0; $a < $quantity; $a++)
+				{
+					array_push($product);
+				}
+			}
+
+			$c += 1;
+		}
+		
+		$shippingInfo = $this->_calculateShipping($domestic, $products);
+		
+		$nvp = array();
+		$nvp['OFFERINSURANCEOPTION'] = 'false';
+		$nvp['L_SHIPPINGOPTIONLABEL0'] = urlencode($shippingInfo['name']);
+		$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($shippingInfo['amount']);
+		$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'true';
+		$nvp['L_TAXAMT0'] = urlencode('0.00');
+		$nvp['L_INSURANCEAMOUNT'] = urlencode('0.00');
+	
+		// format the nvp string as url parameters
+		$nvpString = "&";
+		foreach ($nvp as $key=>$value)
+		{
+			$nvpString .= $key.'='.$value.'&';
+		}
+		$nvpString = rtrim($nvpString, '&');
+		
+		// Call the SetExpressCheckout action
+		$nvpString = "METHOD=CallbackResponse" . $nvpString;
+		
+		echo $nvpString;	
+	}
+	
+	
+	public function actionPaypalShippingCallback_old()
 	{
 		$quantity = 0;
 		$domestic = true;
@@ -404,22 +536,11 @@ PENDINGREASON is deprecated since version 6
 			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";			
 			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
 			$nvp['CALLBACKTIMEOUT'] = 6;
-			
-			$quantity = $this->_getShippingQuantity($details);
-			$domestic = $this->_calculateShipping(true, $quantity);
-			$international = $this->_calculateShipping(false, $quantity);
-			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
-			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
-			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($domestic['amount']);
-			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Air');
-			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = urlencode($international['amount']);
-			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
-			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';
-			
+						
 			// Add each product
 			$count = 0;
-			$nvp['PAYMENTREQUEST_0_SHIPPINGAMT'] = number_format($domestic['amount'],2);
 			$nvp['PAYMENTREQUEST_0_ITEMAMT'] = 0;
+			$flat_products = array();
 			foreach ($details['products'] as $pid=>$value)
 			{
 				$nvp['L_PAYMENTREQUEST_0_NAME'.$count] = urlencode($value['product']->name);
@@ -437,8 +558,26 @@ PENDINGREASON is deprecated since version 6
 				$nvp['L_PAYMENTREQUEST_0_ITEMCATEGORY'.$count] = "Physical";
 				$count++;
 				$nvp['PAYMENTREQUEST_0_ITEMAMT'] += number_format($value['product']->price, 2) * number_format($value['quantity'], 2);
-			}
 			
+				// Add products to a "flat_product" array, to make it easier to calculate the shipping
+				for ($a=0; $a<$value['quantity']; $a++)
+				{
+					array_push($flat_products, $value['product']);
+				}
+			}
+
+			$domestic = $this->_calculateShipping(true, $flat_products);
+			$international = $this->_calculateShipping(false, $flat_products);
+
+			$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'TRUE';
+			$nvp['L_SHIPPINGOPTIONNAME0'] = urlencode('U.S. Ground');
+			$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode($domestic['amount']);
+			$nvp['L_SHIPPINGOPTIONNAME1'] = urlencode('International Air');
+			$nvp['L_SHIPPINGOPTIONAMOUNT1'] = urlencode($international['amount']);
+			$nvp['L_SHIPPINGOPTIONISDEFAULT1'] = 'FALSE';
+			$nvp['PAYMENTREQUEST_0_INSURANCEOPTIONSOFFERED'] = 'FALSE';
+			$nvp['PAYMENTREQUEST_0_SHIPPINGAMT'] = number_format($domestic['amount'],2);
+
 			// Required for security reasons
 			$nvp['MAXAMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + 149.95;
 			$nvp['PAYMENTREQUEST_0_AMT'] = number_format($nvp['PAYMENTREQUEST_0_ITEMAMT'], 2) + $domestic['amount'];
