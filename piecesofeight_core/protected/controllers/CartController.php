@@ -24,6 +24,29 @@
 		return ($productA->ship_international_primary > $productB->ship_international_primary) ? -1 : 1;
 	}
 
+	function cmp_domestic2($productA, $productB)
+	{
+		if ($productA['product']->ship_domestic_primary == $productB['product']->ship_domestic_primary)
+		{
+			return 0;
+		}
+
+		// Highest to Lowest
+		return ($productA['product']->ship_domestic_primary > $productB['product']->ship_domestic_primary) ? -1 : 1;
+	}
+
+
+	function cmp_international2($productA, $productB)
+	{
+		if ($productA['product']->ship_international_primary == $productB['product']->ship_international_primary)
+		{
+			return 0;
+		}
+
+		// Highest to Lowest
+		return ($productA['product']->ship_international_primary > $productB['product']->ship_international_primary) ? -1 : 1;
+	}
+
 
 class CartController extends GxController
 {
@@ -147,6 +170,7 @@ class CartController extends GxController
 		$this->render(
 			'view',
 			array(
+				'cartItems' => $this->_addShippingInfoToProducts($details['products']),
 				'products' => $details['products'],
 				'subTotal' => $details['subTotal'],
 				'shipping' => $domesticShipping['amount'],
@@ -344,6 +368,79 @@ PENDINGREASON is deprecated since version 6
 	}
 
 
+	// This is also a flat product list
+	private function _addShippingInfoToProducts($product_list)
+	{
+
+		// flatten the list of products
+		$products = array();
+		foreach ($product_list as $product)
+		{
+			for ($a=0; $a<$product['quantity']; $a++)
+			{
+				array_push($products, $product);
+			}
+		}
+		
+		$productExtended = array();
+
+		// Add Domestic shipping costs:
+		uasort($products, 'cmp_domestic2');
+		$index = 0;
+		foreach ($products as $p) 
+		{
+			$product = $p['product'];
+			if (array_key_exists($product->id, $productExtended))
+			{
+				// Update this product
+				$productExtended[$product->id]['quantity'] += 1;
+				$productExtended[$product->id]['domestic_shipping_total'] += (0==$index) ? $product->ship_domestic_primary : $product->ship_domestic_secondary;			
+			}
+			else
+			{
+				// This is a new product for this list
+				$productExtended[$product->id] = array(
+					'product' => $product,
+					'size' => $p['size'],
+					'quantity' => 1,
+					'international_shipping_total' => 0,
+					'domestic_shipping_total' => (0==$index) ? $product->ship_domestic_primary : $product->ship_domestic_secondary
+				);
+			}
+			$index++;
+		}
+
+		// Add International shipping costs:
+		/*uasort($products, 'cmp_international2');
+		$index = 0;
+		foreach ($products as $p) 
+		{
+			$product = $p['product'];
+			if (array_key_exists($product->id, $productExtended))
+			{
+				// Update this product
+				$productExtended[$product->id]['quantity'] += 1;
+				$productExtended[$product->id]['international_shipping_total'] += (0==$index) ? $product->ship_international_primary : $product->ship_international_secondary;
+			}
+			else
+			{
+				// This is a new product for this list
+				$productExtended[$product->id] = array(
+					'product' => $product,
+					'quantity' => 1,
+					'domestic_shipping_total' => 0,
+					'international_shipping_total' => (0==$index) ? $product->ship_international_primary : $product->ship_international_secondary
+				);
+			}
+			$index++;
+		}*/
+
+		// This is not a flattened list! Products are regrouped by quantity for shipping calculation purposes.
+		return $productExtended;
+	}
+
+
+	// $products is a flat product list, meaning no quantities (each quantity of product is accounted for in the list)
 	private function _calculateShipping($domestic, $products)
 	{
 		$shipping = 0;

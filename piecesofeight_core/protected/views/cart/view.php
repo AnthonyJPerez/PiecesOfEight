@@ -195,13 +195,15 @@ if (!empty($products))
 	<table border="0">
 		<tr class="heading">
 			<th>Product Description</th>
-			<th width="10%">Size</th>
-			<th width='10%'>Quantity</th>
-			<th width='10%'>Price</th>
+			<th width="8%">Size</th>
+			<th width='12%'>Price</th>
+			<th width='8%'>Quantity</th>
+			<th width='10%'>Shipping</th>
+			<th width='10%'>Total</th>
 		</tr>
 		
 		<?php
-		foreach ($products as $p)
+		/*foreach ($products as $p)
 		{	
 			$product = $p['product'];
 			echo "<tr align='center' valign='top'>";
@@ -244,16 +246,74 @@ if (!empty($products))
 				echo "</td>";
 				
 				echo "<td class='size'>". $p['size'] ."</td>";
-				
+
+				echo "<td class='price'>$". number_format($product->price,2) . "</td>";
+
 				echo "<td class='quantity'>". $p['quantity'] . "</td>";
+
+				echo "<td class='shipping'>+$". number_format($product->ship_domestic_primary, 2) . "</td>";
+
+			echo "</tr>";
+		}*/
+		foreach ($cartItems as $id => $cartItem)
+		{	
+			$product = $cartItem['product'];
+			echo "<tr align='center' valign='top'>";
 				
-				echo "<td class='price'>$". $product->price . "</td>";
+				echo "<td class='cart_product' align='left'>";
+					$defaultImg = $product->getDefaultImage();
+					$imgUrl = Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
+					echo "<a class='fancybox_cart_product' href='".$imgUrl."'>";
+					echo CHtml::image(
+						$imgUrl, 
+						$product->getProductImgAltDescription(), 
+						array('width' => 75, 'align'=>'left')
+					);
+					echo "</a>";
+					
+					echo "<div class='name'>".CHtml::link($product->name, $product->getUrl())."</div>";
+				
+					// Remove item from cart button
+					$form = $this->beginWidget('CActiveForm', array(
+						'action' => $this->createUrl('cart/remove'),
+					));
+					
+						echo $form->errorSummary($AddcartModel);
+						echo "<div class='row'>";
+							echo $form->hiddenField($AddcartModel, 'product_id', array('value'=>$product->id));
+							//echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
+							echo $form->hiddenField($AddcartModel, 'quantity', array('value'=>$cartItem['quantity']));
+						echo "</div>";
+						
+						echo "<div class='row submit'>";
+							echo CHtml::linkButton(
+								"<i class='icon-minus-sign'></i> Remove",
+								array(
+									'class' => 'btn'
+								)
+							);
+						echo "</div>";
+					
+					$this->endWidget();
+				echo "</td>";
+				
+				echo "<td class='size'>". $cartItem['size'] ."</td>";
+
+				echo "<td class='price'>$". number_format($product->price,2) . "</td>";
+
+				echo "<td class='quantity'>". $cartItem['quantity'] . "</td>";
+
+				echo "<td class='shipping'>+$". number_format($cartItem['domestic_shipping_total'], 2) . "</td>";
+
+				$itemTotal = $cartItem['quantity'] * $product->price + $cartItem['domestic_shipping_total'];
+				echo "<td class='total'>$". (number_format($itemTotal, 2)) . "</td>";
+
 			echo "</tr>";
 		}
 		
 		//echo "<tr><td class='shipping' colspan='4' align='right'><span>Shipping & Handling:</span></td></tr>";
 		
-		echo "<tr><td colspan='4' align='right'><hr />
+		echo "<tr><td colspan='6' align='right'><hr />
 		<div>Shipping &amp; Handling</div><select id='shipping_select' class='select2_selectbox'>";
 			foreach ($shippingOptions as $option)
 			{
@@ -271,7 +331,7 @@ if (!empty($products))
 			echo "</td>";
 		echo "</tr>";*/
 		
-		echo "<tr><td class='subtotal' colspan='4' align='right'><span>Subtotal: $</span><span id='subtotal_price'>";
+		echo "<tr><td class='subtotal' colspan='6' align='right'><span>Subtotal: $</span><span id='subtotal_price'>";
 		echo number_format($totalShipping,2);
 		echo "</span><span> USD</span></td></tr>";
 		?>
