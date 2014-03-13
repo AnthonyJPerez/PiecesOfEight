@@ -259,16 +259,23 @@
 					{
 					?>
 					<span class="vacation_notice">
-						Pieces of Eight Costumes is on vacation through June 30th. We are 
+						Pieces of Eight Costumes is on leave through March 9th and will be unable 
+						to produce or process any orders until March 10th. We are sorry for any 
+						inconvenience and hope that you will visit the shop again when we re-open.
+						<br/><br>
+						Thank you for your patience, Sue -- Pieces of Eight Costumes
+						<!--Pieces of Eight Costumes is on vacation through June 30th. We are 
 						unable to produce or process any orders until July 1st. We are sorry 
 						for the inconvenience and hope that you will visit the shop again when 
-						we re-open in July!
+						we re-open in July!-->
 					</span>
 				<?php
 					}
 				}
 				?>
 				<!-- End Vacation note -->
+
+				
 			
 				<?php echo $content; ?>
 				
