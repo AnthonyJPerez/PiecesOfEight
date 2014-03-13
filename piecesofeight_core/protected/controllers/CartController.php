@@ -158,7 +158,7 @@ class CartController extends GxController
 	public function actionView()
 	{
 		$details = $this->_getPriceDetails();
-		$quantity = $this->_getShippingQuantity($details);
+		//$quantity = $this->_getShippingQuantity($details);
 		$domesticShipping = $this->_calculateShipping(true, $details['flat_products']);
 		$internationalShipping = $this->_calculateShipping(false, $details['flat_products']);
 		
@@ -449,23 +449,29 @@ PENDINGREASON is deprecated since version 6
 		if ($domestic)
 		{
 			$name = 'U.S. Ground';
-			uasort($products, 'cmp_domestic');
-			$baseElement = array_shift($products);
-			$shipping = $baseElement->ship_domestic_primary;
-			foreach ($products as $product)
+			if (0 < count($products))
 			{
-				$shipping += $product->ship_domestic_secondary;
+				uasort($products, 'cmp_domestic');
+				$baseElement = array_shift($products);
+				$shipping = $baseElement->ship_domestic_primary;
+				foreach ($products as $product)
+				{
+					$shipping += $product->ship_domestic_secondary;
+				}
 			}
 		}
 		else
 		{
 			$name = 'International Air';
-			uasort($products, 'cmp_international');
-			$baseElement = array_shift($products);
-			$shipping = $baseElement->ship_international_primary;
-			foreach ($products as $product)
+			if (0 < count($products))
 			{
-				$shipping += $product->ship_international_secondary;
+				uasort($products, 'cmp_international');
+				$baseElement = array_shift($products);
+				$shipping = $baseElement->ship_international_primary;
+				foreach ($products as $product)
+				{
+					$shipping += $product->ship_international_secondary;
+				}
 			}
 		}
 		

@@ -3,3 +3,5 @@ piecesofeight_core/runtime/
 WWW/themes/classic/views/
 WWW/images/gallery/
 .DS_Store
+
+live.php
