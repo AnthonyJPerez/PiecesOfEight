@@ -158,7 +158,6 @@ class CartController extends GxController
 	public function actionView()
 	{
 		$details = $this->_getPriceDetails();
-		//$quantity = $this->_getShippingQuantity($details);
 		$domesticShipping = $this->_calculateShipping(true, $details['flat_products']);
 		$internationalShipping = $this->_calculateShipping(false, $details['flat_products']);
 		
@@ -299,6 +298,7 @@ PENDINGREASON is deprecated since version 6
 	}
 	
 
+	// Fixed-cost shipping
 	private function _calculateShipping_fixed($domestic, $quantity)
 	{
 		$shipping = 8.95;
@@ -547,7 +547,8 @@ PENDINGREASON is deprecated since version 6
 	}
 	
 	
-	public function actionPaypalShippingCallback_old()
+	// This is the fixed-cost shipping calculation
+	public function actionPaypalShippingCallback_fixed()
 	{
 		$quantity = 0;
 		$domestic = true;
@@ -636,8 +637,18 @@ PENDINGREASON is deprecated since version 6
 			$nvp['CANCELURL'] = urlencode($this->createAbsoluteUrl('cart/view'));
 			$nvp['SOLUTIONTYPE'] = "Sole";
 			$nvp['LANDINGPAGE'] = "Billing";
-			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";			
-			$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
+			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";	
+
+			if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
+			{
+				// Code to call during production
+				$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
+			}		
+			else
+			{
+				// Code to call during development
+				$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback_dev");
+			}
 			$nvp['CALLBACKTIMEOUT'] = 6;
 						
 			// Add each product

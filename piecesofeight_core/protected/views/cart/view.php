@@ -371,6 +371,9 @@ if (!empty($products))
 
 			<?php
 			/*
+				None of this form code is necessary to pay with paypal, including the hidden inputs above.
+			*/
+			/*
 				$count = 1;
 				foreach ($products as $p)
 				{
