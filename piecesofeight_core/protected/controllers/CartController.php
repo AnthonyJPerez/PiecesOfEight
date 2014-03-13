@@ -160,10 +160,10 @@ class CartController extends GxController
 		$details = $this->_getPriceDetails();
 		$domesticShipping = $this->_calculateShipping(true, $details['flat_products']);
 		$internationalShipping = $this->_calculateShipping(false, $details['flat_products']);
-		
+
 		$shippingOptions = array(
-			$domesticShipping['name'] . ' - $' . number_format($domesticShipping['amount'],2),
-			$internationalShipping['name'] . ' - $' . number_format($internationalShipping['amount'],2)
+			$domesticShipping['type'] => $domesticShipping['name'] . ' - $' . number_format($domesticShipping['amount'],2),
+			$internationalShipping['type'] => $internationalShipping['name'] . ' - $' . number_format($internationalShipping['amount'],2)
 		);
 		
 		$this->render(
@@ -174,7 +174,9 @@ class CartController extends GxController
 				'subTotal' => $details['subTotal'],
 				'shipping' => $domesticShipping['amount'],
 				'AddcartModel' => new AddcartForm,
-				'shippingOptions' => $shippingOptions
+				'shippingOptions' => $shippingOptions,
+				'domestic_shipping' => $domesticShipping['type'],
+				'international_shipping' => $internationalShipping['type']
 			)
 		);
 	}
@@ -411,7 +413,7 @@ PENDINGREASON is deprecated since version 6
 		}
 
 		// Add International shipping costs:
-		/*uasort($products, 'cmp_international2');
+		uasort($products, 'cmp_international2');
 		$index = 0;
 		foreach ($products as $p) 
 		{
@@ -419,7 +421,6 @@ PENDINGREASON is deprecated since version 6
 			if (array_key_exists($product->id, $productExtended))
 			{
 				// Update this product
-				$productExtended[$product->id]['quantity'] += 1;
 				$productExtended[$product->id]['international_shipping_total'] += (0==$index) ? $product->ship_international_primary : $product->ship_international_secondary;
 			}
 			else
@@ -433,7 +434,7 @@ PENDINGREASON is deprecated since version 6
 				);
 			}
 			$index++;
-		}*/
+		}
 
 		// This is not a flattened list! Products are regrouped by quantity for shipping calculation purposes.
 		return $productExtended;
@@ -445,10 +446,12 @@ PENDINGREASON is deprecated since version 6
 	{
 		$shipping = 0;
 		$name = 'U.S. Ground';
+		$type = "domestic_shipping";
 				
 		if ($domestic)
 		{
 			$name = 'U.S. Ground';
+			$type = "domestic_shipping";
 			if (0 < count($products))
 			{
 				uasort($products, 'cmp_domestic');
@@ -463,6 +466,7 @@ PENDINGREASON is deprecated since version 6
 		else
 		{
 			$name = 'International Air';
+			$type = "international_shipping";
 			if (0 < count($products))
 			{
 				uasort($products, 'cmp_international');
@@ -477,7 +481,8 @@ PENDINGREASON is deprecated since version 6
 		
 		return array(
 			'amount' => $shipping,
-			'name' => $name
+			'name' => $name,
+			'type' => $type
 		);
 	}
 
@@ -604,6 +609,32 @@ PENDINGREASON is deprecated since version 6
 		$nvpString = "METHOD=CallbackResponse" . $nvpString;
 		
 		echo $nvpString;	
+	}
+
+
+	// Paypal function to be called during development:
+	public function actionPaypalShippingCallback_dev()
+	{	
+		$nvp = array();
+		$nvp['OFFERINSURANCEOPTION'] = 'false';
+		$nvp['L_SHIPPINGOPTIONLABEL0'] = urlencode("Test Shipping info");
+		$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode("12.34");
+		$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'true';
+		$nvp['L_TAXAMT0'] = urlencode('0.00');
+		$nvp['L_INSURANCEAMOUNT'] = urlencode('0.00');
+	
+		// format the nvp string as url parameters
+		$nvpString = "&";
+		foreach ($nvp as $key=>$value)
+		{
+			$nvpString .= $key.'='.$value.'&';
+		}
+		$nvpString = rtrim($nvpString, '&');
+		
+		// Call the SetExpressCheckout action
+		$nvpString = "METHOD=CallbackResponse" . $nvpString;
+		
+		echo $nvpString;
 	}
 	
 	

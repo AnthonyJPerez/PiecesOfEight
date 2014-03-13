@@ -75,10 +75,24 @@
 				var val = select.val();
 				var index = val.lastIndexOf('$');
 				var shippingPrice = parseFloat(val.substring(index+1), 10);
-				
+
+				var shipInternational = val.match('International');
+				if (null === shipInternational)
+				{
+					// Hide the domestic shipping values
+					$('.".$international_shipping."').hide();
+					$('.".$domestic_shipping."').show();
+				}
+				else
+				{
+					// Hide the international shipping values 
+					$('.".$domestic_shipping."').hide();
+					$('.".$international_shipping."').show();
+				}
+
 				$('#subtotal_price').html('' + parseFloat(subtotal + shippingPrice).toFixed(2));
 				
-				//console.log (select, val, index, shippingPrice, subtotal, subtotal+shippingPrice, parseFloat(subtotal+shippingPrice).toFixed(2));
+				console.log (select, val, index, shippingPrice, subtotal, subtotal+shippingPrice, parseFloat(subtotal+shippingPrice).toFixed(2));
 			}
 			
 			updateCart();
@@ -303,10 +317,26 @@ if (!empty($products))
 
 				echo "<td class='quantity'>". $cartItem['quantity'] . "</td>";
 
-				echo "<td class='shipping'>+$". number_format($cartItem['domestic_shipping_total'], 2) . "</td>";
+				// span classes (ex. domestic_shipping) defined in CartController::_calculateShipping()
+				echo "<td class='shipping'>";
+					echo "<span class='domestic_shipping'>";
+						echo "+$". number_format($cartItem['domestic_shipping_total'], 2);
+					echo "</span>";
+					echo "<span class='international_shipping'>";
+						echo "+$". number_format($cartItem['international_shipping_total'], 2);
+					echo "</span>";
+				echo "</td>";
 
-				$itemTotal = $cartItem['quantity'] * $product->price + $cartItem['domestic_shipping_total'];
-				echo "<td class='total'>$". (number_format($itemTotal, 2)) . "</td>";
+				$domesticTotal = $cartItem['quantity'] * $product->price + $cartItem['domestic_shipping_total'];
+				$internationalTotal = $cartItem['quantity'] * $product->price + $cartItem['international_shipping_total'];
+				echo "<td class='total'>";
+					echo "<span class='domestic_shipping'>";
+						echo "$". (number_format($domesticTotal, 2));
+					echo "</span>";
+					echo "<span class='international_shipping'>";
+						echo "$". (number_format($internationalTotal, 2));
+					echo "</span>";
+				echo "</td>";
 
 			echo "</tr>";
 		}
@@ -315,9 +345,9 @@ if (!empty($products))
 		
 		echo "<tr><td colspan='6' align='right'><hr />
 		<div>Shipping &amp; Handling</div><select id='shipping_select' class='select2_selectbox'>";
-			foreach ($shippingOptions as $option)
+			foreach ($shippingOptions as $optionType=>$optionValue)
 			{
-				echo "<option>".$option."</option>";
+				echo "<option id='".$optionType."'>".$optionValue."</option>";
 			}
 		echo"</select></tr></td>";
 		
