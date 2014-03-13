@@ -281,7 +281,7 @@ if (!empty($products))
 						echo $form->errorSummary($AddcartModel);
 						echo "<div class='row'>";
 							echo $form->hiddenField($AddcartModel, 'product_id', array('value'=>$product->id));
-							//echo $form->hiddenField($AddcartModel, 'size', array('value'=>$p['size']));
+							echo $form->hiddenField($AddcartModel, 'size', array('value'=>$cartItem['size']));
 							echo $form->hiddenField($AddcartModel, 'quantity', array('value'=>$cartItem['quantity']));
 						echo "</div>";
 						
