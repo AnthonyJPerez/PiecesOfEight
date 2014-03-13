@@ -689,7 +689,7 @@
 				}
 				else if (true == constant('VACATION_MODE'))
 				{
-					echo "<div>Will be available in July</div>";
+					echo "<div>Won't be available until March 12th</div>";
 				}
 				else
 				{
