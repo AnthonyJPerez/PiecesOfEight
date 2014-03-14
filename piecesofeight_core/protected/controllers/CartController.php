@@ -849,7 +849,12 @@ PENDINGREASON is deprecated since version 6
 					$Order->discount_msg = "n/a";
 										
 					$details = $this->_getPriceDetails();
-					$Order->order_details = base64_encode(serialize($details['products'])); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
+					$details['products_with_shipping'] = $this->_addShippingInfoToProducts($details['products']);
+					$details['shipping_is_domestic'] = (false === strpos($Order->shipping_type, "International"))
+						? true
+						: false;
+
+					$Order->order_details = base64_encode(serialize($details)); //To unserialize this:  unserialize(base64_decode($encoded_serialized_string));
 					$Order->save();
 
 					// Iterate the products that were purchased. Mark each "Custom" product 

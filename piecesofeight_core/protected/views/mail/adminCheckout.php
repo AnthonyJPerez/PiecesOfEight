@@ -110,44 +110,102 @@
 			<h2>Items Ordered: </h2>
 			<table border="0" width="100%">
 			<tr class="heading">
-				<th width="70%" colspan="2">Product Description</th>
+				<th colspan="2">Product Description</th>
 				<th width="10%">Size</th>
-				<th width='10%'>Quantity</th>
-				<th width='10%'>Price</th>
+				<th width='12%'>Price</th>
+				<th width='8%'>Quantity</th>
+				<th width='10%'>Shipping</th>
+				<th width='10%'>Total</th>
 			</tr>
 			
 			<?php
-			$products = unserialize(base64_decode($model->order_details));
-			foreach ($products as $pid=>$pdetails)
-			{	
-				echo "<tr align='center' valign='middle'>";
+			$details = unserialize(base64_decode($model->order_details));
+
+				if (array_key_exists('products_with_shipping', $details))
+				{	
+					// New way of displaying products (products with alternate shipping info)
+					$products = $details['products'];
+					$cartItems = $details['products_with_shipping'];
+
+					foreach ($cartItems as $id => $pdetails)
+					{	
+						$shipping_cost = ($details['shipping_is_domestic']) 
+								? $pdetails['domestic_shipping_total']
+								: $pdetails['international_shipping_total'];
+
+						echo "<tr align='center' valign='middle'>";
+							
+							echo "<td class='cart_product' align='left' width='15%' style='padding: 0.5em;'>";
+								$defaultImg = $pdetails['product']->getDefaultImage();
+								$imgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
+								echo CHtml::image(
+									$imgUrl, 
+									$pdetails['product']->getProductImgAltDescription(), 
+									array('width' => 75, 'align'=>'left')
+								);
+							echo "</td><td width='70%' align='left'>";
+								echo CHtml::link($pdetails['product']->name, $pdetails['product']->getUrl());
+							echo "</td>";
+							
+							echo "<td>". $pdetails['size'] ."</td>";
+							
+							echo "<td>$". number_format($pdetails['product']->price, 2) . "</td>";
+							
+							echo "<td>". $pdetails['quantity'] . "</td>";
+
+							echo "<td>+". number_format($shipping_cost, 2) ."</td>";
+
+							$product_total = $pdetails['quantity'] * $pdetails['product']->price + $shipping_cost;
+							echo "<td>$". number_format($product_total, 2) . "</td>";
+						echo "</tr>";
+					}
+					echo "<tr><td colspan='7'><hr /></td></tr>";
 					
-					echo "<td class='cart_product' align='left' width='15%' style='padding: 0.5em;'>";
-						$defaultImg = $pdetails['product']->getDefaultImage();
-						$imgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
-						echo CHtml::image(
-							$imgUrl, 
-							$pdetails['product']->getProductImgAltDescription(), 
-							array('width' => 75, 'align'=>'left')
-						);
-					echo "</td><td width='85%' align='left'>";
-						echo CHtml::link($pdetails['product']->name, $pdetails['product']->getUrl());
-					echo "</td>";
+					echo "<tr><td colspan='5' align='right'>Shipping &amp; Handling: </td>";
+					echo "<td colspan='2' align='right'>$".$model->shipping_amt."</td></tr>";
+						
+					echo "<tr><td colspan='5' align='right'><b>Total: </b></td>";
+					echo "<td colspan='2' align='right'><b>$".$model->total_amt." USD</b></td></tr>";
+
+				}
+				else
+				{
+					//
+					//	Old way of displaying products (fixed-shipping costs)
+					//
+					$products = $details;
+
+					foreach ($products as $pid=>$pdetails)
+					{	
+						echo "<tr align='center' valign='middle'>";
+							
+							echo "<td class='cart_product' align='left' width='15%' style='padding: 0.5em;'>";
+								$defaultImg = $pdetails['product']->getDefaultImage();
+								$imgUrl = Yii::app()->request->hostInfo.Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImg->url;
+								echo CHtml::image(
+									$imgUrl, 
+									$pdetails['product']->getProductImgAltDescription(), 
+									array('width' => 75, 'align'=>'left')
+								);
+							echo "</td><td width='85%' align='left'>";
+								echo CHtml::link($pdetails['product']->name, $pdetails['product']->getUrl());
+							echo "</td>";
+							
+							echo "<td>". $pdetails['size'] ."</td>";
+							
+							echo "<td>". $pdetails['quantity'] . "</td>";
+							
+							echo "<td>$". $pdetails['product']->price . "</td>";
+						echo "</tr>";
+					}			
+					echo "<tr><td colspan='5'><hr /></td></tr>";
 					
-					echo "<td>". $pdetails['size'] ."</td>";
+					echo "<tr><td colspan='3' align='right'>Shipping &amp; Handling: </td>";
+					echo "<td colspan='2' align='right'>$".$model->shipping_amt."</td></tr>";
 					
-					echo "<td>". $pdetails['quantity'] . "</td>";
-					
-					echo "<td>$". $pdetails['product']->price . "</td>";
-				echo "</tr>";
-			}			
-			echo "<tr><td colspan='5'><hr /></td></tr>";
-			
-			echo "<tr><td colspan='3' align='right'>Shipping &amp; Handling: </td>";
-			echo "<td colspan='2' align='right'>$".$model->shipping_amt."</td></tr>";
-			
-			echo "<tr><td colspan='3' align='right'><b>Total: </b></td>";
-			echo "<td colspan='2' align='right'><b>$".$model->total_amt." USD</b></td></tr>";
+					echo "<tr><td colspan='3' align='right'><b>Total: </b></td>";
+					echo "<td colspan='2' align='right'><b>$".$model->total_amt." USD</b></td></tr>";
+				}
 			?>
 		
 		</table>
