@@ -85,10 +85,11 @@ class ProductController extends GxController
 		// Select any images associated with this product as well.
 		$criteria = array(
 			'with' => array('images'),
-			'condition' => 'custom_order != 1',
-			'order' => 'date_inserted DESC'
+			'condition' => 'custom_order != 1'
+			//'order' => 'date_inserted DESC'
 		);
 
+		$noCategory = false;
 		// The data is a valid category, only show this category in the results.
 		// else, show all items, even out of stock ones.
 		if (!is_null($CategoryModel))
@@ -103,7 +104,8 @@ class ProductController extends GxController
 		else
 		{
 			// No category chosen, show all items (even out of stock), in reverse order
-			$criteria['order'] = 'date_inserted ASC';
+			//$criteria['order'] = 'date_inserted ASC';
+			$noCategory = true;
 		}
 		
 		/*// If the category is 'new', then only show products posted within the last 6 months.
@@ -121,6 +123,9 @@ class ProductController extends GxController
 					'pagination' => array(
 						'pageSize' => 12
 					),
+					'sort' => array(
+						'defaultOrder' => ($noCategory) ? "date_inserted ASC" : "date_inserted DESC"
+					)
 				)
 			),
 			'category' => $category,
@@ -178,7 +183,7 @@ class ProductController extends GxController
       	if (isset($_POST['Product'])) 
 		{		
 			// test
-			print_r($_POST);
+			//print_r($_POST);
 			
 			// Sanitize the Input
 			// ... @todo
@@ -566,7 +571,8 @@ class ProductController extends GxController
 		echo '<id>tag:piecesofeightcostumes.com,2012-04-21:/product/googleProductFeed</id>';
 		echo '<title>Pieces of Eight Costumes Product Listings</title>';
 		echo '<link href="http://piecesofeightcostumes.com" rel="alternate" type="text/html" />';
-		//echo '<updated>2012-04-21T02:46:00Z</updated>';
+		
+		// Ex: 2012-04-21T02:46:00Z';
 		echo '<updated>'.date('Y-m-d\TH:i:s\Z').'</updated>';
 		echo '<author><name>Pieces of Eight Costumes</name></author>';
 	
