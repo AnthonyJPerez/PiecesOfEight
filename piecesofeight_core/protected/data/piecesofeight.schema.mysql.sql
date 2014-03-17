@@ -8,6 +8,23 @@ START TRANSACTION;
 #-- SCHEMA
 #----------------------------------------------------------------------------------------------
 
+#-- Option
+#--
+#-- Represents global site options controllable by the admin.
+CREATE TABLE p8_option
+(
+	#-- Key
+	id					INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	
+	#-- Attributes
+	name				VARCHAR(255) NOT NULL,					#-- Option name
+	enabled				TINYINT(1) NOT NULL DEFAULT 0,			#-- Boolean indicating if this option is currently enabled
+	optionalData		BLOB,									#-- Each option may carry additional data with it.
+	
+	#-- Constraints
+	PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 #-- Category
 #--
@@ -458,6 +475,10 @@ CREATE TABLE p8_feedback
 #----------------------------------------------------------------------------------------------
 #-- INSERT DATA
 #----------------------------------------------------------------------------------------------
+
+INSERT INTO p8_option (`name`, `enabled`, `optionalData`)
+VALUES 
+	(NULL, 'vacation_mode', '0', NULL);
 
 
 INSERT INTO p8_category (name)

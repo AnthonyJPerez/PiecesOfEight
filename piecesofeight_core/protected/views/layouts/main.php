@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 		
 		<?php
-			$cssTag = "20130526";
+			$cssTag = "20140317";
 			if ($this->pageCanonical !== null)
 			{
 				?>
@@ -252,18 +252,26 @@
 
 				<!-- Vacation-specific Note -->
 				<?php
-				if (VACATION_MODE)
+				//if (VACATION_MODE)
+				$vacationMode = $this->getVacationModeOption();
+				if ($vacationMode['enabled'])
 				{
 					$c = Yii::app()->getController();
-					if ($c->getId() == 'product' || $c->getId() == 'cart' || $c->getId() == 'site')
+					if (
+						$c->getId() == 'product' 
+						|| $c->getId() == 'cart' 
+						|| $c->getId() == 'site'
+						|| $c->getId() == 'admin'
+					)
 					{
 					?>
 					<span class="vacation_notice">
-						Pieces of Eight Costumes is on leave through March 9th and will be unable 
+						<?php echo $vacationMode['message']; ?>
+						<!--Pieces of Eight Costumes is on leave through March 9th and will be unable 
 						to produce or process any orders until March 10th. We are sorry for any 
 						inconvenience and hope that you will visit the shop again when we re-open.
 						<br/><br>
-						Thank you for your patience, Sue -- Pieces of Eight Costumes
+						Thank you for your patience, Sue -- Pieces of Eight Costumes-->
 						<!--Pieces of Eight Costumes is on vacation through June 30th. We are 
 						unable to produce or process any orders until July 1st. We are sorry 
 						for the inconvenience and hope that you will visit the shop again when 

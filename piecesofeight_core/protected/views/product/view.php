@@ -408,6 +408,14 @@
 	</ul>
 </div>
 
+<?php
+	// If our vacation message is up, move the product_container down a little bit.
+	$vacationMode = $this->getVacationModeOption();
+	if ($vacationMode['enabled'])
+	{
+		echo "<br />";
+	}
+?>
 
 <div id="product_container" itemscope itemtype="http://schema.org/Product">
 	<div id="product_image_container">

@@ -43,6 +43,12 @@ abstract class GxController extends Controller {
 		
 		return true;
 	}
+
+
+	public function getVacationModeOption()
+	{
+		return VacationModeOption::loadData();
+	}
 	
 
 	/**

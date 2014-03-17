@@ -191,6 +191,9 @@ $this->widget('zii.widgets.CListView', array(
 	),
 	'viewData' => array(
 		'category' => $category
+	),
+	'pager' => array(
+		
 	)
 )); 
 

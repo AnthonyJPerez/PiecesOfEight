@@ -19,7 +19,6 @@ class AdminController extends GxController
 			array('deny', 'users' => array('*')),
 		);
 	}
-	
 
 
 
@@ -139,6 +138,29 @@ class AdminController extends GxController
 			'orders',
 			array(
 				'orders' => $orders
+			)
+		);
+	}
+
+
+	function actionVacation_mode()
+	{
+		$option = VacationModeOption::model();
+
+      	if (isset($_POST['VacationModeOption'])) 
+		{
+			$post = $_POST['VacationModeOption'];
+			$option->enabled = $post['enabled'];
+			$option->message = $post['message'];
+			$option->save();
+			
+			$this->redirect(array('admin/index'));
+		}
+
+		$this->render(
+			'vacation_mode',
+			array(
+				'_Option' => $option
 			)
 		);
 	}

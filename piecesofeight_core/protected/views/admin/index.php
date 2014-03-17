@@ -33,6 +33,14 @@
 			);
 		?>
 		</li>
+		<li>
+		<?php
+			echo CHtml::link(
+				"Set Vacation Mode (currently ". (($this->getVacationModeOption()['enabled']) ? "enabled" : "disabled") .")",
+				$this->createUrl('admin/vacation_mode')
+			);
+		?>
+		</li>
 	</ul>
 </div>
 
