@@ -71,7 +71,7 @@ class ProductController extends GxController
 	
 	
 	
-	public function actionList($category=null)
+	/*public function actionList($category=null)
 	{	
 		// Find the category id
 		$CategoryModel = Category::model()->find(
@@ -86,7 +86,6 @@ class ProductController extends GxController
 		$criteria = array(
 			'with' => array('images'),
 			'condition' => 'custom_order != 1'
-			//'order' => 'date_inserted DESC'
 		);
 
 		$noCategory = false;
@@ -108,13 +107,13 @@ class ProductController extends GxController
 			$noCategory = true;
 		}
 		
-		/*// If the category is 'new', then only show products posted within the last 6 months.
-		if ($category === 'new')
-		{
-			// @todo THIS DOES NOT WORK, FIX IT!!!!
-			$date_SixMonthsOld = mktime(0, 0, 0, date("m")-6, date("d"),   date("Y"));
-			$criteria['condition'] = 'date_inserted > ' . $date_SixMonthsOld;
-		}*/
+		//// If the category is 'new', then only show products posted within the last 6 months.
+		//if ($category === 'new')
+		//{
+		//	// @todo THIS DOES NOT WORK, FIX IT!!!!
+		//	$date_SixMonthsOld = mktime(0, 0, 0, date("m")-6, date("d"),   date("Y"));
+		//	$criteria['condition'] = 'date_inserted > ' . $date_SixMonthsOld;
+		//}
 		
 		$this->render('list', array(
 			'dataProvider' => new CActiveDataProvider('Product', 
@@ -131,6 +130,88 @@ class ProductController extends GxController
 			'category' => $category,
 			'categoryModel' => $CategoryModel,
 		));
+	}*/
+
+
+
+
+	//public function actionListPaginate($page=1, $category=null)
+	public function actionList($category=null, $page=1)
+	{	
+		// Make sure page is valid:
+		$page = ($page < 1) ? 1 : $page;
+
+		$pageSize = 12;
+		$lowerPageRange = ($page-1) * $pageSize;
+
+		// Find the category id
+		$CategoryModel = Category::model()->find(
+			array(
+				'select' => '*',
+				'condition' => 'name=:name',
+				'params' => array(':name' => $category)
+			)
+		);
+			
+		// Setup our search conditions:
+		$criteria = array(
+			// Select any images associated with this product as well.
+			'with' => array('images'),
+
+			// Exclude custom orders
+			'condition' => 'custom_order != 1'
+		);
+
+		// Don't pull the non-shippable items unless we are in the correct
+		// category:
+		if (!$CategoryModel || "Miscellaneous" != $CategoryModel->name)
+		{
+			$criteria['condition'] .= " && shippable != 0";
+		}
+
+		$noCategory = false;
+		// The data is a valid category, only show this category in the results.
+		// else, show all items, even out of stock ones.
+		if (!is_null($CategoryModel))
+		{	
+			$criteria['condition'] .= ' && out_of_stock != 1 && category_id='.$CategoryModel->id;
+		}
+		else if ($category == 'new')
+		{
+			// Show all items, don't show out-of-stock ones
+			$criteria['condition'] .= ' && out_of_stock != 1';
+		}
+		else
+		{
+			// No category chosen, show all items (even out of stock), in reverse order
+			//$criteria['order'] = 'date_inserted ASC';
+			$noCategory = true;
+		}
+
+		// Define the order the results should display in.
+		$criteria['order'] = ($noCategory) ? "date_inserted ASC" : "date_inserted DESC";
+
+		// Count the total number of products in the database matching our criteria
+		$numProductsTotal = Product::model()->count($criteria);
+
+		//Paginate the data:
+		$criteria['limit'] = $pageSize;
+		$criteria['offset'] = $lowerPageRange;
+		$products = Product::model()->findAll($criteria);
+
+		$showPrev = ($page > 1) ? true : false;
+		$showNext = ($numProductsTotal > 0 && $page != ceil($numProductsTotal / $pageSize)) ? true : false;
+		
+		$this->render('list_paginate', array(
+			'numTotal' => $numProductsTotal,
+			'page' => $page,
+			'showPrev' => $showPrev,
+			'showNext' => $showNext,
+			'numToDisplay' => $pageSize,
+			'products' => $products,
+			'category' => $category,
+			'categoryModel' => $CategoryModel
+		));
 	}
 	
 	
@@ -140,8 +221,6 @@ class ProductController extends GxController
 	{
 		$this->render('lookbook');
 	}
-	
-	
 	
 	
 	

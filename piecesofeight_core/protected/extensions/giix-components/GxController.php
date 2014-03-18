@@ -35,6 +35,7 @@ abstract class GxController extends Controller {
 	public $pageDescription = "Handmade pirate costumes and renaissance clothing. Period-authentic clothes made to last. Own the Gasparilla pirate costume of your dreams! Custom orders are available on all of our products. Perfect for halloween parties, renaissance faires or weddings.";
 	public $pageKeywords = "pirate costume, pirate clothes, child pirate costume, adult pirate costume, couples pirate costume, pirate costumes, halloween, party, caribbean pirate, pirate wench, pirate captain, pirate shirt, renaissance clothing, renaissance outfits, handmade clothes, halloween costumes, renaissance costumes, medieval clothing, medieval costumes, renaissance faire clothing, wench costumes, wench clothing";
 	public $pageCanonical = null;
+	public $pageLink = null;
 	
 	
 	public function beforeAction($action)

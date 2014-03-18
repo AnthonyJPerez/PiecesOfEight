@@ -15,12 +15,17 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 		
 		<?php
-			$cssTag = "20140317";
+			$cssTag = "20140318";
 			if ($this->pageCanonical !== null)
 			{
 				?>
 				<link rel="canonical" href="<?php echo $this->pageCanonical; ?>" />
 				<?
+			}
+
+			if ($this->pageLink !== null)
+			{
+				echo $this->pageLink;
 			}
 		?>
 

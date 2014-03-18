@@ -73,6 +73,8 @@ return array(
 				'<action:(lookbook)>' => 'product/<action>',
 				'product/<id:\d+>/<name>' => 'product/view',
 				'product/<id:\d+>' => 'product/view',
+				'products/<category>/<page:\d+>' => 'product/list',
+				'products/<page:\d+>' => 'product/list',
 				'products/<category>' => 'product/list',
 				'products' => 'product/list',
 				'cart' => 'cart/view',
