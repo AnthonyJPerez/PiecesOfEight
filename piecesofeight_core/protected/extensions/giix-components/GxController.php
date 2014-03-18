@@ -52,6 +52,11 @@ abstract class GxController extends Controller {
 	}
 	
 
+	public function getPaypalSandboxOption()
+	{
+		return PaypalSandboxOption::loadData();
+	}
+
 	/**
 	 * Returns the data model based on the primary key or another attribute.
 	 * This method is designed to work with the values passed via GET.

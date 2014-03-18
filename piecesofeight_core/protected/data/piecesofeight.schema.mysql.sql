@@ -476,9 +476,10 @@ CREATE TABLE p8_feedback
 #-- INSERT DATA
 #----------------------------------------------------------------------------------------------
 
-INSERT INTO p8_option (`name`, `enabled`, `optionalData`)
+INSERT INTO p8_option (`id`, `name`, `enabled`, `optionalData`)
 VALUES 
-	(NULL, 'vacation_mode', '0', NULL);
+	(1, 'vacation_mode', '0', NULL),
+	(2, 'paypalsandbox_mode', '0', NULL);
 
 
 INSERT INTO p8_category (name)
