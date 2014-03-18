@@ -500,11 +500,11 @@
 	</div>
 	
 	<div class='category'>
-		<span id="custom-orders">Shipping</span>
+		<span id="shipping">Shipping</span>
 		<ul class='answers'>
 			<li>
 				<span id="time-to-ship">
-					How long does shipping take?
+					How long will shipping take?
 				</span>
 				<p>
 					Items will be shipped via USPS or UPS ground with tracking and
@@ -524,8 +524,26 @@
 					via the table below. Rush delivery available for an additional 
 					fee depending on the destination.
 				</p>
+				<span id="example-shipping-calculation">
+					Example Shipping scenario:
+				</span>
 				<p>
-					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="4">
+					Let's say we have three items in our cart:<br /><br />
+
+					Item A) Base shipping - $10, Additional shipping - $2<br />
+					Item B) Base shipping - $8, Additional shipping - $1<br />
+					Item C) Base shipping - $12, Additional Shipping - $4<br /><br />
+
+					To calculate the shipping cost, we take the <b>Base</b> shipping cost of the
+					item with the largest base shipping, and then add the <b>Additional</b> shipping
+					cost of every other item in the cart.<br /><br />
+
+					In this scenario, Item C has the largest base shipping at $12. This means we'll
+					add the additional shipping costs of Item A and B, which are $2 and $1 respectively.
+					This gives us the grand total of:<br /><br />
+
+					Base (<b>$12</b>) + Additional (<b>$2</b> + <b>$1</b>) = <b>$15</b> Total shipping cost.
+					<!--table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="4">
 						<tr>
 							<th colspan=2>USA</th>
 						</tr>
@@ -554,7 +572,7 @@
 							<td>$35.95 USD</td>
 						</tr>
 					</table>
-					<br />
+					<br /-->
 				</p>
 			</li>
 			
@@ -565,9 +583,11 @@
 				<p>
 					Yes! Please note that any international customs and taxes
 					will be the responsibility of the purchaser. Our international
-					shipping rates are calculated via the table below:
+					shipping costs are calculated the same as for domestic shipping,
+					and the rates for each product can be found in that product's
+					"shipping" tab.
 				</p>
-				<p>
+				<!--p>
 					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="4">
 						<tr>
 							<th colspan=2>International</th>
@@ -598,7 +618,7 @@
 						</tr>
 					</table>
 					<br />
-				</p>
+				</p-->
 			</li>
 		</ul>
 	</div>

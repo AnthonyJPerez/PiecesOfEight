@@ -752,7 +752,7 @@
 				<div id="nav_shipping" class="tab">
 					<p>
 					Items will be shipped via UPS or USPS standard ground with tracking, 
-					3-10 days from date shipped. U.S. and International rates can are calculated
+					3-10 days from date shipped. U.S. and International rates are calculated
 					via the table below. Rush delivery available for an additional 
 					fee depending on the destination.
 					</p>
@@ -765,11 +765,11 @@
 							<th>Price</th>
 						</tr>
 						<tr>
-							<td>1</td>
+							<td>Base</td>
 							<td>$<?php echo number_format($model->ship_domestic_primary,2) . " "; ?>USD</td>
 						</tr>
 						<tr>
-							<td>2+</td>
+							<td>Additional</td>
 							<td>$<?php echo number_format($model->ship_domestic_secondary,2) . " "; ?>USD</td>
 						</tr>
 					</table>
@@ -782,19 +782,32 @@
 							<th>Price</th>
 						</tr>
 						<tr>
-							<td>1</td>
+							<td>Base</td>
 							<td>$<?php echo number_format($model->ship_international_primary,2) . " "; ?>USD</td>
 						</tr>
 						<tr>
-							<td>2+</td>
+							<td>Additional</td>
 							<td>$<?php echo number_format($model->ship_international_secondary,2) . " "; ?>USD</td>
 						</tr>
 					</table>
 					<p>
-					In stock items will be shipped out within 3-7 business days of the order.
-					Custom orders will take 3-6 weeks to ship. Overseas orders are subject 
-					to additional shipping fees, all customs and taxes will be the 
-					responsibility of the purchaser.
+						In stock items will be shipped out within 3-7 business days of the order.
+						Custom orders will take 3-6 weeks to ship. Overseas orders are subject 
+						to additional shipping fees, all customs and taxes will be the 
+						responsibility of the purchaser.
+					</p>
+					<p>
+						Shipping rates are calculated by using the item in your cart with the largest
+						<b>Base</b> shipping rate, then adding the <b>Additional</b> shipping rates of the remaining
+						items. See <?php 
+							echo CHtml::link(
+								"Example Shipping Calculation",
+								$this->createUrl('site/page', array('view'=>'faq', '#'=>'example-shipping-calculation')),
+								array(
+									'title' => "Costume Exchange Policy"
+								)
+							);
+						?> for more details.
 					</p>
 				</div>
 			</div>
