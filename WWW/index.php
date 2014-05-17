@@ -6,6 +6,7 @@ include_once('../piecesofeight_core/paypal_core/CallerService.php');
 $PO8_UNDER_CONSTRUCTION = false;
 $P08_LIVE = false;
 define('VACATION_MODE', false);
+define('PAYPAL_SANDBOX', false);
 
 
 if (!$PO8_UNDER_CONSTRUCTION)
@@ -21,6 +22,9 @@ if (!$PO8_UNDER_CONSTRUCTION)
 		
 		// specify how many levels of call stack should be shown in each log message
 		defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
+		
+		// Use the sandbox paypal mode
+		define('PAYPAL_SANDBOX', true);
 	}
 	else
 	{

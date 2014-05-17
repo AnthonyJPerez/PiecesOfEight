@@ -490,12 +490,12 @@ PENDINGREASON is deprecated since version 6
 	public function actionPaypalShippingCallback()
 	{
 		$quantity = 0;
-		$domestic = true;
+		$domestic = false;
 		$products = array();
 		
-		if (strcmp($this->_getValue($_POST, 'SHIPTOCOUNTRY'), "US") != 0)
+		if (strcmp($this->_getValue($_POST, 'SHIPTOCOUNTRY'), "US") == 0)
 		{
-			$domestic = false;
+			$domestic = true;
 		}
 
 		// Grab each product, including their quantities, out of the list
@@ -520,7 +520,7 @@ PENDINGREASON is deprecated since version 6
 				// Push each item individually into the array.
 				for ($a = 0; $a < $quantity; $a++)
 				{
-					array_push($product);
+					array_push($products, Product::model()->findByPk($pid));
 				}
 			}
 
@@ -615,9 +615,16 @@ PENDINGREASON is deprecated since version 6
 	// Paypal function to be called during development:
 	public function actionPaypalShippingCallback_dev()
 	{	
+		$shipTo = "US";
+		
+		if (strcmp($this->_getValue($_POST, 'SHIPTOCOUNTRY'), "US") != 0)
+		{
+			$shipTo = "Abroad";
+		}
+		
 		$nvp = array();
 		$nvp['OFFERINSURANCEOPTION'] = 'false';
-		$nvp['L_SHIPPINGOPTIONLABEL0'] = urlencode("Test Shipping info");
+		$nvp['L_SHIPPINGOPTIONLABEL0'] = urlencode("Test Shipping info - Country: " . $shipTo);
 		$nvp['L_SHIPPINGOPTIONAMOUNT0'] = urlencode("12.34");
 		$nvp['L_SHIPPINGOPTIONISDEFAULT0'] = 'true';
 		$nvp['L_TAXAMT0'] = urlencode('0.00');
@@ -670,7 +677,9 @@ PENDINGREASON is deprecated since version 6
 			$nvp['LANDINGPAGE'] = "Billing";
 			$nvp['PAYMENTREQUEST_0_PAYMENTACTION'] = "Sale";	
 
-			if (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
+			if ( 
+				   (!defined('YII_DEBUG') || constant('YII_DEBUG') == false)
+			)
 			{
 				// Code to call during production
 				$nvp['CALLBACK'] = urlencode("https://secure679.hostgator.com/~sperez8/index.php?r=cart/paypalShippingCallback");
