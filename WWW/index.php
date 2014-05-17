@@ -8,7 +8,6 @@ $P08_LIVE = false;
 define('VACATION_MODE', false);
 
 
-
 if (!$PO8_UNDER_CONSTRUCTION)
 {
 	// Development
