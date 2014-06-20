@@ -95,12 +95,20 @@ class SiteController extends GxController
 				$msg->setFrom(array($model->email => $name));
 				$msg->setSubject($model->subject);
 				$msg->setBody(array('model'=>$model), 'text/html');
-	
-				// Mail it!
-				Yii::app()->mail->send($msg);
+					
+				try
+				{
+					// Mail it!
+					$result = Yii::app()->mail->send($msg);
+					Yii::trace(CVarDumper::dumpAsString($result));
 				
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to your email as soon as we can!');
-				$this->refresh();
+					Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to your email as soon as we can!');
+					$this->refresh();
+				}
+				catch (Exception $e)
+				{
+					Yii::trace(CVarDumper::dumpAsString($e));
+				}
 			}
 		}
 		$this->render(
