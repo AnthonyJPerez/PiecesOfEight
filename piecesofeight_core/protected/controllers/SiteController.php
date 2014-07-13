@@ -94,8 +94,13 @@ class SiteController extends GxController
 				$name = ucfirst($model->name);
 				$msg->setFrom(array($model->email => $name));
 				$msg->setSubject($model->subject);
+
+				// Append the user's email to the body.
+				$fromEmailMsg = "[Email from \"".$name."\" ".$model->email." ]";
+				$model->body = $fromEmailMsg . "<br /><br />" . $model->body;
+
 				$msg->setBody(array('model'=>$model), 'text/html');
-					
+
 				try
 				{
 					// Mail it!

@@ -14,7 +14,12 @@
 				$defaultImage = $data->getDefaultImage();
 				echo CHtml::image(
 					Yii::app()->request->baseUrl . '/images/product-images/' . $defaultImage->url,
-					$data->getProductImgAltDescription()
+					$data->getProductImgAltDescription(),
+					array(
+						//198x297
+						"width" => "198",
+						"height" => "297"
+					)
 				);
 			?>
 		</a>
