@@ -373,7 +373,6 @@ PENDINGREASON is deprecated since version 6
 	// This is also a flat product list
 	private function _addShippingInfoToProducts($product_list)
 	{
-
 		// flatten the list of products
 		$products = array();
 		foreach ($product_list as $product)
@@ -385,55 +384,60 @@ PENDINGREASON is deprecated since version 6
 		}
 		
 		$productExtended = array();
+		$uniqueProductMap = array();
 
 		// Add Domestic shipping costs:
 		uasort($products, 'cmp_domestic2');
-		$index = 0;
 		foreach ($products as $p) 
 		{
+		    //echo "id: " . $p['product']->id .", quantity: " . $p['quantity'] . ", size: " . $p['size'] . "<br />";
 			$product = $p['product'];
-			if (array_key_exists($product->id, $productExtended))
+			$shippingPrice = array_key_exists($product->id, $uniqueProductMap) ? $product->ship_domestic_secondary : $product->ship_domestic_primary;
+			$uniqueProductMap[$product->id] = true;
+			$productKey = $product->id . "_" . $p['size'];
+			if (array_key_exists($productKey, $productExtended))
 			{
 				// Update this product
-				$productExtended[$product->id]['quantity'] += 1;
-				$productExtended[$product->id]['domestic_shipping_total'] += (0==$index) ? $product->ship_domestic_primary : $product->ship_domestic_secondary;			
+				$productExtended[$productKey]['quantity'] += 1;
+				$productExtended[$productKey]['domestic_shipping_total'] += $shippingPrice;			
 			}
 			else
 			{
 				// This is a new product for this list
-				$productExtended[$product->id] = array(
+				$productExtended[$productKey] = array(
 					'product' => $product,
 					'size' => $p['size'],
 					'quantity' => 1,
 					'international_shipping_total' => 0,
-					'domestic_shipping_total' => (0==$index) ? $product->ship_domestic_primary : $product->ship_domestic_secondary
+					'domestic_shipping_total' => $shippingPrice
 				);
 			}
-			$index++;
 		}
 
 		// Add International shipping costs:
 		uasort($products, 'cmp_international2');
-		$index = 0;
+		$uniqueProductMap = array();
 		foreach ($products as $p) 
 		{
 			$product = $p['product'];
-			if (array_key_exists($product->id, $productExtended))
+			$shippingPrice = array_key_exists($product->id, $uniqueProductMap) ? $product->ship_international_secondary : $product->ship_international_primary;
+			$uniqueProductMap[$product->id] = true;
+			$productKey = $product->id . "_" . $p['size'];
+			if (array_key_exists($productKey, $productExtended))
 			{
 				// Update this product
-				$productExtended[$product->id]['international_shipping_total'] += (0==$index) ? $product->ship_international_primary : $product->ship_international_secondary;
+				$productExtended[$productKey]['international_shipping_total'] += $shippingPrice;
 			}
 			else
 			{
 				// This is a new product for this list
-				$productExtended[$product->id] = array(
+				$productExtended[$productKey] = array(
 					'product' => $product,
 					'quantity' => 1,
 					'domestic_shipping_total' => 0,
-					'international_shipping_total' => (0==$index) ? $product->ship_international_primary : $product->ship_international_secondary
+					'international_shipping_total' => $shippingPrice
 				);
 			}
-			$index++;
 		}
 
 		// This is not a flattened list! Products are regrouped by quantity for shipping calculation purposes.
