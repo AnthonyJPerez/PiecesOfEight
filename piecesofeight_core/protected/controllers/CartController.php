@@ -89,8 +89,17 @@ class CartController extends GxController
 			if ($model->validate())
 			{
 				$products = $this->_getSession();
-				// Unset the product listing in the session
-				unset($products[$model->product_id.'-'.$model->size]);
+				$productKey = $model->product_id.'-'.$model->size;
+				$product = $this->_getProduct($productKey);
+				if ($product['quantity'] <= 1)
+				{
+					// Unset the product listing in the session
+					unset($products[$productKey]);
+				}
+				else
+				{
+					$products[$productKey]['quantity'] -= 1;
+				}
 				$this->_setSession($products);
 			}
 		}
