@@ -18,7 +18,8 @@
 					array(
 						//198x297
 						"width" => "198",
-						"height" => "297"
+						"height" => "auto" // Keeps the images from looking squished or stretched.
+						//"height" => "297"
 					)
 				);
 			?>
