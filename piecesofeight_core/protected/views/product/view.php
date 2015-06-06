@@ -5,7 +5,6 @@
 	//$this->pageKeywords = $model->pageKeywords;
 	
 	$this->pageCanonical = Yii::app()->request->hostInfo . $model->getUrl();
-	
 
 	// Include the jquery library
 	Yii::app()->clientScript->registerCoreScript('jquery');
@@ -375,6 +374,90 @@
 		',
 		'screen'
 	);
+	
+	
+	//
+	// Include the FullCalendar script files
+	// http://fullcalendar.io
+	//
+	Yii::app()->clientScript->registerScriptFile( 
+		'//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.js', 
+		CClientScript::POS_END
+	);
+	
+	Yii::app()->clientScript->registerCssFile(
+		'//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css',
+		'screen'
+	);
+	
+	Yii::app()->clientScript->registerCssFile(
+		'//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.print.css',
+		'print'
+	);
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		'//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js', 
+		CClientScript::POS_HEAD
+	);
+	
+	Yii::app()->clientScript->registerScriptFile( 
+		Yii::app()->request->baseUrl . '/js/gcal.js', 
+		CClientScript::POS_END
+	);
+	
+	// Include the Calendar script
+	Yii::app()->clientScript->registerScript(
+		'FullCalendar',
+		"
+			$(document).ready(function() {
+    			$('#calendar').fullCalendar({
+    			    header: {
+						left: 'prev,next today',
+						center: 'title',
+						right: ''
+					},
+					eventLimit: true,
+        			googleCalendarApiKey: 'AIzaSyAOPKgdIHF_YK7Y2b5aPT8ipBHRe-5m034',
+        			eventSources: [
+        				{
+            				googleCalendarId: 'k8vm6pte6ulukc7anhe9c4i9go@group.calendar.google.com',
+            				color: 'red',
+            				//rendering: 'background'
+        				},
+        				{
+        					googleCalendarId: 'enggn3kale0s2ps57q6bu84bqo@group.calendar.google.com',
+        					color: '#000000',
+        					rendering: 'background'
+        				}
+        			]
+    			});
+    			
+    			// A list of colors. I will use JQuery to assign events with the same ID
+    			// colors based on the order they appear in the calendar.
+    			var colors = ['#'];
+    			
+    			// Make all of the calendar links open up in new tabs:
+    			$('#calendar').find('a').attr('target','_blank');
+			});
+		",
+		CClientScript::POS_READY
+	);
+	
+	Yii::app()->clientScript->registerCss(
+		'custom_fullcalendar_css',
+		'
+			#calendar a
+			{
+				target-name:new;
+				target-new:tab;
+			}	
+		',
+		'screen'
+	);
+	
+	//
+	// End of FullCalendar file support
+	//
 ?>
 
 
@@ -499,6 +582,7 @@
 			?>
 			</ul>
 		</div>
+		<div id="calendar"></div>
 	</div>
 	
 	
