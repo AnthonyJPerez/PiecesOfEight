@@ -499,7 +499,7 @@
 				opacity: 0.6;
 			}
 			
-			#calendar h2
+			#calendarWrapper h2
 			{
 				font: normal 2em Tahoma, Helvetica, Arial, Sans-Serif;
 				color: #555;
@@ -636,7 +636,11 @@
 			?>
 			</ul>
 		</div>
-		<div id="calendar"></div>
+		
+		<div id="calendarWrapper">
+			<h2 style="text-align:center;">Sewing Schedule</h2>
+			<div id="calendar"></div>
+		</div>
 	</div>
 	
 	
