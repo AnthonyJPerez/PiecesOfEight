@@ -853,11 +853,27 @@
 			?>
 			</div>
 			
+			<div id="social_button_bar">
+				<div>
+					<?php
+						// Generate the "Pin-It" button for Pinterest
+						$pin_url = "url=" . rawurlencode($model->getUrl(true));
+						$pin_media = "media=" . rawurlencode(Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url);
+						$pin_description = "description=" . rawurlencode($model->page_description);
+						$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
+					?>
+					<a href="<?php echo $pin_href; ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+				</div>
+				
+				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
+			
+				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-width="100" data-show-faces="true"></div>
+			</div>
 			
 			<div id="tabs_container">
 				<ul id="tabs">
-					<li class="active"><a href="#nav_returns">Exchanges</a></li>
-					<li><a href="#nav_shipping">Shipping</a></li>
+					<li class="active"><a href="#nav_shipping">Shipping</a></li>
+					<li><a href="#nav_returns">Exchanges</a></li>
 					<li><a href="#nav_care">Care</a></li>
 				</ul>  
 				
@@ -948,23 +964,6 @@
 						?> for more details.
 					</p>
 				</div>
-			</div>
-			
-			<div id="social_button_bar">
-				<div>
-					<?php
-						// Generate the "Pin-It" button for Pinterest
-						$pin_url = "url=" . rawurlencode($model->getUrl(true));
-						$pin_media = "media=" . rawurlencode(Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/product-images/' . $model->getDefaultImage()->url);
-						$pin_description = "description=" . rawurlencode($model->page_description);
-						$pin_href = "http://pinterest.com/pin/create/button/?" . $pin_url ."&". $pin_media ."&". $pin_description;
-					?>
-					<a href="<?php echo $pin_href; ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
-				</div>
-				
-				<div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="https://plus.google.com/107715338617466620653"></div>
-			
-				<div class="fb-like" data-href="https://www.facebook.com/PIECESOF8COSTUMES" data-width="100" data-show-faces="true"></div>
 			</div>
 		</div>
 	</div>
