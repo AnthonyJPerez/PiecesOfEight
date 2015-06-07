@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6
 {
 	font-family: 'GothicUltraOTRegular', serif;
 	color: #700;
-	text-shadow: 2px 2px 3px #7F7F7F;
+	text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.4);
 }
 
 h1
@@ -58,7 +58,7 @@ img, a {
 a:link, a:visited
 {
 	text-decoration: none;
-	text-shadow: 2px 2px 2px #bbb;
+	text-shadow: 2px 2px 2px rgba(187, 187, 187, 0.4);
 	color: #444;
 }
 
@@ -92,7 +92,7 @@ a:hover
 	#header a:link, #header a:visited
 	{
 		color: #cdbd7b;
-		text-shadow: 3px 3px 3px #111;
+		text-shadow: 3px 3px 3px rgba(17, 17, 17, 0.4);
 	}
 	
 	#header a:hover
@@ -218,7 +218,7 @@ a:hover
 	}
 		#sidenav a:link, #sidenav a:hover
 		{
-			text-shadow: 2px 2px 3px grey !important;
+			text-shadow: 2px 2px 3px rgba(128, 128, 128, 0.4) !important;
 		}
 
 	
@@ -278,7 +278,7 @@ a:hover
 	
 #footer
 {
-	text-shadow: 2px 2px 2px #000;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 	background-image: url('../images/header.png');
 	background-repeat: no-repeat;
 	
@@ -299,7 +299,7 @@ a:hover
 	#footer a:link, #footer a:visited
 	{
 		color: #666;
-		text-shadow: 2px 2px 2px #000;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 	}
 	
 	#footer a:hover
@@ -414,7 +414,7 @@ a:hover
 		padding: .6em;
 		padding-left: 1em;
 		
-		text-shadow: 2px 2px 2px #aaa;
+		text-shadow: 2px 2px 2px rgba(170, 170, 170, 0.4);
 	}
 
 	#social_media_buttons img
@@ -520,7 +520,7 @@ a:hover
 .red_title
 {			
 	color: #770000; 
-	text-shadow: 2px 2px 3px #7f7f7f;
+	text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.4);
 }
 
 .linkcolor_red,
