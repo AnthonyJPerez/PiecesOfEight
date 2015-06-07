@@ -889,7 +889,7 @@
 					As with many small costuming businesses, all sales are final. Size 
 					adjustments can be made to all orders; the item will need to be mailed 
 					back with clear instructions of the adjustments needed. The item will 
-					be shipped back out within 3-5 business days.
+					be shipped back out within 3 to 5 business days.
 					<br /><br />
 					Please Read our full 
 					<?php
@@ -905,9 +905,9 @@
 				</div>
 				<div id="nav_shipping" class="tab">
 					<p>
-					Items will be shipped via UPS or USPS standard ground with tracking, 
-					3-10 days from date shipped. U.S. and International rates are calculated
-					via the table below. Rush delivery available for an additional 
+					Unless otherwise specified, all items are made-to-order. Items will be shipped via UPS or USPS 
+					standard ground with tracking, roughly 2 to 4 weeks from date shipped. U.S. and International 
+					rates are calculated via the table below. Rush delivery available for an additional 
 					fee depending on the destination.
 					</p>
 					<table style="display: inline-block; text-align: center; font-size: 10.5pt;" border="1" align="center" cellpadding="3">
@@ -945,8 +945,8 @@
 						</tr>
 					</table>
 					<p>
-						In stock items will be shipped out within 3-7 business days of the order.
-						Custom orders will take 3-6 weeks to ship. Overseas orders are subject 
+						Stocked items will be shipped out within 3 to 7 business days of the order.
+						Custom orders may take 3 to 6 weeks to ship. Overseas orders are subject 
 						to additional shipping fees, all customs and taxes will be the 
 						responsibility of the purchaser.
 					</p>
