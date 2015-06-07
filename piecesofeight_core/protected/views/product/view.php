@@ -416,28 +416,60 @@
 						center: 'title',
 						right: ''
 					},
+					height: 'auto',
 					eventLimit: true,
         			googleCalendarApiKey: 'AIzaSyAOPKgdIHF_YK7Y2b5aPT8ipBHRe-5m034',
         			eventSources: [
         				{
             				googleCalendarId: 'k8vm6pte6ulukc7anhe9c4i9go@group.calendar.google.com',
-            				color: 'red',
-            				//rendering: 'background'
+            				color: '#DB944D',
         				},
         				{
         					googleCalendarId: 'enggn3kale0s2ps57q6bu84bqo@group.calendar.google.com',
-        					color: '#000000',
+        					color: '#111111',
         					rendering: 'background'
         				}
-        			]
+        			],
+        			loading: assignEventColors
     			});
     			
-    			// A list of colors. I will use JQuery to assign events with the same ID
-    			// colors based on the order they appear in the calendar.
-    			var colors = ['#'];
-    			
-    			// Make all of the calendar links open up in new tabs:
-    			$('#calendar').find('a').attr('target','_blank');
+    			function assignEventColors(isLoading, view)
+				{
+					// This function is fired twice, when the data is loading and again
+					// the data is finished loading. If it's loading, just return.
+					if (isLoading) { return true; }
+					
+					// A list of colors. I will use JQuery to assign events with the same ID
+					// colors based on the order they appear in the calendar.
+					var colors = ['#DB944D', '#9BADFF', '#99CCB2', '#EB99EB', '#FFF9F9', '#FFFFC2', '#C2C2D6'];
+				
+					// Make all of the calendar links open up in new tabs:
+					$('#calendar a').attr('target','_blank');
+				
+					// Assign the colors
+					var assignedColors = {};
+					var colorIndex = 0;
+					//console.log('containers: ', $('#calendar a'));
+					var calendarEvents = $('#calendar .fc-event-container a');
+					calendarEvents.each(function(index)
+					{
+						var href = $(this).attr('href');
+						if (!(href in assignedColors))
+						{
+							assignedColors[href] = colors[colorIndex % colors.length];
+							//console.log('color: ', assignedColors[href]);
+							colorIndex += 1;
+						}
+					});
+				
+					calendarEvents.each(function(index)
+					{
+						var colorStr = assignedColors[$(this).attr('href')];
+						var newStyle = 'background-color:'+colorStr+';border-color:'+colorStr;
+						//console.log('newStyle: ', newStyle);
+						$(this).attr('style', newStyle); 
+					});
+				}
 			});
 		",
 		CClientScript::POS_READY
@@ -451,6 +483,28 @@
 				target-name:new;
 				target-new:tab;
 			}	
+			
+			#calendar a:link
+			{
+				text-shadow: none;
+			}
+			
+			#calendar a:visited
+			{
+				text-shadow: none;
+			}
+			
+			.fc-bgevent
+			{
+				opacity: 0.6;
+			}
+			
+			#calendar h2
+			{
+				font: normal 2em Tahoma, Helvetica, Arial, Sans-Serif;
+				color: #555;
+				text-shadow: none;
+			}
 		',
 		'screen'
 	);
